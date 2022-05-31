@@ -1,0 +1,26 @@
+@import url("/ML_SA-Slides/lib/reveal.js/css/print/pdf.css");
+@page { size: landscape; }
+
+@media print{
+    .top_links{
+        display: none;
+    }
+
+    .reveal .slides .pdf-page {
+        /* border:5px solid red;
+        box-sizing: border-box; */
+    }
+
+    .reveal .slides .pdf-page::before{
+        content: url("/ML_SA-Slides/outfit/images/logos/software-web@128x128.png");
+
+        position: fixed;
+        top:.5em;
+        left: .5em;
+        z-index: 100;
+
+        /* width: 80%; */
+        /* height: 50px; */
+        /* border: 1px solid red; */
+    }
+}

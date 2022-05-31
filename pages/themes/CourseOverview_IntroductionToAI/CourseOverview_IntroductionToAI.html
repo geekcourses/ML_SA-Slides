@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Course Overview</title>
+	<link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="/ML_SA-Slides/lib/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="/ML_SA-Slides/outfit/css/themes/projector.css" id="theme">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '/ML_SA-Slides/lib/reveal.js/css/print/pdf.css' : '/ML_SA-Slides/lib/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- CUSTOM -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+	<div class="top_links">
+		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#CourseIntro" target="_top"></a>
+		<span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
+		<div class="help_text">
+			<div class="note">Keyboard shortcuts:</div>
+			<div><span>N/Спейс</span><span>Next Slide</span></div>
+			<div><span>P</span><span>Previous Slide</span></div>
+			<div><span>O</span><span>Slides Overview</span></div>
+			<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+			<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+			Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+		</div>
+	</div>
+	<div class="footer theme_switch">
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+	</div>
+	<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section><h1>Въведение в курса и Изкуствения Интелект.</h1></section>
+<section data-transition="zoom">
+	<section class="copyright" data-transition="zoom">
+		<div class="note">
+			<p style="text-align: center;">Created for</p>
+		</div>
+		<div class="company">
+			<a href="https://softwareacademy.bg/">
+			<img style="height:80%" src="/ML_SA-Slides/outfit/images/logos/software-web@4x.png" alt="software-web@4x.png">
+			</a>
+		</div>
+		<div class="author">
+			<span class="note"><a href="https://www.linkedin.com/in/ivapopova/">Iva E. Popova</a>,  2022,</span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+			<!-- <i class="fa fa-linkedin"></i> -->
+		</div>
+	</section>
+</section>
+
+
+
+<section data-min="20"><h1>Въведение в курса и Изкуствения Интелект.</h1></section>
+<section><h2>За мен</h2>
+	<section><h3>Ива Е. Попова <a href="https://www.linkedin.com/in/ivapopova/"><i class="fa-brands fa-linkedin"></i></a></h3>
+		<dl class="fa">
+			<dt>Образование:</dt>
+			<dd>Средно образование, <span class="keyword"><a href="http://uktc-bg.com/">НПГ по КТС - гр. Правец</a></span></dd>
+			<dd>Маг. инж. по Компютърни Системи, <a href="https://tu-sofia.bg/faculties/read/27">Технически Университет, гр. София</a>:</dd>
+			<dd>Докторант по Системи с Изкуствен Интелект, <a href="https://tu-sofia.bg/faculties/read/27">Технически Университет, гр. София</a></dd>
+			<dt>Професионален опит:</dt>
+			<dd>7+ години опит като софтуерен инженер (4 от които като старши инженер и ръководител на екип) в международни IT компании.</dd>
+			<dd>4+ години като изследовател и консултант в стартъп компания в областта на Изкуствения Интелект (Sentiment Analysis , Ontologies, Natural Language Processing).</dd>
+			<dt>Преподавателски опит:</dt>
+			<dd>3 години като асистент в <a href="https://tu-sofia.bg/faculties/read/27">Технически Университет, гр. София</a>.
+			<div style="margin-left: 2em;">Курсове: "Програмни Езици", "Дискретна математика", "Експертни системи и Изкуствен Интелект".</div></dd>
+			<dd>5+ години към водещи частни учебни центрове.
+				<div style="margin-left: 2em;">Курсове: "Data Bases (MySQL)", "Front-End Development", "Python", "Machine Learning".</div>
+				</dd>
+		</dl>
+	</section>
+</section>
+
+<section><h2>Какво е "Машинно обучение" и какви са неговите приложения?</h2>
+	<section>
+		<dl class="fa">
+			<dt>Машинното обучение (Machine Learning) е дисциплина, която се разглежда като  под-направление и неразделна част от Изкуствения Интелект (Artificial Intelligence).</dt>
+			<dt>Едни от първите алгоритми в областта са разработени още през 50-те години на 20ти век, но едва през последните 20 години популярността й започна главоломно да нараства. И ще продължава - с още по-високи темпове.</dt>
+			<dt>Всички големи софтуерни, финансови и маркетинг компании използват Machine Learning техники и инвестират огромни средства в разработката на нови алгоритми и приложения. </dt>
+			<dt>Все повече фирми и компании търсят специалисти в сферата на Machine learning. Доказателство за това са не само огромния брой незаети позиции в обявите за работа но и факта, че в България през април, 2022г. отвори врати световен център за изкуствен интелект (<a href="https://insait.ai/">INSAIT</a>), като в инвестицията за над 200 млн. лева участват Българското правителство, Google, DeepMind и Amazon и др.</dt>
+		</dl>
+	</section>
+	<section><h3>Бъдещето на Изкуствения Интелект в България (INSAIT - откриване)</h3>
+		<iframe style="width: 80%; height:80vh" src="https://www.youtube.com/embed/L1Do_YuF7Hg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</section>
+	<section style=""><h3>Image Recognition and Classification</h3>
+			<div style="text-align:left; width: 100%" class="clearfix">
+				<a href="./images/faceRecgnitionIphoneCNET.jpg"><img src="./images/faceRecgnitionIphoneCNET.jpg" alt="faceRecgnitionIphoneCNET.jpg" style="float:left; margin-right:.5em; height: 8em;"></a>
+				<div style="padding: 0.5em 0 0 0; text-align:justify;">Задавали ли сте си въпроса как вашият лаптоп/телефон разпознава точно вашето лице? Или как Google успяха за толкова кратко време да дигитализират огромно количество книги?</div>
+			</div>
+			<div style="text-align:right; margin:-1.5em 0 0 0vw; width: 100%" class="clearfix">
+				<a href=""><img src="./images/PlantRecognition.jpg" alt="PlantRecognition" style="height: 10em; float:right; margin-left:.5em"></a>
+				<div style="width: 60%; float:right; padding:0em 0 0 .5em">Учудвали ли сте се колко точно приложенията за разпознаване на растения работят?</div>
+			</div>
+			<p style="text-align: center; width: 70%; margin:-1.5em 0 0 3em">Отговорът се крие в едно от направленията на Machine Learning: Image Recognition and Classification.</p>
+	</section>
+	<section><h3>Recommendation Systems</h3>
+		<dl class="fa">
+			<dt>Machine Learning алгоритми се използват в множеството системи, които се опитват да "предскажат" цените на пазара на имоти, борсови акции, крипто-валути и пр. (Predictive Analytics).</dt>
+			<dt>Приложения като YouTube, Netflix, Spotify и пр. бързо се "научават" да разпознават нашите вкусове и ни предлагат релевантни заглавия. От години компании като Amazon, Alibaba, Ebay използват Machine Learning алгоритми за да ни предложат неустоими оферти (Recommendation Systems).</dt>
+		</dl>
+
+		<iframe style="width:80vw;height:60vh" src="https://www.youtube.com/embed/v2eSSVPxiXs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</section>
+	<section><h3>Search Engines and Personal Assistants</h3>
+		<dl class="fa">
+			<dt>Всички забелязваме как с всеки изминал ден търсачката на Google става все по "умна".</dt>
+			<dt>Персонализираните асистенти като Siri, Alexa, Google Assistant, чат ботове и пр. от години не изненадват никой. Но малцина знаят за технологията, която стои зад тях: Natural Language Processing.</dt>
+		</dl>
+		<iframe style="width:80vw;height:80vh" src="https://www.youtube.com/embed/lXUQ-DdSDoE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</section>
+</section>
+
+
+<section data-min="15"><h1>Какво ще научите по време на курса.</h1></section>
+<section><h2>Какво ще научите по време на курса.</h2>
+	<section>
+		<dl class="fa">
+			<dt>Ще разберете детайлно процесът при изграждане на Machine Learning модели и ще се запознаете със средата за тяхната разработка.</dt>
+			<dt>Ще придобиете умения за обработка и визуализация на големи масиви от данни с помощта на фундаменталните библиотеки: numpy, pandas и matplotlib.</dt>
+			<dt>Ще усвоите основните модули в scikit-learn - една от най-популярните библиотеки с ML алгоритми за Машинно Обучение с учител (Supervised Machine Learning). Ще разберете как работят класическите алгоритми за класификация и регресия.</dt>
+			<dt>Ще се запознаете с необходимите математически и статистически концепции, които основополагат тези алгоритми.</dt>
+			<dt>В многобройните практически занятия ще имате възможността да разработите свои собствени ML модели и ще развиете интуиция кои алгоритми са най-подходящи за определени групи задачи.</dt>
+		</dl>
+	</section>
+</section>
+
+
+<section class="disclaimer" data-background="/ML_SA-Slides/outfit/images/for_slides/the_end_on_sand.jpg">
+	<!-- п -->
+</section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="/ML_SA-Slides/outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="/ML_SA-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+	<script src="/ML_SA-Slides/lib/reveal.js/js/reveal.js"></script>
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		var highlightjsTabSize = '  ';
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+
+			// display control
+			// center: true,
+			// width: '100%',
+			// height: '100%',
+			// // // Factor of the display size that should remain empty around the content
+			// margin: 0.1,
+
+			// The "normal" size of the presentation, aspect ratio will be preserved
+			// when the presentation is scaled to fit different resolutions. Can be
+			// specified using percentage units.
+			width: 1920,
+			height: 1280,
+
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+
+			// Bounds for smallest/largest possible scale to apply to content
+			minScale: 0,
+			maxScale: 2,
+
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// shift+maous click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '/ML_SA-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+	<!-- linkedin badge -->
+	<!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+
+	<!-- <script async src="https://www.youtube.com/iframe_api"></script> -->
+	<script>
+		// function onYouTubeIframeAPIReady() {
+		// 	var player;
+		// 	player = new YT.Player('muteYouTubeVideoPlayer', {
+		// 		videoId: '6X_cC0WbLmI', // YouTube Video ID
+		// 		// width: 480,          // Player width (in px)
+		// 		// height: 316,         // Player height (in px)
+		// 		playerVars: {
+		// 			autoplay: 1,           // Auto-play the video on load
+		// 			controls: 0,           // Show pause/play buttons in player
+		// 			showinfo: 0,           // Hide the video title
+		// 			modestbranding: 1,     // Hide the Youtube Logo
+		// 			wmode: 'transparent',
+		// 			loop: 1,               // Run the video in a loop
+		// 			fs: 0,                 // Hide the full screen button
+		// 			cc_load_policy: 0,     // Hide closed captions
+		// 			iv_load_policy: 3,     // Hide the Video Annotations
+		// 			autohide: 0            // Hide video controls when playing
+		// 		},
+		// 		events: {
+		// 			onReady: function(e) {
+		// 				e.target.mute();
+		// 				event.target.playVideo();
+		// 			},
+		// 			onStateChange:
+		// 				function(e) {
+		// 					if (e.data === YT.PlayerState.ENDED) {
+		// 						e.target.playVideo()
+		// 					}
+		// 				}
+		// 		}
+		// 	});
+		// }
+	</script>
+</body>
+</html>
