@@ -7,7 +7,6 @@
  @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 
-
 /*********************************************
  * HEADERS
  *********************************************/
@@ -15,13 +14,24 @@
 .slides h5, .slides h6{
   text-transform: none;
 }
+.reveal>.slides .presentation-title h1{
+  margin: 0 auto;
+  margin-top: -3em;
+  width: 10em;
+  line-height: 1.8em;
+  /* border:1px solid red; */
+  color:#000;
+}
 /*the presentation title ( all slides )*/
 .reveal>.slides h1{
-  margin: 0;
+  margin-top:-2em;
   padding: 0;
-  font-size: 1.6em;
+  font-size: 2.5em;
   opacity: .8;
+  color: #FFF;
 }
+
+
 /*Main_Sections_Title*/
 .reveal>.slides>section>h2{
   position: relative;
@@ -191,6 +201,7 @@ i.top{
   color: #97DCDB;
   opacity: 1;
 }
+
 /*********************************************
  * LINKS
  *********************************************/
@@ -278,7 +289,6 @@ a.home_link::before{
   font-style: italic;
 }
 
-
 .theme_switch a{
     opacity: 0.4;
     font-size: 12px;
@@ -294,7 +304,6 @@ a.home_link::before{
    z-index: 200;
    text-align: center;
 }
-
 
 
 /*********************************************
