@@ -94,8 +94,8 @@
 }
 
 .reveal section p{
-  text-align: left;
-  text-indent: 2em;
+  text-align: center;
+  /* text-indent: 2em; */
 }
 .reveal section dl.fa{
   font-size: 1em;
@@ -318,6 +318,8 @@ a.home_link::before{
     margin: 0 0 0 0;
     font-size: .7em;
     font-style: italic;
+    color:#FFF;
+
     /*width: 100%;
     text-align: center;
     vertical-align: middle;*/
@@ -328,14 +330,14 @@ a.home_link::before{
   margin: 0em 0 3em 0em;
 }
 .copyright>.company{
-   text-align: center;
-    /*margin: 0 0 2em 0;*/
-    font-size: 1em;
-    /*border: 1px solid red;*/
+  text-align: center;
+  /*margin: 0 0 2em 0;*/
+  font-size: 1em;
+  /*border: 1px solid red;*/
 }
 .copyright>.company img{
     margin: 0;
-    background: #FFF;
+    background: #FFF !important;
     vertical-align: middle;
     border: none;
     border-radius: 10%;
@@ -347,12 +349,18 @@ section.copyright>.author{
     vertical-align: middle;
     margin: 1em 0em 0.5em 0;
     font-size: 1.2em;
+    color:#FFF;
+}
+section.copyright .year{
+  vertical-align: middle;
 }
 section.copyright>.author a{
   vertical-align: middle;
+  color:#FFF;
 }
 section.copyright>.author img{
   margin: 0;
+  vertical-align: middle;
 }
 
 section.copyright .LI-profile-badge{
@@ -445,6 +453,8 @@ section.copyright>.license{
 
 .reveal section img{
   border: 0;
+  display: block;
+  margin: 1em auto;
 }
 .reveal .inline{
   display: inline-block;
@@ -468,7 +478,7 @@ section.copyright>.license{
 
 /*marked for advanced*/
 .reveal section .advanced{
-  font-size: .7em;
+  /* font-size: 100%; */
 }
 .reveal section .advanced:before{
   /*fa style*/
@@ -560,3 +570,7 @@ section.copyright>.license{
   margin: 0 auto;
 }
 
+section iframe{
+  width: 80vw;
+  height: 70vh;
+}
