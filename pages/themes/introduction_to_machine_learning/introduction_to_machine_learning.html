@@ -51,7 +51,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section data-min-total="__X__" class="presentation-title"><h1>Introduction to Machine Learning. Applications.</h1></section>
+<section data-min-total="135" class="presentation-title"><h1>Introduction to Machine Learning. Applications.</h1></section>
 <section data-transition="zoom">
 	<section class="copyright">
 		<div>
@@ -71,7 +71,7 @@
 </section>
 
 
-<section data-min="15" class="main-sesction-title"><h1>Framing the concepts</h1></section>
+<section data-min="30" class="main-sesction-title"><h1>Framing the concepts</h1></section>
 <section class="sub-sections"><h2>Framing the concepts</h2>
 	<section><h3>The concepts mess</h3>
 		<a href="images/concepts_circle_relations.png"><img src="images/concepts_circle_relations.png"></a>
@@ -121,17 +121,175 @@
 			<dt>Evolves rapidly with evolution of Machine Learning and Deep Learning</dt>
 			<dd>Google Translate</dd>
 			<dd>Intelligent Chat Bots (check <a href="https://www.pandorabots.com/mitsuku/">Mitsuku</a>)</dd>
+			<dd><a href="https://en.wikipedia.org/wiki/GPT-3">GPT-3</a> - an autoregressive language model that uses deep learning to produce human-like text.</dd>
+		</dl>
+	</section>
+	<section><h3>GPT-3</h3>
+		<iframe src="https://www.youtube.com/embed/8V20HkoiNtc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</section>
+</section>
+
+<section data-min="30" class="main-sesction-title"><h1>Machine Learning applications</h1></section>
+<section class="sub-sections"><h2>Machine Learning applications</h2>
+	<section><h3>Search systems</h3>
+		<dl class="fa">
+			<dt>Ranking algorithms</dt>
+			<dt>Semantic search</dt>
+			<dt>Personalized search</dt>
+		</dl>
+	</section>
+	<section><h3>Business and Marketing</h3>
+		<dl class="fa">
+			<dt>Online Advertising</dt>
+			<dt>Market Prediction</dt>
+			<dt>Accounting And Fintech</dt>
+			<dt>Credit Risk Analysis</dt>
+			<dt>Recruiting Automation</dt>
+			<dt>Intelligent Conversational Interfaces (chatbots)</dt>
+			<dt>Reduced Energy Use And Costs</dt>
+			<dt>Customer-centric, personalized services</dt>
+		</dl>
+	</section>
+	<section><h3>Health care</h3>
+		<dl class="fa">
+			<dt>Diagnosis in Medical Imaging</dt>
+			<dt>Treatment Queries and Suggestions</dt>
+			<dt>Medical Data Collection</dt>
+			<dt>Drug Discovery</dt>
+			<dt>Robotic Surgery</dt>
+		</dl>
+	</section>
+	<section><h3>Cyber Security</h3>
+		<dl class="fa">
+			<dt>Automated Spam Filtering</dt>
+			<dt>Malware detection</dt>
+			<dt>Abnormal site traffic detection</dt>
+			<dt>Security and Crime Prevention</dt>
+			<dt>IoT Systems Security</dt>
+		</dl>
+	</section>
+	<section><h3>PR, Social Agencies</h3>
+		<dl class="fa">
+			<dt>Large-scale analysis of social media data</dt>
+			<dt>Sentiment Analysis of online news/posts</dt>
+			<dt>Social media impact analysis</dt>
+			<dt>Fake-news detection</dt>
 		</dl>
 	</section>
 </section>
 
+<section data-min="40" id="ML_Process" class="main-sesction-title"><h1>The Machine Learning process and Tools</h1></section>
+<section class="sub-sections">
+	<section><h3>The Machine Learning process</h3>
+		<p>It is an <span class="note">iterative process</span>
+		<a href="images/ML_Process_iep.png"><img src="images/ML_Process_iep.png"></a>
+	</section>
+	<section><h3>The Ml process and minimal tools which we'll use in the course:</h3>
+		<dl class="fa" style="font-size: .9em">
+			<dt class="note">Analyze the problem</dt>
+			<dd>Your brain && tools</dd>
+			<dt class="note">Prepare and get insights of the Data</dt>
+			<dd>numpy, pandas, matplotlib</dd>
+			<dt class="note">Select the features</dt>
+			<dd>Your brain && tools</dd>
+			<dt class="note">Choose the model</dt>
+			<dd>Your brain and scikit-learn</dd>
+			<dt class="note">Train</dt>
+			<dd>scikit-learn</dd>
+			<dt class="note">Evaluate</dt>
+			<dd>Your brain and scikit-learn</dd>
+			<dt class="note">Parameter Tuning</dt>
+			<dd>i.e. go back to previous steps and try again, and again and again...</dd>
+		</dl>
+	</section>
+	<section><h3>The tools on the data side</h3>
+		<dl class="fa">
+			<dt>numpy</dt>
+			<dd>Powerful array implementation and functions. Equipped with lots of linear algebra functions, as well </dd>
+			<dt>pandas</dt>
+			<dd>Easy to use, high-performance, data-wrangling package</dd>
+			<dt>matplotlib</dt>
+			<dd>2D plotting package with some 3D functionality.</dd>
+		</dl>
+	</section>
+	<section><h3>The tools on the modeling side</h3>
+		<dl class="fa">
+			<dt><a href="https://www.tensorflow.org/">TensorFlow</a></dt>
+			<dd>An end-to-end open source machine learning platform developed by <a href="https://research.google/teams/brain/">Google Brain Team</a></dd>
+			<dt><a href="https://scikit-learn.org/stable/">Scikit-learn</a></dt>
+			<dd>a full packaged library with ML algorithms</dd>
+			<dt><a href="https://www.nltk.org/">NLTK (Natural Language Toolkit)</a> (optional)</dt>
+			<dd>Python implementation of the famous nltk Java package for Natural language processing</dd>
+		</dl>
+	</section>
+	<section><h3 class="advanced">Optimizing tools</h3>
+		<p>ML is a computational heavy process. There are lots of tools to speed that process in the Python ecosystem, like:</p>
+		<dl class="fa">
+			<dt>Cython</dt>
+			<dd>Python implementation in C language</dd>
+			<dt>Numba</dt>
+			<dd>Python JIT compiler and GPU code execution</dd>
+			<dt>Py CUDA</dt>
+			<dd>GPU code execution</dd>
+			<dt>PP</dt>
+			<dd>Python code parallelizer</dd>
+			<dt>Blaze</dt>
+			<dd>allows working with data bigger than the available RAM</dd>
+			<dt>PySpark</dt>
+			<dd>use Python with Spark</dd>
+			<dt>Pydoop and Hadoopy</dt>
+		</dl>
+		<p class="note">We would not use them in this course!</p>
+	</section>
+	<section><h3>ML Hardware</h3>
+		<dl class="fa">
+			<p>Machine Learning (and especially DeepLearning) tasks requires enormous computing power.</p>
+			<dd><a href="https://en.wikipedia.org/wiki/Central_processing_unit">CPU (Central Processing Unit)</a> - <span> or just processor, is the electronic circuitry that executes instructions comprising a computer program. The CPU performs basic arithmetic, logic, controlling, and input/output (I/O) operations </span></dd>
+			<dd><a href="https://en.wikipedia.org/wiki/Graphics_processing_unit">GPU (Graphics Processing Unit)</a> - <span>it was originally created as a multi-threaded structure with many cores</span></dd>
+			<dd><a href="https://en.wikipedia.org/wiki/Tensor_Processing_Unit">TPU (Tensor Processing Unit)</a> - <span>is an AI accelerator application-specific integrated circuit (ASIC) developed by Google specifically for neural network machine learning, particularly using Google's own TensorFlow software</span></dd>
+		</dl>
+		<a href="./images/Scalar-vs-Vector-vs-Tensor.jpg"><img src="./images/Scalar-vs-Vector-vs-Tensor.jpg" alt="Scalar-vs-Vector-vs-Tensor.jpg"></a>
+	</section>
+	<section><h3><a href="https://github.com/">GitHub</a></h3>
+		<dl class="fa">
+			<dt>GitHub is a code hosting platform for version control and collaboration.</dt>
+			<dt>It lets you and others work together on projects from anywhere.</dt>
+			<dt>Reference: <a href="https://docs.github.com/en/get-started/quickstart/hello-world">get started with GitHub</a></dt>
+		</dl>
+	</section>
+	<section><h3><a href="https://jupyter.org/">Jupyter Notebooks</a></h3>
+		<img src="./images/jupyter-notebook.webp" alt="jupyter-notebook.webp" style="height:5em;">
+		<dl class="fa">
+			<dt>The Jupyter Notebook App is a server-client application that allows editing and running notebook documents via a web browser</dt>
+			<dt>Jupyter Notebooks are documents which contain both computer code (e.g. python) and rich text elements (paragraph, equations, figures, links, etc…).</dt>
+		</dl>
 
-<section data-min="__Y__" class="main-sesction-title"><h1>Applications</h1></section>
-<section class="sub-sections"><h2>Applications</h2>
-	<section><h3>___SubSectionTitle___</h3>
-		<p>test</p>
+	</section>
+	<section><h3><a href="https://colab.research.google.com/">Google Colaboratory</a></h3>
+		<dl class="fa">
+			<dt>Colab, or "Colaboratory", allows you to write and execute Python in your browser, with</dt>
+			<dd>Zero configuration required</dd>
+			<dd>Access to GPUs free of charge</dd>
+			<dd>Easy sharing</dd>
+			<dt>Reference: <a href="https://colab.research.google.com/?utm_source=scs-index#scrollTo=5fCEDCU_qrC0">Welcome To Colaboratory</a></dt>
+		</dl>
 	</section>
 </section>
+
+<section data-min="50" class="main-sesction-title"><h1>Practice</h1></section>
+<section><h2 class="sub-sections">Practice</h2>
+	<section><h3>ML Process Demo (Iris Classification) with Scikit-Learn</h3>
+		<p>Live Demo: <a href="https://github.com/geekcourses/ML_SA-Slides/blob/main/pages/themes/introduction_to_machine_learning/examples/IrisClasifier.ipynb">IrisClasifier.ipynb</a></p>
+
+		<dl class="fa">
+			<dt>Tasks:</dt>
+			<dd>Get file from GitHub</dd>
+			<dd>Open Jupyter Notebook (<code>ipynb</code>) file in Google Colab</dd>
+			<dd>Run the Notebook</dd>
+		</dl>
+	</section>
+</section>
+
 
 <!-- <section data-min="1"><h1>References</h1></section>
 <section><h2>References</h2>
