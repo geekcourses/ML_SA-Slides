@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ML_Basics_DeepLearning</title>
+	<link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="/ML_SA-Slides/lib/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="/ML_SA-Slides/outfit/css/themes/projector.css" id="theme">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '/ML_SA-Slides/lib/reveal.js/css/print/pdf.css' : '/ML_SA-Slides/lib/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- CUSTOM -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+	<div class="top_links">
+		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#ML_Basics_DeepLearning" target="_top"></a>
+		<span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
+		<div class="help_text">
+			<div class="note">Keyboard shortcuts:</div>
+			<div><span>N/Спейс</span><span>Next Slide</span></div>
+			<div><span>P</span><span>Previous Slide</span></div>
+			<div><span>O</span><span>Slides Overview</span></div>
+			<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+			<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+			Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+		</div>
+	</div>
+	<div class="footer theme_switch">
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+	</div>
+	<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section data-min-total="135" class="presentation-title"><h1>Основи на Machine learning. Терминология и технологии. Deep learning.</h1></section>
+<section data-transition="zoom">
+	<section class="copyright" data-transition="zoom">
+		<div>
+			<p style="text-align: center;">Created for</p>
+		</div>
+		<div class="company">
+			<a href="https://softwareacademy.bg/">
+			<img style="height:80vh" src="/ML_SA-Slides/outfit/images/logos/software-web@4x.png" alt="software-web@4x.png">
+			</a>
+		</div>
+		<div class="author">
+			<span><a href="https://www.linkedin.com/in/ivapopova/">Iva E. Popova</a>,  2022,</span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+			<!-- <i class="fa fa-linkedin"></i> -->
+		</div>
+	</section>
+</section>
+
+
+<section data-min="15" class="main-sesction-title"><h1>Machine Learning vs Traditional Programming</h1></section>
+<section class="sub-sections"><h2>Machine Learning vs Traditional Programming</h2>
+	<section><h3>The Differences:</h3>
+		<dl class="fa">
+			<dt><span class="note">Traditional Programming</span>: Data and program is run on the computer to produce the output.</dt>
+			<dt><span class="note">Machine Learning</span>: Data and output is run on the computer to create a program. This program can be used in traditional programming.</dt>
+		</dl>
+		<a href="./images/ML_vs_TraditionalProgramming.png"><img src="./images/ML_vs_TraditionalProgramming.png" alt="ML_vs_TraditionalProgramming.png" style="width: 80vw;"></a>
+	</section>
+	<section><h3>The 4 skills required for a ML Specialists </h3>
+		<dl class="fa">
+			<dt><span class="note">Coding skills:</span> - Building ML models involves much more than just knowing ML concepts—it requires coding in order to do the data management, parameter tuning, and parsing results needed to test and optimize your model</dt>
+			<dt><span class="note">Math and Statistics:</span> - ML is a math heavy discipline, so if you plan to modify ML models or build new ones from scratch, familiarity with the underlying math concepts is crucial to the process.</dt>
+			<dt><span class="note">ML Theory:</span> - Knowing the basics of ML theory will give you a foundation to build on, and help you troubleshoot when something goes wrong.</dt>
+			<dt><span class="note">Practice</span> - Getting hands on experience with ML is the best way to put your knowledge to the test, so don't be afraid to dive in early.</dt>
+			<dt>Reference: <a href="https://www.tensorflow.org/resources/learn-ml?gclid=CjwKCAjwqauVBhBGEiwAXOepkRk__Z-BHe3RArRYwYj0efOejLcLUumi7icQZl_LaTQ_27GdSKfxLBoCyE8QAvD_BwE#four-areas">Master your path @tensorflow.org</a></dt>
+		</dl>
+	</section>
+</section>
+
+<section data-min="10" class="main-sesction-title"><h1>ML Algorithm vs Model - concepts clarification</h1></section>
+<section class="sub-sections"><h2>ML Algorithm vs Model - concepts clarification</h2>
+	<section><h3>What is Algorithm in ML?</h3>
+		<dl class="fa">
+			<dt>The word "algorithm" in machine learning denotes the same concept as in Computer Science.</dt>
+			<dt>ML algorithms basically performs "pattern recognition". They "learn" from data (i.e. "fit" on a dataset).</dt>
+			<dt>ML algorithms are used to create a machine learning "model".</dt>
+		</dl>
+	</section>
+	<section><h3>What is "model" in ML?</h3>
+		<dl class="fa">
+			<dt>An ML "model" <span class="note">is the output of a ML algorithm</span> run on particular data</dt>
+			<dt>The model is the "thing" that is produced after running a ML algorithm on particular training data.</dt>
+			<dt>The model represents the rules, numbers, and any other algorithm-specific data structures required to make predictions</dt>
+			<dd>For example, the "decision tree" algorithm run on particular data results in a model comprised of a tree of if-then statements with specific values.</dd>
+		</dl>
+	</section>
+</section>
+
+<section data-min="10" class="main-sesction-title"><h1>Types of ML Algorithms</h1></section>
+<section class="sub-sections"><h2>Hundreds of ML Algorithms</h2>
+	<section><h3>Classification map of ML Algorithms</h3>
+		<dl class="fa">
+			<!-- <dt>But how can we choose which one we should study and use in order to do our task?</dt> -->
+			<dt>Most classification of ML Algorithms types are based on</dt>
+			<dd>How the algorithm works?</dd>
+			<dd>What types of task is an algorithm suitable for?</dd>
+		</dl>
+		<a href="images/MachineLearningAlgorithmsMiniMap.png"><img src="images/MachineLearningAlgorithmsMiniMap.png" style="width: 100vw;"></a>
+	</section>
+	<section><h3>Three Basic Types</h3>
+		<dl class="fa">
+			<dt>We can group the Machine Learning Algorithms in three basic types:</dt>
+			<a href="./images/ML_algorithms_types.png"><img src="./images/ML_algorithms_types.png" alt="ML_algorithms_types.png" style="width:100vw;"></a>
+		</dl>
+	</section>
+</section>
+
+<section data-min="10" class="main-sesction-title"><h1>Supervised Learning Basics </h1></section>
+<section class="sub-sections"><h2>Supervised Learning Basics</h2>
+	<section><h3>It's all about training</h3>
+		<a href="./images/TraingML.png"><img src="./images/TraingML.png" alt="TraingML.png" style="height: 150vh; "></a>
+	</section>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>Supervised ML algorithms are the most used algorithms in practice.</dt>
+			<dt>Supervised ML is when we have historical <span class="note">data with mapped input => output pairs</span> and we use an algorithm to learn the mapping function from the input to the output.</dt>
+			<dt>Input data are called <i class="note">features</i> or <i class="note">input (free) variables (<b>X</b>)</i></dt>
+			<dt>Output data is called <i class="note">target</i> or <i class="note">dependent variable (<b>y</b>)</i></dt>
+			<a href="./images/SupervisedML.png" style="float: left;"><img src="./images/SupervisedML.png" alt="SupervisedML.png" style="height: 100vh;"></a>
+			<a href="./images/feature_target_concepts.png" style="float: left;"><img src="./images/feature_target_concepts.png" alt="feature_target_concepts " style="height: 100vh;"></a>
+		</dl>
+	</section>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>The goal is to <span class="note">approximate the mapping function</span>: <span>$ {Y = f(X)} $</span>, so well that when we have new input data (X) we can predict the output variables (Y) for that data.</dt>
+			<dt>The model is trained until it can detect the underlying patterns and relationships between the input data and the output labels, enabling it to yield accurate labeling results when presented with never-before-seen data</dt>
+			<dt>The job of modeling algorithm is to find the best mapping function, such that will minimize the error on prediction.
+		</dl>
+		<a href="./images/mapping_function.jpeg"><img src="./images/mapping_function.jpeg" alt="mapping_function.jpeg" style="width: 100vw;"></a>
+	</section>
+	<section><h3>Problems that solves</h3>
+		<dl class="fa">
+			<dt>Two main problems categories:</dt>
+			<dt class="note">classification</dt>
+			<dd>predicting a <span class="note">discrete class label</span> output for an example.</dd>
+			<dd>example: determining if an email is spam or not</dd>
+			<dt class="note">regression</dt>
+			<dd>predicting a <span class="note">continuous quantity (value)</span> output for an example.</dd>
+			<dd>example: predict the price of a house</dd>
+		</dl>
+	</section>
+</section>
+
+<section data-min="50" class="main-sesction-title"><h1>Practice</h1></section>
+<section class="sub-sections"><h2>Practice</h2>
+	<section><h3>ML Process Demo (Iris Classification) with Scikit-Learn</h3>
+		<p>Live Demo: <a href="https://github.com/geekcourses/ML_SA-Slides/blob/main/pages/themes/introduction_to_machine_learning/examples/IrisClasifier.ipynb">IrisClasifier.ipynb</a></p>
+
+		<dl class="fa">
+			<dt>Tasks:</dt>
+			<dd>Get file from GitHub</dd>
+			<dd>Open Jupyter Notebook (<code>ipynb</code>) file in Google Colab</dd>
+			<dd>Run the Notebook</dd>
+		</dl>
+	</section>
+</section>
+
+
+<section data-min="50" class="main-sesction-title"><h1>Deep Learning</h1></section>
+<section class="sub-sections"><h2>Deep Learning</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>Deep learning is a branch of Machine Learning which is based on <span class="note">artificial neural networks</span>  - a mathematical model inspired by the structure of a human brain</dt>
+			<a href="./images/DL.gif"><img src="./images/DL.gif" alt="DL.gif" style="height: 90vh;"></a>
+			<dt>Deep Learning can be used for Supervised, Unsupervised or Reinforcment Learning</dt>
+		</dl>
+	</section>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt> Neural networks can find complex relationships between features and the label. </dt>
+			<dt>It is a highly-structured graph, organized into one or more hidden layers. </dt>
+			<dt>Each hidden layer consists of one or more neurons</dt>
+			<dt>In fully-connected neural network: the neurons in one layer receive input connections from every neuron in the previous layer.</dt>
+		</dl>
+		<a href="./images/DL_network_for_Iris_Classification.png"><img src="./images/DL_network_for_Iris_Classification.png" alt="DL_network_for_Iris_Classification.png" style="height: 100vh ;"></a>
+	</section>
+</section>
+
+
+<!-- <section data-min="10" class="main-sesction-title"><h1>References</h1></section>
+<section class="sub-sections"><h2>References</h2>
+	<section><h3>Readings</h3>
+		<dl class="fa">
+			<dt></dt>
+		</dl>
+	</section>
+</section>
+
+
+<section id="hw" data-min="4"><h1>Exercises</h1></section>
+<section class="sub-sections"><h2>Task1: Task1Title</h2>
+	<section><h3>The Task</h3>
+		<dl class="fa">
+			<dt></dt>
+		</dl>
+	</section>
+</section>
+
+<section><h3>Submission</h3>
+	<dl class="fa">
+		<dt>PLease, prefix your filenames/archive with your name initials, before sending.</dt>
+		<dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
+		<dt>Send files to <a href="mailto:netIT.WWW.Courses@gmail.com?Subject=_ML_Basics_DeepLearning_">netIT.WWW.Courses@gmail.com</a></dt>
+	</dl>
+</section> -->
+
+<section class="disclaimer end-slide"></section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="/ML_SA-Slides/outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="/ML_SA-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+	<script src="/ML_SA-Slides/lib/reveal.js/js/reveal.js"></script>
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		var highlightjsTabSize = '  ';
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+
+			// display control
+			// center: true,
+			// width: '100%',
+			// height: '100%',
+			// // // Factor of the display size that should remain empty around the content
+			// margin: 0.1,
+
+			// The "normal" size of the presentation, aspect ratio will be preserved
+			// when the presentation is scaled to fit different resolutions. Can be
+			// specified using percentage units.
+			width: 1920,
+			height: 1280,
+
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+
+			// Bounds for smallest/largest possible scale to apply to content
+			minScale: 0,
+			maxScale: 2,
+
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// shift+maous click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '/ML_SA-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+	<!-- linkedin badge -->
+	<!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+
+	<!-- MathJax -->
+
+</body>
+</html>
