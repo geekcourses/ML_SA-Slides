@@ -336,30 +336,28 @@ a.home_link::before{
   /*border: 1px solid red;*/
 }
 .copyright>.company img{
-    margin: 0;
-    background: #FFF !important;
-    vertical-align: middle;
-    border: none;
-    border-radius: 10%;
-    padding: 1em;
-    box-shadow: none;
+  display: inline-block;
+  background: #FFF !important;
+  border: none;
+  border-radius: 10%;
 }
 section.copyright>.author{
     text-align: center;
     vertical-align: middle;
+    line-height: 2em;
     margin: 1em 0em 0.5em 0;
-    font-size: 1.2em;
+    font-size: 1.5em;
     color:#FFF;
 }
 section.copyright .year{
-  vertical-align: middle;
+  /* vertical-align: middle; */
 }
 section.copyright>.author a{
-  vertical-align: middle;
   color:#FFF;
 }
 section.copyright>.author img{
-  margin: 0;
+  display: inline-block;
+  height: 1.1em;
   vertical-align: middle;
 }
 
