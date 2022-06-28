@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>JupyterNotebookBasics</title>
+	<title>ML_Tools_JupyterNotebookBasics</title>
 	<link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -51,7 +51,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section data-min-total="135" class="presentation-title"><h1>Jupyter Notebook Basics</h1></section>
+<section data-min-total="135" class="presentation-title"><h1>Machine Learning Tools. <br>Jupyter Notebook Basics</h1></section>
 <section data-transition="zoom">
 	<section class="copyright" data-transition="zoom">
 		<div>
@@ -69,6 +69,126 @@
 		</div>
 	</section>
 </section>
+
+
+<section data-min="20" class="main-sesction-title"><h1>Machine Learning Tools</h1></section>
+<section class="sub-sections"><h2>Machine Learning Tools</h2>
+	<section><h3>Programming Languages</h3>
+		<dl class="fa">
+			<dt><a href="https://www.mathworks.com/products/matlab.html">MATLAB</a> - <span>good for matrix manipulations, plotting of functions and data, implementation of algorithms, numerical and symbolic computing.</span></dt>
+			<dd><span class="note">cons: </span>Proprietary Software, Domain Specific</dd>
+			<dt><a href="https://www.gnu.org/software/octave/">GNU Octave</a> - <span> a scientific Programming Language. Could be regraded as the <a href="https://www.fsf.org/about/what-is-free-software">free</a> equivalent of MATLAB</span></dt>
+			<dd><span class="note">cons: </span>Domain Specific</dd>
+			<dt><a href="https://www.r-project.org/">R Programming Language</a> - <span>a free software environment for statistical computing and graphics</span></dt>
+			<dd><span class="note">cons: </span>Complex nature and wide learning curve</dd>
+			<dt><a href="https://www.java.com/en/">Java</a> - <span>Matured, multipurpose language. Lots of machine learning algorithms are written in Java</span></dt>
+			<dd><span class="note">cons: </span>Complex nature and wide learning curve</dd>
+			<dt><a href="https://www.python.org/">Python</a> - <span>a programming language that lets you work quickly and integrate systems more effectively</span></dt>
+		</dl>
+	</section>
+	<section><h3>Python's pros and cons</h3>
+		<dl class="fa">
+			<dt>Pros:</dt>
+			<dd>Clean syntax - easy to write <span class="note">and read</span></dd>
+			<dd>Matured <span class="note">Multipurpose</span> Programming Language</dd>
+			<dd>Vibrant community - scientists, programmers</dd>
+			<dd>Myriad of ML packages and tools</dd>
+			<dt>Cons:</dt>
+			<dd>Slow speed and not memory efficient. But this problem is overcome by libraries, like numpy, pandas, etc.</dd>
+			<dd>"Dependency Conflicts" when using many libraries. This problem is overcome by dependency management tools and zero-config software like Anaconda </dd>
+		</dl>
+	</section>
+	<section><h3>Git and GitHub</h3>
+		<dl class="fa">
+			<dt>git is a <abbr>VCS</abbr><dfn id="DB"><span>Version</span><span>Control</span><span>System</span></dfn></dt>
+			<dd>a system that records changes to a file (or directory) over time so that you can recall specific versions later</dd>
+			<dt>You can version control <span class="note">all kind of work</span> you do:</dt>
+			<dd>Poetry, Images, Music, ...</dd>
+			<dd>Programming</dd>
+			<dd>DataScience/ML Projects and the DataSets</dd>
+			<dt><span class="note">Git and GitHub make it easy to share</span> your work with other team members and collaborate on many projects.</dt>
+			<dt>There are different types and implementations of VCS.</dt>
+		</dl>
+	</section>
+	<section id="numpy"><h3>numpy</h3>
+		<dl class="fa">
+			<dt>NumPy is the fundamental package for scientific computing with Python.</dt>
+			<dt>It contains among other things:</dt>
+			<dd>a powerful N-dimensional array object</dd>
+			<dd>sophisticated (broadcasting) functions</dd>
+			<dd>tools for integrating C/C++ and Fortran code</dd>
+			<dd>useful linear algebra, Fourier transform, and random number capabilities</dd>
+			<dt>Reference: <a href="http://www.numpy.org/">numpy.org</a></dt>
+		</dl>
+	</section>
+	<section id="pandas"><h3>pandas</h3>
+		<dl class="fa">
+			<dt>The Python Data Analysis Library</dt>
+			<dd>Provides high-performance, easy-to-use data structures and data analysis tools</dd>
+			<dd>An open source, BSD-licensed library</dd>
+			<dd>Build on top of numpy</dd>
+			<dd>Lot's of Python ML tools are build on top of pandas (statsmodels and scikit-learn)</dd>
+			<dt>Reference: <a href="https://pandas.pydata.org/">pandas.pydata.org</a></dt>
+		</dl>
+	</section>
+	<section id="matplotlib"><h3>Matplotlib</h3>
+		<dl class="fa">
+			<dt>A Python 2D plotting library</dt>
+			<dd>Produces publication quality figures in a variety of formats</dd>
+			<dd>Matplotlib tries <i>to make easy things easy and hard things possible</i></dd>
+			<dd>Can generate <span class="note">plots</span>, <span class="note">histograms</span>, <span class="note">power spectra</span>, <span class="note">bar charts</span>, <span class="note">errorcharts</span>, <span class="note">scatterplots</span>, etc., with just a few lines of code</dd>
+			<dt>Reference: <a href="https://matplotlib.org/">matplotlib.org</a></dt>
+		</dl>
+	</section>
+	<section id="seaborn"><h3>seaborn</h3>
+		<dl class="fa">
+			<dt>Seaborn is a sofisticated Python data visualization library</dt>
+			<dd>Based on <span class="note">matplotlib</span></dd>
+			<dd>Closely integrated with <span class="note">pandas</span> data structures</dd>
+			<dd>Features: <a href="https://seaborn.pydata.org/introduction.html#introduction">An introduction to seaborn</a></dd>
+			<dt>Reference: <a href="https://seaborn.pydata.org/">seaborn.pydata.org</a></dt>
+		</dl>
+	</section>
+	<section id="jupyter_notebook"><h3>The Jupyter Notebook</h3>
+		<dl class="fa">
+			<dt>A Web application that allows you to create and share documents that contain <span class="note">live code</span>, <span class="note">equations</span>, <span class="note">visualizations</span> and <span class="note">narrative text</span></dt>
+			<dd>Supports for over 40 programming languages</dd>
+			<dd>Your code can produce rich, interactive output</dd>
+			<dd>Big data integration</dd>
+			<dd>Easily share your Notebooks using email, Dropbox, <a href="https://github.com/">GitHub</a>, the <a href="http://nbviewer.jupyter.org/">Jupyter Notebook Viewer</a> and more</dd>
+			<dt>Reference: <a href="http://jupyter.org/">jupyter.org</a></dt>
+		</dl>
+		<p><span class="note">Note, in this course we will use the <a href="#jupyterlab">JupyterLab</a></span></p>
+	</section>
+	<section id="jupyterlab"><h3>JupyterLab</h3>
+		<dl class="fa">
+			<dt>JupyterLab is the next-generation user interface for Project Jupyter</dt>
+			<dd>Has all the familiar building blocks of the classic Jupyter Notebook</dd>
+			<dd>Provides more flexible and powerful user interface.</dd>
+			<dd>Can be extended using extensions that are npm packages</dd>
+			<dt>Reference: <a href="https://github.com/jupyterlab/jupyterlab">jupyterlab @github</a></dt>
+		</dl>
+	</section>
+	<section id="scikit_learn"><h3>scikit-learn</h3>
+		<dl class="fa">
+			<dt>scikit-learn - Machine Learning in Python</dt>
+			<dd>Simple and efficient tools for data mining and data analysis</dd>
+			<dd>Accessible to everybody, and reusable in various contexts</dd>
+			<dd>Built on NumPy, SciPy, and matplotlib</dd>
+			<dd>Open source, commercially usable - BSD license</dd>
+			<dt>Reference: <a href="http://scikit-learn.org/stable/index.html">scikit-learn.org</a></dt>
+		</dl>
+	</section>
+	<section id="tensorflow"><h3>tensorflow</h3>
+		<dl class="fa">
+			<dt>tensorflow - An end-to-end open source machine learning platform</dt>
+			<dd>Easy model building using intuitive high-level APIs like Keras</dd>
+			<dd>Easily train and deploy models in the cloud, in the browser, or on-device no matter what language you use</dd>
+			<dt>Reference: <a href="https://www.tensorflow.org/">tensorflow.org</a></dt>
+		</dl>
+	</section>
+</section>
+
 
 
 <section data-min="15" class="main-sesction-title"><h1>Jupyter Notebook Overview</h1></section>
