@@ -258,6 +258,37 @@
 	</section>
 </section>
 
+
+<section data-min="50" class="main-sesction-title"><h1>Comments</h1></section>
+<section class="sub-sections"><h2>Comments</h2>
+	<section><h3>Why to comment our code?</h3>
+		<dl class="fa">
+			<dt>Python interpreter ignores every part of a program, which is marked as a "comment"</dt>
+			<dt>Comments are used to explain and/or summarize a part of our program in a more readable manner</dt>
+			<dt>For debugging purposes - when we need fast to ignore a block of code</dt>
+			<dt>For other meta information about the program (programme name, author, date, etc.)</dt>
+			<dt>A well commented program is more readable and maintainable</dt>
+		</dl>
+	</section>
+	<section><h3>How to comment our code?</h3>
+		<dl class="fa">
+			<dt>Single line comment: <code class="note">#</code></dt>
+			<dd>every line which starts with <code class="note">#</code>(hash tag) is a comment and is ignored py Python interpreter</dd>
+			<pre><code rel="Python" class="python3">
+				# this is a just a comment: no print("whatever") will happens
+				print("this will be printed, of course")
+
+				### a more semantic example for comment:
+				# check if a triangle with sides (3,4,5) is a Pythagorean:
+				print(3**2 + 4**2 == 5**2)
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>Reference</h3>
+		<a href="https://www.python.org/dev/peps/pep-0008/#comments">PEP8 - Comments</a>
+	</section>
+</section>
+
 <section data-min="50" class="main-sesction-title"><h1>Data Types Introduction</h1></section>
 <section class="sub-sections"><h2>Data Types Introduction</h2>
 	<section>
@@ -462,6 +493,7 @@
 
 		</code></pre>
 	</section>
+
 </section>
 
 <section data-min="50" class="main-sesction-title"><h1>Strings operations</h1></section>
@@ -518,36 +550,6 @@
 		</code></pre>
 		<p style="opacity: 0.7; font-size: 0.9em">What a method is will be discussed further!</p>
 		<p>For now, you can try to look at the docs: <a href="https://docs.python.org/3/library/stdtypes.html#string-methods">String Methods @docs.python.org</a></p>
-	</section>
-</section>
-
-<section data-min="50" class="main-sesction-title"><h1>Comments</h1></section>
-<section class="sub-sections"><h2>Comments</h2>
-	<section><h3>Why to comment our code?</h3>
-		<dl class="fa">
-			<dt>Python interpreter ignores every part of a program, which is marked as a "comment"</dt>
-			<dt>Comments are used to explain and/or summarize a part of our program in a more readable manner</dt>
-			<dt>For debugging purposes - when we need fast to ignore a block of code</dt>
-			<dt>For other meta information about the program (programme name, author, date, etc.)</dt>
-			<dt>A well commented program is more readable and maintainable</dt>
-		</dl>
-	</section>
-	<section><h3>How to comment our code?</h3>
-		<dl class="fa">
-			<dt>Single line comment: <code class="note">#</code></dt>
-			<dd>every line which starts with <code class="note">#</code>(hash tag) is a comment and is ignored py Python interpreter</dd>
-			<pre><code rel="Python" class="python3">
-				# this is a just a comment: no print("whatever") will happens
-				print("this will be printed, of course")
-
-				### a more semantic example for comment:
-				# check if a triangle with sides (3,4,5) is a Pythagorean:
-				print(3**2 + 4**2 == 5**2)
-			</code></pre>
-		</dl>
-	</section>
-	<section><h3>Reference</h3>
-		<a href="https://www.python.org/dev/peps/pep-0008/#comments">PEP8 - Comments</a>
 	</section>
 </section>
 
@@ -658,6 +660,99 @@
 	</section>
 </section>
 
+<section data-min="50"><h1>String Interpolation</h1></section>
+<section><h2>String Interpolation</h2>
+	<section><h3>Before Python 3.6</h3>
+		<dl class="fa">
+			<dt>Before Python 3.6 we have to use the concatenation operator when we want to display some string and some variables interpolated into it.</dt>
+			<dt>Python (before v.3.6)<span class="note">do not support variables interpolation in strings</span> like in bash/Perl/PHP/...</dt>
+			<pre><code rel="Terminal" class="shell">
+				# not possible in Python!!!
+				$name = "Iva";
+				print("Hello $name !")
+					Hello Iva !
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>Literal String Interpolation (f-strings)</h3>
+		<dl class="fa">
+			<dt>Python 3.6 added "f-strings" which provide a way to embed expressions inside string literals, using a minimal syntax</dt>
+			<pre><code rel="Python" class="python">
+				value = 42
+				# str.format() method:
+				'The value is {}.'.format(value)
+
+				# f-strings:
+				f'The value is {value}'
+			</code></pre>
+			<dt>More on f-strings: </dt>
+			<dd><a href="https://docs.python.org/3/tutorial/inputoutput.html#tut-f-strings">Formatted String Literals</a> @python tutorial</dd>
+			<dd><a href="https://docs.python.org/3/library/string.html#formatstrings">Format String Syntax</a> @python docs</dd>
+		</dl>
+		</section>
+	<section><h3>Examples</h3>
+		<pre><code rel="Python" class="python">
+				user_name = input("hi, what's your name: ")
+				user_surname = input("will you tell me your sur name?:")
+
+				print(f"Nice to meet you, {user_name} {user_surname} !")
+		</code></pre>
+		<p><span class="note">Task:</span> modify the program, such that the user names will be displayed capitalized</p>
+	</section>
+</section>
+
+<section><h2>Escape Sequences</h2>
+	<section>
+		<dl class="fa">
+			<dt>The backslash (\) character is used to escape characters that otherwise have a special meaning, such as newline, backslash itself, or the quote character.</dt>
+			<dt>With escape sequence we can insert characters that are illegal in a string, like quotes or new line symbol.</dt>
+			<dt>The most used escape sequences are given bellow:</dt>
+		</dl>
+		<table>
+			<tr>
+				<th>escape character</th>
+				<th>result</th>
+			</tr>
+			<tr>
+				<td>\'</td>
+				<td>Single Quote</td>
+			</tr>
+			<tr>
+				<td>\"</td>
+				<td>Double Quote</td>
+			</tr>
+			<tr>
+				<td>\n</td>
+				<td>New Line</td>
+			</tr>
+			<tr>
+				<td>\t</td>
+				<td>Tab</td>
+			</tr>
+			<tr>
+				<td>\\</td>
+				<td>Backslash</td>
+			</tr>
+		</table>
+		<dl class="fa">
+			<dt>Reference: <a href="https://docs.python.org/3/reference/lexical_analysis.html#index-23">List of recognized escape sequences in Pyhton</a></dt>
+		</dl>
+	</section>
+	<section><h3>Example</h3>
+		<pre><code rel="Python" class="python">
+			print('|Jhoh\'s pub|')
+			print('|line1\nline2|')
+			print('|abc\t123|')
+
+
+			#OUTPUT
+			|Jhoh's pub|
+			|line1
+			line2|
+			|abc    123|
+		</code></pre>
+	</section>
+</section>
 
 <section data-min="50" class="main-sesction-title"><h1>HW</h1></section>
 <section class="sub-sections"><h2>HW - Body Mass Index calculator</h2>
