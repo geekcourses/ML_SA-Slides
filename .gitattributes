@@ -29,3 +29,5 @@
 *.ipynb filter=lfs diff=lfs merge=lfs -text
 *.webp filter=lfs diff=lfs merge=lfs -text
 *.jpeg filter=lfs diff=lfs merge=lfs -text
+/pages/themes/Python_For_ML_1_3/images/animalSequence filter=lfs diff=lfs merge=lfs -text
+/pages/themes/Python_For_ML_1_3/images/sequenceStructure filter=lfs diff=lfs merge=lfs -text
