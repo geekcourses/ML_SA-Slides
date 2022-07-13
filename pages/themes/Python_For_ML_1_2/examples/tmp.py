@@ -1,4 +1,8 @@
-user_name = input("hi, what's your name: ")
-user_surname = input("will you tell me your sur name?:")
+x = 1
+y = x
 
-print(f'Nice to meet you, {user_name} {user_surname} !')
+a = [1]
+b = a
+
+print(id(x), id(y))
+print(id(a), id(b))
