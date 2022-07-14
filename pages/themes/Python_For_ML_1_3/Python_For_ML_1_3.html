@@ -940,6 +940,525 @@
 </section>
 
 
+<section id="Dictionaries" class="main-sesction-title"><h1>Dictionaries</h1></section>
+<section class="sub-sections"><h2>Dictionaries</h2>
+	<section><h3>What is a Dictionary?</h3>
+		<dl class="fa">
+			<dt>An <span class="note">unordered</span> collection of objects (values)</dt>
+			<dt>Each value is associated with a <span class="note">unique key</span>.</dt>
+			<dt>A dictionary can be regarded as a collection of <span class="note">key:value</span> pairs</dt>
+			<dt>Dictionaries in Python are similar to <em>associative arrays</em>, <em>hashes (hash tables)</em> in other programming languages (PHP, Perl, Ruby)</dt>
+		</dl>
+	</section>
+	<section><h3>Dictionary Structure</h3>
+		<a href="images/dictionary_structure.png"><img src="images/dictionary_structure.png"></a>
+	</section>
+	<section><h3>Syntax</h3>
+		<pre><code rel="Syntax" class="shell" data-noescape>
+			dictionary = {
+			'key1': <em>value 1</em>,
+			'key2': <em>value 2</em>,
+			'keyN': <em>value N</em>
+			}
+		</code></pre>
+		<dl class="fa">
+			<dt>There is <span class="note">no order</span> in dictionary! We can not say if 'key1' pair will be before 'key2' pair</dt>
+			<dd>In fact, after Python 3.5 the dict objects preserves insertion order, but relying on that property is risky.</dd>
+			<dd>If you need an ordered dict structure - use <a href="https://docs.python.org/3/library/collections.html#module-collections">OrderedDict objects from collections module</a>/dd>
+			<dt>Keys must be <span class="note">immutable</span> data type. Usually they are strings.</dt>
+			<dt>Keys must be <span class="note">unique</span>. If multiple "key:values" pairs with the same key exists, only the last one pair will be present in the dictionary</dt>
+		</dl>
+	</section>
+	<section><h3>Dictionaries - examples</h3>
+		<pre><code rel="Python" class="python">
+			en_bg_dict = {
+			 'apple': 'ябълка',
+			 'orange':'портокал',
+			 'banana':'банан'
+			}
+
+			print(en_bg_dict['apple'])
+			# ябълка
+		</code></pre>
+	</section>
+	<section><h3>Dictionaries - unique keys example</h3>
+		<pre><code rel="Python" class="python">
+			en_bg_dict = {
+			 'apple': 'ябълка',
+			 'orange':'портокал',
+			 'banana':'банан',
+			 'apple':'манго',
+			}
+
+			print(en_bg_dict['apple'])
+			# манго
+		</code></pre>
+	</section>
+	<section><h3>Retrieve item from dictionary</h3>
+		<p>Dictionary values can be retrieved using their respective key in square bracket:</p>
+		<pre><code rel="Syntax" class="shell" data-noescape>
+				item = dictionary_name[<em>key</em>]
+		</code></pre>
+		<pre><code rel="Python" class="python">
+			prices = {
+				"apples": 2.50,
+				"oranges": 2.43,
+				"bananas": 3.50
+			}
+
+			apples_price = prices['apples']
+			print("{:.2f}".format(apples_price))
+			# 2.50
+
+			oranges_price = prices['oranges']
+			print("{:.2f}".format(oranges_price))
+			# 2.43
+		</code></pre>
+	</section>
+	<section><h3>Change item in a dictionary</h3>
+		<pre><code rel="Syntax" class="shell" data-noescape>
+				dictionary_name[<em>key</em>] = <em>new_value</em>
+		</code></pre>
+		<pre><code rel="Python" class="python">
+			### change apples prices:
+			prices['apples'] = 2.20
+			print(prices)
+			# {'apples': 2.2, 'oranges': 2.43, 'bananas': 3.5}
+		</code></pre>
+	</section>
+	<section><h3>Add item in a dictionary</h3>
+		<pre><code rel="Syntax" class="python" data-noescape>
+			dictionary_name[<em>new_key</em>] = <em>new_value</em>
+		</code></pre>
+		<pre><code rel="Python" class="python">
+			prices = {
+					"apples": 2.50,
+					"oranges": 2.43,
+					"bananas": 3.50
+			}
+
+			### add new key:value pair:
+			prices['plums'] = 4.30
+			print(prices)
+			# {'apples': 2.5, 'oranges': 2.43, 'bananas': 3.5, 'plums': 4.3}
+		</code></pre>
+	</section>
+	<section><h3>Delete item from dictionary: <code class="note">del</code> - operator</h3>
+		<pre><code rel="Syntax" class="python" data-noescape>
+			del <em>dictionary</em>[<em>key</em>]
+		</code></pre>
+		<dl class="fa">
+			<dt>Deletes the key:value pair whit the given key</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			prices = {
+				"apples": 2.50,
+				"oranges": 2.43,
+				"bananas": 3.50
+			}
+
+			### just delete 'oranges' key:value pair:
+			del prices['oranges']
+			print(prices)
+			# {'apples': 2.5, 'bananas': 3.5}
+		</code></pre>
+	</section>
+	<section><h3>Delete item from dictionary: <code class="note">pop()</code></h3>
+		<pre><code rel="Syntax" class="python" data-noescape>
+			pop(<em>key</em>[, <em>default</em>])
+		</code></pre>
+		<dl class="fa">
+			<dt>If <em>key</em> is in the dictionary, remove it and return its value, else return <em>default</em>.</dt>
+			<dt>If no <em>key</em> or <em>default</em> values are given a KeyError is raised.</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			prices = {
+				"apples": 2.50,
+				"oranges": 2.43,
+				"bananas": 3.50
+			}
+
+			### remove 'apples' key:value pair from the dictinary, and return its value
+			apples_price = prices.pop('apples')
+			print(apples_price, prices)
+			# 2.5 {'oranges': 2.43, 'bananas': 3.5}
+
+			apples_price = prices.pop('apples', 5.00)
+			print(apples_price)
+			# 5.0
+		</code></pre>
+	</section>
+	<section><h3>Get all dictionary keys: <code class="note">keys()</code></h3>
+		<dl class="fa" style="font-size: .9em">
+			<dt>the <code>keys()</code> method of a dictionary returns a <em><a href="https://docs.python.org/3/library/stdtypes.html#dict-views">dict view object</a></em> of dictionary keys, which means that when the dictionary changes, the view reflects these changes.</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			prices = {
+					"apples": 2.50,
+					"oranges": 2.43,
+					"bananas": 3.50
+			}
+
+			fruits = prices.keys()
+			print(fruits)
+			# dict_keys(['apples', 'oranges', 'bananas'])
+		</code></pre>
+	</section>
+	<section><h3><code class="note">keys()</code> - dynamic view example</h3>
+		<pre><code rel="Python" class="python">
+			prices = {
+					"apples": 2.50,
+					"oranges": 2.43,
+					"bananas": 3.50
+			}
+
+			# get prices keys view:
+			prices_keys = prices.keys()
+			print("before:", prices_keys)
+
+			# add new key-value pair:
+			prices["new_key"]="new value"
+
+			# check if prices_keys contains the new key
+			print("after:", prices_keys)
+		</code></pre>
+		<pre><code rel="Output" class="bash" data-noescape>
+			before: dict_keys(['bananas', 'oranges', 'apples'])
+			after: dict_keys(['new_key', 'bananas', 'oranges', 'apples'])
+		</code></pre>
+	</section>
+	<section><h3>Get all dictionary values: <code class="note">values()</code></h3>
+		<dl class="fa" style="font-size: .9em">
+			<dt>the <code>values()</code> method of a dictionary returns a <em><a href="https://docs.python.org/3/library/stdtypes.html#dict-views">dict view object</a></em>  dictionary values</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			prices = {
+					"apples": 2.50,
+					"oranges": 2.43,
+					"bananas": 3.50
+			}
+
+			price_list = prices.values()
+			print(price_list)
+			# dict_values([2.5, 2.43, 3.5])
+		</code></pre>
+	</section>
+	<section><h3><code class="note">values()</code> - dynamic view example</h3>
+		<pre><code rel="Python" class="python">
+			prices = {
+					"apples": 2.50,
+					"oranges": 2.43,
+					"bananas": 3.50
+			}
+
+			# get prices values view:
+			prices_values = prices.values()
+			print("before:", prices_values)
+
+			# change a value:
+			prices["oranges"]=100
+
+			# check if prices_values reflects the change:
+			print("after:", prices_values)
+		</code></pre>
+		<pre><code rel="Output" class="bash" data-noescape>
+			before: dict_values([3.5, 2.5, 2.43])
+			after: dict_values([3.5, 2.5, 100])
+		</code></pre>
+	</section>
+	<section><h3>Get all dictionary items (key-value pairs): <code class="note">items()</code></h3>
+		<dl class="fa" style="font-size: .9em">
+			<dt>the <code>items()</code> method of a dictionary returns a <em><a href="https://docs.python.org/3/library/stdtypes.html#dict-views">dict view object</a></em> of dictionary items, i.e. a view of <span class="note">key-value pairs</span></dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			prices = {
+					"apples": 2.50,
+					"oranges": 2.43,
+					"bananas": 3.50
+			}
+
+			prices_items = prices.items()
+			print(prices_items)
+		</code></pre>
+		<pre><code rel="Output" class="bash" data-noescape>
+			dict_items([('bananas', 3.5), ('apples', 2.5), ('oranges', 2.43)])
+		</code></pre>
+	</section>
+	<section><h3><code class="note">items()</code> - dynamic view example</h3>
+		<pre><code rel="Python" class="python">
+			prices = {
+					"apples": 2.50,
+					"oranges": 2.43,
+					"bananas": 3.50
+			}
+
+			# get prices items view:
+			prices_items = prices.items()
+			print("before:", prices_items)
+
+			# remove an item:
+			del prices["oranges"]
+
+			# check if prices_items reflects the change:
+			print("after:", prices_items)
+		</code></pre>
+		<pre><code rel="Output" class="bash" data-noescape>
+			before: dict_items([('apples', 2.5), ('oranges', 2.43), ('bananas', 3.5)])
+			after: dict_items([('apples', 2.5), ('bananas', 3.5)])
+		</code></pre>
+	</section>
+	<section><h3>dict views in Python3 and Python2</h3>
+		<dl class="fa">
+			<dt>The <code>keys()</code>, <code>values()</code> and <code>items()</code> methods return dict view objects only in <span class="note">Python3</span>. In Python2 they return lists.</dt>
+			<dt>If you need to convert a dict view object to a list in Python3, you may use the <code>list()</code> method`</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			prices = {
+				"apples": 2.50,
+				"oranges": 2.43,
+				"bananas": 3.50
+			}
+			print(list(prices.keys()))
+			print(list(prices.values()))
+			print(list(prices.items()))
+
+			# Output
+			# ['apples', 'oranges', 'bananas']
+			# [2.5, 2.43, 3.5]
+			# [('apples', 2.5), ('oranges', 2.43), ('bananas', 3.5)]
+		</code></pre>
+	</section>
+	<section><h3>Iterate over dictionary keys:</h3>
+		<pre><code rel="Syntax" class="shell" data-noescape>
+			for key in dict_name:
+				# do something with a key
+
+			# this is equivalent to:
+			for key in dict_name.keys():
+				# do something with a key
+		</code></pre>
+		<pre style="font-size: .5em"><code rel="Python" class="python">
+			prices = {
+					"apples": 2.50,
+					"oranges": 2.43,
+					"bananas": 3.50
+			}
+
+			for k in prices:
+				print(k)
+		</code></pre>
+		<pre style="font-size: .5em"><code rel="Output" class="bash" data-noescape>
+			bananas
+			apples
+			oranges
+		</code></pre>
+	</section>
+	<section><h3>Iterate over dictionary values:</h3>
+		<pre><code rel="Syntax" class="shell" data-noescape>
+			for value in dict_name.values():
+				# do something with a value
+		</code></pre>
+		<pre style="font-size: .5em"><code rel="Python" class="python">
+			prices = {
+					"apples": 2.50,
+					"oranges": 2.43,
+					"bananas": 3.50
+			}
+
+			for v in prices.values():
+				print(v)
+		</code></pre>
+		<pre style="font-size: .5em"><code rel="Output" class="bash" data-noescape>
+			2.43
+			3.5
+			2.5
+		</code></pre>
+	</section>
+	<section><h3>Iterate over keys and values</h3>
+		<dl class="fa" style="font-size: .9em">
+			<dt class="note">This is the most often used and the most Pythonic construct for looping over dictionaries</dt>
+		</dl>
+		<pre><code rel="Syntax" class="shell" data-noescape>
+			for key, value in dict_name.items():
+				# do something with a key
+				# do something with a value
+		</code></pre>
+		<pre style="font-size: .5em"><code rel="Python" class="python">
+			prices = {
+					"apples": 2.50,
+					"oranges": 2.43,
+					"bananas": 3.50
+			}
+
+			for fruit, price in prices.items():
+					print("{} - {}".format(fruit, price))
+		</code></pre>
+		<pre style="font-size: .5em"><code rel="Output" class="bash" data-noescape>
+			apples - 2.5
+			oranges - 2.43
+			bananas - 3.5
+		</code></pre>
+	</section>
+	<section><h3>More on dictionaries</h3>
+		<dl class="fa">
+			<dt><a href="https://docs.python.org/3.3/library/stdtypes.html#dict"><code>dict</code> class</a> @python docs</dt>
+			<dt><a href="https://docs.python.org/3/library/stdtypes.html#dict-views">Dictionary view objects</a> @python docs</dt>
+		</dl>
+	</section>
+</section>
+
+<section id="hw" class="main-sesction-title"><h1>Exercises</h1></section>
+<section class="sub-sections"><h2>task_best_students_scores.py</h2>
+	<section id="task_best_students_scores"><h3>the task</h3>
+		<a href="./Tasks_and_HW/images/task1_student_with_high_score.png"><img src="./Tasks_and_HW/images/task1_student_with_high_score.png" alt="./Tasks_and_HW/images/task1_student_with_high_score.png" style="height: 30vh"></a><br>
+		<dl class="fa">
+			<dt>Represent the information given in student_scores table in appropriate data structure.</dt>
+			<dt>From <code>student_scores</code> data, create a new data structure named <code>best_students_scores</code>, storing the information (name and score) only for students with scores greater than 4.00</dt>
+			<dt>Print out the names and scores from <code>best_students_scores</code> as shown:</dt>
+			<pre><code rel="Expected Output" class="shell" data-noescape>
+				Ivan     - 5.00
+				Maria    - 5.50
+				Georgy   - 5.00
+			</code></pre>
+		</dl>
+	</section>
+	<section id="hints_best_students_scores"><h3>Hints</h3>
+		<dl class="fa">
+			<dt>In order to check if a value (i.e. "student score") is greater than 4.00 you can use next code</dt>
+			<pre><code rel="Python" class="python">
+				score = 4.55
+				if score>4.00:
+					# do something if True
+					# i.e. add student's name and score into best_students_scores
+			</code></pre>
+		</dl>
+	</section>
+</section>
+<section class="sub-sections"><h2>task_min_max_student_score.py</h2>
+	<section id="task_min_max_student_score"><h3>the task</h3>
+		<dl class="fa">
+			<dt>Using the same information as in previous task, i.e.</dt>
+			<a href="./Tasks_and_HW/images/student_score_data.png"><img src="./Tasks_and_HW/images/student_score_data.png" style="height: 30vh"></a><br>
+			<dt>Print out <b>the name and score</b> of the student with maximum score</dt>
+			<dt>Print out <b>the name and score</b> of the student with minimum score</dt>
+		</dl>
+		<pre><code rel="Output" class="bash" data-noescape>
+			Maria - 5.5
+			Alex - 3.5
+		</code></pre>
+	</section>
+	<section id="hints_min_max_student_score"><h3>hints</h3>
+		<dl class="fa">
+			<dt>To find a min/max value from values, you can implement your own algorithm using only <code>if</code> statement.</dt>
+			<dt>Or to use Python's built-in functions <a href="https://docs.python.org/3/library/functions.html#min">min()</a> and <a href="https://docs.python.org/3/library/functions.html#max">max()</a></dt>
+			<dd>You can use them on any sequence, like this:</dd>
+			<pre><code rel="Python" class="python">
+				numbers = [2,3,1,5]
+
+				min_number = min(numbers)
+				max_number = max(numbers)
+
+				print(min_number)
+				print(max_number)
+
+				#OUTPUT
+				# 1
+				# 5
+			</code></pre>
+			<dt>or on separate items, like this:</dt>
+			<pre><code rel="Python" class="python">
+
+				x = 2
+				y = 5
+
+				min_number = min(x,y)
+				max_number = max(x,y)
+
+				print(min_number)
+				print(max_number)
+			</code></pre>
+		</dl>
+	</section>
+</section>
+<section class="sub-sections"><h2>task_simple_word_index.py</h2>
+	<section id="task_simple_word_index"><h3>the task</h3>
+		<dl class="fa">
+			<dt>Make a program which will counts the words frequency (the count) of a given text</dt>
+		</dl>
+		<pre><code rel="Sample data" class="bash" data-noescape>
+			apple and banana one apple one banana
+			a red apple and a green apple
+		</code></pre>
+		<pre><code rel="Output" class="bash" data-noescape>
+			a - 2
+			green - 1
+			banana - 2
+			and - 2
+			one - 2
+			red - 1
+			apple - 4
+		</code></pre>
+	</section>
+	<section id="hint_simple_word_index"><h3>Hints</h3>
+		<dl class="fa">
+			<dt>For simplicity we will get the "words" as a space separated sequences in string.</dt>
+			<dt>To get that list of words we can use the <a href="https://docs.python.org/3/library/stdtypes.html#str.split"><code>str.split()</code></a> method, as shown:</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			text = "some words delimited by spaces"
+			words_list = text.split()
+
+			print(words_list)
+		</code></pre>
+		<pre><code rel="Output" class="bash" data-noescape>
+			['some', 'words', 'delimited', 'by', 'spaces']
+		</code></pre>
+	</section>
+	<section><h3 class="advanced">A more sophisticated output</h3>
+		<dl class="fa">
+			<dt>Display the words count as a table. Note that the first column width is equal to the length of the longest word</dt>
+		</dl>
+		<pre><code rel="Expected Output" class="bash" data-noescape>
+			|apple |  4  |
+			|banana|  2  |
+			|one   |  2  |
+			|a     |  2  |
+			|and   |  2  |
+			|green |  1  |
+			|red   |  1  |
+		</code></pre>
+	</section>
+</section>
+<section class="sub-sections"><h2>task_users_bills.py</h2>
+	<section id="task_users_bills"><h3>the data</h3>
+		<dl class="fa">
+			<dt>A simplified data for telecom users are stored as two relational tables:</dt>
+			<pre><code rel="users_data table" class="bash" data-noescape>
+				id |  name   |   number
+				---|---------|---------------
+				1  | "Maria" | "+39587111111"
+				2  | "Ivan"  | "+39587222222"
+				3  | "Asen"  | "+39587333333"
+			</code></pre>
+			<pre><code rel="users_bills table" class="bash" data-noescape>
+				id |  bill
+				---|---------
+				1  | 25.50
+				2  | 30.48
+				3  |  5.98
+			</code></pre>
+			<dt>Represent the data in appropriate data structures in order to:</dt>
+			<dd>being able to add/remove records from each table</dd>
+			<dd>find and print the name of the user with highest bill</dd>
+			<dd>find and print the name of the user with lowest bill</dd>
+			<pre><code rel="Expected Output" class="bash" data-noescape>
+				The user with highest bill - 30.48 is Ivan
+				The user with lowest bill - 5.98 is Asen
+			</code></pre>
+		</dl>
+	</section>
+</section>
+
 <section class="disclaimer end-slide"></section>
 <!--
 ########################################################
