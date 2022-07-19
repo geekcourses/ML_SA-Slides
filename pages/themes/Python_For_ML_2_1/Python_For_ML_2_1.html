@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Python_For_ML_2_2</title>
+	<title>Python_For_ML_2_1</title>
 	<link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -28,7 +28,7 @@
 <body>
 	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
 	<div class="top_links">
-		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#Python_For_ML_2_2" target="_top"></a>
+		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#Python_For_ML_2_1" target="_top"></a>
 		<span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
 		<div class="help_text">
 			<div class="note">Keyboard shortcuts:</div>
@@ -1040,73 +1040,21 @@
 <section class="sub-sections"><h2>Task1: BMI with functions</h2>
 	<section><h3>Task</h3>
 		<dl class="fa">
-			<dt>Refine the BMI program form the (<a href="https://wwwcourses.github.io/ProgressBG-Python-UniCredit-Slides/pages/themes/stringsNumbersVariablesComments/stringsNumbersVariablesComments.html#/hw_bmi">last lab</a>)</dt>
-			<dt>Ask the user to enter his/her weight_in_kilogram and height_in_meters</dt>
-			<dt>Now, the output of your program should be the BMI category, corresponding to the BMI index (given in next slide)</dt>
-			<dt>Split your logic into functions, and organise your program as given bellow:</dt>
+			<dt>Refine the BMI program from the (<a href="https://geekcourses.github.io/ML_SA-Slides/pages/themes/Python_For_ML_1_2/Python_For_ML_1_2.html#HW_BMI_Simplest">previous lab's homeworks.</a>)</dt>
+			<dt>Now, the output of your program should be the BMI category, corresponding to the BMI index:</dt>
+			<table>
+				<tr><th>BMI</th><th>Category</th></tr>
+				<tr><td>&lt;= 18.5</td><td>Underweight</td></tr>
+				<tr><td>18.5–24.9</td><td>Normal</td></tr>
+				<tr><td>25–29.9</td><td>Overweight</td></tr>
+				<tr><td>&gt;= 30</td><td>Obesity</td></tr>
+			</table>
+			<dt>Split your logic into functions, and organise your program as given in next slide</dt>
+
 		</dl>
-		<pre><code rel="Python" class="python">
-			def get_user_data():
-				"""retrieves user data from the command line
-
-				Returns:
-					[dictionary] of the form:
-						{
-							"name" : "user_name",
-							"height": "user heigth in meters",
-							"weight": "user weight in kilograms"
-						}
-				"""
-				pass
-
-			def calc_BMI(w,h):
-				"""calculates the BMI
-
-				Arguments:
-					w {[float]} -- [weight]
-					h {[float]} -- [height]
-
-				Returns:
-					[float] -- [calculated BMI = w / (h*h)]
-				"""
-				pass
-
-			def calc_BMI_category(bmi):
-				"""Calculates the BMI category
-
-				Arguments:
-					bmi {[float]} -- [the bmi number index]
-
-				Returns:
-					[string] -- [bmi category]
-				"""
-				pass
-
-			def print_results(bmi_category):
-				"""[Prints the BMI category to the user ]
-
-				Arguments:
-					bmi_category {[string]} -- []
-				"""
-				pass
-
-			def cm_to_meters(cm):
-				"""converts centimetres to meters
-
-				Arguments:
-					cm {[int]}
-
-				Returns:
-					[float]
-				"""
-				pass
-
-			user_data = get_user_data()
-			bmi = calc_BMI(user_data["weight"],user_data["height"] )
-			bmi_category = calc_BMI_category(bmi)
-			print_results(bmi_category)
-
-		</code></pre>
+	</section>
+	<section><h3>BMI Task Template</h3>
+		<script src="https://gist.github.com/WWWCourses/cb540097a156298ab7cd49e6ff64b34f.js"></script>
 	</section>
 </section>
 <section class="sub-sections"><h2>Task2: Check user input</h2>
@@ -1120,29 +1068,7 @@
 	</dl>
 </section>
 
-<section id="Exercises" class="main-sesction-title"><h1>Exercises</h1></section>
-<section id="hw">
-	<!-- <section><h3>Task1: odd_or_even.py</h3>
-		<dl class="fa">
-			<dt>Write a program, which will print out for any integer number if it is odd or even.</dt>
-		</dl>
-	</section> -->
-	<section><h3>Task: BMI_by_categories.py</h3>
-		<dl class="fa">
-			<dt>Refine the BMI program form the (<a href="https://wwwcourses.github.io/ProgressBG-Python-UniCredit-Slides/pages/themes/stringsNumbersVariablesComments/stringsNumbersVariablesComments.html#/hw_bmi">last lab</a>)</dt>
-			<dt>Ask the user to enter his/her weight_in_kilogram and height_in_meters</dt>
-			<dt>Now, the output of your program should be the BMI category, corresponding to the BMI index (given in next slide)</dt>
-		</dl>
-	</section>
-	 <section><h3>BMI Categories</h3>
-		<table>
-			<tr><th>BMI</th><th>Category</th></tr>
-			<tr><td>&lt;= 18.5</td><td>Underweight</td></tr>
-			<tr><td>18.5–24.9</td><td>Normal</td></tr>
-			<tr><td>25–29.9</td><td>Overweight</td></tr>
-			<tr><td>&gt;= 30</td><td>Obesity</td></tr>
-		</table>
-	</section>
+<section class="sub-sections"><h2>Task3: guess_the_number</h2>
 	<section id="hw_guess_the_number"><h3>Task: guess_the_number.py</h3>
 		<dl class="fa">
 			<dt>Write a simple Python program, implementing the "Guess the number" game, following the rules:</dt>
