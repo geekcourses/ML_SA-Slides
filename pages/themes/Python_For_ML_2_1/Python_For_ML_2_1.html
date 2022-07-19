@@ -1,0 +1,1243 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Python_For_ML_2_2</title>
+	<link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="/ML_SA-Slides/lib/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="/ML_SA-Slides/outfit/css/themes/projector.css" id="theme">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '/ML_SA-Slides/lib/reveal.js/css/print/pdf.css' : '/ML_SA-Slides/lib/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- CUSTOM -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+	<div class="top_links">
+		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#Python_For_ML_2_2" target="_top"></a>
+		<span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
+		<div class="help_text">
+			<div class="note">Keyboard shortcuts:</div>
+			<div><span>N/Спейс</span><span>Next Slide</span></div>
+			<div><span>P</span><span>Previous Slide</span></div>
+			<div><span>O</span><span>Slides Overview</span></div>
+			<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+			<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+			Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+		</div>
+	</div>
+	<div class="footer theme_switch">
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+	</div>
+	<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section data-min-total="__X__" class="presentation-title"><h1>Python for Machine learning - Lecture 2, Part 1</h1></section>
+<section data-transition="zoom">
+	<section class="copyright" data-transition="zoom">
+		<div>
+			<p style="text-align: center;">Created for</p>
+		</div>
+		<div class="company">
+			<a href="https://softwareacademy.bg/">
+			<img style="height:80vh" src="/ML_SA-Slides/outfit/images/logos/software-web@4x.png" alt="software-web@4x.png">
+			</a>
+		</div>
+		<div class="author">
+			<span class="note"><a href="https://www.linkedin.com/in/ivapopova/">Iva E. Popova</a>,  2022,</span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+			<!-- <i class="fa fa-linkedin"></i> -->
+		</div>
+	</section>
+</section>
+
+
+<section id="BooleanType" class="main-sesction-title"><h1>Boolean type</h1></section>
+<section class="sub-sections"><h2>Boolean type</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>Most programming languages define a Boolean type, which represents the truth values of logic and Boolean algebra (named after <a href="https://en.wikipedia.org/wiki/George_Boole">George Boole</a>).</dt>
+			<dt>The Boolean data type consists of only 2 values:</dt>
+			<dd><span class="note">True</span></dd>
+			<dd><span class="note">False</span></dd>
+			<dt>Note, that these are not variables names, but values like 0 and 1!</dt>
+			<pre><code rel="Python" class="bash">
+				&gt;&gt;&gt; print( type(True) )
+				&lt;class 'bool'&gt;
+				&gt;&gt;&gt; print( type(False) )
+				&lt;class 'bool'&gt;
+			</code></pre>
+			<dt>Boolean values in Python are used mainly in the Conditional Statements. They are the returned value of the Comparison Operators. </dt>
+		</dl>
+	</section>
+	<section id="WhatIsTrueFalseInPython"><h3>What is True/False in Python?</h3>
+		<p>True/False values for most of the build-in objects:</p>
+		<table>
+			<tr>
+				<th>Type:</th>
+				<th>=False</th>
+				<th>=True</th>
+			</tr>
+			<tr>
+				<td>any numeric type</td>
+				<td>0 (zero)</td>
+				<td>everything else</td>
+			</tr>
+			<tr>
+				<td>string</td>
+				<td>""</td>
+				<td>any non-empty string</td>
+			</tr>
+			<tr>
+				<td>sequences and collections</td>
+				<td>empty</td>
+				<td>any non empty</td>
+			</tr>
+		</table>
+	</section>
+	<section><h3>What is True/False in Python - the bool() check</h3>
+		<p>Using the built-in function <code><a href="https://docs.python.org/3/library/functions.html#bool">bool()</a></code>, we can convert any Python value to True or False</p>
+		<pre><code rel="Python" class="python">
+			>>> bool(-42)
+			True
+			>>> bool(0)
+			False
+			>>> bool(0.00001)
+			True
+			>>> bool("ada")
+			True
+			>>> bool("")
+			False
+
+		</code></pre>
+	</section>
+</section>
+
+<section id="ComparisonOperators" class="main-sesction-title"><h1>Comparison operators</h1></section>
+<section class="sub-sections"><h2>Comparison operators</h2>
+	<section><h3>intro</h3>
+		<dl class="fa">
+			<dt>With Comparison Operations we can check if 2 or more values are equal or if a value is less than other, and so on.</dt>
+			<dt>The result of a Comparison Operation is True/False</dt>
+			<dt class="note">Comparing objects of different types, except different numeric, will raise a TypeError in Python3! (Can not compare "apples" with "oranges")</dt>
+		</dl><br><br>
+		<pre><code rel="Python" class="python">
+			>>> 2 < 1
+			False
+			>>> 2 < "1"
+			...
+			TypeError: '<' not supported between instances of 'int' and 'str
+		</code></pre>
+	</section>
+	<section><h3>the operators</h3>
+		<table border="1">
+			<colgroup>
+			<col width="32%">
+			<col width="68%">
+			</colgroup>
+			<thead valign="bottom">
+			<tr><th>Operation</th>
+			<th>Meaning</th>
+			</tr>
+			</thead>
+			<tbody valign="top">
+			<tr><td><code><span>&lt;</span></code></td>
+			<td>strictly less than</td>
+			</tr>
+			<tr><td><code><span>&lt;=</span></code></td>
+			<td>less than or equal</td>
+			</tr>
+			<tr><td><code><span>&gt;</span></code></td>
+			<td>strictly greater than</td>
+			</tr>
+			<tr><td><code><span>&gt;=</span></code></td>
+			<td>greater than or equal</td>
+			</tr>
+			<tr><td><code><span>==</span></code></td>
+			<td>equal</td>
+			</tr>
+			<tr><td><code><span>!=</span></code></td>
+			<td>not equal</td>
+			</tr>
+			<tr style="opacity: 0.7"><td><code><span>is</span></code></td>
+			<td>object identity*</td>
+			</tr>
+			<tr style="opacity: 0.7"><td><code><span>is</span> <span>not</span></code></td>
+			<td>negated object identity*</td>
+			</tr>
+			</tbody>
+		</table>
+		<hr>
+		<p>*The identity of an object uniquely identifies where this object is stored in the computer memory. <br> It will be discussed deeply in the OOP part of the course</p>
+	</section>
+	<section><h3>examples</h3>
+		<pre><code rel="Python" class="python">
+			>>> i = 5
+			>>> i < 5
+			False
+			>>> i <= 5
+			True
+			>>> 9 < 1000
+			True
+			>>> "9" < "1000"
+			False
+		</code></pre>
+		<p class="note">Note, the last example: <code>"9" < "1000"</code>, the result is False, because strings are compared lexicographically.</p>
+	</section>
+	<section id="LexicographicalComparison"><h3>lexicographical comparison</h3>
+			<dl class="fa">
+				<dt>Symbols are compared by their position (codepoint) according to the character code table used.</dt>
+				<dt>First the first two items are compared, and if they differ this determines the outcome of the comparison.If they are equal, the next two items are compared, and so on, until either sequence is exhausted.</dt>
+			</dl>
+	</section>
+	<section id="LexicographicalComparisonExample"><h3>So, why  "9" < "1000" returns False?</h3>
+		<dl class="fa">
+			<dt>If we use the <a href="https://ascii.cl/">ASCII Codes Table</a>, we see that the ASCII code point for "9" is 57, and for "1" - 49.</dt>
+			<dt>So, Python compares <code>57 < 49</code> and as the result is False it returns False for the whole expression</dt>
+			<dd class="advanced">You can get the code point for a one-character string using the built-in <code><a href="https://docs.python.org/3/library/functions.html?highlight=ord#ord">ord()</a></code> function</dd>
+		</dl>
+	</section>
+	<section><h3>Comparison operator Chaining</h3>
+		<dl class="fa">
+			<dt>Comparison operators in Python can be chained, instead of combining them with logical 'and'</dt>
+		</dl>
+		<pre><code rel="Python" class="python3">
+			x = 5
+
+			# equivalent of: 0&lt;x and x&lt;10:
+			print(0&lt;x&lt;10)
+		</code></pre>
+	</section>
+</section>
+
+<section id="LogicalBooleanOperators" class="main-sesction-title"><h1>Logical (Boolean) operators</h1></section>
+<section class="sub-sections"><h2>Logical (Boolean) operators</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>Logical operations are used to combine simple comparison operations into more sophisticated.</dt>
+			<dd>Like "if the user is adult AND the user is from Bulgaria"</dd>
+		</dl>
+		<br><br>
+		<table>
+			<tr>
+				<th>Operation</th><th>Name</th><th>Result</th>
+			</tr>
+			<tr>
+				<td>x <span class="note">or</span> y</td>
+				<td>Logical OR</td>
+				<td>if x is false, then y, else x</td>
+			</tr>
+			<tr>
+				<td>x <span class="note">and</span> y</td>
+				<td>Logical AND</td>
+				<td>if x is false, then x, else y</td>
+			</tr>
+			<tr>
+				<td><span class="note">not</span> x</td>
+				<td>Logical NOT</td>
+				<td>if x is false, then True, else False</td>
+			</tr>
+		</table>
+		<br>
+		<dl class="fa">
+			<dt>where <code>x</code> and <code>y</code> are <i>expressions</i></dt>
+			<dt><span class="note">and</span> and <span class="note">or</span> returns one of their operands. I.e. not necessary boolean type.</dt>
+			<dt><span class="note">not</span> always returns boolean value</dt>
+		</dl>
+	</section>
+	<section id="truethTable">
+		<table  style="margin: 0 auto">
+			<caption style="margin-bottom: 1em;"><a href="https://en.wikipedia.org/wiki/Truth_table">Truth Table</a>, reflecting how Python works</caption>
+			<colgroup>
+				<col style="background-color:#777777; width: 12%;">
+				<col style="background-color:#737373; width: 12%;">
+				<col style="background-color:#72BBBB; width: 30%;">
+				<col style="background-color:#BB72BB; width: 30%;">
+				<col style="background-color:#BBBB72; width: 30%;">
+			</colgroup>
+			<tr>
+				<th>x</th>
+				<th>y</th>
+				<th style="text-align: center;">AND<br>x and y</th>
+				<th style="text-align: center;">OR<br>x or y</th>
+				<th style="text-align: center;">NOT<br>not x</th>
+			</tr>
+			<tr>
+				<td><b>T</b></td>
+				<td><b>T</b></td>
+				<td><b>T</b> (y)</td>
+				<td><b>T</b> (x)</td>
+				<td><b>F</b></td>
+			</tr>
+			<tr>
+				<td><b>T</b></td>
+				<td><b>F</b></td>
+				<td><b>F</b> (y)</td>
+				<td><b>T</b> (x)</td>
+				<td><b>F</b></td>
+			</tr>
+			<tr>
+				<td>F</td>
+				<td>T</td>
+				<td><b>F</b> (x)</td>
+				<td><b>T</b> (y)</td>
+				<td><b>T</b></td>
+			</tr>
+			<tr>
+				<td>F</td>
+				<td>F</td>
+				<td><b>F</b> (x)</td>
+				<td><b>F</b> (y)</td>
+				<td><b>T</b></td>
+			</tr>
+		</table>
+		<p>Legend: <b>T</b> - true; <b>F</b> - false</p>
+		<h3>Examples</h3>
+		<pre style="width: 50vw;"><code rel="Python" class="python">
+			>>> True and False
+			False
+			>>> 0 and 1
+			0
+			>>> 0 or 1
+			1
+			>>> 1 or 0
+			1
+			>>> not 1
+			False
+			>>> not 0
+			True
+		</code></pre>
+	</section>
+	<section><h3>More examples</h3>
+		<pre><code rel="Python" class="python">
+			user_name=''
+			user_age = 15
+			user_country = 'BG'
+
+			print(user_age>18 and user_country=='BG')
+			print(user_age>18 or user_country=='BG')
+
+			# note that the value of logical operations is not always True/False
+			print(user_name and 'Anonymous' )
+			print(user_name or '***Anonymous***' )
+		</code></pre>
+		<pre class="fragment fade-down"><code rel="Output" class="bash">
+			False
+			True
+
+			***Anonymous***
+		</code></pre>
+	</section>
+</section>
+
+<section id="ControlFlowStatements" class="main-sesction-title"><h1>Control Flow Statements</h1></section>
+<section class="sub-sections"><h2>Control Flow Statements</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>Normal control flow of a Python program defines that statements are executed one after another, as written in code.</dt>
+			<dt>The Control Flow statements allows our program to react in one way, if some <span class="note">condition</span> is True, or in another way, if it's False.</dt>
+		</dl>
+	</section>
+</section>
+
+<section id="IfStatement" class="main-sesction-title"><h1><code class="note">if</code> statement</h1></section>
+<section class="sub-sections"><h2><code class="note">if</code> statement</h2>
+	<section><h3>Syntax</h3>
+		<a href="images/ifFlow.png"><img src="images/ifFlow.png" style="height:20vh"></a><br>
+		<dl class="fa">
+			<dt><span class="note">Condition</span> can be any expression, which is evaluated to <span class="note">True/False</span> (remember <a href="#WhatIsTrueFalseInPython" target="_blank">What is True/False in Python</a> )</dt>
+			<pre><code rel="Syntax" class="shell">
+				if condition :
+					block 1
+			</code></pre>
+			<dt>In Python, to encompass the statements which forms a block, you do not need to put any braces, but each statement have to be indented with the same amount of spaces!</dt>
+			<pre><code rel="Python" class="python">
+				x = 42
+
+				if x % 2 == 0:
+					print("{} is an even number!".format(x))
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>example - align matters</h3>
+		<pre><code rel="Python" class="python">
+			if False :
+				print("1")
+				print("2")
+			print("3")
+		</code></pre>
+		<dl class="fa">
+			<dt><code>print(1)</code>  and <code>print(2)</code>  forms a block, which will be executed, <span class="note">only if the condition is true</span>.</dt>
+			<dt>But <code>print(3)</code>  is not in the block, and will be always executed!</dt>
+		</dl>
+	</section>
+</section>
+<section id=IfElseStatement class="sub-sections"><h2><code class="note">if - else</code> statement</h2>
+	<section><h3>Syntax</h3>
+		<pre><code rel="Syntax" class="shell">
+			if condition :
+				block 1
+			else :
+				block 2
+		</code></pre>
+		<a href="images/if-elseFlow.png"><img src="images/if-elseFlow.png"></a><br>
+	</section>
+
+	<section><h3>example - even/odd number</h3>
+		<pre><code rel="Python" class="python">
+			x = 41
+
+			if x % 2 == 0:
+				print("{} is an EVEN number!".format(x))
+			else:
+			  print("{} is an ODD number!".format(x))
+
+			# OUTPUT
+			# 41 is an ODD number!
+		</code></pre>
+	</section>
+	<section><h3>example - hello in BG</h3>
+		<pre><code rel="Python" class="python">
+			user_lang = "bg"
+			if user_lang == "bg":
+			    print("Здравейте")
+			else:
+			    print("Hello")
+			print("-" * 20)
+		</code></pre>
+		<pre><code rel="Output" class="shell">
+			Здравейте
+			--------------------
+		</code></pre>
+	</section>
+</section>
+<section id=IfElifElseStatement class="sub-sections"><h2><code class="note">if - elif - else</code>  statement</h2>
+	<section><h3>Syntax</h3>
+		<pre><code rel="Syntax" class="shell">
+			if c1 :
+				block 1
+			elif c2:
+				block 2
+			else:
+				block 3
+		</code></pre>
+		<a href="images/if-elif-elseFlow.png"><img src="images/if-elif-elseFlow.png"></a><br><br>
+		<dl class="fa">
+			<dt><span class="note">We can have more than one elif statement</span>, as shown in next examples!</dt>
+		</dl><br>
+	</section>
+	<section><h3>example - multinational hello</h3>
+		<pre><code rel="Python" class="python" style="min-height: 60vh;">
+			user_lang = "it"
+
+			if user_lang == "bg":
+			    print("Здравейте")
+			elif user_lang == "it":
+			    print("Ciao")
+			elif user_lang == "en":
+			    print("Hello")
+			else:
+			    print("I do not speak your language!")
+
+			print("-" * 20)
+		</code></pre>
+	</section>
+</section>
+
+
+<section id="WhatAreFunctions" class="main-sesction-title"><h1>Functions in Python</h1></section>
+<section class="sub-sections"><h2>What are functions?</h2>
+	<section>
+		<dl class="fa">
+			<dt>A function is a <span class="note">named block of statements</span> (i.e. a sequence of instructions) which perform one conceptual task.</dt>
+			<dt>A typical example for a function in the real life, is a recipe in a cooking book.</dt>
+			<dt>The statements in the function are performed <span class="note">only after the function is called</span>.</dt>
+			<dt>Functions help us to organize our code (<span class="note">break a task into sub-tasks</span>)</dt>
+			<pre><code rel="Python" class="python">
+				def task_1():
+					pass
+
+				def task_2():
+					pass
+
+				...
+
+				def task_n():
+					pass
+			</code></pre>
+		</dl>
+	</section>
+</section>
+<section class="sub-sections"><h2>Function Definition</h2>
+	<section>
+		<pre><code rel="Syntax" class="python" data-noescape>
+			<b>def</b> <b>function_name(</b><em>param_list</em><b>)</b><b>:</b>
+				<em>'''docstring'''</em>
+				statements
+				<em>return [expression]</em>
+		</code></pre>
+		<dl class="fa" style="font-size: 1em">
+			<dt>def</dt>
+			<dd>A keyword that starts the function definition</dd>
+			<dt>function_name</dt>
+			<dd>Should be valid <a href="https://docs.python.org/3/reference/lexical_analysis.html#identifiers">variable name</a>.</dd>
+			<dt><em>param_list</em></dt>
+			<dd>Optional. A list of function parameters. The <span class="note">braces around it are required</span>, even if the list is empty.</dd>
+			<dt><em>'''docstring'''</em></dt>
+			<dd>Optional. A string for function documentation.</dd>
+			<dt>statements</dt>
+			<dd>block of statements, also called <span class="note">function body</span>. Must have at least 1 statement.</dd>
+			<dt><em>return [expression]</em></dt>
+			<dd>Optional. Specify what t<span class="note">he return value of the function</span> should be.</dd>
+		</dl>
+	</section>
+	<section><h3>The pass statement</h3>
+		<dl class="fa">
+			<dt>Sometimes you need to define a function which body will be written later, but <span class="note">Python did not allows empty blocks</span>!</dt>
+			<dt>In such cases, you can use the <code>pass</code> statement for function body:</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			def do_task1():
+				pass
+
+			def do_task2():
+				pass
+
+			def do_task3():
+				pass
+		</code></pre>
+		<p>You can use the <code>pass</code> statement anywhere in your code, where you need a "do nothing" block!</p>
+	</section>
+	<section><h3>simplest example</h3>
+		<pre><code rel="Python" class="python">
+			def greet():
+				"""Just prints hello"""
+
+				print("Hello!")
+		</code></pre>
+		<dl class="fa">
+			<dt class="note">Note, this code will not print anything if you try to run it as is</dt>
+			<dt>This is just the function's definition</dt>
+			<dt>In order to execute the statements in it, <span class="note">the function should be called</span>!</dt>
+		</dl>
+	</section>
+</section>
+<section class="sub-sections"><h2>Function Call (Synonyms: Function Execution; Function Invocation)</h2>
+	<section>
+		<dl class="fa">
+			<dt>The statements in the body of a function will be executed only when the function is called:</dt>
+			<pre><code rel="Syntax" class="python" data-noescape>
+				<b>function_name(</b><em>opt_arg_list</em><b>)</b>
+			</code></pre>
+			<dt><i>opt_arg_list</i> is optional, but <span class="note">braces are required</span></dt>
+			<pre><code rel="Python" class="python">
+				### define greet() function
+				def greet():
+					"""Just prints hello"""
+
+					print("Hello!")
+
+				### execute the greet() function:
+				greet()
+			</code></pre>
+			<dt>Note, that the braces after the function name are present!</dt>
+		</dl>
+	</section>
+	<section>
+		<dl class="fa">
+			<dt class="note">A function must be defined before you call it, or a <b>NameError</b> will be raised!</dt>
+			<pre><code rel="Python" class="python">
+				# execute the greet() function:
+				greet()
+
+				# define greet() function:
+				def greet():
+				  print("Hello!")
+
+				# NameError: name 'greet' is not defined
+			</code></pre>
+			<dt>function call - the right way:</dt>
+			<pre><code rel="Python" class="python">
+				# define greet() function:
+				def greet():
+				  print("Hello!")
+
+				# execute the greet() function:
+				greet()
+
+				# Hello!
+			</code></pre>
+		</dl>
+	</section>
+</section>
+<section class="sub-sections"><h2>Function Parameters</h2>
+	<section>
+		<dl class="fa">
+			<dt>A function is not very useful if it operates on same values</dt>
+			<pre><code rel="Python" class="python">
+				def add():
+					print(2+3)
+
+				add()
+				add()
+				add()
+
+				# 5
+				# 5
+				# 5
+			</code></pre>
+			<dt>It will be better if we could do:</dt>
+			<pre><code rel="Python" class="python">
+				# call add with different arguments:
+				add(20, 22)
+				add(123, 321)
+				add(16, 10)
+
+				# DESIRED OUTPUT:
+				# 42
+				# 444
+				# 26
+			</code></pre>
+		</dl>
+	</section>
+	<section>
+		<dl class="fa">
+			<dt class="note">Parameters are local function variables which get values when the function is called with the respective arguments.</dt>
+			<a href="images/passing_arguments.png"><img src="images/passing_arguments.png"></a>
+			<dt>You can define a function to use parameters by listing them in the braces.</dt>
+			<dt>Parameters names should be valid variable names.</dt>
+			<dt>When you call a function, you list in the braces the respective parameters values (called <span class="note">arguments</span>)</dt>
+		</dl>
+	</section>
+	<section><h3>Positional Arguments</h3>
+		<dl class="fa">
+			<dt>Passing arguments values to parameters can be done by position. In this case, we speak about <span class="note">positional arguments/parameters</span>:</dt>
+			<dd>first parameter gets the value of first argument</dd>
+			<dd>second parameter - the value of second argument</dd>
+			<dd>and so on...</dd>
+			<a href="images/passing_arguments_2.png"><img src="images/passing_arguments_2.png"></a>
+		</dl>
+	</section>
+	<section><h3>Positional Arguments</h3>
+		<dl class="fa">
+			<dt>The number of arguments passed must be equal to the number of parameters</em>!</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			def sub(x,y):
+				""" subtracts y from x and prints the result """
+				print(x - y)
+
+			sub(99)
+			# TypeError: sub() missing 1 required positional argument: 'y'
+
+			sub(99, 3, 3)
+			# TypeError: sub() takes 2 positional arguments but 3 were given
+		</code></pre>
+		<!-- <p>But you can use <em>default parameters values</em>.</p> -->
+	</section>
+	<section><h3>Default Parameters Values</h3>
+		<dl class="fa">
+			<dt>A default value to the "trailing" parameters can be defined, and that value will be used if no argument for that parameter is passed.</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			def greet(name="Nobody"):
+				""" greets a user """
+				print("Hello", name)
+
+			greet("Maria")
+			greet()
+
+			# Hello Maria
+			# Hello Nobody
+
+		</code></pre>
+	</section>
+	<section><h3>Default Parameters Values</h3>
+		<p class="note">Default parameters must follow the non-default parameters!</p>
+		<pre><code rel="Python" class="python">
+			def greet(msg="Hi", name):
+				print(f"{msg} {name}!")
+
+			greet("Maria")
+			# SyntaxError: non-default argument follows default argument
+		</code></pre>
+		<pre><code rel="Python" class="python">
+			def greet(name, msg="Hi"):
+				print(f"{msg} {name}!")
+
+			greet("Maria")
+			# Hi Maria!
+		</code></pre>
+	</section>
+	<section><h3>Keyword (named) Arguments</h3>
+		<dl class="fa">
+			<dt>If you explicitly state the parameter name in the argument list, that parameter will get its value, no matter of where it is positioned.</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			def greet(msg, name):
+				print(f"{msg} {name}!")
+
+			greet(name="Maria",  msg="Hi")
+		</code></pre>
+	</section>
+	<section><h3>Keyword (named) Arguments</h3>
+		<p class="note">Named arguments must follows the positional arguments!</p>
+		<pre><code rel="Python" class="python">
+			def greet(msg, name):
+				print(f"{msg} {name}!")
+
+			greet(name="Maria", "Hi")
+			# SyntaxError: positional argument follows keyword argument
+		</code></pre>
+	</section>
+	<section id="args"><h3>Variable Number of Positional Arguments (*args)</h3>
+		<dl class="fa">
+			<dt>You can define a function to take <span class="note">variable number of arguments</span> if you use the <span class="note">*</span> (star) operator in front a parameter name.</dt>
+			<dt>Thus, the parameter will receive the arguments in a <span class="note">tuple</span>:</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			def foo(*args):
+			  print(args)
+
+			foo(1)
+			foo(1,2)
+			foo(1,2,3)
+
+			#(1,)
+			#(1, 2)
+			#(1, 2, 3)
+		</code></pre>
+		<p>The name <code>args</code> can be any valid variable name, but its a convention to use <code>*args</code> to denote that it contains the packed arguments</p>
+	</section>
+	<section><h3>Variable Number of Positional Arguments (*args)</h3>
+		<p class="note">Variable arguments must follow the positional arguments:</p>
+		<pre><code rel="Python" class="python">
+			def add(p1, *args):
+				print(p1, end=", ")
+				print(args)
+
+			add(1, 2)
+			add(1, 2, 3)
+			add(1, 2, 3, 4)
+
+			# 1, (2,)
+			# 1, (2, 3)
+			# 1, (2, 3, 4)
+		</code></pre>
+	</section>
+	<section><h3>Variable Number of Positional Arguments (*args) - Task</h3>
+		<dl class="fa">
+			<dt>Define the <code>add_num()</code> function, which will print the sum of variable number of numerical arguments</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			# add_num() definition
+
+			# test your code:
+			add_num(1)
+			#should print 1
+
+			add_num(1,2)
+			#should print 3
+
+			add_num(1,2,3)
+			#should print 6
+		</code></pre>
+	</section>
+	<section id="kwargs"><h3>Variable Number of Keyword Arguments (**kwargs)</h3>
+		<dl class="fa">
+			<dt>You can use <code class="note">**</code> (double stars) in front of parameter name which will receive a variable number of <span class="note">keyword arguments</span> into a <span class="note">dictionary</span>.</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			def foo(**kwargs):
+			  print(kwargs)
+
+			foo(a=1, b=2)
+
+			# {'a': 1, 'b': 2}
+		</code></pre>
+	</section>
+	<section><h3>Variable Number of Keyword Arguments (**kwargs) - example</h3>
+		<pre><code rel="Python" class="python">
+			def signup(**kwargs):
+			  for k,v in kwargs.items():
+			    print("{} - {}".format(k,v))
+
+
+			signup(user="ada", age=28)
+			signup(user="ada", age=28, town="london")
+		</code></pre>
+	</section>
+	<section><h3 class="advanced">Unpacking sequence into positional parameters</h3>
+		<dl class="fa">
+			<dt>You can unpack a list/tuple passed as argument into listed positional parameters with the <code>*</code> operator</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			def my_func(p1,p2,p3):
+				print(p1, p2, p3)
+
+			args = [1,2,3]
+			my_func(*args)
+			# 1 2 3
+		</code></pre>
+		<p>Note, that if you miss the star in <code>my_func(*[1,2,3])</code>, Python will assign the whole list <code>[1,2,3]</code> to <code>p1</code>, and the rest of parameters will receive no value. That will throw an error!</p>
+	</section>
+	<section><h3 class="advanced">Unpacking dictionary into named arguments</h3>
+		<dl class="fa">
+			<dt>You can use <code class="note">**</code> (double stars) to unpack dictionary into named arguments.</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			def menu_print(fruit, price):
+				print("{:.&lt;20s}{:.2f}".format(fruit,price))
+
+
+			menu_print(**{
+				"price": 2.5,
+				"fruit": "apple"
+			})
+
+			# apple...............2.50
+		</code></pre>
+	</section>
+</section>
+
+
+<section id="FunctionReturnValues" class="main-sesction-title"><h1>Function Return Values</h1></section>
+<section class="sub-sections"><h2>Function Return Values</h2>
+	<section><h3><code class="note">return</code> statement</h3>
+		<dl class="fa">
+			<dt>Functions in Python can return values, using the <code class="note">return</code> statement:</dt>
+		</dl>
+		<pre><code rel="Syntax" class="python" data-noescape>
+			def f():
+				<em>statements</em>
+				return [<em>expression</em>]
+		</code></pre>
+		<pre><code rel="Python" class="python" data-noescape>
+			def add(x,y):
+				return x+y
+
+			print(<b>add(2,4)</b>**2)
+
+			# 36
+		</code></pre>
+	</section>
+	<section>
+		<p>The return statement exit the function! Any code after <code>return</code> will never be executed:</p>
+		<pre><code rel="Python" class="python">
+			def add(x,y):
+				return x+y
+				# next line will never be executed:
+				print("After return")
+
+			print(add(2,4))
+		</code></pre>
+	</section>
+	<section><h3>Default return value</h3>
+		<dl class="fa">
+			<dt>If a function did not have an explicit <code>return</code> statement, then <span class="note">the function return value is <b>None</b></span>.</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			def foo():
+				print("foo() was executed!")
+
+			def bar():
+				print("bar() was executed!")
+				return "End"
+
+			print( foo() )
+			print( bar() )
+
+			# OUTPUT:
+			# foo() was executed!
+			# None
+			# bar() was executed!
+			# End
+		</code></pre>
+		<p>In Python each function returns a value, being it None!</p>
+	</section>
+</section>
+
+<section id="ScopeAndNamespaces" class="main-sesction-title"><h1>Scope and Namespaces</h1></section>
+<section class="sub-sections"><h2>Scope and Namespaces</h2>
+	<section><h3>What?</h3>
+		<dl class="fa">
+			<dt>A <span class="note">namespace</span> stores the mapping from names to objects. Usually implemented internally by a dictionary.</dt>
+			<dt>A <span class="note">scope</span> is a lexical (textual) region of the program, where a namespace is directly accessible (i.e. without a prefix).</dt>
+			<dt>You can think of the scope as part of your program where a variable can be accessed (used, visible).</dt>
+		</dl>
+		<a href="images/scope.png"><img src="images/scope.png"></a>
+	</section>
+	<section><h3>Local Scope</h3>
+		<dl class="fa">
+			<dt>Names created <span class="note">inside a function</span> are <span class="note">local</span> to the function and are visible only inside that function</dt>
+			<dt>Function parameters are also defined in local function namespace. I.e. they are local to that function.</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			def f1():
+			  y = 2
+			  print(f"y = {y} inside f1")
+
+			f1()
+			# y = 2 inside f1
+
+			print(f"y = {y} outside f1")
+			# NameError: name 'y' is not defined
+		</code></pre>
+	</section>
+	<section><h3>Global Scope</h3>
+		<dl class="fa">
+			<dt>A name defined outside any functions is <span class="note">global</span> to the file/module, and can be accessed after its definition from any place in that file/module.</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			x = 10
+
+			def foo():
+				print("x = {} inside foo()".format(x))
+
+			foo()
+			# x = 10 inside foo()
+			print("x = {} outside foo()".format(x))
+			# x = 10 outside foo()
+		</code></pre>
+	</section>
+	<section><h3>Names Resolution</h3>
+		<dl class="fa">
+			<dt style="font-size: .8em">When a name is assigned a value inside function body, that name is created in function local scope (if the global keyword is not used), even if the same name is already defined in global scope</dt>
+			<pre><code rel="Python" class="python">
+				x = 1
+
+				def foo():
+				  x = 99
+				  print(f"x = {x} inside foo")
+
+				foo()
+				# x = 99 inside foo
+
+				print(f"x = {x} outside foo")
+				# x = 1 outside foo
+			</code></pre>
+		</dl>
+		<p class="note">Variables with same name, defined in different scopes are considered as different variables!</p>
+	</section>
+	<section><h3>Names Resolution - nested functions</h3>
+		<pre><code rel="Python" class="python">
+			def outer():
+			  x=2
+
+			  def inner():
+			    x = 3
+			    print(f'x = {x} in inner')
+
+			  inner()
+			  print(f'x = {x} in outer')
+
+			x = 1
+			outer()
+			print(f'x = {x} in global')
+
+			#x = 3 in inner
+			#x = 2 in outer
+			#x = 1 in global
+		</code></pre>
+	</section>
+	<section><h3 class="advanced">the <code>nonlocal</code> statement</h3>
+		<dl class="fa">
+			<dt>We can declare a name with the <code>nonlocal</code> statement prefix</dt>
+			<dt>The nonlocal statement causes the listed names to refer to previously bound variables in the nearest enclosing scope excluding globals.</dt>
+			<pre><code rel="Python" class="python">
+				def outer():
+				  x=2
+
+				  def inner():
+					nonlocal x
+					x = 3
+					print(f'x = {x} in inner')
+
+				  inner()
+				  print(f'x = {x} in outer')
+
+				x = 1
+				outer()
+				print(f'x = {x} in global')
+
+				#x = 3 in inner
+				#x = 3 in outer
+				#x = 1 in global
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3 class="advanced">the <code>global</code> statement</h3>
+		<dl class="fa">
+			<dt>We can declare a name with the <code>global</code> statement prefix</dt>
+			<dt>The <code>global</code> statement causes the listed names to be interpreted as global names.</dt>
+			<pre><code rel="Python" class="python">
+				def outer():
+				  x=2
+
+				  def inner():
+					global x
+					x = 3
+					print(f'x = {x} in inner')
+
+				  inner()
+				  print(f'x = {x} in outer')
+
+				x = 1
+				outer()
+				print(f'x = {x} in global')
+
+				#x = 3 in inner
+				#x = 2 in outer
+				#x = 3 in global
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>Names Resolution - rules</h3>
+		<p>Although scopes are determined statically, they are used dynamically. I.e. a name is resolved searching in: </p>
+		<ol class="fa">
+			<li>The <b>local</b> (innermost) scope</li>
+			<li>The scopes of any <b>enclosing</b> functions, which are searched starting with the nearest enclosing scope, contains non-local, but also non-global names</li>
+			<li>The current module’s <b>global</b> names</li>
+			<li>The outermost scope is the namespace containing <b>built-in</b> names</li>
+		</ol>
+		<br><br>
+		<a href="./images/LEGB_Namespaces_Rules.png"><img src="./images/LEGB_Namespaces_Rules.png" alt="LEGB_Namespaces_Rules.png"></a>
+	</section>
+</section>
+
+<section class="main-sesction-title"><h1>References</h1></section>
+<section class="sub-sections"><h2>References</h2>
+	<section>
+		<dl class="fa">
+			<dt><a href="https://docs.python.org/3/tutorial/controlflow.html#defining-functions">Defining Functions</a> @python.org/3/tutoria</dt>
+			<dt><a href="https://www.python-course.eu/python3_functions.php">Functions</a> @python-course.eu</dt>
+			<dt><a href="https://realpython.com/python-namespaces-scope/">Namespaces and Scope in Python @realpython</a></dt>
+		</dl>
+	</section>
+</section>
+
+
+<section id="hw" class="main-sesction-title"><h1>Exercises</h1></section>
+<section class="sub-sections"><h2>Task1: BMI with functions</h2>
+	<section><h3>Task</h3>
+		<dl class="fa">
+			<dt>Refine the BMI program form the (<a href="https://wwwcourses.github.io/ProgressBG-Python-UniCredit-Slides/pages/themes/stringsNumbersVariablesComments/stringsNumbersVariablesComments.html#/hw_bmi">last lab</a>)</dt>
+			<dt>Ask the user to enter his/her weight_in_kilogram and height_in_meters</dt>
+			<dt>Now, the output of your program should be the BMI category, corresponding to the BMI index (given in next slide)</dt>
+			<dt>Split your logic into functions, and organise your program as given bellow:</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			def get_user_data():
+				"""retrieves user data from the command line
+
+				Returns:
+					[dictionary] of the form:
+						{
+							"name" : "user_name",
+							"height": "user heigth in meters",
+							"weight": "user weight in kilograms"
+						}
+				"""
+				pass
+
+			def calc_BMI(w,h):
+				"""calculates the BMI
+
+				Arguments:
+					w {[float]} -- [weight]
+					h {[float]} -- [height]
+
+				Returns:
+					[float] -- [calculated BMI = w / (h*h)]
+				"""
+				pass
+
+			def calc_BMI_category(bmi):
+				"""Calculates the BMI category
+
+				Arguments:
+					bmi {[float]} -- [the bmi number index]
+
+				Returns:
+					[string] -- [bmi category]
+				"""
+				pass
+
+			def print_results(bmi_category):
+				"""[Prints the BMI category to the user ]
+
+				Arguments:
+					bmi_category {[string]} -- []
+				"""
+				pass
+
+			def cm_to_meters(cm):
+				"""converts centimetres to meters
+
+				Arguments:
+					cm {[int]}
+
+				Returns:
+					[float]
+				"""
+				pass
+
+			user_data = get_user_data()
+			bmi = calc_BMI(user_data["weight"],user_data["height"] )
+			bmi_category = calc_BMI_category(bmi)
+			print_results(bmi_category)
+
+		</code></pre>
+	</section>
+</section>
+<section class="sub-sections"><h2>Task2: Check user input</h2>
+	<dl class="fa">
+		<dt>Improve the function <code>get_user_data()</code> defined in Task1, adding a check for valid user data:</dt>
+		<dd>User name must be at least 2 characters long</dd>
+		<dd>User's height must be in the range: [50 - 250]</dd>
+		<dd>User's weight must be in the range: [5 - 300]</dd>
+		<dt>If the user enters wrong data, ask for input again.</dt>
+		<dt class="advanced">Advanced task: define a separate function for each check (<em>validate_name(), validate_height(), validate_weight()</em>) which will return True if the user input is valid, and False - otherwise.</dt>
+	</dl>
+</section>
+
+<section id="Exercises" class="main-sesction-title"><h1>Exercises</h1></section>
+<section id="hw">
+	<!-- <section><h3>Task1: odd_or_even.py</h3>
+		<dl class="fa">
+			<dt>Write a program, which will print out for any integer number if it is odd or even.</dt>
+		</dl>
+	</section> -->
+	<section><h3>Task: BMI_by_categories.py</h3>
+		<dl class="fa">
+			<dt>Refine the BMI program form the (<a href="https://wwwcourses.github.io/ProgressBG-Python-UniCredit-Slides/pages/themes/stringsNumbersVariablesComments/stringsNumbersVariablesComments.html#/hw_bmi">last lab</a>)</dt>
+			<dt>Ask the user to enter his/her weight_in_kilogram and height_in_meters</dt>
+			<dt>Now, the output of your program should be the BMI category, corresponding to the BMI index (given in next slide)</dt>
+		</dl>
+	</section>
+	 <section><h3>BMI Categories</h3>
+		<table>
+			<tr><th>BMI</th><th>Category</th></tr>
+			<tr><td>&lt;= 18.5</td><td>Underweight</td></tr>
+			<tr><td>18.5–24.9</td><td>Normal</td></tr>
+			<tr><td>25–29.9</td><td>Overweight</td></tr>
+			<tr><td>&gt;= 30</td><td>Obesity</td></tr>
+		</table>
+	</section>
+	<section id="hw_guess_the_number"><h3>Task: guess_the_number.py</h3>
+		<dl class="fa">
+			<dt>Write a simple Python program, implementing the "Guess the number" game, following the rules:</dt>
+			<dd>The program will "think" of a number using the <code>random module</code>, as shown in  next slide.</dd>
+			<dt>You have to implement now only the first user move:</dt>
+			<dd>Prompt the user for his/her guess</dd>
+			<dd>If the user guess is equal to the machine number => print out a congratulation message!</dd>
+			<dd>If the user guess is less than the machine number => print out "your guess is less than my number. Try again!"</dd>
+			<dd>If the user guess is greater than the machine number => print out "your guess is greater than my number. Try again!"</dd>
+		</dl>
+	</section>
+	<section style="font-size: 1.2em"><h3>How to generate "machine_number"</h3>
+		<pre><code rel="Python" class="python">
+			from random import randint
+			machine_number = randint(1,10)
+
+			print("machine_number={}".format(machine_number))
+
+			### your code goes bellow:
+
+		</code></pre>
+	</section>
+</section>
+
+
+<section class="disclaimer end-slide"></section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="/ML_SA-Slides/outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="/ML_SA-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+	<script src="/ML_SA-Slides/lib/reveal.js/js/reveal.js"></script>
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		var highlightjsTabSize = '  ';
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+
+			// display control
+			// center: true,
+			// width: '100%',
+			// height: '100%',
+			// // // Factor of the display size that should remain empty around the content
+			// margin: 0.1,
+
+			// The "normal" size of the presentation, aspect ratio will be preserved
+			// when the presentation is scaled to fit different resolutions. Can be
+			// specified using percentage units.
+			width: 1920,
+			height: 1280,
+
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+
+			// Bounds for smallest/largest possible scale to apply to content
+			minScale: 0,
+			maxScale: 2,
+
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// shift+maous click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '/ML_SA-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+	<!-- linkedin badge -->
+	<!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+
+	<!-- MathJax -->
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript" async src="/ML_SA-Slides/lib/MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+</body>
+</html>
