@@ -37,3 +37,4 @@
 /pages/themes/Python_For_ML_1_4/images/student_with_high_score_data filter=lfs diff=lfs merge=lfs -text
 /pages/themes/Python_For_ML_2_1/images/passing_arguments filter=lfs diff=lfs merge=lfs -text
 /pages/themes/Python_For_ML_2_1/images/passing_arguments_2 filter=lfs diff=lfs merge=lfs -text
+*.xmml filter=lfs diff=lfs merge=lfs -text
