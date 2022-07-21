@@ -92,8 +92,12 @@ function setThemeURL(){
         let h3Node = themes[i].querySelector("h3");
         let h3_content = h3Node.innerHTML;
 
-        // get section.id
+        // get section.id and TODO: #location
         let themeTitle = themes[i].id;
+        // TODO: remove this dirty hack for #location
+        if(!themeTitle){
+            continue
+        }
 
         // create link node:
         let aNode = document.createElement('a');
