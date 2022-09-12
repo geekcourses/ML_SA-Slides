@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Python_For_ML_2_3_1_OOP</title>
+	<link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="/ML_SA-Slides/lib/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="/ML_SA-Slides/outfit/css/themes/projector.css" id="theme">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '/ML_SA-Slides/lib/reveal.js/css/print/pdf.css' : '/ML_SA-Slides/lib/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- CUSTOM -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+	<div class="top_links">
+		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#Python_For_ML_2_3_1_OOP" target="_top"></a>
+		<span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
+		<div class="help_text">
+			<div class="note">Keyboard shortcuts:</div>
+			<div><span>N/Спейс</span><span>Next Slide</span></div>
+			<div><span>P</span><span>Previous Slide</span></div>
+			<div><span>O</span><span>Slides Overview</span></div>
+			<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+			<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+			Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+		</div>
+	</div>
+	<div class="footer theme_switch">
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+	</div>
+	<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section data-min-total="__X__" class="presentation-title"><h1>Python for Machine learning - Lecture 2, Part 3_1_OOP</h1></section>
+<section data-transition="zoom">
+	<section class="copyright" data-transition="zoom">
+		<div>
+			<p style="text-align: center;">Created for</p>
+		</div>
+		<div class="company">
+			<a href="https://softwareacademy.bg/">
+			<img style="height:80vh" src="/ML_SA-Slides/outfit/images/logos/software-web@4x.png" alt="software-web@4x.png">
+			</a>
+		</div>
+		<div class="author">
+			<span class="note"><a href="https://www.linkedin.com/in/ivapopova/">Iva E. Popova</a>,  2022,</span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+			<!-- <i class="fa fa-linkedin"></i> -->
+		</div>
+	</section>
+</section>
+
+
+<section data-min="5" id="objectOrientedProgrammingParadigm" class="main-sesction-title"><h1>Object-oriented Programming Paradigm</h1></section>
+<section class="sub-sections"><h2>Object-oriented Programming Paradigm</h2>
+	<section><h3>A step over Procedural Programming</h3>
+		<dl class="fa">
+			<dt>In procedural-languages (C, Fortran, Pascal) the data structures are separated from algorithms of the software entities (a step over Assembly languages)</dt>
+			<dt>But in big projects (consider CRM) it is:
+			<dd>difficult to describe the problem solely in terms of procedures/functions.</dd>
+			<dd>more difficult to trace which function manipulates which data.</dd>
+		</dl>
+	</section>
+	<section><h3>The benefits</h3>
+		<dl class="fa">
+			<dt>A higher level of abstraction for solving real-life problems.</dt>
+			<dt>The software system can be think in therms of objects, communicating with each other.</dt>
+			<dt>Objects are reusable software components, as each encapsulates the data and logic for its operation.</dt>
+			<dd>A black-box, with input/output, which do what it has to do.</dd>
+		</dl>
+	</section>
+	<section><h3>OOP vs Procedural Paradigms</h3>
+		<a href="images/OOP_vs_Procedural.png"><img src="images/OOP_vs_Procedural.png"></a>
+	</section>
+</section>
+
+<section data-min="10" id="oopMainConcepts" class="main-sesction-title"><h1>OOP - Main Concepts</h1></section>
+<section class="sub-sections"><h2>OOP - Main Concepts</h2>
+	<section><h3>Class</h3>
+		<dl class="fa">
+			<dt>A class is a blueprint, template, or prototype that defines and describes objects attributes (data) and behaviour(methods)</dt>
+			<dt>Can be seen as a user-defined data type</dt>
+		</dl>
+	</section>
+	<section><h3>Object</h3>
+		<dl class="fa">
+			<dt>An <span class="note">instance</span> of a class - an entity of given class, that can be used in a program</dt>
+			<dt>Instances of same class have similar properties and behaviour</dt>
+		</dl>
+	</section>
+	<section><h3>Instances of a class - diagram</h3>
+		<a href="images/Objects_Comunication.png"><img src="images/Objects_Comunication.png" style="height: 70vh"></a>
+	</section>
+	<section><h3>Inheritance</h3>
+		<dl class="fa">
+			<dt>A class can <span class="note">inherit</span> attributes and methods from another base class, and at the same time to define its own.</dt>
+		</dl>
+		<a href="images/InheritanceOverview.png"><img src="images/InheritanceOverview.png"></a>
+	</section>
+</section>
+
+<section data-min="10" id="classesAndObjectsInPython" class="main-sesction-title"><h1>Classes and Objects in Python</h1></section>
+<section class="sub-sections"><h2>Classes and Objects in Python</h2>
+	<section><h3>Minimal Class definition</h3>
+		<p>The minimal class definition in Python looks like:</p>
+		<pre><code rel="Syntax" class="python">
+			class ClassName:
+			    pass
+		</code></pre>
+		<pre><code rel="Python" class="python">
+			# let's create the class Person (dummy, but real):
+			class Person:
+				pass
+		</code></pre>
+	</section>
+
+	<section><h3>Object Creation</h3>
+		<p>In Python, it's simple:</p>
+		<pre><code rel="Syntax" class="python">
+			object_name = ClassName()
+		</code></pre>
+		<pre><code rel="Python" class="python">
+			# create Person class (still dummy):
+			class Person:
+				pass
+
+			# create objects of class Person:
+			pesho = Person()
+			maria = Person()
+
+			# let's check:
+			print( type(pesho) )
+			print( type(maria) )
+			# &lt;class '__main__.Person'&gt;
+			# &lt;class '__main__.Person'&gt;
+		</code></pre>
+	</section>
+	<section>
+		<p>Objects created from the <b>same <code>class</code></b> have <b>same <code>type</code></b>, but they are different entities:</p>
+		<pre><code rel="Python" class="python">
+			class Person:
+				pass
+
+			maria = Person()
+			pesho = Person()
+
+			print( type(pesho) == type(maria) )
+			print(pesho == maria )
+		</code></pre>
+		<pre><code rel="OUTPUT" class="bash" data-noescape>
+			True
+			False
+		</code></pre>
+	</section>
+</section>
+
+<section data-min="10" id="Attributes" class="main-sesction-title"><h1>Attributes</h1></section>
+<section class="sub-sections"><h2>Attributes</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>The <span class="note">attributes</span> describes an object's characteristics. I.e. <span class="note">specific data</span> which characterize the object.</dt>
+			<dt>Usually, objects from same class, have same attributes, but with different values.</dt>
+			<dt>In Python,  we can dynamically create arbitrary new attributes for existing objects</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+				class Person:
+					pass
+
+				maria = Person()
+				pesho = Person()
+
+				# only maria object will have the attribute 'name'. Not a good practice...
+				maria.name = 'Maria Popova'
+			</code></pre>
+	</section>
+	<section><h3>Accessing Object's Attributes - the <span class="note">dot notation</span></h3>
+		<pre><code rel="Syntax" class="python">
+			# write in object attribute:
+			object_name.attribute = "value of any type"
+
+			# read from attribute:
+			var = object_name.attribute
+		</code></pre>
+		<pre><code rel="Python" class="python" style="font-size: .9em">
+			maria = Person()
+
+			# write in object attribute:
+			maria.name = "Maria"
+			print(maria.name)
+
+			# read from attribute:
+			mn = maria.name
+			print(mn)
+		</code></pre>
+		<p>As we'll see later, this is not the proper way <span class="note"> to create</span> object's attributes in Python. This is an example of dot notation, used to <span class="note">access</span> object's attributes</p>
+	</section>
+	<section><h3 class="advanced">Attributes - internal</h3>
+		<dl class="fa" style="font-size: .8em">
+			<dt>Attributes are stored internally in a dictionary structure</dt>
+			<dt>Each object has associated dictionary attribute, named <code>__dict__</code>, which stores an object's (writeable) attributes</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			class Person:
+				pass
+
+			maria = Person()
+
+			# set attribute:
+			maria.name = "Maria"
+			maria.age = 100
+
+			print(maria.__dict__)
+		</code></pre>
+		<pre><code rel="OUTPUT" class="bash" data-noescape>
+			{'name': 'Maria', 'age': 100}
+		</code></pre>
+	</section>
+	<section><h3>Class Attributes</h3>
+		<dl class="fa">
+			<dt>You can define Class Attributes, which <span class="note">will be shared across</span> all class instances (the objects)</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			class Person:
+				name = "Anonymous"
+				age = 100
+
+			maria = Person()
+			pesho = Person()
+
+			print(maria.name, maria.age)
+			print(pesho.name, pesho.age)
+		</code></pre>
+		<pre><code rel="OUTPUT" class="bash" data-noescape>
+			Anonymous 100
+			Anonymous 100
+		</code></pre>
+	</section>
+</section>
+
+<section data-min="10" id="Methods" class="main-sesction-title"><h1>Methods</h1></section>
+<section class="sub-sections"><h2>Methods</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>A method is a function that <span class="note">belongs to</span> a class.</dt>
+			<dt>Class methods specify the class <span class="note">behaviour</span></dt>
+		</dl>
+	</section>
+	<section><h3>Syntax</h3>
+		<pre><code rel="Syntax" class="python">
+			class ClassName:
+				def method_name(self):
+					pass
+		</code></pre>
+		<dl class="fa">
+			<dt>Note, that <span class="note">you must define at least one parameter in the method</span>.</dt>
+			<dt>It will take (automatically) a reference to the object, which called that method.</dt>
+			<dt>You can name the parameter as you wish, but the <span class="note">convention is to name it <code>self</code></span></dt>
+		</dl>
+	</section>
+	<section><h3>Syntax - example</h3>
+		<pre><code rel="Python" class="python">
+			class Person:
+				def greet(self):
+					print("Hi there! I'm", self.name)
+
+			# create some objects of class Person:
+			maria = Person()
+			maria.name = "Maria Popova"
+			pesho = Person()
+			pesho.name = "Pesho"
+
+			# call greet() method on maria. Python will send the maria object reference to the self parameter.
+			maria.greet()
+			# call greet() method on pesho
+			pesho.greet()
+
+			# OUTPUT:
+			# Hi there! I'm Maria Popova
+			# Hi there! I'm Pesho
+		</code></pre>
+	</section>
+	<section><h3 class="advanced">more on self:</h3>
+		<p>When a method is invoked from an object, <span class="note">Python automatically passes the object reference to the first parameter in the method definition</span>.</p>
+		<pre><code rel="Python" class="python">
+			class TestSelf:
+				def test(self, obj):
+					print(self == obj)
+
+			obj1 = TestSelf()
+
+			# lets check if obj1 == self
+			obj1.test( obj1 )
+
+			# True
+		</code></pre>
+	</section>
+</section>
+
+<section data-min="10" id="classConstructor" class="main-sesction-title"><h1>Class Constructor
+	<br><br>the <code class="note">__init__()</code> method</h1>
+</section>
+<section class="sub-sections"><h2><code class="note">__init__()</code> method</h2>
+	<section><h3>What is a Class Constructor</h3>
+		<dl class="fa">
+			<dt>Class Constructor is <span class="note">a method, called automatically when each new object is created</span>.</dt>
+			<dt>A class constructor defines the action which will happens when a new object instance is created.</dt>
+			<dt>Usually, this actions include setting an initial value for the object attributes.</dt>
+		</dl>
+	</section>
+	<section><h3>Syntax</h3>
+		<dl class="fa">
+			<dt>In Python, the Class Constructor is implemented by a special method named <code class="note">__init__()</code></dt>
+			<pre><code rel="Syntax" class="python">
+				class ClassName:
+					def __init__(self):
+						pass
+			</code></pre>
+			<dt>Example - note that the <code>__init__</code> method is called each time an object is created:</dt>
+			<pre><code rel="Python" class="python">
+				# class definition
+				class ClassA:
+					def __init__(self):
+						print("An object of ClassA is created!")
+
+				# objects creation:
+				obj1 = ClassA()
+				obj2 = ClassA()
+
+				# output:
+				# An object of ClassA is created!
+				# An object of ClassA is created!
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>Person Class Constructor - Example1</h3>
+		<dl class="fa">
+			<dt>Constructor is the place, where we set the initial instance attributes:</dt>
+			<pre><code rel="Python" class="python">
+				class Person:
+					def __init__(self, name, age):
+						self.name = name
+						self.age = age
+
+					def greet(self):
+						print(f"Hi there! I'm {self.name}, {self.age} years old!")
+
+				maria = Person("Maria Popova", 25)
+				pesho = Person("Pesho", 27)
+
+				maria.greet()
+				pesho.greet()
+
+				# Hi there! I'm Maria Popova, 25 years old!
+				# Hi there! I'm Pesho, 27 years old!
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>Person Class Constructor - Example2</h3>
+		<dl class="fa">
+			<dt>Note, that instance methods are just an ordinary Python functions, so we can use everything we know on functions in instance methods:</dt>
+			<pre><code rel="Python" class="python">
+				class Person:
+					def __init__(self, sur_name="", **kw):
+						self.sur_name = sur_name
+						self.name = kw['name']
+						self.age = kw['age']
+
+					def greet(self):
+						print(f"Hi there! I'm {self.name}, {self.age} years old!")
+
+				maria = Person(name="Maria", sur_name="Popova", age=25)
+				pesho = Person(age=27, name="Petar")
+
+				maria.greet()
+				pesho.greet()
+			</code></pre>
+		</dl>
+	</section>
+</section>
+
+
+<section class="disclaimer end-slide"></section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="/ML_SA-Slides/outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="/ML_SA-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+	<script src="/ML_SA-Slides/lib/reveal.js/js/reveal.js"></script>
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		var highlightjsTabSize = '  ';
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+
+			// display control
+			// center: true,
+			// width: '100%',
+			// height: '100%',
+			// // // Factor of the display size that should remain empty around the content
+			// margin: 0.1,
+
+			// The "normal" size of the presentation, aspect ratio will be preserved
+			// when the presentation is scaled to fit different resolutions. Can be
+			// specified using percentage units.
+			width: 1920,
+			height: 1280,
+
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+
+			// Bounds for smallest/largest possible scale to apply to content
+			minScale: 0,
+			maxScale: 2,
+
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// shift+maous click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '/ML_SA-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+	<!-- linkedin badge -->
+	<!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+
+	<!-- MathJax -->
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript" async src="/ML_SA-Slides/lib/MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+</body>
+</html>
