@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Python_For_ML_2_4</title>
+	<link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="/ML_SA-Slides/lib/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="/ML_SA-Slides/outfit/css/themes/projector.css" id="theme">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '/ML_SA-Slides/lib/reveal.js/css/print/pdf.css' : '/ML_SA-Slides/lib/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- CUSTOM -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+	<div class="top_links">
+		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#Python_For_ML_2_4" target="_top"></a>
+		<span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
+		<div class="help_text">
+			<div class="note">Keyboard shortcuts:</div>
+			<div><span>N/Спейс</span><span>Next Slide</span></div>
+			<div><span>P</span><span>Previous Slide</span></div>
+			<div><span>O</span><span>Slides Overview</span></div>
+			<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+			<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+			Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+		</div>
+	</div>
+	<div class="footer theme_switch">
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+	</div>
+	<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section data-min-total="__X__" class="presentation-title"><h1>Python for Machine learning - Lecture 2, Part 4</h1></section>
+<section data-transition="zoom">
+	<section class="copyright" data-transition="zoom">
+		<div>
+			<p style="text-align: center;">Created for</p>
+		</div>
+		<div class="company">
+			<a href="https://softwareacademy.bg/">
+			<img style="height:80vh" src="/ML_SA-Slides/outfit/images/logos/software-web@4x.png" alt="software-web@4x.png">
+			</a>
+		</div>
+		<div class="author">
+			<span class="note"><a href="https://www.linkedin.com/in/ivapopova/">Iva E. Popova</a>,  2022,</span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+			<!-- <i class="fa fa-linkedin"></i> -->
+		</div>
+	</section>
+</section>
+
+
+<section class="main-sesction-title"><h1>Python's third-party modules. PIP - the Python Package Manager</h1></section>
+<section class="sub-sections"><h2>Python's third-party modules. PIP - the Python Package Manager</h2>
+	<section><h3></h3>
+		<dl class="fa">
+			<dt>Python has a strong community which releases lot's of modules(packages), which you can use for free and focus on "get job done", instead of reinventing the wheel.</dt>
+			<dt>pip is the tool for installing Python packages from <a href="https://pypi.python.org/pypi">PyPI (Python Package Index)</a></dt>
+			<dt class="note">Note, that if you do not use a Virtual Environment, a package installed by using pip will be installed in your system's python distribution.</dt>
+			<dt>We are going to see how to install third-party modules after we get familiar with Python's Virtual Environments</dt>
+		</dl>
+	</section>
+	<section style="font-size: 1em"><h3>pip basic commands</h3>
+		<dl class="fa">
+			<dt>get help on pip:</dt>
+			<dd class="code">pip help</dd>
+			<dt>install a package from PyPI:</dt>
+			<dd class="code">pip install package_name</dd>
+			<dt>uninstall a package</dt>
+			<dd class="code">pip uninstall package_name</dd>
+			<dt>list installed packages:</dt>
+			<dd class="code">pip list</dd>
+			<dt>upgrade a package:</dt>
+			<dd class="code">pip install --upgrade SomePackage</dd>
+			<dt>show information about installed packages.:</dt>
+			<dd class="code">pip show package_name</dd>
+			<dt>output installed packages in requirements format</dt>
+			<dd>pip freeze</dd>
+		</dl>
+		<p>Reference: <a href="https://pip.pypa.io/en/stable/cli/">pip commands</a></p>
+	</section>
+	<section><h3>More readings</h3>
+		<dl class="fa">
+			<dt><a href="https://pip.pypa.io/en/stable/">pip - The PyPA recommended tool for installing Python packages.</a></dt>
+			<dt><a href="https://pypi.python.org/pypi">PyPI - the Python Package Index</a></dt>
+		</dl>
+	</section>
+</section>
+
+<section class="main-sesction-title"><h1>Python Virtual Environments</h1></section>
+<section class="sub-sections"><h2>Python Virtual Environments</h2>
+	<section><h3>Virtual environment - Why?</h3>
+		<dl class="fa">
+			<dt>Python apps usually depends on many modules(packages), which depends on other packages, and very often - from a specific version of a package.</dt>
+			<dt>Many system tools also depends on specific versions of installed Python packages.</dt>
+			<dt class="note">You don't want to pollute your system's Python environment or to deal with <a href="https://medium.com/knerd/the-nine-circles-of-python-dependency-hell-481d53e3e025">dependency hell</a>!</dt>
+			<a href="./images/dependancy_hell.jpeg"><img src="./images/dependancy_hell.jpeg" alt="dependancy_hell.jpeg" style="height: 50vh;"></a>
+		</dl>
+	</section>
+	<section><h3>Virtual environment - What?</h3>
+		<dl class="fa">
+			<dt>A virtual environment is an isolated Python environment that allows packages to be installed for use by a particular application, rather than being installed system wide</dt>
+			<dt>A virtual environment is a directory tree which contains Python interpreter, libraries and scripts installed into it,  and other files which indicate that it is a virtual environment.</dt>
+
+			<dt>There are many tools for working with virtual environments in Python (<a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>, <a href="https://pipenv.pypa.io/en/latest/">pipenv</a>, <a href="https://python-poetry.org/docs/master/managing-environments/">poetry</a>, <a href="https://docs.conda.io/en/latest/">conda</a>, etc.)</dt>
+			<dt>Starting with Python 3.4, <a href="https://docs.python.org/3/library/venv.html#module-venv"><code>venv</code></a> module is the preferred way to create and manage virtual environments.</dt>
+			<dt>venv module is included in the Python standard library and requires no additional installation.</dt>
+		</dl>
+	</section>
+	<section id="createVenv"><h3>Create Virtual Environment</h3>
+		<pre><code rel="Create Virtual Environment - Terminal" class="bash">
+			# make sure you are in project folder, where you want to use virtual environment
+
+			# create virtual environment with name ".venv"
+			python3 -m venv .venv
+
+			# a folder '.venv' is created in the project folder
+		</code></pre>
+		<dl class="fa">
+			<dt><code>.venv</code> is a common name for a virtual environment as it keeps the directory typically hidden in your shell.</dt>
+			<dt>Note, that you need to create a virtiual environment per project only once. <span class="note">But each time you work in your project you must activate it.</span></dt>
+		</dl>
+	</section>
+	<section id="activateVenv"><h3>Activate virtual environment</h3>
+		<dl class="fa">
+			<dt>In order to install and use python packages in your virtiual env, you <span class="note">must activate it</span>: </dt>
+			<pre><code rel="Activate Virtual Environment - Terminal" class="bash">
+				# On Windows PowerShell run:
+				.venv\Scripts\Activate.ps1
+
+				# On Windows CommandPrompt run:
+				.venv\Scripts\activate.bat
+
+				# On Windows GitBash run:
+				source .venv\Scripts\activate
+
+				# On Linux, MacOS, run:
+				source .venv/bin/activate
+			</code></pre>
+			<dd>If on PowerShell you receive an error <span style="color:darkred">File ... cannot be loaded because running scripts is disabled on this system</span> you must first set the PowerShell execution policies (<a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.2">Set-ExecutionPolicy @microsoft.com</a>):</dd>
+			<pre><code rel="Terminal" class="bash">
+				Set-ExecutionPolicy Unrestricted -Scope Process
+				# now try again to activate:
+				.venv\Scripts\Activate.ps1
+			</code></pre>
+			<dt>You can confirm you’re in the virtual environment by checking the location of your Python interpreter:</dt>
+			<pre><code rel="Terminal" class="bash">
+				# On Windows, run:
+				where python
+
+				# On Unix or MacOS, run:
+				which python
+
+				# It should be in the .venv directory
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>Deactivate virtual environment</h3>
+		<dl class="fa">
+			<dt>If you want to switch projects or otherwise leave your virtual environment, simply run</dt>		</dl>
+		<pre><code rel="Deactivate Virtual Environment - Terminal" class="bash">
+			deactivate
+		</code></pre>
+	</section>
+	<section><h3>References</h3>
+		<dl class="fa">
+			<dt><a href="https://docs.python.org/3/tutorial/venv.html">Virtual Environments and Packages</a> @python3 tutorial</dt>
+		</dl>
+	</section>
+</section>
+
+<section class="main-sesction-title"><h1>Installing packages using pip and virtual environments</h1></section>
+<section class="sub-sections"><h2>Installing packages using pip and virtual environments</h2>
+	<section><h3>Live Demo</h3>
+		<dl class="fa">
+			<dt>Live Demo on <a href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment">Installing packages using pip and virtual environments</a></dt>
+		</dl>
+	</section>
+</section>
+
+
+
+<section class="disclaimer end-slide"></section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="/ML_SA-Slides/outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="/ML_SA-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+	<script src="/ML_SA-Slides/lib/reveal.js/js/reveal.js"></script>
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		var highlightjsTabSize = '  ';
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+
+			// display control
+			// center: true,
+			// width: '100%',
+			// height: '100%',
+			// // // Factor of the display size that should remain empty around the content
+			// margin: 0.1,
+
+			// The "normal" size of the presentation, aspect ratio will be preserved
+			// when the presentation is scaled to fit different resolutions. Can be
+			// specified using percentage units.
+			width: 1920,
+			height: 1280,
+
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+
+			// Bounds for smallest/largest possible scale to apply to content
+			minScale: 0,
+			maxScale: 2,
+
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// shift+maous click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '/ML_SA-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+	<!-- linkedin badge -->
+	<!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+
+	<!-- MathJax -->
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript" async src="/ML_SA-Slides/lib/MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+</body>
+</html>
