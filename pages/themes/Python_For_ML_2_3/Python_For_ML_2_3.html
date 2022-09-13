@@ -109,16 +109,9 @@
 			</code></pre>
 		</dl>
 	</section>
-	<section><h3>Module Execution</h3>
-		<dl class="fa">
-			<dt>A module can contain executable statements as well as function definitions. Usually these statements are intended to initialize the module.</dt>
-			<dt>Statements in a module are executed only the first time the module name is encountered in an import statement.</dt>
-			<dt>But as a module is just a Python file, we can execute it as a standalone program.</dt>
-		</dl>
-	</section>
 	<section><h3>Module alias: <code class="note">import X as Y</code></h3>
 		<dt>You can give modules names a shorter aliases:</dt>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="app.py" class="python">
 			import helper_module as hm
 
 			user_name = hm.get_user_name()
@@ -127,20 +120,20 @@
 	</section>
 	<section><h3>Import object from module: <code class="note">from X import Y</code></h3>
 		<dl class="fa">
-			<dt>You can import an object from module, using the <br> <code class="note">from X import Y</code> notation. After that, you can use the name (Y), without having to prefixing it.</dt>
+			<dt>You can import an object from module, using the <br> <code class="note">from X import Y</code> notation. <br>After that, you can use the name (Y), without having to prefixing it.</dt>
 			<dt>You can import more that one object, if you separate them with comma</dt>
 		</dl>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="app.py" class="python">
 			from helper_module import get_user_name, greet
 
 			user_name = get_user_name()
 			greet(user_name)
 		</code></pre>
 	</section>
-	<section><h3>Import object from module: <code class="note">from X import *</code></h3>
+	<section><h3>Import all object from module: <code class="note">from X import *</code></h3>
 		<dl class="fa">
 			<dt>Imports all objects from a module.</dt>
-			<dt>Not recommended to use it, as a name collision could occurs.</dt>
+			<dt class="note">Not recommended to use it, as a name collision could occurs.</dt>
 		</dl>
 		<pre><code rel="Python" class="python">
 			from helper_module import *
@@ -152,23 +145,15 @@
 	<section><h3>Where <code>import</code> looks for a module?</h3>
 		<dl class="fa">
 			<dt>The directory containing the input script</dt>
-			<dt>the directories specified in the <span class="note">PYTHONPATH</span> environment variable</dt>
-			<dt>The installation-dependent default.</dt>
+			<dt>The directories specified in the <span class="note">PYTHONPATH</span> environment variable</dt>
+			<dt>Python installation directory</dt>
 		</dl>
 	</section>
-
-	<!-- <section><h3>Absolute and Relative Imports</h3>
-		<dl>
-			<dt><a href="https://www.python.org/dev/peps/pep-0328">PEP 328 -- Imports: Multi-Line and Absolute/Relative</a></dt>
-			<dd></dd>
-		</dl>
-	</section> -->
-
 	<section><h3>Python's built-in modules</h3>
 		<dl class="fa">
 			<dt>or why Python is "Batteries Included"</dt>
 			<dt><a href="https://docs.python.org/3/py-modindex.html">Python Module Index</a></dt>
-			<dt>to use a built-in (standard) module, you have to import it!</dt>
+			<dt>to use a built-in (standard) module, you just have to import it!</dt>
 		</dl>
 	</section>
 	<section><h3>Help on Python's built-in modules</h3>
@@ -184,16 +169,25 @@
 			</code></pre>
 		</dl>
 	</section>
-	<section><h3>Python's third-party modules</h3>
+	<section><h3 class="advanced">Modules Execution</h3>
 		<dl class="fa">
-			<dt>The Python Packaging Index <a href="https://pypi.python.org/pypi">PyPI</a>is a public repository of open source licensed packages made available for use by other Python users.</dt>
-			<dt>We are going to see how to install third-party modules after we get familiar with Python's Virtual Environments</dt>
-			<!-- <dt><a href="https://packaging.python.org/tutorials/installing-packages/#creating-virtual-environments">Creating Virtual Environments</a></dt>
-			<dt><a href="https://packaging.python.org/tutorials/managing-dependencies/#managing-dependencies"></a>Managing Application Dependencies</dt> -->
+			<dt>A module can contain executable statements as well as function definitions. Usually these statements are intended to initialize the module.</dt>
+			<dt>Statements in a module are executed only the first time the module name is encountered in an import statement.</dt>
+			<dt>But as a module is just a Python file, we can execute it as a standalone program.</dt>
+		</dl>
+	</section>
+	<section><h3 class="advanced">Execute Python module from Terminal</h3>
+		<dl class="fa">
+			<dt>We can use <code>python -m <i>module_name</i></code> from terminal in order to execute a module.</dt>
+			<pre><code rel="Terminal" class="bash">
+				python -m helper_module
+			</code></pre>
+			<dt>Note that since the argument is a module name, you must not give a file extension (.py).</dt>
 		</dl>
 	</section>
 </section>
 
+<!--
 <section class="main-sesction-title"><h1>Import-related module attributes</h1></section>
 <section class="sub-sections"><h2>Import-related module attributes/global variables</h2>
 	<section><h3>The <code>__file__</code> and <code>__name__</code> variables</h3>
@@ -267,7 +261,7 @@
 			<dt>Run the <code>helper_module.py</code> and look at the output</dt>
 		</dl>
 	</section>
-</section>
+</section> -->
 
 <section class="main-sesction-title"><h1>Packages in Python</h1></section>
 <section class="sub-sections"><h2>Packages in Python</h2>
@@ -326,31 +320,136 @@
 			<dt>If you really need to tell python not to generate the compiled versions, you can set the <a href="https://docs.python.org/3/using/cmdline.html#envvar-PYTHONDONTWRITEBYTECODE">PYTHONDONTWRITEBYTECODE</a> env. var.</dt>
 		</dl>
 	</section>
-
-	<!-- <section><h3 class="advanced">decompile pyc files</h3>
-		<dl class="fa">
-				<dt><a href="https://github.com/rocky/python-uncompyle6">uncompyle6</a> works for Python 3 and 2.7 (more recent, aiming to unify earlier forks and focusing on automated testing).</dt>
-				<dd>Read more on <a href="https://stackoverflow.com/questions/5287253/is-it-possible-to-decompile-a-compiled-pyc-file-into-a-py-file#">stackoverflow</a></dd>
-		</dl>
-	</section> -->
 </section>
 
-
-<section data-min="50"><h1>Execute python module from command line</h1></section>
-<section class="sub-sections"><h2>Execute python module from command line</h2>
-	<section>
+<section class="main-sesction-title"><h1>Python's third-party modules. PIP - the Python Package Manager</h1></section>
+<section class="sub-sections"><h2>Python's third-party modules. PIP - the Python Package Manager</h2>
+	<section><h3></h3>
 		<dl class="fa">
-			<dt>We can use <code>python -m <i>module_name</i> from terminal in order to execute a module</code></dt>
-			<pre><code rel="Terminal" class="bash">
-				python -m helper_module
-
-				# note the difference between:
-				python3 helper_module.py
-			</code></pre>
-			<dt>Note that since the argument is a module name, you must not give a file extension (.py).</dt>
+			<dt>Python has a strong community which releases lot's of modules(packages), which you can use for free and focus on "get job done", instead of reinventing the wheel.</dt>
+			<dt>pip is the tool for installing Python packages from <a href="https://pypi.python.org/pypi">PyPI (Python Package Index)</a></dt>
+			<dt class="note">Note, that if you do not use a Virtual Environment, a package installed by using pip will be installed in your system's python distribution.</dt>
+			<dt>We are going to see how to install third-party modules after we get familiar with Python's Virtual Environments</dt>
+		</dl>
+	</section>
+	<section style="font-size: 1em"><h3>pip basic commands</h3>
+		<dl class="fa">
+			<dt>get help on pip:</dt>
+			<dd class="code">pip help</dd>
+			<dt>install a package from PyPI:</dt>
+			<dd class="code">pip install package_name</dd>
+			<dt>uninstall a package</dt>
+			<dd class="code">pip uninstall package_name</dd>
+			<dt>list installed packages:</dt>
+			<dd class="code">pip list</dd>
+			<dt>upgrade a package:</dt>
+			<dd class="code">pip install --upgrade SomePackage</dd>
+			<dt>show information about installed packages.:</dt>
+			<dd class="code">pip show package_name</dd>
+			<dt>output installed packages in requirements format</dt>
+			<dd>pip freeze</dd>
+		</dl>
+		<p>Reference: <a href="https://pip.pypa.io/en/stable/cli/">pip commands</a></p>
+	</section>
+	<section><h3>More readings</h3>
+		<dl class="fa">
+			<dt><a href="https://pip.pypa.io/en/stable/">pip - The PyPA recommended tool for installing Python packages.</a></dt>
+			<dt><a href="https://pypi.python.org/pypi">PyPI - the Python Package Index</a></dt>
 		</dl>
 	</section>
 </section>
+
+<section class="main-sesction-title"><h1>Python Virtual Environments</h1></section>
+<section class="sub-sections"><h2>Python Virtual Environments</h2>
+	<section><h3>Virtual environment - Why?</h3>
+		<dl class="fa">
+			<dt>Python apps usually depends on many modules(packages), which depends on other packages, and very often - from a specific version of a package.</dt>
+			<dt>Many system tools also depends on specific versions of installed Python packages.</dt>
+			<dt class="note">You don't want to pollute your system's Python environment or to deal with <a href="https://medium.com/knerd/the-nine-circles-of-python-dependency-hell-481d53e3e025">dependency hell</a>!</dt>
+			<a href="./images/dependancy_hell.jpeg"><img src="./images/dependancy_hell.jpeg" alt="dependancy_hell.jpeg" style="height: 50vh;"></a>
+		</dl>
+	</section>
+	<section><h3>Virtual environment - What?</h3>
+		<dl class="fa">
+			<dt>A virtual environment is an isolated Python environment that allows packages to be installed for use by a particular application, rather than being installed system wide</dt>
+			<dt>A virtual environment is a directory tree which contains Python interpreter, libraries and scripts installed into it,  and other files which indicate that it is a virtual environment.</dt>
+
+			<dt>There are many tools for working with virtual environments in Python (<a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>, <a href="https://pipenv.pypa.io/en/latest/">pipenv</a>, <a href="https://python-poetry.org/docs/master/managing-environments/">poetry</a>, <a href="https://docs.conda.io/en/latest/">conda</a>, etc.)</dt>
+			<dt>Starting with Python 3.4, <a href="https://docs.python.org/3/library/venv.html#module-venv"><code>venv</code></a> module is the preferred way to create and manage virtual environments.</dt>
+			<dt>venv module is included in the Python standard library and requires no additional installation.</dt>
+		</dl>
+	</section>
+	<section id="createVenv"><h3>Create Virtual Environment</h3>
+		<pre><code rel="Create Virtual Environment - Terminal" class="bash">
+			# make sure you are in project folder, where you want to use virtual environment
+
+			# create virtual environment with name ".venv"
+			python3 -m venv .venv
+
+			# a folder '.venv' is created in the project folder
+		</code></pre>
+		<dl class="fa">
+			<dt><code>.venv</code> is a common name for a virtual environment as it keeps the directory typically hidden in your shell.</dt>
+			<dt>Note, that you need to create a virtiual environment per project only once. <span class="note">But each time you work in your project you must activate it.</span></dt>
+		</dl>
+	</section>
+	<section id="activateVenv"><h3>Activate virtual environment</h3>
+		<dl class="fa">
+			<dt>In order to install and use python packages in your virtiual env, you <span class="note">must activate it</span>: </dt>
+			<pre><code rel="Activate Virtual Environment - Terminal" class="bash">
+				# On Windows PowerShell run:
+				.venv\Scripts\Activate.ps1
+
+				# On Windows CommandPrompt run:
+				.venv\Scripts\activate.bat
+
+				# On Windows GitBash run:
+				source .venv\Scripts\activate
+
+				# On Linux, MacOS, run:
+				source .venv/bin/activate
+			</code></pre>
+			<dd>If on PowerShell you receive an error <span style="color:darkred">File ... cannot be loaded because running scripts is disabled on this system</span> you must first set the PowerShell execution policies (<a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.2">Set-ExecutionPolicy @microsoft.com</a>):</dd>
+			<pre><code rel="Terminal" class="bash">
+				Set-ExecutionPolicy Unrestricted -Scope Process
+				# now try again to activate:
+				.venv\Scripts\Activate.ps1
+			</code></pre>
+			<dt>You can confirm you’re in the virtual environment by checking the location of your Python interpreter:</dt>
+			<pre><code rel="Terminal" class="bash">
+				# On Windows, run:
+				where python
+
+				# On Unix or MacOS, run:
+				which python
+
+				# It should be in the .venv directory
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>Deactivate virtual environment</h3>
+		<dl class="fa">
+			<dt>If you want to switch projects or otherwise leave your virtual environment, simply run</dt>		</dl>
+		<pre><code rel="Deactivate Virtual Environment - Terminal" class="bash">
+			deactivate
+		</code></pre>
+	</section>
+	<section><h3>References</h3>
+		<dl class="fa">
+			<dt><a href="https://docs.python.org/3/tutorial/venv.html">Virtual Environments and Packages</a> @python3 tutorial</dt>
+		</dl>
+	</section>
+</section>
+
+<section class="main-sesction-title"><h1>Installing packages using pip and virtual environments</h1></section>
+<section class="sub-sections"><h2>Installing packages using pip and virtual environments</h2>
+	<section><h3>Live Demo</h3>
+		<dl class="fa">
+			<dt>Live Demo on <a href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment">Installing packages using pip and virtual environments</a></dt>
+		</dl>
+	</section>
+</section>
+
 
 
 <section class="disclaimer end-slide"></section>

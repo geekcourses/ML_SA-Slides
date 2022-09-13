@@ -71,30 +71,21 @@
 </section>
 
 
-<section data-min="5" id="objectOrientedProgrammingParadigm" class="main-sesction-title"><h1>Object-oriented Programming Paradigm</h1></section>
-<section class="sub-sections"><h2>Object-oriented Programming Paradigm</h2>
-	<section><h3>A step over Procedural Programming</h3>
+<section id="oopOverview" class="main-sesction-title"><h1>OOP Overview</h1></section>
+<section class="sub-sections"><h2>OOP Overview</h2>
+	<section>
 		<dl class="fa">
-			<dt>In procedural-languages (C, Fortran, Pascal) the data structures are separated from algorithms of the software entities (a step over Assembly languages)</dt>
-			<dt>But in big projects (consider CRM) it is:
-			<dd>difficult to describe the problem solely in terms of procedures/functions.</dd>
-			<dd>more difficult to trace which function manipulates which data.</dd>
+			<dt>Beside <a href="https://en.wikipedia.org/wiki/Procedural_programming">Procedural Programming Paradigm</a> Python supports <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">Object-oriented Programming Paradigm</a> as well.
+			<a href="images/OOP_vs_Procedural.png"><img src="images/OOP_vs_Procedural.png"></a>
+			</dt>
+			<dt>OOP provides:</dt>
+			<dd>A higher level of abstraction for solving real-life problems.</dd>
+			<dd>The software system can be think in therms of objects, communicating with each other.</dd>
+			<dd>Objects are reusable software components, as each encapsulates the data and logic for its operation.</dd>
+			<dd>Easy to maintain big software systems by large team of programmers.</dd>
 		</dl>
-	</section>
-	<section><h3>The benefits</h3>
-		<dl class="fa">
-			<dt>A higher level of abstraction for solving real-life problems.</dt>
-			<dt>The software system can be think in therms of objects, communicating with each other.</dt>
-			<dt>Objects are reusable software components, as each encapsulates the data and logic for its operation.</dt>
-			<dd>A black-box, with input/output, which do what it has to do.</dd>
-		</dl>
-	</section>
-	<section><h3>OOP vs Procedural Paradigms</h3>
-		<a href="images/OOP_vs_Procedural.png"><img src="images/OOP_vs_Procedural.png"></a>
 	</section>
 </section>
-
-<section data-min="10" id="oopMainConcepts" class="main-sesction-title"><h1>OOP - Main Concepts</h1></section>
 <section class="sub-sections"><h2>OOP - Main Concepts</h2>
 	<section><h3>Class</h3>
 		<dl class="fa">
@@ -119,7 +110,7 @@
 	</section>
 </section>
 
-<section data-min="10" id="classesAndObjectsInPython" class="main-sesction-title"><h1>Classes and Objects in Python</h1></section>
+<section id="classesAndObjectsInPython" class="main-sesction-title"><h1>Classes and Objects in Python</h1></section>
 <section class="sub-sections"><h2>Classes and Objects in Python</h2>
 	<section><h3>Minimal Class definition</h3>
 		<p>The minimal class definition in Python looks like:</p>
@@ -174,13 +165,13 @@
 	</section>
 </section>
 
-<section data-min="10" id="Attributes" class="main-sesction-title"><h1>Attributes</h1></section>
+<section id="Attributes" class="main-sesction-title"><h1>Attributes</h1></section>
 <section class="sub-sections"><h2>Attributes</h2>
 	<section><h3>Overview</h3>
 		<dl class="fa">
-			<dt>The <span class="note">attributes</span> describes an object's characteristics. I.e. <span class="note">specific data</span> which characterize the object.</dt>
+			<dt>The <span class="note">attributes</span> (called also "properties") describes an object's characteristics. I.e. <span class="note">specific data</span> which characterize the object.</dt>
 			<dt>Usually, objects from same class, have same attributes, but with different values.</dt>
-			<dt>In Python,  we can dynamically create arbitrary new attributes for existing objects</dt>
+			<dt>In Python,  we can dynamically create arbitrary new attributes for existing objects. But this is not a good practice, as we want all instances of a class to have the same attributes, but with different values (we'll see later how to do that with a Constructor).</dt>
 		</dl>
 		<pre><code rel="Python" class="python">
 				class Person:
@@ -199,7 +190,7 @@
 			object_name.attribute = "value of any type"
 
 			# read from attribute:
-			var = object_name.attribute
+			value = object_name.attribute
 		</code></pre>
 		<pre><code rel="Python" class="python" style="font-size: .9em">
 			maria = Person()
@@ -214,71 +205,16 @@
 		</code></pre>
 		<p>As we'll see later, this is not the proper way <span class="note"> to create</span> object's attributes in Python. This is an example of dot notation, used to <span class="note">access</span> object's attributes</p>
 	</section>
-	<section><h3 class="advanced">Attributes - internal</h3>
-		<dl class="fa" style="font-size: .8em">
-			<dt>Attributes are stored internally in a dictionary structure</dt>
-			<dt>Each object has associated dictionary attribute, named <code>__dict__</code>, which stores an object's (writeable) attributes</dt>
-		</dl>
-		<pre><code rel="Python" class="python">
-			class Person:
-				pass
-
-			maria = Person()
-
-			# set attribute:
-			maria.name = "Maria"
-			maria.age = 100
-
-			print(maria.__dict__)
-		</code></pre>
-		<pre><code rel="OUTPUT" class="bash" data-noescape>
-			{'name': 'Maria', 'age': 100}
-		</code></pre>
-	</section>
-	<section><h3>Class Attributes</h3>
-		<dl class="fa">
-			<dt>You can define Class Attributes, which <span class="note">will be shared across</span> all class instances (the objects)</dt>
-		</dl>
-		<pre><code rel="Python" class="python">
-			class Person:
-				name = "Anonymous"
-				age = 100
-
-			maria = Person()
-			pesho = Person()
-
-			print(maria.name, maria.age)
-			print(pesho.name, pesho.age)
-		</code></pre>
-		<pre><code rel="OUTPUT" class="bash" data-noescape>
-			Anonymous 100
-			Anonymous 100
-		</code></pre>
-	</section>
 </section>
 
-<section data-min="10" id="Methods" class="main-sesction-title"><h1>Methods</h1></section>
+<section id="Methods" class="main-sesction-title"><h1>Methods</h1></section>
 <section class="sub-sections"><h2>Methods</h2>
 	<section><h3>Overview</h3>
 		<dl class="fa">
-			<dt>A method is a function that <span class="note">belongs to</span> a class.</dt>
-			<dt>Class methods specify the class <span class="note">behaviour</span></dt>
+			<dt>In Python, a method is <span class="note">a function that belongs to</span> a class.</dt>
+			<dt>Methods specify objects <span class="note">behavior</span></dt>
 		</dl>
-	</section>
-	<section><h3>Syntax</h3>
-		<pre><code rel="Syntax" class="python">
-			class ClassName:
-				def method_name(self):
-					pass
-		</code></pre>
-		<dl class="fa">
-			<dt>Note, that <span class="note">you must define at least one parameter in the method</span>.</dt>
-			<dt>It will take (automatically) a reference to the object, which called that method.</dt>
-			<dt>You can name the parameter as you wish, but the <span class="note">convention is to name it <code>self</code></span></dt>
-		</dl>
-	</section>
-	<section><h3>Syntax - example</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 70vh;">
 			class Person:
 				def greet(self):
 					print("Hi there! I'm", self.name)
@@ -299,24 +235,62 @@
 			# Hi there! I'm Pesho
 		</code></pre>
 	</section>
+	<section><h3>Syntax</h3>
+		<pre><code rel="Python" class="python" style="min-height: 55vh;">
+			class ClassName:
+				# method definition
+				def method1(self):
+					pass
+
+			# create objects
+			obj1 = ClassName()
+			obj2 = ClassName()
+
+			# call method1 on obj1:
+			obj1.method1()
+
+			# call method1 on obj2:
+			obj2.method1()
+		</code></pre>
+		<dl class="fa">
+			<dt>Note, that <span class="note">you must define at least one parameter in the method</span>.</dt>
+			<dt>It will take (automatically) a reference to the object, which called that method.</dt>
+		</dl>
+
+	</section>
+
 	<section><h3 class="advanced">more on self:</h3>
-		<p>When a method is invoked from an object, <span class="note">Python automatically passes the object reference to the first parameter in the method definition</span>.</p>
-		<pre><code rel="Python" class="python">
-			class TestSelf:
-				def test(self, obj):
-					print(self == obj)
+		<dl class="fa">
+			<dt>When a method is invoked from an object, <span class="note">Python automatically passes the object reference to the first parameter in the method definition</span>.</dt>
+			<dt>You can name the parameter as you wish, but the <span class="note">convention is to name it <code>self</code></span></dt>
+		</dl>
+		<pre><code rel="Python" class="python" style="min-height: 60vh;">
+			class Account:
+				def deposit(self, ammount):
+					print(f'self: {self}')
+					print(f'ammount: {ammount}')
+					self.balance+=ammount
 
-			obj1 = TestSelf()
 
-			# lets check if obj1 == self
-			obj1.test( obj1 )
+			maria_account = Account()
 
-			# True
+			# let's set account balance
+			maria_account.balance = 1000
+
+			# call method deposit of maria_account object:
+			maria_account.deposit(200)
+
+			print(f'Maria balance is: {maria_account.balance}')
+
+			# OUTPUT:
+			# self: <__main__.Account object at 0x7f25c8691250>
+			# ammount: 200
+			# Maria balance is: 1200
 		</code></pre>
 	</section>
 </section>
 
-<section data-min="10" id="classConstructor" class="main-sesction-title"><h1>Class Constructor
+<section id="classConstructor" class="main-sesction-title"><h1>Class Constructor
 	<br><br>the <code class="note">__init__()</code> method</h1>
 </section>
 <section class="sub-sections"><h2><code class="note">__init__()</code> method</h2>
@@ -336,7 +310,7 @@
 						pass
 			</code></pre>
 			<dt>Example - note that the <code>__init__</code> method is called each time an object is created:</dt>
-			<pre><code rel="Python" class="python">
+			<pre><code rel="Python" class="python" style="min-height: 50vh;">
 				# class definition
 				class ClassA:
 					def __init__(self):
@@ -355,7 +329,7 @@
 	<section><h3>Person Class Constructor - Example1</h3>
 		<dl class="fa">
 			<dt>Constructor is the place, where we set the initial instance attributes:</dt>
-			<pre><code rel="Python" class="python">
+			<pre><code rel="Python" class="python" style="min-height: 62vh;">
 				class Person:
 					def __init__(self, name, age):
 						self.name = name
@@ -378,7 +352,7 @@
 	<section><h3>Person Class Constructor - Example2</h3>
 		<dl class="fa">
 			<dt>Note, that instance methods are just an ordinary Python functions, so we can use everything we know on functions in instance methods:</dt>
-			<pre><code rel="Python" class="python">
+			<pre><code rel="Python" class="python" style="min-height: 55vh;">
 				class Person:
 					def __init__(self, sur_name="", **kw):
 						self.sur_name = sur_name
