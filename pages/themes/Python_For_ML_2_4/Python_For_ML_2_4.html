@@ -51,7 +51,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section data-min-total="__X__" class="presentation-title"><h1>Python for Machine learning - Lecture 2, Part 4</h1><h2>Virtual Environments. Conda.</h2></section>
+<section data-min-total="__X__" class="presentation-title"><h1>Python for Machine learning - Lecture 2, Part 4</h1><h2>Python third-party modules. Virtual Environments. Conda.</h2></section>
 <section data-transition="zoom">
 	<section class="copyright" data-transition="zoom">
 		<div>
@@ -71,14 +71,14 @@
 </section>
 
 
-<section class="main-sesction-title"><h1>Python's third-party modules. PIP - the Python Package Manager</h1></section>
+<section class="main-sesction-title"><h1>Python third-party modules. PIP - the Python Package Manager</h1></section>
 <section class="sub-sections"><h2>Python's third-party modules. PIP - the Python Package Manager</h2>
 	<section><h3></h3>
 		<dl class="fa">
-			<dt>Python has a strong community which releases lot's of modules(packages), which you can use for free and focus on "get job done", instead of reinventing the wheel.</dt>
-			<dt>pip is the tool for installing Python packages from <a href="https://pypi.python.org/pypi">PyPI (Python Package Index)</a></dt>
+			<dt>Python has a strong community which releases lot's of modules (packages), which you can use for free and focus on "get job done", instead of reinventing the wheel.</dt>
+			<dt><a href="https://pip.pypa.io/en/stable/">pip</a> is the tool for installing Python packages from <a href="https://pypi.python.org/pypi">PyPI (Python Package Index)</a></dt>
 			<dt class="note">Note, that if you do not use a Virtual Environment, a package installed by using pip will be installed in your system's python distribution.</dt>
-			<dt>We are going to see how to install third-party modules after we get familiar with Python's Virtual Environments</dt>
+			<dd>We are going to see how to install third-party modules after we get familiar with Python's Virtual Environments</dd>
 		</dl>
 	</section>
 	<section style="font-size: 1em"><h3>pip basic commands</h3>
@@ -100,12 +100,12 @@
 		</dl>
 		<p>Reference: <a href="https://pip.pypa.io/en/stable/cli/">pip commands</a></p>
 	</section>
-	<section><h3>More readings</h3>
+	<!-- <section><h3>More readings</h3>
 		<dl class="fa">
 			<dt><a href="https://pip.pypa.io/en/stable/">pip - The PyPA recommended tool for installing Python packages.</a></dt>
 			<dt><a href="https://pypi.python.org/pypi">PyPI - the Python Package Index</a></dt>
 		</dl>
-	</section>
+	</section> -->
 </section>
 
 <section class="main-sesction-title"><h1>Python Virtual Environments</h1></section>
@@ -139,12 +139,13 @@
 		</code></pre>
 		<dl class="fa">
 			<dt><code>.venv</code> is a common name for a virtual environment as it keeps the directory typically hidden in your shell.</dt>
-			<dt>Note, that you need to create a virtiual environment per project only once. <span class="note">But each time you work in your project you must activate it.</span></dt>
+			<dd>Of course, you can use any other name for your virtual environment.</dd>
+			<dt>Note, that you need to create a virtual environment per project only once. <span class="note">But each time you work in your project you must activate it.</span></dt>
 		</dl>
 	</section>
 	<section id="activateVenv"><h3>Activate virtual environment</h3>
 		<dl class="fa">
-			<dt>In order to install and use python packages in your virtiual env, you <span class="note">must activate it</span>: </dt>
+			<dt>In order to install and use python packages in your virtual env, you <span class="note">must activate it</span>: </dt>
 			<pre><code rel="Activate Virtual Environment - Terminal" class="bash">
 				# On Windows PowerShell run:
 				.venv\Scripts\Activate.ps1
@@ -199,8 +200,132 @@
 	</section>
 </section>
 
+<section class="main-sesction-title"><h1>conda - a powerful package and environment manager</h1></section>
+<section class="sub-sections"><h2>Conda - getting started</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>Conda is a powerful <span class="note">package manager and environment manager</span> that you use with command line commands at the Anaconda Prompt for Windows, or in a terminal window for macOS or Linux.</dt>
+			<dt>Simply said, conda merges the functionality of pip - the Python package manager and venv - an environment manager for Python. But conda <span class="note">is language agnostic (works for many other languages).</span></dt>
+			<dt>Reference: <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html">Getting started with conda @conda user guide</a></dt>
+		</dl>
+	</section>
+	<section><h3>conda installation</h3>
+		<dl class="fa">
+			<dt>The fastest way to obtain conda is to install Miniconda, a mini version of Anaconda that includes only conda and its dependencies.</dt>
+			<dt>If you prefer to have conda plus over 7,500 open-source packages, install Anaconda</dt>
+			<dt>Reference: <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html">conda instalation</a></dt>
+		</dl>
+		<a href="./images/conda-vs-miniconda-vs-anaconda.png"><img src="./images/conda-vs-miniconda-vs-anaconda.png" alt="conda-vs-miniconda-vs-anaconda.png"></a>
+	</section>
+	<section><h3>Starting conda - Windows</h3>
+		<dl class="fa">
+			<dt>From the Start menu, search for and open "Anaconda Prompt."</dt>
+			<a href="./images/start_conda_windows.png"><img src="./images/start_conda_windows.png" alt="start_conda_windows.png" style="width: 40vw;"></a>
+		</dl>
+	</section>
+	<section><h3>Starting conda - MacOS</h3>
+		<dl class="fa">
+			<dt>Just start a Terminal</dt>
+			<dd>Open Launchpad, then click the terminal icon.</dd>
+		</dl>
+	</section>
+	<section><h3>Starting conda - Linux</h3>
+		<dl class="fa">
+			<dt>Just start a Terminal</dt>
+		</dl>
+	</section>
+	<section><h3>Verify installation</h3>
+		<pre><code rel="Terminal" class="bash">
+			# type
+			conda --version
+
+			# equivalent
+			conda -V
+
+			# if you see something like the output bellow, then you're good to go:
+			# conda 4.14.0
+		</code></pre>
+	</section>
+</section>
 
 
+<section class="main-sesction-title"><h1>Working with conda environments</h1></section>
+<section class="sub-sections"><h2>Working with conda environments</h2>
+	<section><h3>managing environments</h3>
+		<pre><code rel="Terminal" class="bash" style="min-height: 70vh;">
+			# create new, empty environment with name 'testenv'
+			conda create --name testenv
+
+			# Create an environment + specific python version
+			conda create --name myenv_3_7 python==3.7.0
+
+			# Create an environment + specific Python version + packages
+			conda create --name env_name python==3.7.1 package_name1 package_name2
+
+			# list conda environments:
+			conda info --envs
+
+			# activate 'testenv' environment:
+			conda activate testenv
+
+			# deactivate current environment:
+			conda deactivate
+
+			# Remove an environment:
+			conda env remove -n testenv
+		</code></pre>
+		<dl class="fa">
+			<dt>Reference: <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">Managing Environments @conda docs</a></dt>
+		</dl>
+	</section>
+	<section><h3>Installing/removing packages</h3>
+		<dl class="fa">
+			<dt>Once activated you can install one or more packages with conda by:</dt>
+			<pre><code rel="Terminal" class="bash">
+				# install package with name 'pkg_name1' - latest version:
+				conda install pkg_name1
+
+				# install package with name 'pkg_name1' - version 1.0.0:
+				conda install pkg_name1==1.0.0
+
+				# install multiple packages:
+				conda install pkg_name1 pkg_name2
+			</code></pre>
+			<dl class="fa">
+				<dt>Reference: <a href="https://conda.io/projects/conda/en/latest/user-guide/concepts/installing-with-conda.html">Installing packages with conda</a></dt>
+			</dl>
+		</dl>
+	</section>
+	<section><h3>See the list of packages and environments</h3>
+		<pre><code rel="Terminal" class="bash">
+			# list packages in current environment
+			conda list
+
+			# list packages in specific environment
+			conda list -n testenv
+
+			# list of environments
+			conda info --envs
+			#or
+			conda env list
+		</code></pre>
+	</section>
+	<section><h3 class="advanced">Sharing environments across platforms</h3>
+		<dl class="fa">
+			<dt>With next command you can create a spec file of you environment have all the information needed for environment to be duplicated on another machine </dt>
+			<pre><code rel="Terminal" class="bash">
+				conda env export --from-history > environment.yml
+			</code></pre>
+			<dt>Adding --from-history flag will export only the packages installed by conda. It will NOT include the dependency packages or packages you installed using any other method</dt>
+			<dt>All information, needed for environment to be repicated will be in the file: <code>environment.yml</code></dt>
+			<dt>To re-create an environment:</dt>
+			<pre><code rel="Terminal" class="bash">
+				conda env create -f environment.yml
+			</code></pre>
+		</dl>
+	</section>
+
+</section>
 <section class="disclaimer end-slide"></section>
 <!--
 ########################################################
