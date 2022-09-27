@@ -43,4 +43,5 @@
 /pages/themes/Python_For_ML_2_2/images/passing_arguments_2 filter=lfs diff=lfs merge=lfs -text
 *.csv filter=lfs diff=lfs merge=lfs -text
 /pages/themes/Pandas_1/examples/slides/Pipfile filter=lfs diff=lfs merge=lfs -text
+/pages/themes/Pandas_2/examples/slides/Pipfile filter=lfs diff=lfs merge=lfs -text
 * !text !filter !merge !diff
