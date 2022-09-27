@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Pandas_1</title>
+	<link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="/ML_SA-Slides/lib/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="/ML_SA-Slides/outfit/css/themes/projector.css" id="theme">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '/ML_SA-Slides/lib/reveal.js/css/print/pdf.css' : '/ML_SA-Slides/lib/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- CUSTOM -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+	<div class="top_links">
+		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#Pandas_1" target="_top"></a>
+		<span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
+		<div class="help_text">
+			<div class="note">Keyboard shortcuts:</div>
+			<div><span>N/Спейс</span><span>Next Slide</span></div>
+			<div><span>P</span><span>Previous Slide</span></div>
+			<div><span>O</span><span>Slides Overview</span></div>
+			<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+			<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+			Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+		</div>
+	</div>
+	<div class="footer theme_switch">
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+	</div>
+	<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section class="presentation-title"><h1>Data analysis with Pandas (1)</h1></section>
+<section data-transition="zoom">
+	<section class="copyright" data-transition="zoom">
+		<div>
+			<p style="text-align: center;">Created for</p>
+		</div>
+		<div class="company">
+			<a href="https://softwareacademy.bg/">
+			<img style="height:80vh" src="/ML_SA-Slides/outfit/images/logos/software-web@4x.png" alt="software-web@4x.png">
+			</a>
+		</div>
+		<div class="author">
+			<span class="note"><a href="https://www.linkedin.com/in/ivapopova/">Iva E. Popova</a>,  2022,</span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+			<!-- <i class="fa fa-linkedin"></i> -->
+		</div>
+	</section>
+</section>
+
+<section class="main-sesction-title"><h1>pandas - Overview and Installation</h1></section>
+<section class="sub-sections"><h2>pandas - Overview and Installation</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt><a href="https://pandas.pydata.org/">pandas</a> is an open source library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language</dt>
+			<dt>pandas is great for data analysis and modeling</dt>
+			<dt>The two primary data structures in pandas are <span class="note">Series</span> and <span class="note">DataFrame</span></dt>
+			<dt><a href="https://pandas.pydata.org/">Pandas home page</a></dt>
+		</dl>
+	</section>
+	<section><h3>Install with Anaconda</h3>
+		<dl class="fa">
+			<dt>If you use Anaconda you don't need to install, as pandas is included.</dt>
+			<dt>To start using pandas just open a JupyterLab or VSCode from Anaconda.</dt>
+			<dt>Reference: <a href="https://pandas.pydata.org/getting_started.html">Installation instructions</a></dt>
+		</dl>
+	</section>
+	<section><h3>Install with Conda</h3>
+		<dl class="fa">
+			<dt>You should install pandas in activated conda environment.</dt>
+		</dl>
+		<pre><code rel="Terminal" class="bash" data-noescape>
+			# list your conda environments:
+			$ conda info -e
+
+			# activate conda (base) environment:
+			$ conda activate base
+
+			# install pandas on conda
+			(base)$ conda install pandas
+		</code></pre>
+	</section>
+	<section><h3>Install in Python's venv</h3>
+		<dl class="fa">
+			<dt>You should install pandas in activated Python environment</dt>
+		</dl>
+		<pre><code rel="Terminal" class="bash" data-noescape style="min-height: 50vh;">
+			# create Python environment (if you do not have one):
+			# note that executing next command will create virtual environment in current working directory:
+			$ python3 -m venv .venv
+
+			# activate Python (.venv) environment in Bash:
+			$ source .venv/bin/activate
+
+			# activate Python (.venv) environment in Command Prompt:
+			$ .venv\Scripts\activate.bat
+
+			# install pandas on conda
+			(.venv)$ pip install pandas
+		</code></pre>
+	</section>
+	<section><h3>Use Pandas</h3>
+		<dl class="fa">
+			<dt>You can start using pandas in any Python file</dt>
+			<pre><code rel="pandas_test.py" class="python3">
+				import pandas as pd
+
+				df_users = pd.DataFrame({
+					"name":['Maria', 'Petyr', 'Ivan'],
+					"age":[23, 21, 34],
+					"gender":['female', 'male', 'male']
+				})
+
+				print(df_users)
+			</code></pre>
+			<dt>or or in a JupyterNotebook</dt>
+			<pre><code rel="pandas_test.ipynb" class="python3">
+				import pandas as pd
+
+				df_users = pd.DataFrame({
+					"name":['Maria', 'Petyr', 'Ivan'],
+					"age":[23, 21, 34],
+					"gender":['female', 'male', 'male']
+				})
+
+				df_users
+			</code></pre>
+		</dl>
+	</section>
+</section>
+
+<section class="main-sesction-title"><h1>Pandas Data Structures Overview</h1></section>
+<section class="sub-sections"><h2>Pandas Data Structures Overview</h2>
+	<section>
+		<dl class="fa">
+			<dt>The two primary data structures in pandas are <span class="note">Series</span> and <span class="note">DataFrame</span></dt>
+			<dt>You can think of DataFrame as an excel table, and of Series - as a column in an excel table</dt>
+		</dl>
+		<a href="./images/DF_as_collection_of_Series.png"><img src="./images/DF_as_collection_of_Series.png" alt="./images/DF_as_collection_of_Series.png"></a>
+	</section>
+	<section><h3>What is CSV</h3>
+		<dl class="fa">
+			<dt>A simple way to store big data sets is to use CSV files (comma separated files).</dt>
+			<dt>CSV files contains plain text and is a well know format that can be read by everyone including Pandas</dt>
+			<dt>In next examples we'll be using a dataset <a href="https://raw.githubusercontent.com/ProgressBG-Python-Course/JupyterNotebooksExamples/master/datasets/various/drinks.csv">drinks.csv</a></dt>
+		</dl>
+	</section>
+	<section><h3>Load CSV into DataFrame</h3>
+		<pre><code rel="pandas_csv.ipynb" class="python">
+			import pandas as pd
+
+			csv_file_path = 'https://raw.githubusercontent.com/ProgressBG-Python-Course/JupyterNotebooksExamples/master/datasets/various/drinks.csv'
+
+			df = pd.read_csv(csv_file_path)
+
+			df
+		</code></pre>
+	</section>
+</section>
+
+
+<section class="main-sesction-title"><h1>pandas - Series Object</h1></section>
+<section class="sub-sections"><h2>pandas - Series Object</h2>
+	<section><h3>Pandas Series Object</h3>
+		<dl class="fa">
+			<dt>A Pandas Series is <span class="note">a one-dimensional array</span> of indexed data, based on the NumPy ndarray.</dt>
+			<dt>But a Pandas Series object wraps both <span class="note">a sequence of values</span> and <span class="note">a sequence of indices</span></dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			import pandas as pd
+
+			ds = pd.Series([1,2,3,4])
+			print(ds)
+		</code></pre>
+		<pre><code rel="Output" class="bash" data-noescape>
+			0    1
+			1    2
+			2    3
+			3    4
+			dtype: int64
+		</code></pre>
+	</section>
+	<section><h3>Create a Series Object</h3>
+		<pre><code rel="Syntax" class="bash" data-noescape>
+			pandas.Series( data, index, dtype, copy)
+		</code></pre>
+		<dl class="fa">
+			<dt><span class="note">data</span>: array-like, dict, or scalar value </dt>
+			<dd>Contains data stored in Series</dd>
+			<dt><span class="note">index</span>: array-like or Index (1d)</dt>
+			<dd>Values must have the same length as data</dd>
+			<dt><span class="note">dtype</span>: any numpy datatype </dt>
+			<dd>If None, dtype will be inferred</dd>
+			<dt><span class="note">copy</span>: boolean, default False</dt>
+			<dd>Copy input data</dd>
+		</dl>
+	</section>
+	<section><h3>Create Series with Explicit Indexing</h3>
+		<dl class="fa">
+			<dt>The explicit index definition gives the Series object additional capabilities compared to numpy arrays</dt>
+			<dd class="note">i.e. the index need not to be an integer, but can consist of values of any desired type</dd>
+		</dl>
+		<pre><code rel="Python" class="python">
+			ds = pd.Series([1,2,3,4], index=['a', 'b', 'c', 'd'])
+			print(ds)
+		</code></pre>
+		<pre><code rel="Output" class="bash" data-noescape>
+			a    1
+			b    2
+			c    3
+			d    4
+			dtype: int64
+		</code></pre>
+	</section>
+	<section><h3>Create Series from dictionary</h3>
+		<dl class="fa">
+			<dt>The dict keys will be used for index</dt>
+			<dt>If an index is passed, the values in data corresponding to the labels in the index will be pulled out.</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			ds = pd.Series({
+				"d":4,
+				"a":1,
+				"c":3,
+				"b":2,
+				"e":5
+			})
+			print(ds)
+		</code></pre>
+		<pre><code rel="Output" class="bash" data-noescape>
+			a    1
+			b    2
+			c    3
+			d    4
+			e    5
+			dtype: int64
+		</code></pre>
+	</section>
+	<section><h3 class="advanced">Note</h3>
+		<dl class="fa">
+			<dt>for Python version >= 3.6 and Pandas version >= 0.23:</dt>
+			<dd>the Series index will be ordered by the dict’s insertion order</dd>
+			<dt>for Python < 3.6 or Pandas < 0.23:</dt>
+			<dd>the Series index will be the lexically ordered list of dict keys</dd>
+		</dl>
+	</section>
+	<section><h3>Series Indexing</h3>
+		<dl class="fa">
+			<dt>You can use a single index value, or a list of indexes, or slicing</dt>
+			<dt>Note that, operations such as slicing will also slice the index.</dt>
+			<pre><code rel="Python" class="python">
+				##get index object:
+				print(ds.index)
+				#Index(['apples', 'bananas', 'oranges'], dtype='object')
+
+				## numerical or keyword indexes
+				print(ds["a"])
+				print(ds[0])
+
+				## indexes as list:
+				print(ds[['a', 'c', 'e']])
+				#a    1
+				#c    3
+				#e    5
+				#dtype: int6
+			</code></pre>
+		</dl>
+	</section>
+	<section><h3>Series slicing</h3>
+		<dl class="fa">
+			<dt>the Series also supports array-style operations such as slicing</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			## slicing
+			print(ds["a":"d"])
+			#a    1
+			#b    2
+			#c    3
+			#d    4
+			#dtype: int64
+		</code></pre>
+	</section>
+	<section><h3>Altering index in place</h3>
+		<dl class="fa">
+			<dt>A Series’s index can be altered in place by assignment</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			ds = pd.Series([1,2,3,4,5],index=["a","b","c","d","e"])
+
+			ds.index = ["A","B","C","D","E"]
+			print(ds)
+			#A    1
+			#B    2
+			#C    3
+			#D    4
+			#E    5
+			#dtype: int64
+		</code></pre>
+	</section>
+	<section><h3>NumPy operations on Series</h3>
+		<pre><code rel="Python" class="python">
+			ds = pd.Series([1,2,3,4,5],index=["a","b","c","d","e"])
+
+			## filtering by value
+			ds[ds>2]
+			#c    3
+			#d    4
+			#e    5
+			#dtype: int64
+
+			## multiplication
+			ds*2
+			#a     2
+			#b     4
+			#c     6
+			#d     8
+			#e    10
+			#dtype: int64
+		</code></pre>
+	</section>
+	<section><h3>Dictionary like operation on Series</h3>
+		<pre><code rel="Python" class="python">
+			ds = pd.Series([1,2,3,4,5],index=["a","b","c","d","e"])
+
+			"a" in ds
+			#True
+
+			"f" in ds
+			#False
+		</code></pre>
+	</section>
+	<section><h3>Missing Data</h3>
+		<dl class="fa">
+			<dt>Missing data can appear when we transform or make some operations on Series object. These data values are marked as NaN (Not A Number) values</dt>
+		</dl>
+		<pre><code rel="Python" class="python">
+			ds1 = pd.Series([1,3], index=["a","c"])
+			ds2 = pd.Series([2,3], index=["b","c"])
+
+			print(ds1+ds2)
+			#a    NaN
+			#b    NaN
+			#c    6.0
+			#dtype: float64
+		</code></pre>
+	</section>
+	<section><h3>All Examples in JupyterNotebook</h3>
+		<dl class="fa">
+			<dt>Examples as html: <a href="examples/SeriesObject.html">SeriesObject.html</a></dt>
+
+		</dl>
+	</section>
+	<section><h3>References</h3>
+		<dl class="fa">
+			<dt><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html">pandas.Series @pandas.pydata.org</a></dt>
+		</dl>
+	</section>
+</section>
+
+<section class="main-sesction-title"><h1>pandas - DataFrame Object</h1></section>
+<section class="sub-sections"><h2>pandas - DataFrame Object</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>a DataFrame is an analogue of <span class="note">a two-dimensional array or table</span> with flexible <span class="note">row and column indices</span>.</dt>
+			<dt>You can think of a DataFrame as a sequence of <span class="note">aligned (sharing same index) Series objects </span></dt>
+			<dd>i.e. each column in a DataFrame is represented by a Series Object</dd>
+		</dl>
+	</section>
+	<section><h3>DataFrame as a collection of Series</h3>
+		<dl class="fa">
+			<dt>A DataFrame is a collection of Series objects, and a single-column DataFrame can be constructed from a single Series.</dt>
+		</dl>
+		<pre><code rel="Python" class="python" style="font-size: .9em;">
+			# create Series Object:
+			prices_ds = pd.Series([1.5, 2, 2.5, 3],
+			index=["apples", "oranges", "bananas", "strawberries"])
+
+			# create DataFrame Object from prices Series:
+			prices_df = pd.DataFrame(prices_ds)
+			print(prices_df)
+
+			#                0
+			#apples        1.5
+			#oranges       2.0
+			#bananas       2.5
+			#strawberries  3
+		</code></pre>
+	</section>
+	<section><h3>DataFrame as a collection of Series</h3>
+		<dl class="fa">
+			<dt>A multi-column DataFrame can be thought as a dictionary of Series objects, where the dictionary <span class="note">keys</span> represent the <span class="note">columns names</span>. Note, thet the Series objects must be aligned, i.e. to have the same index.</dt>
+		</dl>
+		<pre><code rel="Python" class="python" style="width: 100%; font-size: .9em;">
+			prices_ds = pd.Series([1.5, 2, 2.5, 3],
+			index=["apples", "oranges", "bananas", "strawberries"])
+
+			suppliers_ds = pd.Series(["supplier1", "supplier2", "supplier4", "supplier3"],
+			index=["apples", "oranges", "bananas", "strawberries"])
+
+			fruits_df = pd.DataFrame({
+				"prices": prices_ds,
+				"suppliers": suppliers_ds
+			})
+			print(fruits_df)
+			#              prices  suppliers
+			#apples           1.5  supplier1
+			#oranges          2.0  supplier2
+			#bananas          2.5  supplier4
+			#strawberries     3.0  supplier3
+		</code></pre>
+	</section>
+	<section><h3>Create DataFrame</h3>
+		<dl class="fa">
+			<dt>Pandas provides various methods for creating DataFrames from objects or different file formats</dt>
+			<dt>Check: <a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/numpy_and_pandas/DataFrame_create.ipynb">DataFrame_create.ipynb</a></dt>
+			<dt>The demo dataset: <a href="https://github.com/geekcourses/JupyterNotebooksExamples/blob/master/datasets/various/drinks.csv">drinks.csv</a> </dt>
+		</dl>
+	</section>
+	<section><h3>DataFrame Indexing</h3>
+		<a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/numpy_and_pandas/DataFrame_index.ipynb">DataFrame_index.ipynb</a>
+	</section>
+	<section><h3>DataFrames Manipulations</h3>
+		<a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/numpy_and_pandas/DataFramesManipulations.ipynb">DataFramesManipulations.ipynb</a>
+	</section>
+	<section><h3>Useful properties and methods</h3>
+		<a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/numpy_and_pandas/DataFrame_useful_properties_and_methods.ipynb">DataFrame_useful_properties_and_methods.ipynb</a>
+	</section>
+</section>
+
+<!-- <section class="main-sesction-title"><h1>DataFrame - Advanced Topics</h1></section>
+<section class="sub-sections"><h2>DataFrame - Advanced Topics</h2>
+	<section><h3>DataFrame: Hierarchical indexing (MultiIndex)</h3>
+		<a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/numpy_and_pandas/DataFrameMultiIndex.ipynb#">Hierarchical indexing (MultiIndex)</a>
+	</section>
+	<section><h3>Grouping</h3>
+		<a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/numpy_and_pandas/DataFrameGroupby.ipynb">DataFrameGroupby (as SQL Joins)</a>
+	</section>
+	<section><h3>Merge</h3>
+		<a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/numpy_and_pandas/DataFramesMerge.ipynb">DataFramesMerge (as SQL Joins)</a>
+	</section>
+</section> -->
+
+<section class="main-sesction-title"><h1>References</h1></section>
+<section class="sub-sections"><h2>References</h2>
+	<section><h3>The Code Examples</h3>
+		<dl class="fa">
+			<dt>All Jupyter Notebooks used in this slides (and even more) are available in the Github repo: <a href="https://github.com/geekcourses/JupyterNotebooksExamples/tree/master/Notebooks/numpy_and_pandas">numpy_and_pandas notebooks @github</a></dt>
+			<dt>You can play with them directly in binder: <a href="https://mybinder.org/v2/gh/geekcourses/JupyterNotebooksExamples/master?filepath=Notebooks%2Fnumpy_and_pandas">numpy_and_pandas notebooks @binder</a></dt>
+		</dl>
+	</section>
+	<section><h3>Readings</h3>
+		<dl class="fa">
+			<dt><a href="https://media.readthedocs.org/pdf/pandasguide/latest/pandasguide.pdf">Pandas Guide PDF</a></dt>
+			<dt><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html">class pandas.DataFrame() @pandas.pydata.org</a></dt>
+		</dl>
+	</section>
+	<section><h3>Pandas on YouTube</h3>
+		<p><a href="https://www.youtube.com/watch?v=0hsKLYfyQZc">Kevin Markham - Using pandas for Better (and Worse) Data Science - PyCon 2019</a></p>
+		<iframe src="https://www.youtube.com/embed/0hsKLYfyQZc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width: 80vw; height: 60vh;"></iframe>
+	</section>
+</section>
+
+
+<section class="disclaimer end-slide"></section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="/ML_SA-Slides/outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="/ML_SA-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+	<script src="/ML_SA-Slides/lib/reveal.js/js/reveal.js"></script>
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		var highlightjsTabSize = '  ';
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+
+			// display control
+			// center: true,
+			// width: '100%',
+			// height: '100%',
+			// // // Factor of the display size that should remain empty around the content
+			// margin: 0.1,
+
+			// The "normal" size of the presentation, aspect ratio will be preserved
+			// when the presentation is scaled to fit different resolutions. Can be
+			// specified using percentage units.
+			width: 1920,
+			height: 1280,
+
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+
+			// Bounds for smallest/largest possible scale to apply to content
+			minScale: 0,
+			maxScale: 2,
+
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// shift+maous click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '/ML_SA-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+	<!-- linkedin badge -->
+	<!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+
+	<!-- MathJax -->
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript" async src="/ML_SA-Slides/lib/MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+</body>
+</html>
