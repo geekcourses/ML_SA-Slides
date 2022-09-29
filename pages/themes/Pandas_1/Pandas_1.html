@@ -181,13 +181,13 @@
 	</section>
 </section>
 
-
 <section class="main-sesction-title"><h1>pandas - Series Object</h1></section>
 <section class="sub-sections"><h2>pandas - Series Object</h2>
 	<section><h3>Pandas Series Object</h3>
 		<dl class="fa">
 			<dt>A Pandas Series is <span class="note">a one-dimensional array</span> of indexed data, based on the NumPy ndarray.</dt>
 			<dt>But a Pandas Series object wraps both <span class="note">a sequence of values</span> and <span class="note">a sequence of indices</span></dt>
+			<dt>Reference: <a href="https://pandas.pydata.org/docs/reference/series.html">Pandas Series</a></dt>
 		</dl>
 		<pre><code rel="Python" class="python">
 			import pandas as pd
@@ -267,31 +267,34 @@
 			<dd>the Series index will be the lexically ordered list of dict keys</dd>
 		</dl>
 	</section>
-	<section><h3>Series Indexing</h3>
+	<section><h3>Series Indexing and Slicing</h3>
 		<dl class="fa">
-			<dt>You can use a single index value, or a list of indexes, or slicing</dt>
-			<dt>Note that, operations such as slicing will also slice the index.</dt>
-			<pre><code rel="Python" class="python">
-				##get index object:
-				print(ds.index)
-				#Index(['apples', 'bananas', 'oranges'], dtype='object')
+			<dt>We can access series element <span class="note">by its position</span>, using <span class="note">square bracket notation</span> as in Python lists</dt>
+			<dt>We can access single series element <span class="note">by its index label</span> in 2 ways:</dt>
+			<dd><span class="note">square bracket notation</span> (as in Python dictionaries)</dd>
+			<dd><span class="note">dot notation</span> (as in Python objects)</dd>
+			<pre><code rel="Python" class="python" style="min-height:60vh;width: 70vw;">
+				# create Series Object:
+				prices_ds = pd.Series(
+							[1.5, 2, 2.5, 3],
+							index=["apples", "oranges", "bananas", "strawberries"]
+				)
 
-				## numerical or keyword indexes
-				print(ds["a"])
-				print(ds[0])
+				# access elements by position:
 
-				## indexes as list:
-				print(ds[['a', 'c', 'e']])
-				#a    1
-				#c    3
-				#e    5
-				#dtype: int6
+
+				# access element by label - dot notation:
+				print( prices_ds.apples )
+
+				# access elements by label - square brackets notation:
+				print( prices_ds['apples'] )
 			</code></pre>
 		</dl>
 	</section>
 	<section><h3>Series slicing</h3>
 		<dl class="fa">
 			<dt>the Series also supports array-style operations such as slicing</dt>
+			<dt>Note that, operations such as slicing will also slice the index.</dt>
 		</dl>
 		<pre><code rel="Python" class="python">
 			## slicing

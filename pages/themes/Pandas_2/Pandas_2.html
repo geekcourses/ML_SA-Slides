@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Pandas_1</title>
+	<title>Pandas_2</title>
 	<link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -28,7 +28,7 @@
 <body>
 	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
 	<div class="top_links">
-		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#Pandas_1" target="_top"></a>
+		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#Pandas_2" target="_top"></a>
 		<span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
 		<div class="help_text">
 			<div class="note">Keyboard shortcuts:</div>
@@ -51,8 +51,8 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section class="presentation-title"><h1>Data analysis with Pandas (1)</h1>
-	<h2>Overview. Installation. Data Types overview.</h2></section>
+<section class="presentation-title"><h1>Data analysis with Pandas (2)</h1>
+	<h2>More on Series. DataFrame Basics.</h2></section>
 <section data-transition="zoom">
 	<section class="copyright" data-transition="zoom">
 		<div>
@@ -71,202 +71,9 @@
 	</section>
 </section>
 
-<section class="main-sesction-title"><h1>pandas - Overview and Installation</h1></section>
-<section class="sub-sections"><h2>pandas - Overview and Installation</h2>
-	<section><h3>Overview</h3>
-		<dl class="fa">
-			<dt><a href="https://pandas.pydata.org/">pandas</a> is an open source library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language</dt>
-			<dt>pandas is great for data analysis and modeling</dt>
-			<dt>The two primary data structures in pandas are <span class="note">Series</span> and <span class="note">DataFrame</span></dt>
-			<dt><a href="https://pandas.pydata.org/">Pandas home page</a></dt>
-		</dl>
-	</section>
-	<section><h3>Install with Anaconda</h3>
-		<dl class="fa">
-			<dt>If you use Anaconda you don't need to install, as pandas is included.</dt>
-			<dt>To start using pandas just open a JupyterLab or VSCode from Anaconda.</dt>
-			<dt>Reference: <a href="https://pandas.pydata.org/getting_started.html">Installation instructions</a></dt>
-		</dl>
-	</section>
-	<section><h3>Install with Conda</h3>
-		<dl class="fa">
-			<dt>You should install pandas in activated conda environment.</dt>
-		</dl>
-		<pre><code rel="Terminal" class="bash" data-noescape>
-			# list your conda environments:
-			$ conda info -e
-
-			# activate conda (base) environment:
-			$ conda activate base
-
-			# install pandas on conda
-			(base)$ conda install pandas
-		</code></pre>
-	</section>
-	<section><h3>Install in Python's venv</h3>
-		<dl class="fa">
-			<dt>You should install pandas in activated Python environment</dt>
-		</dl>
-		<pre><code rel="Terminal" class="bash" data-noescape style="min-height: 50vh;">
-			# create Python environment (if you do not have one):
-			# note that executing next command will create virtual environment in current working directory:
-			$ python3 -m venv .venv
-
-			# activate Python (.venv) environment in Bash:
-			$ source .venv/bin/activate
-
-			# activate Python (.venv) environment in Command Prompt:
-			$ .venv\Scripts\activate.bat
-
-			# install pandas on conda
-			(.venv)$ pip install pandas
-		</code></pre>
-	</section>
-	<section><h3>Use Pandas</h3>
-		<dl class="fa">
-			<dt>You can start using pandas in any Python file</dt>
-			<pre><code rel="pandas_test.py" class="python3">
-				import pandas as pd
-
-				df_users = pd.DataFrame({
-					"name":['Maria', 'Petyr', 'Ivan'],
-					"age":[23, 21, 34],
-					"gender":['female', 'male', 'male']
-				})
-
-				print(df_users)
-			</code></pre>
-			<dt>or or in a JupyterNotebook</dt>
-			<pre><code rel="pandas_test.ipynb" class="python3">
-				import pandas as pd
-
-				df_users = pd.DataFrame({
-					"name":['Maria', 'Petyr', 'Ivan'],
-					"age":[23, 21, 34],
-					"gender":['female', 'male', 'male']
-				})
-
-				df_users
-			</code></pre>
-		</dl>
-	</section>
-</section>
-
-<section class="main-sesction-title"><h1>Pandas Data Structures Overview</h1></section>
-<section class="sub-sections"><h2>Pandas Data Structures Overview</h2>
-	<section>
-		<dl class="fa">
-			<dt>The two primary data structures in pandas are <span class="note">Series</span> and <span class="note">DataFrame</span></dt>
-			<dt>You can think of DataFrame as an excel table, and of Series - as a column in an excel table</dt>
-		</dl>
-		<a href="./images/DF_as_collection_of_Series.png"><img src="./images/DF_as_collection_of_Series.png" alt="./images/DF_as_collection_of_Series.png"></a>
-	</section>
-	<section><h3>What is CSV</h3>
-		<dl class="fa">
-			<dt>A simple way to store big data sets is to use CSV files (comma separated files).</dt>
-			<dt>CSV files contains plain text and is a well know format that can be read by everyone including Pandas</dt>
-			<dt>In next examples we'll be using a dataset <a href="https://raw.githubusercontent.com/ProgressBG-Python-Course/JupyterNotebooksExamples/master/datasets/various/drinks.csv">drinks.csv</a></dt>
-		</dl>
-	</section>
-	<section><h3>Load CSV into DataFrame</h3>
-		<pre><code rel="pandas_csv.ipynb" class="python">
-			import pandas as pd
-
-			csv_file_path = 'https://raw.githubusercontent.com/ProgressBG-Python-Course/JupyterNotebooksExamples/master/datasets/various/drinks.csv'
-
-			df = pd.read_csv(csv_file_path)
-
-			df
-		</code></pre>
-	</section>
-</section>
-
-
 <section class="main-sesction-title"><h1>pandas - Series Object</h1></section>
 <section class="sub-sections"><h2>pandas - Series Object</h2>
-	<section><h3>Pandas Series Object</h3>
-		<dl class="fa">
-			<dt>A Pandas Series is <span class="note">a one-dimensional array</span> of indexed data, based on the NumPy ndarray.</dt>
-			<dt>But a Pandas Series object wraps both <span class="note">a sequence of values</span> and <span class="note">a sequence of indices</span></dt>
-		</dl>
-		<pre><code rel="Python" class="python">
-			import pandas as pd
 
-			ds = pd.Series([1,2,3,4])
-			print(ds)
-		</code></pre>
-		<pre><code rel="Output" class="bash" data-noescape>
-			0    1
-			1    2
-			2    3
-			3    4
-			dtype: int64
-		</code></pre>
-	</section>
-	<section><h3>Create a Series Object</h3>
-		<pre><code rel="Syntax" class="bash" data-noescape>
-			pandas.Series( data, index, dtype, copy)
-		</code></pre>
-		<dl class="fa">
-			<dt><span class="note">data</span>: array-like, dict, or scalar value </dt>
-			<dd>Contains data stored in Series</dd>
-			<dt><span class="note">index</span>: array-like or Index (1d)</dt>
-			<dd>Values must have the same length as data</dd>
-			<dt><span class="note">dtype</span>: any numpy datatype </dt>
-			<dd>If None, dtype will be inferred</dd>
-			<dt><span class="note">copy</span>: boolean, default False</dt>
-			<dd>Copy input data</dd>
-		</dl>
-	</section>
-	<section><h3>Create Series with Explicit Indexing</h3>
-		<dl class="fa">
-			<dt>The explicit index definition gives the Series object additional capabilities compared to numpy arrays</dt>
-			<dd class="note">i.e. the index need not to be an integer, but can consist of values of any desired type</dd>
-		</dl>
-		<pre><code rel="Python" class="python">
-			ds = pd.Series([1,2,3,4], index=['a', 'b', 'c', 'd'])
-			print(ds)
-		</code></pre>
-		<pre><code rel="Output" class="bash" data-noescape>
-			a    1
-			b    2
-			c    3
-			d    4
-			dtype: int64
-		</code></pre>
-	</section>
-	<section><h3>Create Series from dictionary</h3>
-		<dl class="fa">
-			<dt>The dict keys will be used for index</dt>
-			<dt>If an index is passed, the values in data corresponding to the labels in the index will be pulled out.</dt>
-		</dl>
-		<pre><code rel="Python" class="python">
-			ds = pd.Series({
-				"d":4,
-				"a":1,
-				"c":3,
-				"b":2,
-				"e":5
-			})
-			print(ds)
-		</code></pre>
-		<pre><code rel="Output" class="bash" data-noescape>
-			a    1
-			b    2
-			c    3
-			d    4
-			e    5
-			dtype: int64
-		</code></pre>
-	</section>
-	<section><h3 class="advanced">Note</h3>
-		<dl class="fa">
-			<dt>for Python version >= 3.6 and Pandas version >= 0.23:</dt>
-			<dd>the Series index will be ordered by the dict’s insertion order</dd>
-			<dt>for Python < 3.6 or Pandas < 0.23:</dt>
-			<dd>the Series index will be the lexically ordered list of dict keys</dd>
-		</dl>
-	</section>
 	<section><h3>Series Indexing</h3>
 		<dl class="fa">
 			<dt>You can use a single index value, or a list of indexes, or slicing</dt>
@@ -369,13 +176,7 @@
 	</section>
 	<section><h3>All Examples in JupyterNotebook</h3>
 		<dl class="fa">
-			<dt>Examples as html: <a href="examples/SeriesObject.html">SeriesObject.html</a></dt>
-
-		</dl>
-	</section>
-	<section><h3>References</h3>
-		<dl class="fa">
-			<dt><a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html">pandas.Series @pandas.pydata.org</a></dt>
+			<dt><a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/numpy_and_pandas/SeriesObject.ipynb">SeriesObject.ipynb @nbviewer</a></dt>
 		</dl>
 	</section>
 </section>
