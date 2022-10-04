@@ -44,3 +44,4 @@
 *.csv filter=lfs diff=lfs merge=lfs -text
 /pages/themes/Pandas_1/examples/slides/Pipfile filter=lfs diff=lfs merge=lfs -text
 /pages/themes/Pandas_2/examples/slides/Pipfile filter=lfs diff=lfs merge=lfs -text
+/pages/themes/Pandas_3/examples/slides/Pipfile filter=lfs diff=lfs merge=lfs -text
