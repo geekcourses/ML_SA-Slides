@@ -51,8 +51,8 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section class="presentation-title"><h1>Data analysis with Pandas (3)</h1>
-	<h2>DataFrame Indexing and Manipulations.</h2></section>
+<section class="presentation-title"><h1>Data analysis with Pandas (4)</h1>
+	<h2>Hands on Real Dataset - Insights and Manipulations</h2></section>
 <section data-transition="zoom">
 	<section class="copyright" data-transition="zoom">
 		<div>
@@ -72,70 +72,10 @@
 </section>
 
 
-<section class="main-sesction-title"><h1>pandas - DataFrame Object</h1></section>
-<section class="sub-sections"><h2>pandas - DataFrame Object</h2>
-	<section><h3>Overview</h3>
-		<dl class="fa">
-			<dt>a DataFrame is an analogue of <span class="note">a two-dimensional array or table</span> with flexible <span class="note">row and column indices</span>.</dt>
-			<dt>You can think of a DataFrame as a sequence of <span class="note">aligned (sharing same index) Series objects </span></dt>
-			<dd>i.e. each column in a DataFrame is represented by a Series Object</dd>
-		</dl>
-	</section>
-	<section><h3>DataFrame as a collection of Series</h3>
-		<dl class="fa">
-			<dt>A DataFrame is a collection of Series objects, and a single-column DataFrame can be constructed from a single Series.</dt>
-		</dl>
-		<pre><code rel="Python" class="python" style="font-size: .9em;">
-			# create Series Object:
-			prices_ds = pd.Series([1.5, 2, 2.5, 3],
-			index=["apples", "oranges", "bananas", "strawberries"])
-
-			# create DataFrame Object from prices Series:
-			prices_df = pd.DataFrame(prices_ds)
-			print(prices_df)
-
-			#                0
-			#apples        1.5
-			#oranges       2.0
-			#bananas       2.5
-			#strawberries  3
-		</code></pre>
-	</section>
-	<section><h3>DataFrame as a collection of Series</h3>
-		<dl class="fa">
-			<dt>A multi-column DataFrame can be thought as a dictionary of Series objects, where the dictionary <span class="note">keys</span> represent the <span class="note">columns names</span>. Note, thet the Series objects must be aligned, i.e. to have the same index.</dt>
-		</dl>
-		<pre><code rel="Python" class="python" style="width: 100%; font-size: .9em;">
-			prices_ds = pd.Series([1.5, 2, 2.5, 3],
-			index=["apples", "oranges", "bananas", "strawberries"])
-
-			suppliers_ds = pd.Series(["supplier1", "supplier2", "supplier4", "supplier3"],
-			index=["apples", "oranges", "bananas", "strawberries"])
-
-			fruits_df = pd.DataFrame({
-				"prices": prices_ds,
-				"suppliers": suppliers_ds
-			})
-			print(fruits_df)
-			#              prices  suppliers
-			#apples           1.5  supplier1
-			#oranges          2.0  supplier2
-			#bananas          2.5  supplier4
-			#strawberries     3.0  supplier3
-		</code></pre>
-	</section>
-	<section><h3>Create DataFrame</h3>
-		<dl class="fa">
-			<dt>Pandas provides various methods for creating DataFrames from objects or different file formats</dt>
-			<dt>Check: <a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/numpy_and_pandas/DataFrame_create.ipynb">DataFrame_create.ipynb</a></dt>
-			<dt>The demo dataset: <a href="https://github.com/geekcourses/JupyterNotebooksExamples/blob/master/datasets/various/drinks.csv">drinks.csv</a> </dt>
-		</dl>
-	</section>
-	<section><h3>DataFrame Indexing</h3>
-		<a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/numpy_and_pandas/DataFrame_index.ipynb">DataFrame_index.ipynb</a>
-	</section>
-	<section><h3>DataFrames Manipulations</h3>
-		<a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/numpy_and_pandas/DataFramesManipulations.ipynb">DataFramesManipulations.ipynb</a>
+<section class="main-sesction-title"><h1>pandas - DataFrame - Useful properties and methods</h1></section>
+<section class="sub-sections"><h2>pandas - DataFrame - Useful properties and methods</h2>
+	<section>
+		<a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/numpy_and_pandas/DataFrame_useful_properties_and_methods.ipynb">DataFrame_useful_properties_and_methods.ipynb</a>
 	</section>
 </section>
 
