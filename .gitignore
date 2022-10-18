@@ -43,3 +43,6 @@ students/**
 # virtenv:
 .venv
 Pipfile.lock
+
+# large files
+**/datasets/**
