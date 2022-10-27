@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>ML_Basics_DeepLearning</title>
+	<title>ML_types_ML_Process</title>
 	<link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -28,7 +28,7 @@
 <body>
 	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
 	<div class="top_links">
-		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#ML_Basics_DeepLearning" target="_top"></a>
+		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#ML_types_ML_Process" target="_top"></a>
 		<span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
 		<div class="help_text">
 			<div class="note">Keyboard shortcuts:</div>
@@ -51,7 +51,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section data-min-total="135" class="presentation-title"><h1>Основи на Machine learning. Терминология и технологии. Deep learning.</h1></section>
+<section data-min-total="135" class="presentation-title"><h1>ML Types. ML Process.</h1></section>
 <section data-transition="zoom">
 	<section class="copyright" data-transition="zoom">
 		<div>
@@ -71,45 +71,6 @@
 </section>
 
 
-<section data-min="15" class="main-sesction-title"><h1>Machine Learning vs Traditional Programming</h1></section>
-<section class="sub-sections"><h2>Machine Learning vs Traditional Programming</h2>
-	<section><h3>The Differences:</h3>
-		<dl class="fa">
-			<dt><span class="note">Traditional Programming</span>: Data and program is run on the computer to produce the output.</dt>
-			<dt><span class="note">Machine Learning</span>: Data and output is run on the computer to create a program. This program can be used in traditional programming.</dt>
-		</dl>
-		<a href="./images/ML_vs_TraditionalProgramming.png"><img src="./images/ML_vs_TraditionalProgramming.png" alt="ML_vs_TraditionalProgramming.png" style="width: 80vw;"></a>
-	</section>
-	<section><h3>The 4 skills required for a ML Specialists </h3>
-		<dl class="fa">
-			<dt><span class="note">Coding skills:</span> - Building ML models involves much more than just knowing ML concepts—it requires coding in order to do the data management, parameter tuning, and parsing results needed to test and optimize your model</dt>
-			<dt><span class="note">Math and Statistics:</span> - ML is a math heavy discipline, so if you plan to modify ML models or build new ones from scratch, familiarity with the underlying math concepts is crucial to the process.</dt>
-			<dt><span class="note">ML Theory:</span> - Knowing the basics of ML theory will give you a foundation to build on, and help you troubleshoot when something goes wrong.</dt>
-			<dt><span class="note">Practice</span> - Getting hands on experience with ML is the best way to put your knowledge to the test, so don't be afraid to dive in early.</dt>
-			<dt>Reference: <a href="https://www.tensorflow.org/resources/learn-ml?gclid=CjwKCAjwqauVBhBGEiwAXOepkRk__Z-BHe3RArRYwYj0efOejLcLUumi7icQZl_LaTQ_27GdSKfxLBoCyE8QAvD_BwE#four-areas">Master your path @tensorflow.org</a></dt>
-		</dl>
-	</section>
-</section>
-
-<section data-min="10" class="main-sesction-title"><h1>ML Algorithm vs Model - concepts clarification</h1></section>
-<section class="sub-sections"><h2>ML Algorithm vs Model - concepts clarification</h2>
-	<section><h3>What is Algorithm in ML?</h3>
-		<dl class="fa">
-			<dt>The word "algorithm" in machine learning denotes the same concept as in Computer Science.</dt>
-			<dt>ML algorithms basically performs "pattern recognition". They "learn" from data (i.e. "fit" on a dataset).</dt>
-			<dt>ML algorithms are used to create a machine learning "model".</dt>
-		</dl>
-	</section>
-	<section><h3>What is "model" in ML?</h3>
-		<dl class="fa">
-			<dt>An ML "model" <span class="note">is the output of a ML algorithm</span> run on particular data</dt>
-			<dt>The model is the "thing" that is produced after running a ML algorithm on particular training data.</dt>
-			<dt>The model represents the rules, numbers, and any other algorithm-specific data structures required to make predictions</dt>
-			<dd>For example, the "decision tree" algorithm run on particular data results in a model comprised of a tree of if-then statements with specific values.</dd>
-		</dl>
-	</section>
-</section>
-
 <section data-min="10" class="main-sesction-title"><h1>Types of ML Algorithms</h1></section>
 <section class="sub-sections"><h2>Hundreds of ML Algorithms</h2>
 	<section><h3>Classification map of ML Algorithms</h3>
@@ -119,7 +80,7 @@
 			<dd>How the algorithm works?</dd>
 			<dd>What types of task is an algorithm suitable for?</dd>
 		</dl>
-		<a href="images/MachineLearningAlgorithmsMiniMap.png"><img src="images/MachineLearningAlgorithmsMiniMap.png" style="width: 100vw;"></a>
+		<a href="images/MachineLearningAlgorithmsMiniMap.png"><img src="images/MachineLearningAlgorithmsMiniMap.png" style="width: 80vw;"></a>
 	</section>
 	<section><h3>Three Basic Types</h3>
 		<dl class="fa">
@@ -132,7 +93,7 @@
 <section data-min="10" class="main-sesction-title"><h1>Supervised Learning Basics </h1></section>
 <section class="sub-sections"><h2>Supervised Learning Basics</h2>
 	<section><h3>It's all about training</h3>
-		<a href="./images/TraingML.png"><img src="./images/TraingML.png" alt="TraingML.png" style="height: 150vh; "></a>
+		<a href="./images/TraingML.png"><img src="./images/TraingML.png" alt="TraingML.png" style="height: 100vh; "></a>
 	</section>
 	<section><h3>Overview</h3>
 		<dl class="fa">
@@ -140,8 +101,8 @@
 			<dt>Supervised ML is when we have historical <span class="note">data with mapped input => output pairs</span> and we use an algorithm to learn the mapping function from the input to the output.</dt>
 			<dt>Input data are called <i class="note">features</i> or <i class="note">input (free) variables (<b>X</b>)</i></dt>
 			<dt>Output data is called <i class="note">target</i> or <i class="note">dependent variable (<b>y</b>)</i></dt>
-			<a href="./images/SupervisedML.png" style="float: left;"><img src="./images/SupervisedML.png" alt="SupervisedML.png" style="height: 100vh;"></a>
-			<a href="./images/feature_target_concepts.png" style="float: left;"><img src="./images/feature_target_concepts.png" alt="feature_target_concepts " style="height: 100vh;"></a>
+			<a href="./images/SupervisedML.png" style="float: left;"><img src="./images/SupervisedML.png" alt="SupervisedML.png" style="height:60vh"></a>
+			<a href="./images/feature_target_concepts.png" style="float: left;"><img src="./images/feature_target_concepts.png" alt="feature_target_concepts" style="height:60vh"></a>
 		</dl>
 	</section>
 	<section><h3>Overview</h3>
@@ -176,6 +137,7 @@
 	</section>
 </section>
 
+
 <section data-min="10" class="main-sesction-title"><h1>Unsupervised Learning</h1></section>
 <section class="sub-sections"><h2>Unsupervised Learning</h2>
 	<section><h3>What?</h3>
@@ -186,8 +148,10 @@
 		</dl>
 	</section>
 	<section>
-		<dt>The learning algorithm can <span class="note">only use similarities between input data to group (cluster) it</span></dt>
-		<a href="images/unsupervised_learning_clusterisation.jpeg"><img src="images/unsupervised_learning_clusterisation.jpeg" style="width: 100vw;"></a>
+		<dl class="fa">
+			<dt>The learning algorithm can <span class="note">only use similarities between input data to group (cluster) it</span></dt>
+		</dl>
+		<a href="images/unsupervised_learning_clusterisation.jpeg"><img src="images/unsupervised_learning_clusterisation.jpeg" style="width: 70vw;"></a>
 	</section>
 	<section><h3>Popular Algorithms</h3>
 		<dl class="fa">
@@ -217,10 +181,6 @@
 			<dd>A telco company has huge amount of data of its customers</dd>
 			<dd>Demographic and personal data, how long they speak and with whom, ...</dd>
 			<dd>The company may use clustering algorithms to see the groups of customers with similar attributes</dd>
-		</dl>
-	</section>
-	<section><h3>Applications: </h3>
-		<dl class="fa">
 			<dt><i>Image compression</i></dt>
 			<dd>The pixels of an image are the input data</dd>
 			<dd>The clustering algorithm can group pixels with similar colors</dd>
@@ -246,19 +206,12 @@
 <section data-min="10" class="main-sesction-title"><h1>Reinforcement Learning</h1></section>
 <section class="sub-sections"><h2>Reinforcement Learning</h2>
 	<section><h3>Overview</h3>
-		<blockquote>
-			In reinforcement learning, the learner is a <span class="note">decision-making agent that takes actions</span>
-			 in an environment and <span class="note">receives reward</span> (or penalty)
-			for its actions in trying to solve a problem. After a set of trial-and-
-			error runs, it should learn the best policy, which is the <span class="note">sequence of
-			actions</span> that maximize the total reward.
-		</blockquote>
-		<a href="images/Reinforcement_learning_diagram.svg.png"><img src="images/Reinforcement_learning_diagram.svg.png" style="height:10 0vh"></a>
-	</section>
-	<section>
 		<dl class="fa">
+			<dt>In reinforcement learning, the learner is a <span class="note">decision-making agent that takes actions</span> in an environment and <span class="note">receives reward</span> (or penalty) for its actions in trying to solve a problem.</dt>
+			<dt>After a set of trial-and-error runs, it should learn the best policy, which is the <span class="note">sequence of actions</span> that maximize the total reward.</dt>
 			<dt>Reinforcement Learning is inspired and closely connected with Behaviorist psychology and finds application in most ML tasks.</dt>
 		</dl>
+		<a href="images/Reinforcement_learning_diagram.svg.png"><img src="images/Reinforcement_learning_diagram.svg.png" style="height:50vh"></a>
 	</section>
 </section>
 
@@ -271,6 +224,50 @@
 			<dt>Deep Learning can be used for Supervised, Unsupervised or Reinforcment Learning</dt>
 		</dl>
 
+	</section>
+</section>
+
+<section data-min="10" class="main-sesction-title"><h1>ML Algorithm vs Model - concepts clarification</h1></section>
+<section class="sub-sections"><h2>ML Algorithm vs Model - concepts clarification</h2>
+	<section><h3>What is Algorithm in ML?</h3>
+		<dl class="fa">
+			<dt>The word "algorithm" in machine learning denotes the same concept as in Computer Science.</dt>
+			<dt>ML algorithms basically performs "pattern recognition". They "learn" from data (i.e. "fit" on a dataset).</dt>
+			<dt>ML algorithms are used to create a machine learning "model".</dt>
+		</dl>
+	</section>
+	<section><h3>What is "model" in ML?</h3>
+		<dl class="fa">
+			<dt>An ML "model" <span class="note">is the output of a ML algorithm</span> run on particular data</dt>
+			<dt>The model is the "thing" that is produced after running a ML algorithm on particular training data.</dt>
+			<dt>The model represents the rules, numbers, and any other algorithm-specific data structures required to make predictions</dt>
+			<dd>For example, the "decision tree" algorithm run on particular data results in a model comprised of a tree of if-then statements with specific values.</dd>
+		</dl>
+	</section>
+</section>
+
+
+<section data-min="50" class="main-sesction-title"><h1>The Machine Learning process</h1></section>
+<section class="sub-sections"><h2>The Machine Learning process</h2>
+	<section>
+		<p>It is an <span class="note">iterative process</span>
+		<a href="images/ML_Process_iep.png"><img src="images/ML_Process_iep.png" style="height: 60vh;"></a>
+	</section>
+</section>
+
+
+
+<section data-min="50" class="main-sesction-title"><h1>Practice</h1></section>
+<section class="sub-sections"><h2>Practice</h2>
+	<section><h3>ML Process Demo (Iris Classification) with Scikit-Learn</h3>
+		<p>Live Demo: <a href="https://github.com/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/ML_Process_with_Iris_Classifier/ML_Process_with_Iris_kNN.ipynb">IrisClasifier.ipynb</a></p>
+
+		<dl class="fa">
+			<dt>Tasks:</dt>
+			<dd>Get file from GitHub</dd>
+			<dd>Open Jupyter Notebook (<code>ipynb</code>) file in Google Colab</dd>
+			<dd>Run the Notebook</dd>
+		</dl>
 	</section>
 </section>
 
@@ -298,7 +295,7 @@
 	<dl class="fa">
 		<dt>PLease, prefix your filenames/archive with your name initials, before sending.</dt>
 		<dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
-		<dt>Send files to <a href="mailto:netIT.WWW.Courses@gmail.com?Subject=_ML_Basics_DeepLearning_">netIT.WWW.Courses@gmail.com</a></dt>
+		<dt>Send files to <a href="mailto:netIT.WWW.Courses@gmail.com?Subject=_ML_types_ML_Process_">netIT.WWW.Courses@gmail.com</a></dt>
 	</dl>
 </section> -->
 
@@ -369,6 +366,10 @@
 	<!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
 
 	<!-- MathJax -->
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript" async src="/ML_SA-Slides/lib/MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>
 
 </body>
 </html>
