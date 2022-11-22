@@ -1,0 +1,26 @@
+import numpy as np
+
+SIZE = 2_000_000
+
+
+# The point to point sum on both data structures
+def python_lists():
+	# Create Python's lists
+	l1 = list(range(SIZE))
+	l2 = list(range(SIZE))
+
+	result = [(x+y) for x,y in zip(l1,l2)]
+
+def numpy_arrays():
+	# Create Numpy Arrays
+	a1=np.arange(SIZE)
+	a2=np.arange(SIZE)
+
+	result = a1 + a2
+
+# Time test:
+print('Timing Lists Sum:')
+%time python_lists()
+print('-'*50)
+print('Timing Arrays Sum:')
+%time numpy_arrays()
