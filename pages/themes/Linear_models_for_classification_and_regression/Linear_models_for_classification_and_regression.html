@@ -131,11 +131,12 @@
 	</section>
 	<section><h3>Slope-intercept form</h3>
 		<dl class="fa">
-			<dt>Slope-intercept form is one way to write the equation of a line. Equations in slope-intercept form follow this structure:
-				$${y=mx+b}$$
+			<dt>Slope-intercept form is a way to write the equation of a line, following this structure: <br>
+				<span class="note" style="font-size: 1.5em;margin:2em">${y=mx+b}$</span>
 			</dt>
-			<dd>In this equation, m is the slope and b is the y-intercept.</dd>
-			<dt>Slope is a measure of a line's steepness. It can be found by calculating the change in y over the change in x, or rise over run.</dt>
+			<dd>In this equation, slope=$m$,  intercept=$b$</dd>
+			<dd>Note that in statistics, the notation is: slope=$\beta_1$, intercept=$\beta_0$, or <span class="note">$y={\beta_1}x+\beta_0$</span></dd>
+			<dt>Slope is a measure of a line's steepness. It can be found by calculating the change in y over the change in x.</dt>
 		<dt>The y-intercept is the point where the line crosses the y-axis. It is the ordered pair (0,b).</dt>
 		<dt>For example, the line ${y=3/2x+1}$ has a slope of ${3/2}$ and a y-intercept of 1. That line is graphed below.</dt>
 		<a href="./images/slope-intercept-plot-method.png"><img src="./images/slope-intercept-plot-method.png" alt="slope-intercept-plot-method.png"></a>
@@ -171,37 +172,46 @@
 			<a href="images/least_squares_vs_orthogonal_distance.png"><img src="images/least_squares_vs_orthogonal_distance.png" alt="least_squares_vs_orthogonal_distance" style="height: 15em;"></a>
 		</dl>
 	</section>
-	<section><h3>Least Squares Method estimation</h3>
+</section>
+
+
+<section data-min="5" class="main-sesction-title"><h1>Least Squares Regression Method</h1></section>
+<section class="sub-sections"><h2>Least Squares Regression Method</h2>
+	<section><h3>Overview</h3>
 		<dl class="fa">
-			<dt>In practice we have a collection of observations but we do not know the values of the coefficients ${\beta_0},{\beta_1}, ..., {\beta_k} $. These need to be estimated from the data.</dt>
-			<dt>The least squares principle provides a way of choosing the coefficients effectively by minimizing the sum of the squared errors. That is, we choose the values of ${\beta_0},{\beta_1}, ..., {\beta_k} $ that minimise</dt>
-			<p>$$\sum_{i=1}^N \varepsilon_i^2 = \sum_{i=1}^N (y_i -
-				\beta_{0} - \beta_{1} x_{1,i} - \beta_{2} x_{2,i} - \cdots - \beta_{k} x_{k,i})^2.$$</p>
-			<dt>This is called least squares estimation because it gives the least value for the sum of squared errors. Finding the best estimates of the coefficients is often called “fitting” the model to the data, or sometimes “learning” or “training” the model</dt>
+			<dt>Least Squares regression is a method to find the least-squares regression line (i.e. the  line of best fit) for a set of data. That line should minimizes the sum of the residuals, or errors, squared.</dt>
+			<dt> Finding the best estimates of the coefficients is often called “fitting” the model to the data, or sometimes “learning” or “training” the model.</dt>
+			<dt>The Least Squares Method estimates $\beta_0$ and $\beta_1$, that <span class="note">minimize the sum of the squared residuals</span> $r_i = y_i - (\beta_0 + \beta_1 x_i)$ in the model. I.e. it makes the difference between the observed $y_i$ and linear model $\beta_0 + \beta_1 x_i$ as small as possible. </dt>
+			<!-- <dt>The equation of the line is: ${y=\beta_0 + \beta_1x}$</dt> -->
+			<div style="display: flex;align-items: center;justify-content: center; gap:3em ">
+				<a href="images/linear_regression_distances.jpeg"><img src="images/linear_regression_distances.jpeg" alt="linear_regression_distances" style="height: 8em;"></a>
+				<p>$$ S = \sum_{i=1}^N r_i^2 = \sum_{i=1}^N (y_i - (\beta_0 + \beta_1 x_i))^2 $$</p>
+			</div>
+			<dt>where $N$ is the number of observations.</dt>
+			<dt>The above given formula is for simple regression. For multiple regression the formula is:</dt>
+			<p>$$\sum_{i=1}^N r_i^2 = \sum_{i=1}^N (y_i -
+				(\beta_{0} + \beta_{1} x_{1,i} + \beta_{2} x_{2,i} + \cdots + \beta_{k} x_{k,i}))^2.$$</p>
+		</dl>
+	</section>
+	<section><h3>Calculus</h3>
+		<dl class="fa">
+			<dt>The least-squares regression line works best for linear data. If the equation of the fit line is $y = mx + b$, then we can find m by:
+			$$m=r{\frac{S_x}{S_y}}$$
+			</dt>
+			<dt>Explanation:</dt>
+			<a href="./images/Calculating_the_equation_of_a_regression_line.png"><img src="./images/Calculating_the_equation_of_a_regression_line.png" alt=""></a>
 		</dl>
 	</section>
 </section>
 
 <section data-min="5" class="main-sesction-title"><h1>Calculate the error</h1></section>
 <section class="sub-sections"><h2>Least Squares Method</h2>
-	<section><h3>Least Squares Method - Overview</h3>
-		<p>$$ S = \sum_{i=1}^N r_i = \sum_{i=1}^N (y_i - (\beta_0 + \beta_1 x_i))^2 $$</p>
-		<dl class="fa">
-			<dt>where $N$ is the number of observations.</dt>
-			<dt>the least squares estimates $\hat{\beta}_0$ and $\hat{\beta}_1$, that <span class="note">minimize the sum of the squared residuals</span> $r_i = y_i - (\beta_0 + \beta_1 x_i)$ in the model. <br> I.e. makes the difference between the observed $y_i$ and linear model $\beta_0 + \beta_1 x_i$ as small as possible. </dt>
-		</dl>
-	</section>
-	<section><h3>Least Squares Method - Overview</h3>
-		<dl class="fa">
-			 <a href="images/linear_regression_distances.jpeg"><img src="images/linear_regression_distances.jpeg"></a>
-			 <dt>There are different metrics used to calculate the Square Error.</dt>
-		</dl>
-	</section>
 	<section><h3>Mean Absolute Error</h3>
 		<dl class="fa">
 			<dt>Mean Absolute Error (MAE) is is the mean of the absolute value of the errors</dt>
 			<p>$$\frac 1n\sum_{i=1}^n|y_i-\hat{y}_i|$$</p>
 			<dt>Mean Absolute Error (MAE) is the average vertical/horizontal distance between each point and the identity line.</dt>
+			<img src="./images/MAE.png" style="height:18em">
 		</dl>
 	</section>
 	<section><h3>Mean Squared Error</h3>
@@ -209,6 +219,7 @@
 		 <dt>Mean Squared Error (MSE) is the mean of the squared errors:</dt>
 		 <p>${MSE} ={\frac {1}{n}}\sum _{i=1}^{n}(Y_{i}-{\hat {Y_{i}}})^{2} $</p>
 		 <dt>MSE "punishes" larger errors, which is quite useful in the real world</dt>
+		 <img src="./images/RMSE.png" style="height:18em">
 	 </dl>
 	</section>
 	<section><h3>Root Mean Squared Error</h3>
@@ -216,6 +227,7 @@
 			<dt>Root Mean Squared Error (RMSE) is the square root of the mean of the squared errors:</dt>
 			<p>$$\sqrt{\frac 1n\sum_{i=1}^n(y_i-\hat{y}_i)^2}$$</p>
 			<dt>RMSE is interpretable in the "y" units.</dt>
+
 		</dl>
 	</section>
 </section>
