@@ -195,11 +195,18 @@
 	</section>
 	<section><h3>Calculus</h3>
 		<dl class="fa">
-			<dt>The least-squares regression line works best for linear data. If the equation of the fit line is $y = mx + b$, then we can find m by:
-			$$m=r{\frac{S_x}{S_y}}$$
-			</dt>
+			<dt>To calculate the line coefficients for regression line ($\hat{y}=mx+b$) we make the assumption that the line will pass through the point ($\bar{x},\bar{y}$), and we can use: <br><br>
+				1. $m=r.\frac{S_y}{S_x}$, <br>
+				2. $b=\bar{y}-\bar{x}m$, <br><br>
+
+				where $r$ is the correlation coefficient of the dataset, and $S_x$, $S_y$ is the sample standard deviation of x and y</dt>
 			<dt>Explanation:</dt>
 			<a href="./images/Calculating_the_equation_of_a_regression_line.png"><img src="./images/Calculating_the_equation_of_a_regression_line.png" alt=""></a>
+		</dl>
+	</section>
+	<section><h3>LSRM Calculation - Hands on </h3>
+		<dl class="fa">
+			<dt>The steps and explanations are given in next Jupyter Notebook: <a href="https://github.com/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/supervised_learning_algorihtms/linear_models_for_classification_and_regression/LSRM_DeepExplanations.ipynb">LSRM_DeepExplanations.ipynb</a></dt>
 		</dl>
 	</section>
 </section>
@@ -293,8 +300,18 @@
 	<section>
 		<dl class="fa">
 			<dt>Gradient Descent is an algorithm that finds the best-fit line for a given training dataset in a smaller number of iterations.</dt>
+			<dt>Reference: <a href="https://en.wikipedia.org/wiki/Gradient_descent">Gradient descent @wikipedia</a></dt>
+			<dt>Self-learning: <a href="https://towardsdatascience.com/gradient-descent-algorithm-a-deep-dive-cf04e8115f21">Gradient Descent Algorithm — a deep dive</a></dt>
 		</dl>
-		<a href="https://en.wikipedia.org/wiki/Gradient_descent">Gradient descent</a>
+
+		<div style="display: flex; gap:0em; align-items: center;">
+			<div><a href="./images/gradient_descend.gif">
+				<img src="./images/gradient_descend.gif" alt="" style="height: 16em;"></a>
+			</div>
+			<div><a href="./images/gradient_descent-3d.gif">
+				<img src="./images/gradient_descent-3d.gif" alt="" style="height: 16em;"></a>
+			</div>
+		</div>
 	</section>
 </section>
 
