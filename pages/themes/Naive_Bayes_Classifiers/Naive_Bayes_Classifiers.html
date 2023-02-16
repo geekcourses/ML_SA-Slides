@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Naive_Bayes_Classifiers</title>
+	<link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="/ML_SA-Slides/lib/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="/ML_SA-Slides/outfit/css/themes/projector.css" id="theme">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '/ML_SA-Slides/lib/reveal.js/css/print/pdf.css' : '/ML_SA-Slides/lib/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- CUSTOM -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+	<div class="top_links">
+		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#Naive_Bayes_Classifiers" target="_top"></a>
+		<span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
+		<div class="help_text">
+			<div class="note">Keyboard shortcuts:</div>
+			<div><span>N/Спейс</span><span>Next Slide</span></div>
+			<div><span>P</span><span>Previous Slide</span></div>
+			<div><span>O</span><span>Slides Overview</span></div>
+			<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+			<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+			Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+		</div>
+	</div>
+	<div class="footer theme_switch">
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+	</div>
+	<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section data-min-total="__X__" class="presentation-title"><h1>Naive Bayes Classifiers</h1></section>
+<section data-transition="zoom">
+	<section class="copyright" data-transition="zoom">
+		<div>
+			<p style="text-align: center;">Created for</p>
+		</div>
+		<div class="company">
+			<a href="https://softwareacademy.bg/">
+			<img style="height:80vh" src="/ML_SA-Slides/outfit/images/logos/software-web@4x.png" alt="software-web@4x.png">
+			</a>
+		</div>
+		<div class="author">
+			<span class="note"><a href="https://www.linkedin.com/in/ivapopova/">Iva E. Popova</a>,  2022,</span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+			<!-- <i class="fa fa-linkedin"></i> -->
+		</div>
+	</section>
+</section>
+
+
+<section data-min="__Y__" class="main-sesction-title"><h1>___MainSectionTitle___</h1></section>
+<section class="sub-sections"><h2>___MainSectionTitle___</h2>
+	<section ><h3>___SubSectionTitle___</h3>
+
+	</section>
+</section>
+
+
+<section data-min="__Y__" class="main-sesction-title"><h1> gentile introduction to probability theory</h1></section>
+<section class="sub-sections"><h2>A gentile introduction to probability theory and conditional probability</h2>
+	<section><h3>The Three Axioms of Probability - Sample space</h3>
+		<dl class="fa">
+			<dt><span class="note">Sample space</span> $\Omega$:</dt>
+			<dd>The set of all possible outcomes of a random experiment.</dd>
+		<dd>Sample space is denoted by $\Omega$ (Omega)</dd>
+			<dt>Examples:</dt>
+			<dd>One coin toss: $\Omega$ = {H, T}</dd>
+			<dd>Two coin toss: $\Omega$ = {HH, HT, TH, TT}</dd>
+			<dd>Dice toss: $\Omega$ = {1, 2, 3, 4, 5, 6}</dd>
+		</dl>
+	</section>
+	<section><h3>The Three Axioms of Probability - Event space</h3>
+		<dl class="fa">
+		<dt><span class="note">event</span> - a <span class="note">set of outcomes</span> of an experiment (a subset of the sample space) to which a probability is assigned</dt>
+		<dd>In die-rolling example, an event A can be "an even number is obtained", which is the set {2,4,6}, and the probability of this event is P(A) = 3/6 = 0.5 </dd>
+			<dt><span class="note">Event space</span> ${\mathcal {F}}$:</dt>
+			<dd>A set of events $A$, where $A ∈ {\mathcal {F}}$, which are subsets of $\Omega$. <br></dd>
+		<dd>The event space ${\mathcal {F}}$ is itself an event, because it is a collection of outcomes</dd>
+		</dl>
+	</section>
+	<section><h3>Event types</h3>
+		<dl class="fa">
+			<dt><span class="note">Disjoint events</span> are events that never occur at the same time. These are also known as <b>mutually exclusive</b> events. </dt>
+			<dd>Example:  if we roll a die, the outcomes 1 and 2 are disjoint since they cannot both occur.</dd>
+			<dt><span class="note">Independent events</span> are unrelated events. The outcome of one event does not impact the outcome of the other event. Independent events can, and do often, occur together</dt>
+			<dt><span class="note">Dependent events</span> </dt>
+			<dd>Example: if we roll two dice, the event of rolling 3 on the first die and the event sum of the numbers on the two dice to be 8 are dependent</dd>
+			<dt><span class="note">Mutually exclusive events</span> are those events that do not occur at the same time</dt>
+			<dd>Example: we can't roll one die and get both an odd number and an even number on the same roll</dd>
+		</dl>
+	</section>
+	<section><h3>The Three Axioms of Probability - Probability measure and rules</h3>
+		<dl class="fa">
+			<dt><span class="note">Probability measure</span>:  a function $P : {\mathcal {F}} → \mathbb{R}$ that satisfies the following properties:</dt>
+			<dd>$P(A) ≥ 0$, for all $A ∈ {\mathcal {F}}$</dd>
+			<dd>$P(\Omega) = 1$</dd>
+			<dd>If $A1, A2, . . . An$ are disjoint events, then $P(∪iAi) = \sum_i P(Ai)$. I.e. the probability assigned to the union of two or more disjoint events by the probability measure should be the sum of the probabilities of the events</dd>
+		</dl>
+	</section>
+	<section><h3>Probability Rules</h3>
+		<dl class="fa">
+			<dt>The probability of an event A  is: $0 \lt A \leq 1$</dt>
+			<dt>The sum of probabilities of all possible events equals 1.</dt>
+			<dt>All probability rules: <a href="http://www.probabilityformula.org/probability-rules.html">Probability Rules @probabilityformula.org</a></dt>
+		</dl>
+	</section>
+	<section><h3>Subtraction Rule</h3>
+		<p>The probability that event A will occur is equal to 1 minus the probability that event A will not occur</p>
+		<pre><code rel="Subtraction Rule" class="js">
+			P(A) = 1 - P(A')
+		</code></pre>
+	</section>
+	<section><h3>Rules of Addition</h3>
+	 <pre><code rel="Rule 1 (Mutually Exclusive Events)" class="ascii">
+			P(A or B) = P(A) + P(B)
+
+			P(A + B) = 1
+	 </code></pre>
+	 <pre><code rel="Rule 2 (Non-mutually Exclusive Events)" class="ascii">
+			P(A or B) = P(A) + P(B) − P(A and B)
+	 </code></pre>
+	</section>
+	<section><h3>Rules of Multiplication</h3>
+	 <pre><code rel="Rule 1 (Mutually Exclusive Events)" class="ascii">
+			P(A and B) = 0
+	 </code></pre>
+	 <pre><code rel="Rule 2 (Independent Events)" class="ascii">
+			P(A and B)  = P(A)× P(B)
+	 </code></pre>
+	 <pre><code rel="Rule 3 (Dependent Events)" class="ascii">
+			P(A and B)  = P(A) × P(B|A)
+	 </code></pre>
+	</section>
+	<section><h3>Example - One Dice toss</h3>
+		<dl class="fa">
+			<dt>$\Omega$ = {1, 2, 3, 4, 5, 6}</dt>
+			<dt>$P(X=1) = \frac{1}{6}$</dt>
+			<dt>$P(X=6) = \frac{1}{6}$</dt>
+			<dt>$P(X=\{1, 2, 3, 4\}) = \frac{1}{6} + \frac{1}{6} + \frac{1}{6} + \frac{1}{6} = \frac{2}{3}$</dt>
+			<dt>$P(X<=3) = \frac{1}{6} + \frac{1}{6} + \frac{1}{6} = \frac{1}{2}$</dt>
+		</dl>
+	</section>
+	<section><h3>Example - Two Dice toss</h3>
+		 <dl class="fa">
+				<dt>$\Omega$ = {1, 2, 3, 4, 5, 6}</dt>
+				<dd>Let X is the outcome of Dice 1, $X \subseteq \Omega$</dd>
+				<dd>Let Y is the outcome of Dice 2, $Y \subseteq \Omega$</dd>
+				<dt>P(X=6 and Y=6) = $\frac{1}{6} \cdot \frac{1}{6} = \frac{1}{36}$</dt>
+				<dt>P(X=1, Y=1 or X=6, Y=6) = $\frac{1}{6} \cdot \frac{1}{6} + \frac{1}{6} \cdot \frac{1}{6} = \frac{1}{18}$</dt>
+		 </dl>
+	</section>
+	<section><h3>Random Variable</h3>
+		<dl class="fa">
+			<dt>$X$ is variable which holds an outcome of experiment, $X \in \Omega$</dt>
+			<dt>Random variables can be discrete or continuous</dt>
+			<dt>In practise, $X$ is defined as function that maps the outcomes</dt>
+			<dd>$X : \Omega \to \mathbb{R}$</dd>
+			<dt>Example: given: 5 coin toss</dt>
+			<dd>$\omega = \{H, T, H, H, T\} \subseteq \Omega$</dd>
+			<dd>In practice, we are not interested of the concrete values, but for instance, what is the number of heads that appear among our 5 tosses</dd>
+		</dl>
+	</section>
+	<section><h3 class="advanced">Probability Distribution</h3>
+		<dl class="fa" style="font-size: .9em">
+			<dt><span class="note">Probability Distribution</span> is a function that describes all the possible values that a random variable can take within a given sample space. </dt>
+			<dt>Two types of Probability Distribution, depending of the type of Random Variable:</dt>
+			<dt><span class="note">Continuous distribution</span></dt>
+			<dd>A function that describes the probabilities of the possible values of a continuous random variable</dd>
+			<dt><span class="note">Discrete distribution</span></dt>
+			<dd>A function that describes the probability of occurrence of each value of a discrete random variable</dd>
+		<!--   <dt>Reference: <a href="https://support.minitab.com/en-us/minitab-express/1/help-and-how-to/basic-statistics/probability-distributions/supporting-topics/basics/continuous-and-discrete-probability-distributions/"></a></dt> -->
+		</dl>
+	</section>
+	<section><h3>Probability Distribution of rolling a dice:</h3>
+		<dl class="fa">
+			<dt>The probability distribution of rolling a die can be made expirimentally. If we throw 1 die hundred times, or 2 dies hundred times and record the results, we have:</dt>
+		</dl>
+		<img src="./images/probability_distribution_rolleing_dice_1_2_times.webp" style="min-height:13em">
+	</section>
+	 <section><h3 class="advanced">Discrete distribution</h3>
+		<a href="images/discrete_distribution.png.png"><img src="images/discrete_distribution.png.png" style="min-height:100vh"></a>
+	</section>
+	<section><h3 class="advanced">Continuous distribution</h3>
+		<a href="images/continuous_distribution.png"><img src="images/continuous_distribution.png" style="min-height:100vh"></a>
+	</section>
+	<section><h3 class="advanced">Probability Density Function (PDF)</h3>
+		<dl class="fa">
+			<dt>The <i>absolute likelihood</i> for a continuous random variable to take on any particular value is 0 (since there are an infinite set of possible values to begin with)</dt>
+			<dt>So, we use PDF which  provides a <i>relative likelihood</i> that the value of the random variable would equal that sample.</dt>
+		</dl>
+	</section>
+	<section><h3>References</h3>
+		<h3></h3>
+		<iframe width="713" height="401" src="https://www.youtube.com/embed/wG_gQpXJNGU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</section>
+</section>
+
+
+<section data-min="__Y__" class="main-sesction-title"><h1>Conditional probability</h1></section>
+<section class="sub-sections"><h2>Conditional probability</h2>
+	<section><h3>Basics</h3>
+		<dl class="fa">
+			<dt>Let's have to events: A and B</dt>
+			<dt>$P(A|B)$ (read as <span class="note">A given B</span>) is the probability measure of the event A <span class="note">after</span> observing the occurrence of event B.</dt>
+			<dt>The conditional probability of any event A given B is defined as: </dt>
+			<p>$$ P(A\mid B)={\frac {P(A\cap B)}{P(B)}} $$</p>
+			<dd>Where  $ P(A\cap B) $ is the probability that both events A and B occur</dd>
+		</dl>
+	</section>
+	<!-- <section><h3>Example</h3>
+		<p>Let's have next statistical data</p>
+		<dl class="fa">
+			<dt>40% of male have pets</dt>
+			<dt>10% of male does not have pets</dt>
+			<dt>40% of male have pets</dt>
+			<dt>10% of male does not have pets</dt>
+		</dl>
+	</section> -->
+	<section><h3>References</h3>
+		<iframe width="713" height="401" src="https://www.youtube.com/embed/ns6YNl2fysg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</section>
+</section>
+
+
+<section data-min="__Y__" class="main-sesction-title"><h1>Probability vs Likelihood</h1></section>
+<section class="sub-sections"><h2>Probability vs Likelihood</h2>
+	<section><h3>The difference</h3>
+		<dl class="fa">
+			<dt><span class="note">Probability</span> refers to the possibility of something happening. Probability attaches to possible results. </dt>
+			<dt><span class="note">Likelihood</span> refers to the process of determining the best data distribution given a specific situation in the data. Likelihood refers to the probability of obtaining some observed data, given some unknown parameter value.  It is typically expressed as a function of the unknown parameter, and it represents how well the parameter value explains the observed data. For example, if we have a dataset of coin flips and we want to estimate the probability of the coin landing heads, we can use likelihood to determine which value of the probability parameter best explains the observed data.</dt>
+			<dt>The difference between probability and likelihood can be summarized as follows: probability is the chance of an event occurring given some information, while likelihood is the chance of observing some data given some parameter value. In other words, probability is forward-looking, while likelihood is backward-looking. Probability is used to make predictions about future events, while likelihood is used to estimate unknown parameters based on observed data.</dt>
+		</dl>
+	</section>
+	<section><h3>Example</h3>
+		<dl class="fa">
+			<dt>Let's have an unbiased coin. If we flip the coin, the probability of getting head and a tail is equal, which is 0.5. If the same coin is tossed 50 times, and it shows heads only 14 times, we could assume that the likelihood of the unbiased coin is very low (if the coin were fair, it would have shown heads and tails the same number of times.)</dt>
+		</dl>
+	</section>
+</section>
+<section class="sub-sections"><h2>Reference</h2>
+		<section><h3>Readings</h3>
+			<dl class="fa">
+				<dt><a href="https://stats.stackexchange.com/questions/2641/what-is-the-difference-between-likelihood-and-probability">What is the difference between “likelihood” and “probability”?</a></dt>
+			</dl>
+		</section>
+		<section><h3>Videos</h3>
+			<iframe width="713" height="401" src="https://www.youtube.com/embed/pYxNSUDSFH4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</section>
+	</section>
+
+<section data-min="__Y__" class="main-sesction-title"><h1>The Bayes' theorem</h1></section>
+<section class="sub-sections"><h2>The Bayes' theorem</h2>
+	<section><h3>Meaning</h3>
+		<blockquote>Bayesian probability is an interpretation of the concept of probability, in which, <span class="note">instead of frequency</span> or propensity of some phenomenon, probability is interpreted as reasonable expectation representing a state of knowledge or as <span class="note">quantification of a personal belief</span>.
+			<p><a href="https://en.wikipedia.org/wiki/Bayesian_probability">Bayesian probability @wikipedia</a></p>
+		</blockquote>
+	</section>
+	<section><h3>Meaning</h3>
+		<dl class="fa">
+			<dt>Bayes' rule can help to answers the question: "given a new evidence (information) how much it will reflect your confidence in a belief."</dt>
+			<dt>One of Bayesian Theorem practical implications is when <span class="note">we know a given output</span> and we want <span class="note">to predict the sequence of events leading to that output</span>.</dt>
+		</dl>
+	</section>
+	<section>
+		<hr>
+		<p>$$ P(A\mid B) = {\frac {P(B\mid A)*P(A)}{P(B)}} $$</p>
+		<hr>
+		<!-- <p style="text-align: left; font-size: 0.7em; margin: 0">Where:</p> -->
+		<dl class="fa" style="font-size: 0.8em">
+			<dt>A and B are events and $P(B)\neq 0$</dt>
+			<dt><b>P(A|B)</b> - the probability of A being True, given that B is True.</dt>
+			<dd>the likelihood of event A occurring given that B is true.</dd>
+			<dt><b>P(B|A)</b> - the probability of B being True, given that A is True.</dt>
+			<dd>the likelihood of event B occurring given that A is true</dd>
+			<dt><b>P(A)</b> - the probability of A being True.</dt>
+			<dt><b>P(B)</b> - the probability of B being True.</dt>
+			<dt>P(A) and P(B) are independent.</dt>
+		</dl>
+	</section>
+	<section><h3>In ML terminology</h3>
+		<a href="images/Bayes_Theorem.png"><img src="images/Bayes_Theorem.png" style="min-height: 100vh;"></a>
+	</section>
+	<section><h3>Example - "a boy or a girl?"</h3>
+		<dl class="fa">
+			<dt>In a school yard there are <span class="note">40 girls</span> and <span class="note">60 boys</span>. All of the boys wear trousers, half of the girls wear trousers, and the other half - wear skirts.</dt>
+			<dt>An observer sees a student from a distance, but she can only see that this student wears trousers.</dt>
+			<dt>What is the probability that student to be a girl?</dt>
+			<!-- <dd>$p(g|t) = p(t|g)*p(g) / p(t)$</dd>       -->
+		</dl>
+	</section>
+	<section><h3>Task</h3>
+		<dl class="fa">
+			<dt>Formalize and answer the question using the Bayes' Theorem</dt>
+			<dt>Write a Python function, that solves the problem.</dt>
+		</dl>
+	</section>
+	<section><h3>Solution - "a boy or a girl?"</h3>
+		<p>Bayes' Theorem with Python naming convention: <code>pgt = (ptg * pg) / pt</code></p>
+		<pre><code rel="Python" class="python">
+			def boys_and_girls():
+				# the probability that the student is a girl
+				pg = 40/100
+
+				# the probability that the student is a boy
+				pb = 60/100
+
+				# the probability of a randomly selected student to wear a trousers.
+				pt = pb + pg/2
+
+				# the probability of the student wearing trousers given that the student is a girl
+				ptg = 1/2
+
+				# the probability of a student to be a girl, given that the student is wearing trousers
+				pgt = (ptg * pg) / pt
+
+				print("P(g|t): ", pgt)
+
+			boys_and_girls()
+		</code></pre>
+		<pre><code rel="Output" class="python">
+			P(g|t):  0.25
+		</code></pre>
+	</section>
+<!--   <section><h3>Prior and Posterior Probability</h3>
+		<dl class="fa">
+			<dt>Remember that in <p>$$ P(A\mid B) = {\frac {P(B\mid A)*P(A)}{P(B)}} $$</p></dt>
+		</dl>
+	</section> -->
+	<section><h3>Example - "cancer test"</h3>
+		<a href="https://github.com/ProgressBG-Python-Course/ProgressBG-MLwithPython-Labs/blob/Code/naive_bayes_classifiers/cancer_probability.ipynb">cancer_probability.ipynb</a>
+	</section>
+	<!-- <section><h3>Reference</h3>
+		<dt><a href="https://sites.google.com/site/artificialcortext/others/mathematics/bayes-theorem">Bayes' theorem</a> @artificialcortext blog</dt>
+		<dt><a href="https://www.khanacademy.org/math/ap-statistics/probability-ap/stats-conditional-probability/a/tree-diagrams-conditional-probability">Tree diagrams and conditional probability</a></dt>
+	</section> -->
+</section>
+
+
+<section data-min="__Y__" class="main-sesction-title"><h1>Naive Bayes Classifier</h1></section>
+<section class="sub-sections"><h2>Naive Bayes Classifier</h2>
+	<section><h3>Bayes Theorem for Classification</h3>
+		<dl class="fa">
+			<dt>For each class $y_j$, calculate the probability of that class, given a feature vector $ {{x_1},...,{x_n}}$. I.e ${\rm{P}}\left( {y_j|{x_1},...,{x_n}} \right) = ?$</dt>
+			<dt>Choose the class with highest probability.</dt>
+			<dt>A Bayes Theorem can be applied to calculate that probability:</dt>
+		</dl>
+		<p>$${\rm{P}}\left( {y|{x_1},...,{x_n}} \right) = \frac{{{\rm{P}}\left( {{x_1},...,{x_n}|y} \right)} {\rm{P}}\left( y \right)}{{{\rm{P}}\left( {{x_1},...,{x_n}} \right)}} $$</p>
+	</section>
+	<section><h3>Why <span class="note">Naive</span>?</h3>
+		<dl class="fa">
+			<dt>It use the <i>naive independence assumption</i> - the probability of each feature belonging to a given class is independent of all other features.</dt>
+			<!-- <dd>$P(xi|y,x1,...,xi−1,xi+1,...xn)=P(xi|y)$</dd> -->
+			<dt>Using this naive independence assumption we re-express the Bayes' theorem to consider the probability of features independently: <br>
+				$$ {\rm{P}}\left( {y|{x_1},...,{x_n}} \right) = \frac{{\prod\nolimits_{i = 1}^n {{\rm{P}}\left( {{x_i}|y} \right) {\rm{P}}\left( y \right)} }} {{{\rm{P}}\left( {{x_1},...,{x_n}} \right)}} $$
+			</dt>
+		</dl>
+	</section>
+	<section>
+		<dl class="fa">
+			<dt>The denominator ${{\rm{P}}\left( {{x_1},...,{x_n}} \right)}$ will be constant for all the classes, so we can ignore it in the calculations.</dt>
+			<dt>Finally, the prediction output will be evaluated as: <br>
+				$$ \hat y = \arg \mathop {\max }\limits_y \prod\nolimits_{i = 1}^n {{\rm{P}}\left( {{x_i}|y} \right) {\rm{P}}\left( y \right)} $$</dt>
+		</dl>
+	</section>
+	<!-- <section><h3>Reference</h3>
+		<dl class="fa">
+			<dt><a href="https://betterexplained.com/articles/an-intuitive-and-short-explanation-of-bayes-theorem/">An Intuitive (and Short) Explanation of Bayes’ Theorem</a></dt>
+		</dl>
+	</section> -->
+
+	<section><h3>Reference</h3>
+		<iframe width="535" src="https://www.youtube.com/embed/-RiNctT0lS8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</section>
+	<section><h3></h3>
+		<p><a href="https://www.youtube.com/watch?v=r1in0YNetG8">Naive Bayes 3: Gaussian example</a by Victor Lavrenko></p>
+		<iframe width="806" height="504" src="https://www.youtube.com/embed/r1in0YNetG8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</section>
+</section>
+
+<section data-min="__Y__" class="main-sesction-title"><h1>Types of Naive Bayes Classifiers</h1></section>
+<section class="sub-sections"><h2>Overview</h2>
+	<section>
+		<dl class="fa">
+			<p>Another assumption made is about the probability distribution of the input features. Depending of that, there are several types of Naive Bayes Classifier</p>
+			<dt>Bernoulli Naive Bayes Classifier</dt>
+			<dd>The features are discrete boolean data (1 or 0) and <a href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernoulli distribution</a> is used</dd>
+			<dt>Multinomial Naive Bayes Classifier</dt>
+			<dd>Featres are discrete (usualy representing a count), and <a href="https://en.wikipedia.org/wiki/Multinomial_distribution">Multinomial distribution</a> is used</dd>
+			<dt>Gaussian Naive Bayes Classifier</dt>
+			<dd>Features are continuous and the <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal ( Gaussian) distribution</a> is used</dd>
+		</dl>
+	</section>
+</section>
+
+
+<section data-min="__Y__" class="main-sesction-title"><h1>Bernoulli naive Bayes.</h1></section>
+<section class="sub-sections"><h2>Bernoulli naive Bayes.</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa">
+			<dt>Bernoulli naive Bayes Classifier is applicable for binary features.</dt>
+			<dt>I.e. when the features probability distribution is a <a href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernoulli distribution</a></dt>
+			<dt>It finds application in text classification, where the input vectors represent the presence (1) or absence (0) of a word from the lexicon in a document.</dt>
+		</dl>
+	</section>
+</section>
+
+<section data-min="__Y__" class="main-sesction-title"><h1>Gaussian Naive Bayes.</h1></section>
+<section class="sub-sections"><h2>Gaussian Naive Bayes.</h2>
+	<section>
+		<dl class="fa">
+			<dt>Description and examples are given in the notebook: <a href="examples/slides/NaiveBayes.html">NaiveBayes.html</a></dt>
+		</dl>
+	</section>
+</section>
+
+<section data-min="__Y__" class="main-sesction-title"><h1>Multinomial naive Bayes.</h1></section>
+<section class="sub-sections"><h2>Multinomial naive Bayes.</h2>
+	<section>
+		<dl class="fa">
+			<dt>Description and examples are given in the notebook: <a href="examples/slides/MultinomialNaiveBayes.html">MultinomialNaiveBayes.html</a></dt>
+		</dl>
+	</section>
+</section>
+
+
+
+<section data-min="__Y__" class="main-sesction-title"><h1>Pros and cons of Naive Bayes classifiers.</h1></section>
+<section class="sub-sections"><h2>Pros and cons of Naive Bayes classifiers.</h2>
+	<section><h3>Pros</h3>
+		<dl class="fa">
+			<dt>Extremely fast for both training and prediction</dt>
+			<dt>Provide straightforward probabilistic prediction</dt>
+			<dt>Easily interpretable</dt>
+			<dt>Have very few (if any) tunable parameters</dt>
+		</dl>
+	</section>
+	<section><h3>When to use?</h3>
+		<p>Naive Bayes classifiers tend to perform especially well in one of the following situations:</p>
+		<dl class="fa">
+			<dt>When the naive assumptions actually match the data (very rare in practice)</dt>
+			<dt>For very well-separated categories, when model complexity is less important</dt>
+			<dt>For very high-dimensional data, when model complexity is less important</dt>
+		</dl>
+	</section>
+</section>
+
+
+
+<!-- <section data-min="__Y__" class="main-sesction-title"><h1>eferences</h1></section>
+<section class="sub-sections"><h2>References</h2>
+	<section><h3>Readings</h3>
+		<dl class="fa">
+			<dt></dt>
+		</dl>
+	</section>
+</section>
+
+
+<section id="hw" data-min="4"><h1>Exercises</h1></section>
+<section class="sub-sections"><h2>Task1: Task1Title</h2>
+	<section><h3>The Task</h3>
+		<dl class="fa">
+			<dt></dt>
+		</dl>
+	</section>
+</section>
+
+<section><h3>Submission</h3>
+	<dl class="fa">
+		<dt>PLease, prefix your filenames/archive with your name initials, before sending.</dt>
+		<dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
+		<dt>Send files to <a href="mailto:netIT.WWW.Courses@gmail.com?Subject=_Naive_Bayes_Classifiers_">netIT.WWW.Courses@gmail.com</a></dt>
+	</dl>
+</section> -->
+
+<section class="disclaimer end-slide"></section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="/ML_SA-Slides/outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="/ML_SA-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+	<script src="/ML_SA-Slides/lib/reveal.js/js/reveal.js"></script>
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		var highlightjsTabSize = '  ';
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+
+			// display control
+			// center: true,
+			// width: '100%',
+			// height: '100%',
+			// // // Factor of the display size that should remain empty around the content
+			// margin: 0.1,
+
+			// The "normal" size of the presentation, aspect ratio will be preserved
+			// when the presentation is scaled to fit different resolutions. Can be
+			// specified using percentage units.
+			width: 1920,
+			height: 1280,
+
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+
+			// Bounds for smallest/largest possible scale to apply to content
+			minScale: 0,
+			maxScale: 2,
+
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// shift+maous click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '/ML_SA-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+	<!-- linkedin badge -->
+	<!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+
+	<!-- MathJax -->
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript" async src="/ML_SA-Slides/lib/MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+</body>
+</html>
