@@ -116,7 +116,7 @@
 		<dl class="fa">
 			<dt>The probability of an event A  is: $0 \lt A \leq 1$</dt>
 			<dt>The sum of probabilities of all possible events equals 1.</dt>
-			<dt>All probability rules: <a href="http://www.probabilityformula.org/probability-rules.html">Probability Rules @probabilityformula.org</a></dt>
+			<dt><a href="https://medium.com/data-comet/probability-rules-cheat-sheet-e24b92a9017f">Probability Rules Cheat Sheet</a></dt>
 		</dl>
 	</section>
 	<section><h3>Subtraction Rule</h3>
@@ -164,52 +164,7 @@
 				<dt>P(X=1, Y=1 or X=6, Y=6) = $\frac{1}{6} \cdot \frac{1}{6} + \frac{1}{6} \cdot \frac{1}{6} = \frac{1}{18}$</dt>
 		 </dl>
 	</section>
-	<section><h3>Random Variable</h3>
-		<dl class="fa">
-			<dt>$X$ is variable which holds an outcome of experiment, $X \in \Omega$</dt>
-			<dt>Random variables can be discrete or continuous</dt>
-			<dt>In practise, $X$ is defined as function that maps the outcomes</dt>
-			<dd>$X : \Omega \to \mathbb{R}$</dd>
-			<dt>Example: given: 5 coin toss</dt>
-			<dd>$\omega = \{H, T, H, H, T\} \subseteq \Omega$</dd>
-			<dd>In practice, we are not interested of the concrete values, but for instance, what is the number of heads that appear among our 5 tosses</dd>
-		</dl>
-	</section>
-	<section><h3 class="advanced">Probability Distribution</h3>
-		<dl class="fa" style="font-size: .9em">
-			<dt><span class="note">Probability Distribution</span> is a function that describes all the possible values that a random variable can take within a given sample space. </dt>
-			<dt>Two types of Probability Distribution, depending of the type of Random Variable:</dt>
-			<dt><span class="note">Continuous distribution</span></dt>
-			<dd>A function that describes the probabilities of the possible values of a continuous random variable</dd>
-			<dt><span class="note">Discrete distribution</span></dt>
-			<dd>A function that describes the probability of occurrence of each value of a discrete random variable</dd>
-		<!--   <dt>Reference: <a href="https://support.minitab.com/en-us/minitab-express/1/help-and-how-to/basic-statistics/probability-distributions/supporting-topics/basics/continuous-and-discrete-probability-distributions/"></a></dt> -->
-		</dl>
-	</section>
-	<section><h3>Probability Distribution of rolling a dice:</h3>
-		<dl class="fa">
-			<dt>The probability distribution of rolling a die can be made expirimentally. If we throw 1 die hundred times, or 2 dies hundred times and record the results, we have:</dt>
-		</dl>
-		<img src="./images/probability_distribution_rolleing_dice_1_2_times.webp" style="min-height:13em">
-	</section>
-	 <section><h3 class="advanced">Discrete distribution</h3>
-		<a href="images/discrete_distribution.png.png"><img src="images/discrete_distribution.png.png" style="min-height:100vh"></a>
-	</section>
-	<section><h3 class="advanced">Continuous distribution</h3>
-		<a href="images/continuous_distribution.png"><img src="images/continuous_distribution.png" style="min-height:100vh"></a>
-	</section>
-	<section><h3 class="advanced">Probability Density Function (PDF)</h3>
-		<dl class="fa">
-			<dt>The <i>absolute likelihood</i> for a continuous random variable to take on any particular value is 0 (since there are an infinite set of possible values to begin with)</dt>
-			<dt>So, we use PDF which  provides a <i>relative likelihood</i> that the value of the random variable would equal that sample.</dt>
-		</dl>
-	</section>
-	<section><h3>References</h3>
-		<h3></h3>
-		<iframe width="713" height="401" src="https://www.youtube.com/embed/wG_gQpXJNGU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	</section>
 </section>
-
 
 <section data-min="__Y__" class="main-sesction-title"><h1>Conditional probability</h1></section>
 <section class="sub-sections"><h2>Conditional probability</h2>
@@ -239,6 +194,55 @@
 </section>
 
 
+
+<section data-min="50" class="main-sesction-title"><h1>Random Variable and Probability Distribution</h1></section>
+<section class="sub-sections"><h2 class="advanced">Random Variable and Probability Distribution</h2>
+	<section class="advanced"><h3>Random Variable</h3>
+		<dl class="fa">
+			<dt>$X$ is variable which holds an outcome of experiment, $X \in \Omega$</dt>
+			<dt>Random variables can be discrete or continuous</dt>
+			<dt>In practise, $X$ is defined as function that maps the outcomes</dt>
+			<dd>$X : \Omega \to \mathbb{R}$</dd>
+			<dt>Example: given: 5 coin toss</dt>
+			<dd>$\omega = \{H, T, H, H, T\} \subseteq \Omega$</dd>
+			<dd>In practice, we are not interested of the concrete values, but for instance, what is the number of heads that appear among our 5 tosses</dd>
+		</dl>
+	</section>
+	<section><h3 class="advanced">Probability Distribution</h3>
+		<dl class="fa" style="font-size: .9em">
+			<dt><span class="note">Probability Distribution</span> is a function that describes all the possible values that a random variable can take within a given sample space. </dt>
+			<dt>Two types of Probability Distribution, depending of the type of Random Variable:</dt>
+			<dt><span class="note">Continuous distribution</span></dt>
+			<dd>A function that describes the probabilities of the possible values of a continuous random variable</dd>
+			<dt><span class="note">Discrete distribution</span></dt>
+			<dd>A function that describes the probability of occurrence of each value of a discrete random variable</dd>
+		<!--   <dt>Reference: <a href="https://support.minitab.com/en-us/minitab-express/1/help-and-how-to/basic-statistics/probability-distributions/supporting-topics/basics/continuous-and-discrete-probability-distributions/"></a></dt> -->
+		</dl>
+	</section>
+	<section><h3>Probability Distribution of rolling a dice:</h3>
+		<dl class="fa">
+			<dt>The probability distribution of rolling a die can be made expirimentally. If we throw 1 die hundred times, or 2 dies hundred times and record the results, we have:</dt>
+		</dl>
+		<img src="./images/probability_distribution_rolleing_dice_1_2_times.webp" style="min-height:13em">
+	</section>
+	<section><h3 class="advanced">Discrete distribution</h3>
+		<a href="images/discrete_distribution.png.png"><img src="images/discrete_distribution.png.png" style="min-height:100vh"></a>
+	</section>
+	<section><h3 class="advanced">Continuous distribution</h3>
+		<a href="images/continuous_distribution.png"><img src="images/continuous_distribution.png" style="min-height:100vh"></a>
+	</section>
+	<section><h3 class="advanced">Probability Density Function (PDF)</h3>
+		<dl class="fa">
+			<dt>The <i>absolute likelihood</i> for a continuous random variable to take on any particular value is 0 (since there are an infinite set of possible values to begin with)</dt>
+			<dt>So, we use PDF which  provides a <i>relative likelihood</i> that the value of the random variable would equal that sample.</dt>
+		</dl>
+	</section>
+	<section><h3>References</h3>
+		<h3></h3>
+		<iframe width="713" height="401" src="https://www.youtube.com/embed/wG_gQpXJNGU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</section>
+</section>
+
 <section data-min="__Y__" class="main-sesction-title"><h1>Probability vs Likelihood</h1></section>
 <section class="sub-sections"><h2>Probability vs Likelihood</h2>
 	<section><h3>The difference</h3>
@@ -255,15 +259,17 @@
 	</section>
 </section>
 <section class="sub-sections"><h2>Reference</h2>
-		<section><h3>Readings</h3>
-			<dl class="fa">
-				<dt><a href="https://stats.stackexchange.com/questions/2641/what-is-the-difference-between-likelihood-and-probability">What is the difference between “likelihood” and “probability”?</a></dt>
-			</dl>
-		</section>
-		<section><h3>Videos</h3>
-			<iframe width="713" height="401" src="https://www.youtube.com/embed/pYxNSUDSFH4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		</section>
+	<section><h3>Readings</h3>
+		<dl class="fa">
+			<dt><a href="https://stats.stackexchange.com/questions/2641/what-is-the-difference-between-likelihood-and-probability">What is the difference between “likelihood” and “probability”?</a></dt>
+		</dl>
 	</section>
+	<section><h3>Videos</h3>
+		<iframe width="713" height="401" src="https://www.youtube.com/embed/pYxNSUDSFH4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</section>
+</section>
+
+
 
 <section data-min="__Y__" class="main-sesction-title"><h1>The Bayes' theorem</h1></section>
 <section class="sub-sections"><h2>The Bayes' theorem</h2>
@@ -338,7 +344,7 @@
 			P(g|t):  0.25
 		</code></pre>
 	</section>
-<!--   <section><h3>Prior and Posterior Probability</h3>
+	<!--   <section><h3>Prior and Posterior Probability</h3>
 		<dl class="fa">
 			<dt>Remember that in <p>$$ P(A\mid B) = {\frac {P(B\mid A)*P(A)}{P(B)}} $$</p></dt>
 		</dl>
@@ -351,7 +357,6 @@
 		<dt><a href="https://www.khanacademy.org/math/ap-statistics/probability-ap/stats-conditional-probability/a/tree-diagrams-conditional-probability">Tree diagrams and conditional probability</a></dt>
 	</section> -->
 </section>
-
 
 <section data-min="__Y__" class="main-sesction-title"><h1>Naive Bayes Classifier</h1></section>
 <section class="sub-sections"><h2>Naive Bayes Classifier</h2>
@@ -409,7 +414,6 @@
 	</section>
 </section>
 
-
 <section data-min="__Y__" class="main-sesction-title"><h1>Bernoulli naive Bayes.</h1></section>
 <section class="sub-sections"><h2>Bernoulli naive Bayes.</h2>
 	<section><h3>Overview</h3>
@@ -438,8 +442,6 @@
 		</dl>
 	</section>
 </section>
-
-
 
 <section data-min="__Y__" class="main-sesction-title"><h1>Pros and cons of Naive Bayes classifiers.</h1></section>
 <section class="sub-sections"><h2>Pros and cons of Naive Bayes classifiers.</h2>
