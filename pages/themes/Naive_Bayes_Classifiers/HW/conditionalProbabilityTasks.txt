@@ -2,9 +2,8 @@
 
 Suppose a company sells two products - Product A and Product B. The company is interested in studying whether the gender of the customer affects the choice of product. They survey a group of customers and find that:
 
-60% of the male customers choose Product A,
-40% choose Product B.
-	Among female customers, 30% choose Product A, while 70% choose Product B.
+60% of the male customers choose Product A, 40% choose Product B.
+Among female customers, 30% choose Product A, while 70% choose Product B.
 
 Now, suppose a new customer walks into the store, and we want to determine the probability that they will choose Product A, given that they are male. This is an example of conditional probability.
 
