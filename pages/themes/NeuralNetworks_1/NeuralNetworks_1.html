@@ -121,6 +121,112 @@
 	</section>
 </section>
 
+<section data-min="50" class="main-sesction-title"><h1>ANN Structure</h1></section>
+<section class="sub-sections"><h2>ANN Structure</h2>
+	<section>
+		<dl class="fa">
+			<dt>The structure of an ANN can be described as a directed graph, where each neuron in one layer is connected to every neuron in the next layer. </dt>
+			<dt>The input layer is where the data is fed into the network, and the output layer produces the result. </dt>
+			<dt>In between, there can be one or more hidden layers, which are used to extract relevant features from the input data.</dt>
+			<a href="./images/ANN_Structure.png"><img src="./images/ANN_Structure.png" alt="ANN_Structure.png"></a>
+		</dl>
+	</section>
+	<section><h3>Layers</h3>
+		<dl class="fa">
+			<dt>Input layer</dt>
+			<dd>This is the layer where the input data is fed into the network.</dd>
+			<dd>The number of neurons in the input layer is determined by the size of the input data.</dd>
+			<dd>For example, if we are using a neural network for image classification, the input layer will have neurons corresponding to the pixels of the image.</dd>
+			<dt>Hidden layer</dt>
+			<dd>This is the layer that lies between the input and output layers of the network.</dd>
+			<dd>The number of hidden layers and the number of neurons in each hidden layer can vary depending on the complexity of the problem being solved</dd>
+			<dd>The hidden layer(s) are used to extract relevant features from the input data</dd>
+			<dt>Output layer</dt>
+			<dd>This is the final layer of the network that produces the output. </dd>
+			<dd>The number of neurons in the output layer is determined by the type of problem being solved. </dd>
+			<dd>For example, in a binary classification problem, the output layer will have two neurons corresponding to the two possible classes.</dd>
+		</dl>
+	</section>
+</section>
+
+<section data-min="50" class="main-sesction-title"><h1>Activation Function</h1></section>
+<section class="sub-sections"><h2>Activation Function</h2>
+	<section>
+		<dl class="fa">
+			<dt>Activation functions are an essential part of Neural Networks as they are responsible for introducing non-linearity into the model. Without activation functions, Neural Networks would essentially be a series of linear operations, which would severely limit the model's capacity to learn complex patterns.</dt>
+			<dt>There are several types of activation functions used in ANNs, including sigmoid, ReLU, and tanh. </dt>
+			<dt>The choice of activation function depends on the problem being solved and the type of data being processed.</dt>
+		</dl>
+	</section>
+	<section><h3>Sigmoid Function</h3>
+		<dl class="fa">
+			<dt>
+				The Sigmoid function is one of the earliest and most widely used activation functions in Neural Networks. The Sigmoid function maps any input value to a value between 0 and 1, which makes it useful in binary classification problems. The mathematical formula for the Sigmoid function is given below:
+
+				$$\\sigma(x) = \frac{1}{1 + e^{-x}}$$
+
+			</dt>
+			<dt>The Sigmoid function has the following properties:</dt>
+			<dd>It is a smooth, continuous function.</dd>
+			<dd>Its output is always between 0 and 1.</dd>
+			<dd>The output is centered around 0.5, which can make it problematic in cases where the input values are very large or very small.</dd>
+		</dl>
+		<img src="./images/sigmoit-plot.png" alt="">
+	</section>
+	<section><h3>ReLU Function</h3>
+		<dl class="fa">
+			<dt>The Rectified Linear Unit (ReLU) function is another popular activation function used in Neural Networks. The ReLU function maps any input value to either 0 or the input value itself, which makes it useful in cases where we want to introduce sparsity in the model. The mathematical formula for the ReLU function is given below:
+
+				$$ReLU(x) = max(0, x)$$</dt>
+			<dt>The ReLU function has the following properties:</dt>
+			<dd>It is a simple, non-linear function.</dd>
+			<dd>It is computationally efficient to compute.</dd>
+			<dd>The output is sparse, which can help with overfitting.</dd>
+		</dl>
+
+		<img src="./images/ReLU-plot.png" alt="">
+	</section>
+	<section><h3>Tanh Function</h3>
+		<dl class="fa">
+			<dt>The Tanh function is another popular activation function that maps any input value to a value between -1 and 1. The Tanh function is useful in cases where we want to introduce non-linearity and can help with normalization of the data. The mathematical formula for the Tanh function is given below:
+
+				$$tanh(x) = \frac{e^{x} - e^{-x}}{e^{x} + e^{-x}}$$
+			</dt>
+			<dt>The Tanh function has the following properties:</dt>
+			<dd>It is a smooth, continuous function.</dd>
+			<dd>Its output is always between -1 and 1.</dd>
+			<dd>The output is centered around 0, which can help with normalization of the data.</dd>
+		</dl>
+		<img src="./images/Tanh-plot.png" alt="">
+	</section>
+	<!-- <section><h3>Softmax Function</h3>
+		<dl class="fa">
+			<dt>
+				The Softmax function is commonly used in the output layer of Neural Networks that are designed for multi-class classification tasks. The Softmax function maps a vector of real-valued numbers to a probability distribution over the classes. The mathematical formula for the Softmax function is given below:
+
+				$$softmax(x\_i) = \frac{e^{x\_i}}{\\sum\_{j=1}^{K} e^{x\_j}}$$
+
+				where $K$ is the number of classes.
+			</dt>
+			<dt>
+				The Softmax function has the following properties:</dt>
+				<dd>It produces a probability distribution over the classes.</dd>
+				<dd>The output values are always between 0 and 1 and sum up to 1.</dd>
+		</dl>
+		<img src="./images/softmax-plot.png" alt="softmax">
+	</section> -->
+</section>
+
+<section data-min="50" class="main-sesction-title"><h1>ANN training</h1></section>
+<section class="sub-sections"><h2>ANN training</h2>
+	<section>
+		<dl class="fa">
+			<dt>Training an ANN involves adjusting the weights of the connections between neurons to minimize the error between the predicted output and the actual output. </dt>
+			<dt>This is done using a process called backpropagation, which involves calculating the gradient of the error with respect to each weight and adjusting the weight in the direction that reduces the error.</dt>
+		</dl>
+	</section>
+</section>
+
 <section data-min="50" class="main-sesction-title"><h1>Perceptron</h1></section>
 <section class="sub-sections"><h2>Perceptron</h2>
 	<section><h3>Overview</h3>
@@ -172,53 +278,6 @@
 	</section>
 </section>
 
-<section data-min="50" class="main-sesction-title"><h1>ANN Structure</h1></section>
-<section class="sub-sections"><h2>ANN Structure</h2>
-	<section>
-		<dl class="fa">
-			<dt>The structure of an ANN can be described as a directed graph, where each neuron in one layer is connected to every neuron in the next layer. </dt>
-			<dt>The input layer is where the data is fed into the network, and the output layer produces the result. </dt>
-			<dt>In between, there can be one or more hidden layers, which are used to extract relevant features from the input data.</dt>
-			<a href="./images/ANN_Structure.png"><img src="./images/ANN_Structure.png" alt="ANN_Structure.png"></a>
-		</dl>
-	</section>
-	<section><h3>Layers</h3>
-		<dl class="fa">
-			<dt>Input layer</dt>
-			<dd>This is the layer where the input data is fed into the network.</dd>
-			<dd>The number of neurons in the input layer is determined by the size of the input data.</dd>
-			<dd>For example, if we are using a neural network for image classification, the input layer will have neurons corresponding to the pixels of the image.</dd>
-			<dt>Hidden layer</dt>
-			<dd>This is the layer that lies between the input and output layers of the network.</dd>
-			<dd>The number of hidden layers and the number of neurons in each hidden layer can vary depending on the complexity of the problem being solved</dd>
-			<dd>The hidden layer(s) are used to extract relevant features from the input data</dd>
-			<dt>Output layer</dt>
-			<dd>This is the final layer of the network that produces the output. </dd>
-			<dd>The number of neurons in the output layer is determined by the type of problem being solved. </dd>
-			<dd>For example, in a binary classification problem, the output layer will have two neurons corresponding to the two possible classes.</dd>
-		</dl>
-	</section>
-</section>
-
-<section data-min="50" class="main-sesction-title"><h1>Activation Function</h1></section>
-<section class="sub-sections"><h2>Activation Function</h2>
-	<section>
-		<dl class="fa">
-			<dt>There are several types of activation functions used in ANNs, including sigmoid, ReLU, and tanh. </dt>
-			<dt>The choice of activation function depends on the problem being solved and the type of data being processed.</dt>
-		</dl>
-	</section>
-</section>
-
-<section data-min="50" class="main-sesction-title"><h1>ANN training</h1></section>
-<section class="sub-sections"><h2>ANN training</h2>
-	<section>
-		<dl class="fa">
-			<dt>Training an ANN involves adjusting the weights of the connections between neurons to minimize the error between the predicted output and the actual output. </dt>
-			<dt>This is done using a process called backpropagation, which involves calculating the gradient of the error with respect to each weight and adjusting the weight in the direction that reduces the error.</dt>
-		</dl>
-	</section>
-</section>
 
 <section data-min="50" class="main-sesction-title"><h1>ANN Types</h1></section>
 <section class="sub-sections"><h2>ANN Types</h2>
