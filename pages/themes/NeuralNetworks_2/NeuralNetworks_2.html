@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>NeuralNetworks_2</title>
+	<link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="/ML_SA-Slides/lib/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="/ML_SA-Slides/outfit/css/themes/projector.css" id="theme">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '/ML_SA-Slides/lib/reveal.js/css/print/pdf.css' : '/ML_SA-Slides/lib/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- CUSTOM -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+	<div class="top_links">
+		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#NeuralNetworks_2" target="_top"></a>
+		<span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
+		<div class="help_text">
+			<div class="note">Keyboard shortcuts:</div>
+			<div><span>N/Спейс</span><span>Next Slide</span></div>
+			<div><span>P</span><span>Previous Slide</span></div>
+			<div><span>O</span><span>Slides Overview</span></div>
+			<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+			<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+			Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+		</div>
+	</div>
+	<div class="footer theme_switch">
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+	</div>
+	<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section data-min-total="__X__" class="presentation-title"><h1>Introduction to Deep Learning</h1></section>
+<section data-transition="zoom">
+	<section class="copyright" data-transition="zoom">
+		<div>
+			<p style="text-align: center;">Created for</p>
+		</div>
+		<div class="company">
+			<a href="https://softwareacademy.bg/">
+			<img style="height:80vh" src="/ML_SA-Slides/outfit/images/logos/software-web@4x.png" alt="software-web@4x.png">
+			</a>
+		</div>
+		<div class="author">
+			<span class="note"><a href="https://www.linkedin.com/in/ivapopova/">Iva E. Popova</a>,  2022,</span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+			<!-- <i class="fa fa-linkedin"></i> -->
+		</div>
+	</section>
+</section>
+
+
+<section data-min="__Y__" class="main-sesction-title"><h1>Introduction to Deep Learning</h1></section>
+<section class="sub-sections"><h2>Introduction to Deep Learning</h2>
+	<section><h3>Overview</h3>
+		<img src="./images/deep-neural-network.jpg" alt="deep-neural-network.jpg">
+		<dl class="fa">
+			<dt>Deep Learning is a subset of Machine Learning that involves training artificial neural networks to perform complex tasks.</dt>
+			<dt>Deep learning is called so because it involves the use of deep neural networks, which are composed of multiple hidden layers.</dt>
+			<dt>These networks can be very deep, with dozens or even hundreds of layers, which allows them to learn highly complex representations of data.</dt>
+		</dl>
+
+	</section>
+	<section>
+		<dl class="fa"><h3>Applications</h3>
+			<dt>Deep Learning has gained immense popularity in recent years due to its ability to achieve state-of-the-art performance on a wide range of tasks such as <span class="note">image recognition</span>, <span class="note">natural language processing</span>, <span class="note">speech recognition</span>, and more.</dt>
+			<dt>Deep Neural Networks are typically trained using large datasets and require a significant amount of computing power. However, with the availability of powerful GPUs and frameworks such as TensorFlow and PyTorch, training Deep Neural Networks has become more accessible to a wider audience.</dt>
+		</dl>
+	</section>
+	<section><h3>How it works</h3>
+		<dl class="fa">
+			<dt>Unlike traditional Machine Learning algorithms that rely on hand-crafted features, Deep Learning algorithms <span class="note">can automatically learn features from raw data</span> by stacking multiple layers of artificial neurons.</dt>
+			<dt>For example, let's say we wanted to build a system to recognize images of cats and dogs. In the first layer of the neural network, the neurons might learn to detect low-level features like edges and corners. In the next layer, the neurons might learn to detect higher-level features like fur and whiskers. In the final layer, the neurons might learn to classify the images as either cats or dogs based on the presence of these features.</dt>
+		</dl>
+	</section>
+	<section><h3>Deep Learning Advantages</h3>
+		<dl class="fa">
+			<dt><span class="note">High accuracy</span>: DL models can achieve high accuracy on a wide range of tasks, including image recognition, speech recognition, natural language processing, and more. They can learn complex representations of data that other machine learning models may struggle with.</dt>
+			<dt><span class="note">Feature extraction</span>: DL models can automatically learn useful features from raw data, eliminating the need for feature engineering, which can be time-consuming and error-prone.</dt>
+			<dt><span class="note">Flexibility</span>: DL models are highly flexible and can be used for a wide range of tasks, from classification and regression to image and speech synthesis.</dt>
+			<dt><span class="note">Scalability</span>: DL models can scale up to handle large datasets and complex architectures. This makes it possible to build and train models that would be impossible to develop using traditional machine learning techniques.</dt>
+			<dt><span class="note">Adaptability</span>: DL models can adapt to new data and new situations, making them useful for applications that need to respond to changing circumstances.</dt>
+			<dt><span class="note">Automation</span>: DL models can automate complex tasks, such as speech recognition or image recognition, making it possible to build intelligent systems that can perform tasks that would normally require human intervention.</dt>
+			<dt><span class="note">Interdisciplinary</span>: DL is an interdisciplinary field that draws on expertise from computer science, mathematics, statistics, and neuroscience, making it a rich and vibrant area of research and development.</dt>
+		</dl>
+	</section>
+	<section><h3>Deep Learning Disadvantages</h3>
+		<dl class="fa">
+			<dt><span class="note">Black box nature</span>: DL models can be difficult to interpret and understand. That makes it difficult to diagnose errors or understand how the model is making decisions. </dt>
+			<dt><span class="note">Large amounts of data</span>: DL requires large amounts of data to train models effectively. This can be challenging for companies or organizations that don't have access to large datasets.</dt>
+			<dt><span class="note">Computational resources</span>: DL requires significant computational resources, including high-end CPUs, GPUs, and specialized hardware like TPUs. This can be expensive and can limit the ability of some organizations to use DL effectively.</dt>
+			<dt><span class="note">Overfitting</span>: DL models can be prone to overfitting, which means that they may perform well on training data but poorly on new data.</dt>
+			<dt><span class="note">Requires specialized knowledge</span>: DL developers must have deep understanding of programming, mathematics, and statistics</dt>
+			<dt><span class="note">Limited data efficiency</span>: DL is not efficient with smaller datasets and can overfit quickly. This can lead to poor model generalization and high variance.</dt>
+			<dt><span class="note">Slow training time</span>: DL models can take a long time to train, especially when working with large datasets or complex architectures</dt>
+		</dl>
+	</section>
+</section>
+
+
+<section data-min="50" class="main-sesction-title"><h1>Introduction to Keras and TensorFlow</h1></section>
+<section class="sub-sections"><h2>Introduction to Keras and TensorFlow</h2>
+	<section>
+		<dl class="fa"><h3>What is Keras?</h3>
+			<dt>Keras is an open-source software library that provides a Python interface for ANN. Keras acts as an interface for the TensorFlow library</dt>
+			<dt>It was developed by Francois Chollet -a Google engineer, and was released in 2015</dt>
+			<dt>Keras is a high-level API that allows users to build and train deep learning models in a user-friendly and modular way</dt>
+			<dt>Keras supports both convolutional and recurrent neural networks, as well as a combination of the two</dt>
+			<dt>Keras can be used for a variety of tasks, such as image classification, text classification, sentiment analysis, and more.</dt>
+		</dl>
+	</section>
+	<section><h3>Keras Features</h3>
+		<dl class="fa">
+			<dt><span class="note">Simplicity</span>: Keras provides a simple and intuitive API that makes it easy to build and train deep learning models</dt>
+			<dt><span class="note">Flexibility</span>:  Keras is highly modular and can be easily extended and customized.</dt>
+			<dt><span class="note">Speed</span>: Keras is designed to be fast and efficient, which makes it an excellent choice for large-scale deep learning projects.</dt>
+			<dt><span class="note">Support for various neural network types</span>: Keras supports both convolutional and recurrent neural networks, as well as a combination of the two.</dt>
+			<dt><span class="note">Pre-built layers and models</span>: Keras provides a large number of pre-built layers and models, which makes it easy to get started with deep learning.</dt>
+			<dt><span class="note">Easy to understand and use</span>: Keras is designed to be user-friendly and easy to understand, which makes it an excellent tool for both beginners and experienced developers.</dt>
+			<dt><span class="note">Distributed training</span>: Keras  allows use of distributed training of deep-learning models on clusters of <a href="https://en.wikipedia.org/wiki/Graphics_processing_unit">Graphics processing units (GPU)</a> and <a href="https://en.wikipedia.org/wiki/Tensor_Processing_Unit">tensor processing units (TPU)</a></dt>
+		</dl>
+	</section>
+	<section><h3>Keras backends</h3>
+		<dl class="fa">
+			<dt>Keras does not handle itself low-level operations such as tensor products, convolutions and so on. Instead, it relies on a specialized, well-optimized tensor manipulation library to do so, serving as the "backend engine" of Keras.</dt>
+			<dt>Keras modular design allows several different backend engines to be plugged seamlessly.</dt>
+			<dt>Currently (February, 2023), Keras has two backend implementations available: the TensorFlow backend and the Theano backend.</dt>
+			<dd>TensorFlow is an open-source symbolic tensor manipulation framework developed by Google, Inc.</dd>
+			<dd>Theano is an open-source symbolic tensor manipulation framework developed by LISA/MILA Lab at Université de Montréal.</dd>
+		</dl>
+	</section>
+	<section><h3>Keras Advantages</h3>
+		<dl class="fa">
+			<dt><span class="note">Simplicity</span>: Keras is designed to be easy to use, with a simple and intuitive API that abstracts away much of the complexity of deep learning.</dt>
+			<dt><span class="note">Flexibility</span>: Keras offers a high degree of flexibility, with support for a wide range of architectures, including convolutional neural networks, recurrent neural networks, and more.</dt>
+			<dt><span class="note">Modularity</span>: Keras is highly modular, with support for reusable building blocks like layers and models, making it easy to create complex architectures with minimal code.</dt>
+			<dt><span class="note">Ease of use</span>: Keras is designed to be easy to use, with high-level APIs that make it easy to build and train deep learning models quickly and efficiently.</dt>
+			<dt><span class="note">Compatibility</span>: Keras can run on top of multiple backends, including TensorFlow, Theano, and CNTK, giving developers the flexibility to choose the backend that best meets their needs.</dt>
+			<dt><span class="note">Visualization</span>: Keras includes powerful visualization tools, such as TensorBoard, that make it easy to explore and understand the behavior of deep learning models.</dt>
+			<dt><span class="note">Community</span>: Keras has a large and active community of developers, with extensive documentation, tutorials, and resources available online.</dt>
+		</dl>
+	</section>
+	<section><h3>Keras Disadvantages</h3>
+		<p>Keras is an abstraction layer over TensorFlow , designed to be easy to use and beginner friendly. While this is a plus for new developers, it leads to some disadvantages: </p>
+		<dl class="fa">
+			<dt><span class="note">Limited flexibility</span>: Keras have less control over the underlying architecture and may not be able to customize it as much as you would like</dt>
+			<dt><span class="note">Less transparent debugging</span>: Using Keras is harder to understand what is happening under the hood when debugging. This can be frustrating for developers who want more visibility into the internals of their models.</dt>
+			<dt><span class="note">Less efficient performance</span>: Because Keras is built on top of other deep learning libraries like TensorFlow or Theano, it may not be as optimized for performance as other libraries that are designed specifically for performance.</dt>
+			<dt><span class="note">Limited support for research</span>: While Keras is a great tool for building and deploying production-grade models, it may not be the best choice for cutting-edge research. This is because Keras has a limited set of modules and may not support the latest research breakthroughs as quickly as other, more research-focused libraries.</dt>
+		</dl>
+	</section>
+	<section><h3>TensorFlow Overview</h3>
+		<dl class="fa">
+			<dt>TensorFlow is a free and open-source software library for machine learning and artificial intelligence.</dt>
+			<dt>It is developed by Google Brain Team in 2015.</dt>
+			<dt>TensorFlow uses <a href="https://www.tensorflow.org/guide/tensor">tensors</a> to represent  inputs, outputs, and intermediate data structures in neural networks</dt>
+			<dt>TensorFlow supports a wide range of platforms, including mobile devices, desktops, and servers</dt>
+			<dt>Lot's of pre-build tools</dt>
+			<dd><a href="https://www.tensorflow.org/learn#prepare-data">tools to process and load data.</a></dd>
+			<dd><a href="https://www.tensorflow.org/datasets">A collection of ready-to-use datasets</a></dd>
+			<dd><a href="https://www.tensorflow.org/hub">pre-trained models</a></dd>
+			<dd><a href="https://www.tensorflow.org/learn#deploy-models">Deploy models on-device, in the browser, on-prem, or in the cloud</a></dd>
+			<dd><a href="https://www.tensorflow.org/learn#implement-mlops">Implement MLOps</a></dd>
+		</dl>
+	</section>
+	<section><h3>TensorFlow Running Platforms</h3>
+		<p>TensorFlow can be run on three different processor platforms, with the main difference being the speed at which your neural network will be trained. Each platform has different hardware requirements and offers different performance:</p>
+		<dl class="fa">
+		<dt>CPU - any modern computer can run this version, but it offers the slowest training speeds.</dt>
+		<dt>TPU - only available currently on Google’s Colaboratory (Colab) platform, Tensor Processing Units (TPUs) offer the highest training speeds.</dt>
+		<dt>GPU - most high end computers feature a separate Graphics Processing Unit (GPU) from Nvidia or AMD that offer training speeds much faster than CPUs, but not as fast as TPUs.</dt>
+		</dl>
+	</section>
+	<section><h3>TensorFlow Advantages</h3>
+		<dl class="fa">
+			<dt><span class="note">Scalability</span>: TensorFlow is highly scalable and can be used to train models on large datasets or complex architectures.</dt>
+			<dt><span class="note">Versatility</span>: TensorFlow can be used for a wide range of tasks, from image and speech recognition to natural language processing and more.</dt>
+			<dt><span class="note">Performance</span>: TensorFlow is highly optimized for performance, with support for parallel processing, distributed computing, and hardware acceleration with GPUs and TPUs.</dt>
+			<dt><span class="note">Community</span>: TensorFlow has a large and active community of developers, with extensive documentation, tutorials, and resources available online.</dt>
+			<dt><span class="note">Flexibility</span>: TensorFlow offers a high degree of flexibility, with support for a wide range of architectures, including convolutional neural networks, recurrent neural networks, and more.</dt>
+			<dt><span class="note">Visualization</span>: TensorFlow includes powerful visualization tools, such as TensorBoard, that make it easy to explore and understand the behavior of deep learning models.</dt>
+			<dt><span class="note">Ease of use</span>: TensorFlow is designed to be easy to use, with high-level APIs like Keras that abstract away much of the complexity of deep learning.</dt>
+		</dl>
+	</section>
+	<section><h3>TensorFlow Disadvantages</h3>
+		<dl class="fa">
+			<dt><span class="note">Steep learning curve</span>: TensorFlow requires a solid understanding of programming concepts and mathematical concepts like linear algebra and calculus.</dt>
+			<dt><span class="note">Low-level programming</span>: TensorFlow operates at a low level of abstraction, which means that developers need to write a lot of code to achieve even simple tasks. This can be challenging and time-consuming for developers, who are used to working at a higher level of abstraction</dt>
+			<dt><span class="note">Boilerplate code</span>: TensorFlow can require a lot of boilerplate code to set up and configure models, which can be time-consuming and error-prone. This can make it difficult to quickly prototype and test new models.</dt>
+			<dt><span class="note">Computational overhead</span>: TensorFlow can be computationally expensive, especially when running on large datasets or complex models</dt>
+			<dt><span class="note">Lack of flexibility</span>: TensorFlow is a powerful library, but it can be inflexible when it comes to modifying or customizing models.</dt>
+			<dt><span class="note">Debugging challenges</span>: Debugging TensorFlow models can be challenging, especially when working with large and complex models. This is because errors can be difficult to isolate and diagnose, which can make the debugging process time-consuming and frustrating.</dt>
+		</dl>
+	</section>
+</section>
+
+<section data-min="50"><h1>Keras installation and usage</h1></section>
+<section><h2>Keras installation and usage</h2>
+	<section>
+		<dl class="fa">
+			<dt>Because Keras is a high level API for TensorFlow we will need to have the TensorFlow package installed:</dt>
+			<pre><code rel="Terminal" class="bash">
+				# TensorFlow requires the latest pip
+				pip install --upgrade pip
+
+				# Current stable release for CPU and GPU
+				pip install tensorflow
+			</code></pre>
+			<dt>Reference: <a href="https://www.tensorflow.org/install">Install TensorFlow 2</a></dt>
+			<dt>Using Keras in Python:</dt>
+			<pre><code rel="Python" class="bash">
+				from tensorflow import keras
+			</code></pre>
+		</dl>
+	</section>
+</section>
+
+<section data-min="50" class="main-sesction-title"><h1>Examples in Python</h1></section>
+<section class="sub-sections"><h2></h2>
+	<section><h3>___SubSectionTitle___</h3>
+		<dl class="fa">
+			<dt><a href="">Example 1: Image Classification</a></dt>
+		</dl>
+	</section>
+</section>
+
+
+<!-- <section data-min="1"><h1>References</h1></section>
+<section><h2>References</h2>
+	<section><h3>Readings</h3>
+		<dl class="fa">
+			<dt></dt>
+		</dl>
+	</section>
+</section>
+
+
+<section id="hw" data-min="4"><h1>Exercises</h1></section>
+<section><h2>Task1: Task1Title</h2>
+	<section><h3>The Task</h3>
+		<dl class="fa">
+			<dt></dt>
+		</dl>
+	</section>
+</section>
+
+<section><h3>Submission</h3>
+	<dl class="fa">
+		<dt>PLease, prefix your filenames/archive with your name initials, before sending.</dt>
+		<dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
+		<dt>Send files to <a href="mailto:netIT.WWW.Courses@gmail.com?Subject=_NeuralNetworks_2_">netIT.WWW.Courses@gmail.com</a></dt>
+	</dl>
+</section> -->
+
+<section class="disclaimer end-slide"></section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="/ML_SA-Slides/outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="/ML_SA-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+	<script src="/ML_SA-Slides/lib/reveal.js/js/reveal.js"></script>
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		var highlightjsTabSize = '  ';
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+
+			// display control
+			// center: true,
+			// width: '100%',
+			// height: '100%',
+			// // // Factor of the display size that should remain empty around the content
+			// margin: 0.1,
+
+			// The "normal" size of the presentation, aspect ratio will be preserved
+			// when the presentation is scaled to fit different resolutions. Can be
+			// specified using percentage units.
+			width: 1920,
+			height: 1280,
+
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+
+			// Bounds for smallest/largest possible scale to apply to content
+			minScale: 0,
+			maxScale: 2,
+
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// shift+maous click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '/ML_SA-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+	<!-- linkedin badge -->
+	<!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+
+	<!-- MathJax -->
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript" async src="/ML_SA-Slides/lib/MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+</body>
+</html>
