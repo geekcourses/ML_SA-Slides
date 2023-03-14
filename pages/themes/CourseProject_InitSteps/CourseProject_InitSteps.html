@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>__title__</title>
+	<title>CourseProject_InitSteps</title>
 	<link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -28,7 +28,7 @@
 <body>
 	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
 	<div class="top_links">
-		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#__title__" target="_top"></a>
+		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#CourseProject_InitSteps" target="_top"></a>
 		<span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
 		<div class="help_text">
 			<div class="note">Keyboard shortcuts:</div>
@@ -51,7 +51,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section data-min-total="__X__" class="presentation-title"><h1>___PresentationTitle___</h1></section>
+<section data-min-total="__X__" class="presentation-title"><h1>Init your project</h1></section>
 <section data-transition="zoom">
 	<section class="copyright" data-transition="zoom">
 		<div>
@@ -71,10 +71,100 @@
 </section>
 
 
-<section data-min="__Y__" class="main-sesction-title"><h1>___MainSectionTitle___</h1></section>
-<section class="sub-sections"><h2>___MainSectionTitle___</h2>
-	<section ><h3>___SubSectionTitle___</h3>
+<section data-min="__Y__" class="main-sesction-title"><h1>Init your project</h1></section>
+<section class="sub-sections"><h2>Create Project Folder structure</h2>
+	<section>
+		<dl class="fa">
+			<dt>Create your project folder structure. You may follow the one I use, or reorganize files as you wish</dt>
+			<pre style="padding:0; margin: 0;"><code rel="Terminal" class="bash" style="min-height: 85vh; min-width: 100vw;">
+				sentiment_analysis/           # главна директория на проекта
+				│
+				├── data/                    # директория, която съдържа всички данни за проекта
+				│   ├── raw/                 # директория, където се съхраняват необработените данни
+				│   │   └── reviews.csv      # CSV файл с данните за отзивите на клиентите
+				│   ├── processed/           # директория, където ще се съхраняват обработените данни
+				│   |	├── reviews.csv      # CSV файл с данните за обучение на модела
+				│   └── stop_words.txt       # текстов файл със стоп думи
+				│
+				├── notebooks/               # папка за Jupyter notebooks
+				│   ├── data_analysis.ipynb  # notebook за анализ на данните
+				│   ├── preprocessing.ipynb  # notebook за предварителна обработка на данните
+				│   └── train_and_eval.ipynb # notebook за обучение и оценка на модела
+				│
+				├── models/                  # папка със обучените модели
+				│   └── model.h5             # Keras модел във формат .h5
+				│
+				└── src/                     # папка за изходния код
+					├── model.py               # скрипт за обучение и оценка на модела
 
+			</code></pre>
+		</dl>
+	</section>
+</section>
+<section class="sub-sections"><h2>Create Virtual Environment</h2>
+	<section id="createProjectSVirtualEnvironment"><h3>Create project's virtual environment</h3>
+		<dl class="fa">
+			<dt>Make sure the terminal is open in your root project folder</dt>
+			<pre><code rel="Terminal" class="bash">
+				pwd
+
+				/path.../ML_Project_SentimentAnalyses
+			</code></pre>
+			<dt>Create a virtual environment and activate it:</dt>
+			<pre><code rel="Terminal" class="bash">
+				# create a virtualenv named ".venv" in your root project folder:
+				python -m venv .venv
+
+				# activate the ".venv" environment:
+				.venv\Scripts\activate.bat
+
+				# your command prompt should be prefixed with "(.venv)" now
+			</code></pre>
+			<dt>You can deactivate a virtual environment by typing “deactivate” in your shell.</dt>
+			<dt>Reference: <a href="https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment">Creating a virtual environment @python.org</a></dt>
+		</dl>
+	</section>
+	<section id="installPackages"><h3>Install packages needed for your project</h3>
+		<pre><code rel="Terminal" class="bash">
+			pip install pandas numpy matplotlib tensorflow keras scikit-learn
+		</code></pre>
+	</section>
+	<section id="freezingDependencies"><h3>Freezing dependencies</h3>
+		<dl class="fa">
+			<dt>When you want to share your project, you must provide <a href="https://pip.pypa.io/en/latest/user_guide/#requirements-files">Requirements File</a> which allows to re-create the exact versions of all packages installed in your environment.</dt>
+			<dt>Pip can export a list of all installed packages and their versions using the freeze command</dt>
+			<pre><code rel="Terminal" class="bash">
+				# just list the installed packages
+				pip freeze
+
+				# save the list into "requirements.txt" file:
+				pip freeze > requirements.txt
+			</code></pre>
+		</dl>
+	</section>
+	<section id="initGit"><h3>Init project git repo and add the project to Github</h3>
+		<dl class="fa">
+			<dt>Init your git repo</dt>
+			<dt>Create <a href="https://git-scm.com/docs/gitignore">.gitignore</a> file and add in it files/folders to be ignored by git</dt>
+			<dd>You can use next template for Python provided by GitHub: <a href="https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore">Python.gitignore</a> :</dd>
+			<dt>Create empty Github repo for your project</dt>
+			<dt>To add your project ot GitHub, follow <a href="https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#adding-a-local-repository-to-github-using-git">Adding a local repository to GitHub using Git</a></dt>
+			<pre><code rel="Terminal" class="bash">
+				git init
+
+				# add all files to staging area:
+				git add -A
+
+				# commit staged files with message "Initial commit"
+				git commit -m "Initial commit"
+
+				# connect your local git repo with a github repository
+				git remote add origin https://github.com/<your_username>/<your_repository_name>.git
+
+				#
+				git push -u origin master
+			</code></pre>
+		</dl>
 	</section>
 </section>
 
@@ -102,7 +192,7 @@
 	<dl class="fa">
 		<dt>PLease, prefix your filenames/archive with your name initials, before sending.</dt>
 		<dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
-		<dt>Send files to <a href="mailto:netIT.WWW.Courses@gmail.com?Subject=___title___">netIT.WWW.Courses@gmail.com</a></dt>
+		<dt>Send files to <a href="mailto:netIT.WWW.Courses@gmail.com?Subject=_CourseProject_InitSteps_">netIT.WWW.Courses@gmail.com</a></dt>
 	</dl>
 </section> -->
 
