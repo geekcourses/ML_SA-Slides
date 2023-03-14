@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body{
+			display: block;
+			width: 80%;
+			margin: 0 auto;
+			font-size: 1.2em;
+		}
+	</style>
+</head>
+<body>
+	<h1>Project Task: Sentiment Analysis of Customer Reviews</h1>
+
+	<h2>Overview:</h2>
+	<p>This project implements a machine learning model to classify customer reviews as positive, negative, or neutral, based on a dataset of customer reviews and their associated sentiment labels. Finally, I'll use the trained model to classify new customer reviews and interpret the results.</p>
+
+	<h2>Data:</h2>
+	I use a dataset of customer reviews from a fictional online retailer. The dataset is freely available on [URL].
+	The dataset includes [N] reviews, each labeled as positive, negative, or neutral. The reviews are stored in a CSV file, where each row contains: [describe each dataset column].
+
+	<h2>Steps:</h2>
+
+	<h3>Data Preparation:</h3>
+	<ul>
+		<li>Load the dataset into a Pandas DataFrame.</li>
+		<li>Clean the text data by removing punctuation, stop words, and other irrelevant words.</li>
+		<li>Convert the text data into a numerical representation, such as bag-of-words or TF-IDF vectors.</li>
+	</ul>
+	<h3>Model Training:</h3>
+	<ul>
+		<li>Split the dataset into training and testing sets.</li>
+		<li>Train a machine learning model, such as a Naive Bayes classifier or a K-nearest Neighbor (KNN), using the training set.</li>
+		<li>Evaluate the performance of your model on the testing set, using metrics such as accuracy, precision, recall, and F1-score.</li>
+	</ul>
+	<h3>Model Optimization:</h3>
+	<ul>
+		<li>Experiment with different model hyperparameters to improve model performance.</li>
+		<li>Use cross-validation to tune the model hyperparameters and avoid overfitting.</li>
+	</ul>
+	<h3>Model Deployment:</h3>
+	<ul>
+		<li>Use the trained model to classify new customer reviews and assign a sentiment label.</li>
+		<li>Create a simple user interface (can be a command-line tool), to allow users to input a new customer review and see its sentiment label.</li>
+		<li>Interpret the results and provide insights into the sentiment of the customer reviews, such as identifying the most common positive or negative words or phrases.</li>
+	</ul>
+
+	<h2>Deliverables:</h2>
+	<ul>
+		<li>A Jupyter Notebook and/or Python scripts containing your code and analysis, structured well and uploaded in Github as a separate repository.</li>
+		<li>A report summarizing your project, including your data preparation steps, model selection and optimization, and results.</li>
+		<li>A demo of your model in action, showing how users can input new customer reviews and see their sentiment labels.</li>
+	</ul>
+</body>
+</html>
