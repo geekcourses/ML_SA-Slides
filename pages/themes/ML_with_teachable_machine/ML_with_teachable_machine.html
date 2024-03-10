@@ -1,51 +1,51 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>ML_with_teachable_machine</title>
-	<link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-	<!-- css & themes include -->
-	<link rel="stylesheet" href="/ML_SA-Slides/lib/reveal.js/css/reveal.css">
-	<link rel="stylesheet" href="/ML_SA-Slides/outfit/css/themes/projector.css" id="theme">
-	<!-- Printing and PDF exports -->
-	<script>
-		var link = document.createElement( 'link' );
-		link.rel = 'stylesheet';
-		link.type = 'text/css';
-		link.href = window.location.search.match( /print-pdf/gi ) ? '/ML_SA-Slides/lib/reveal.js/css/print/pdf.css' : '/ML_SA-Slides/lib/reveal.js/css/print/paper.css';
-		document.getElementsByTagName( 'head' )[0].appendChild( link );
-	</script>
-	<!--[if lt IE 9]>
-	<script src="lib/js/html5shiv.js"></script>
-	<![endif]-->
-	<!-- CUSTOM -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-	<base target="_blank">
+    <meta charset="utf-8">
+    <title>ML_with_teachable_machine</title>
+    <link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="/ML_SA-Slides/lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="/ML_SA-Slides/outfit/css/themes/projector.css" id="theme">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? '/ML_SA-Slides/lib/reveal.js/css/print/pdf.css' : '/ML_SA-Slides/lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- CUSTOM -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <base target="_blank">
 </head>
 <body>
-	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
-	<div class="top_links">
-		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#ML_with_teachable_machine" target="_top"></a>
-		<span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
-		<div class="help_text">
-			<div class="note">Keyboard shortcuts:</div>
-			<div><span>N/Спейс</span><span>Next Slide</span></div>
-			<div><span>P</span><span>Previous Slide</span></div>
-			<div><span>O</span><span>Slides Overview</span></div>
-			<div><span>ctrl+left click</span><span>Zoom Element</span></div>
-			<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
-			Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
-		</div>
-	</div>
-	<div class="footer theme_switch">
-		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
-		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/light.css'); return false;">Light</a>
-		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
-	</div>
-	<div class="slides">
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+    <div class="top_links">
+        <a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#ML_with_teachable_machine" target="_top"></a>
+        <span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
+        <div class="help_text">
+            <div class="note">Keyboard shortcuts:</div>
+            <div><span>N/Спейс</span><span>Next Slide</span></div>
+            <div><span>P</span><span>Previous Slide</span></div>
+            <div><span>O</span><span>Slides Overview</span></div>
+            <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+            <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+            Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+        </div>
+    </div>
+    <div class="footer theme_switch">
+        <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+        <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+        <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+    </div>
+    <div class="slides">
 <!--
 ########################################################
 ##################### SLIDES START #####################
@@ -53,171 +53,174 @@
 -->
 <section data-min-total="50" class="presentation-title"><h1>Machine Learning Example with Teachable Machine</h1></section>
 <section data-transition="zoom">
-	<section class="copyright" data-transition="zoom">
-		<div>
-			<p style="text-align: center;">Created for</p>
-		</div>
-		<div class="company">
-			<a href="https://softwareacademy.bg/">
-			<img style="height:80vh" src="/ML_SA-Slides/outfit/images/logos/software-web@4x.png" alt="software-web@4x.png">
-			</a>
-		</div>
-		<div class="author">
-			<span class="note"><a href="https://www.linkedin.com/in/ivapopova/">Iva E. Popova</a>,  2024,</span>
-			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
-			<!-- <i class="fa fa-linkedin"></i> -->
-		</div>
-	</section>
+    <section class="copyright" data-transition="zoom">
+        <div>
+            <p style="text-align: center;">Created for</p>
+        </div>
+        <div class="company">
+            <a href="https://softwareacademy.bg/">
+            <img style="height:80vh" src="/ML_SA-Slides/outfit/images/logos/software-web@4x.png" alt="software-web@4x.png">
+            </a>
+        </div>
+        <div class="author">
+            <span class="note"><a href="https://www.linkedin.com/in/ivapopova/">Iva E. Popova</a>,  2024,</span>
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            <!-- <i class="fa fa-linkedin"></i> -->
+        </div>
+    </section>
 </section>
 
 
 <section data-min="10" class="main-sesction-title"><h1>What is Teachable Machine?</h1></section>
 <section class="sub-sections"><h2>What is Teachable Machine?</h2>
-	<section >
-		<dl class="fa">
-			<dt>Google's Teachable Machine is a web-based tool that makes creating machine learning models fast, easy, and accessible to everyone.</dt>
-			<dt>It's simple and beginners-friendly.</dt>
-			<dt>The models you make with Teachable Machine are real TensorFlow.js models that work anywhere javascript runs, so they play nice with tools like Glitch, P5.js, Node.js & more.</dt>
-			<dt>Reference: <a href="https://teachablemachine.withgoogle.com/">teachablemachine.withgoogle.com</a></dt>
-		</dl>
-	</section>
-	<section><h3>Simple Steps on building ML App with Teachable Machine</h3>
-		<dl class="fa">
-			<dt><span class="note">Gather data</span> and group your examples into classes, or categories, that you want the computer to learn</dt>
-			<dt><span class="note">Train</span> your model, then instantly test it out to see whether it can correctly classify new examples</dt>
-			<dt><span class="note">Export</span> your model for your projects: sites, apps, and more. You can download your model or host it online.</dt>
-		</dl>
-	</section>
-	<section><h3>Projects using Teachable Machine</h3>
-		<dl class="fa">
-			<dt><a href="https://dogai.netlify.app/">Dog.AI</a>- <span>Recognize over 100 dog breeds by image using Tensorflow.js and Teachable Machine.</span></dt>
-			<dt><a href="https://github.com/atharvapatil/teachable-browser">Sit Straight</a> - <span>A quite useful posture classifier that blurs out Youtube videos if you don't sit straight</span></dt>
-		</dl>
-	</section>
+    <section >
+        <dl class="fa">
+            <dt>Google's Teachable Machine is a web-based tool that makes creating machine learning models fast, easy, and accessible to everyone.</dt>
+            <dt>It's simple and beginners-friendly.</dt>
+            <dt>The models you make with Teachable Machine are real TensorFlow.js models that work anywhere javascript runs, so they play nice with tools like Glitch, P5.js, Node.js & more.</dt>
+            <dt>Reference: <a href="https://teachablemachine.withgoogle.com/">teachablemachine.withgoogle.com</a></dt>
+        </dl>
+    </section>
+    <section><h3>Simple Steps on building ML App with Teachable Machine</h3>
+        <dl class="fa">
+            <dt><span class="note">Gather data</span> and group your examples into classes, or categories, that you want the computer to learn</dt>
+            <dt><span class="note">Train</span> your model, then instantly test it out to see whether it can correctly classify new examples</dt>
+            <dt><span class="note">Export</span> your model for your projects: sites, apps, and more. You can download your model or host it online.</dt>
+        </dl>
+    </section>
+    <section><h3>Projects using Teachable Machine</h3>
+        <dl class="fa">
+            <dt><a href="https://dogai.netlify.app/">Dog.AI</a>- <span>Recognize over 100 dog breeds by image using Tensorflow.js and Teachable Machine.</span></dt>
+            <dt><a href="https://github.com/atharvapatil/teachable-browser">Sit Straight</a> - <span>A quite useful posture classifier that blurs out Youtube videos if you don't sit straight</span></dt>
+        </dl>
+    </section>
 </section>
 
 <section data-min="10" class="main-sesction-title"><h1>ML app which detects dog or cat?</h1></section>
 <section class="sub-sections"><h2>ML app which detects dog or cat?</h2>
-	<section><h3>Image Recognition Applications</h3>
-		<p>Jian Yang: hotdog identifying app. From the <a href="https://www.imdb.com/title/tt2575988/">Silicon Valley TV Seriess</a>.</p>
-		<iframe src="https://www.youtube.com/embed/vIci3C4JkL0?start=50" title="Jian Yang: hotdog identifying app" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="height: 100vh;"></iframe>
-	</section>
-	<section><h3>Gather Data from Kaggle</h3>
-		<dl class="fa">
-			<dt>Kaggle is an online community for machine learners and data scientists. It offers more than 19,000 public datasets and 200,000 public notebooks to do your data science works.</dt>
-			<dt>You must register before starting using Kaggle!</dt>
-			<dt>Main site: <a href="https://www.kaggle.com/">kaggle.com</a></dt>
-		</dl>
-	</section>
-	<section><h3>Gather Data from Kaggle</h3>
-	<dl class="fa">
-		<dt>Click on search part, and type "Cat and Dog".</dt>
-		<dt><a href="https://www.kaggle.com/datasets/tongpython/cat-and-dog">Select Cat and Dog by SchubertSlySchubert</a></dt>
-		<dt>Click on Download and extract the zip file</dt>
-		<!-- <a href="./images/kaggle-test-and-training-data_path.webp"><img src="./images/kaggle-test-and-training-data_path.webp" alt="kaggle-test-and-training-data_path.webp" style="width: 60vw;"></a> -->
-		<dt>You must have next foldure structure:</dt>
-		<pre><code rel="" class="bash">
-			.
-			├── test_set
-			│	├── cats
-			│	└── dogs
-			└── training_set
-							├── cats
-							└── dogs
-
-		</code></pre>
-	</dl></section>
-	<section><h3>Train the model with Teachable Machine</h3>
-		<dl class="fa">
-			<dt>Open <a href="https://teachablemachine.withgoogle.com/">Teachable Machine</a> site and click on 'Get Started' button</dt>
-		</dl>
-		<a href="./images/TM-getstarted.webp"><img src="./images/TM-getstarted.webp" alt="TM-getstarted.webp"></a>
-	</section>
-	<section><h3>Train the model with Teachable Machine</h3>
-		<dl class="fa">
-			<dt>Select Image Project</dt>
-		</dl>
-		<a href="./images/TM-image-project-machine-learning.webp"><img src="./images/TM-image-project-machine-learning.webp" alt="TM-image-project-machine-learning.webp"></a>
-	</section>
-	<section><h3>Train the model with Teachable Machine</h3>
-		<dl class="fa">
-			<dt>Choose Standard Image Model.</dt>
-		</dl>
-		<a href="./images/TM-standard-image-model.webp"><img src="./images/TM-standard-image-model.webp" alt="TM-standard-image-model.webp"></a>
-	</section>
-	<section><h3>Train the model with Teachable Machine</h3>
-		<dl class="fa">
-			<dt>Label the classes: Change Class 1 to Dog, and Class 2 to Cat.</dt>
-		</dl>
-		<a href="./images/TM-create-cat-dog-model.webp"><img src="./images/TM-create-cat-dog-model.webp" alt="TM-create-cat-dog-model.webp"></a>
-	</section>
-	<section><h3>Train the model with Teachable Machine</h3>
-		<dl class="fa">
-			<dt>Upload data</dt>
-			<dd>upload dog images, in Dogs class.</dd>
-			<dd>upload cat images, in Cats class.</dd>
-		</dl>
-		<a href="./images/TM-cat-dog-upload.webp"><img src="./images/TM-cat-dog-upload.webp" alt="TM-cat-dog-upload.webp"></a>
-	</section>
-	<section><h3>Train the model with Teachable Machine</h3>
-		<dl class="fa">
-			<dt>It takes time to load all images.</dt>
-			<dt>It’s better to keep same amount of images in both sets, but it won’t change the result that much if one set has 5 extra images.</dt>
-		</dl>
-		<a href="./images/TM-catdogsetupoloaded.webp"><img src="./images/TM-catdogsetupoloaded.webp" alt="TM-catdogsetupoloaded.webp" style="width: 70vw;"></a>
-	</section>
-	<section><h3>Train the model with Teachable Machine</h3>
-		<dl class="fa">
-			<dt>Now we can start Train Model or can tweak the advanced settings</dt>
-		</dl>
-		<a href="./images/TM-train_advanced_Settings.png"><img src="./images/TM-train_advanced_Settings.png" alt="TM-train_advanced_Settings.png"></a>
-	</section>
-	<section><h3>Train the model with Teachable Machine</h3>
-		<dl class="fa">
-			<dt>We must wait for the model to be trained</dt>
-		</dl>
-		<a href="./images/TM-training_process.webp"><img src="./images/TM-training_process.webp" alt="TM-training_process.webp" style="width: 50vw;"></a>
-	</section>
-	<section><h3>Train the model with Teachable Machine</h3>
-		<dl class="fa">
-			<dt>When the model is completely trained by Google teachable Machine we can preview and test it</dt>
-		</dl>
-		<a href="./images/TM-preview-take-file.webp"><img src="./images/TM-preview-take-file.webp" alt="TM-preview-take-file.webp" style="width: 40vw;"></a>
-	</section>
-	<section><h3>Train the model with Teachable Machine</h3>
-		<dl class="fa">
-			<dt>When we are satisfied with result we can export the model, to use it in our app</dt>
-		</dl>
-		<a href="./images/TM-export-model-code-h5.png"><img src="./images/TM-export-model-code-h5.png" alt="TM-export-model-code-h5.png" style="width: 70vw;"></a>
-	</section>
+    <section><h3>Image Recognition Applications</h3>
+        <p>Jian Yang: hotdog identifying app. From the <a href="https://www.imdb.com/title/tt2575988/">Silicon Valley TV Seriess</a>.</p>
+        <iframe src="https://www.youtube.com/embed/vIci3C4JkL0?start=50" title="Jian Yang: hotdog identifying app" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="height: 100vh;"></iframe>
+    </section>
+    <section><h3>Gather Data from Kaggle</h3>
+        <dl class="fa">
+            <dt>Kaggle is an online community for machine learners and data scientists. It offers more than 19,000 public datasets and 200,000 public notebooks to do your data science works.</dt>
+            <dt>You must register before starting using Kaggle!</dt>
+            <dt>Main site: <a href="https://www.kaggle.com/">kaggle.com</a></dt>
+        </dl>
+    </section>
+    <section><h3>Gather Data from Kaggle</h3>
+    <dl class="fa">
+        <dt>Click on search part, and type "Cat and Dog" to search for datasets with Cats and Dogs.</dt>
+        <dt>Or just use <a href="https://www.kaggle.com/datasets/tongpython/cat-and-dog">Cat and Dog by SchubertSlySchubert</a></dt>
+        <dd>Download <a href="https://www.kaggle.com/datasets/tongpython/cat-and-dog?select=test_set">test_set</a></dd>
+        <a href="./images/Cats_and_Dogs_Download_Test_Set.bmp"><img src="./images/Cats_and_Dogs_Download_Test_Set.bmp" alt="Cats_and_Dogs_Download_Test_Set.bmp"></a>
+        <dd>Download <a href="https://www.kaggle.com/datasets/tongpython/cat-and-dog?select=training_set">training_set</a></dd>
+        <a href="./images/Cats_and_Dogs_Download_Training_Set.bmp"><img src="./images/Cats_and_Dogs_Download_Training_Set.bmp" alt="Cats_and_Dogs_Download_Training_Set.bmp"></a>
+        <dt>Extract the zip files in a <code>datasets/cats_and_dog</code> folder</dt>
+        <!-- <a href="./images/kaggle-test-and-training-data_path.webp"><img src="./images/kaggle-test-and-training-data_path.webp" alt="kaggle-test-and-training-data_path.webp" style="width: 60vw;"></a> -->
+        <!-- <dt>You must have next foldure structure:</dt>
+        <pre><code rel="" class="bash">
+            cats_and_dog
+            ├── test_set
+            │   ├── cats
+            │   └── dogs
+            └── training_set
+                ├── cats
+                └── dogs
+        </code></pre> -->
+    </dl></section>
+    <section><h3>Train the model with Teachable Machine</h3>
+        <dl class="fa">
+            <dt>Open <a href="https://teachablemachine.withgoogle.com/">Teachable Machine</a> site and click on 'Get Started' button</dt>
+        </dl>
+        <a href="./images/TM-getstarted.webp"><img src="./images/TM-getstarted.webp" alt="TM-getstarted.webp"></a>
+    </section>
+    <section><h3>Train the model with Teachable Machine</h3>
+        <dl class="fa">
+            <dt>Select Image Project</dt>
+        </dl>
+        <a href="./images/TM-image-project-machine-learning.webp"><img src="./images/TM-image-project-machine-learning.webp" alt="TM-image-project-machine-learning.webp"></a>
+    </section>
+    <section><h3>Train the model with Teachable Machine</h3>
+        <dl class="fa">
+            <dt>Choose Standard Image Model.</dt>
+        </dl>
+        <a href="./images/TM-standard-image-model.webp"><img src="./images/TM-standard-image-model.webp" alt="TM-standard-image-model.webp"></a>
+    </section>
+    <section><h3>Train the model with Teachable Machine</h3>
+        <dl class="fa">
+            <dt>Label the classes: Change Class 1 to Dog, and Class 2 to Cat.</dt>
+        </dl>
+        <a href="./images/TM-create-cat-dog-model.webp"><img src="./images/TM-create-cat-dog-model.webp" alt="TM-create-cat-dog-model.webp"></a>
+    </section>
+    <section><h3>Train the model with Teachable Machine</h3>
+        <dl class="fa">
+            <dt>Upload data</dt>
+            <dd>upload dog images, in Dogs class.</dd>
+            <dd>upload cat images, in Cats class.</dd>
+        </dl>
+        <a href="./images/TM-cat-dog-upload.webp"><img src="./images/TM-cat-dog-upload.webp" alt="TM-cat-dog-upload.webp"></a>
+    </section>
+    <section><h3>Train the model with Teachable Machine</h3>
+        <dl class="fa">
+            <dt>It takes time to load all images.</dt>
+            <dt>It’s better to keep same amount of images in both sets, but it won’t change the result that much if one set has 5 extra images.</dt>
+        </dl>
+        <a href="./images/TM-catdogsetupoloaded.webp"><img src="./images/TM-catdogsetupoloaded.webp" alt="TM-catdogsetupoloaded.webp" style="width: 70vw;"></a>
+    </section>
+    <section><h3>Train the model with Teachable Machine</h3>
+        <dl class="fa">
+            <dt>Now we can start Train Model or can tweak the advanced settings</dt>
+        </dl>
+        <a href="./images/TM-train_advanced_Settings.png"><img src="./images/TM-train_advanced_Settings.png" alt="TM-train_advanced_Settings.png"></a>
+    </section>
+    <section><h3>Train the model with Teachable Machine</h3>
+        <dl class="fa">
+            <dt>We must wait for the model to be trained</dt>
+        </dl>
+        <a href="./images/TM-training_process.webp"><img src="./images/TM-training_process.webp" alt="TM-training_process.webp" style="width: 50vw;"></a>
+    </section>
+    <section><h3>Train the model with Teachable Machine</h3>
+        <dl class="fa">
+            <dt>When the model is completely trained by Google teachable Machine we can preview and test it</dt>
+        </dl>
+        <a href="./images/TM-preview-take-file.webp"><img src="./images/TM-preview-take-file.webp" alt="TM-preview-take-file.webp" style="width: 40vw;"></a>
+    </section>
+    <section><h3>Train the model with Teachable Machine</h3>
+        <dl class="fa">
+            <dt>When we are satisfied with result we can export the model, to use it in our app</dt>
+        </dl>
+        <a href="./images/TM-export-model-code-h5.png"><img src="./images/TM-export-model-code-h5.png" alt="TM-export-model-code-h5.png" style="width: 70vw;"></a>
+    </section>
 </section>
 
 
 <!-- <section data-min="1"><h1>References</h1></section>
 <section><h2>References</h2>
-	<section><h3>Readings</h3>
-		<dl class="fa">
-			<dt></dt>
-		</dl>
-	</section>
+    <section><h3>Readings</h3>
+        <dl class="fa">
+            <dt></dt>
+        </dl>
+    </section>
 </section>
 
 
 <section id="hw" data-min="4"><h1>Exercises</h1></section>
 <section><h2>Task1: Task1Title</h2>
-	<section><h3>The Task</h3>
-		<dl class="fa">
-			<dt></dt>
-		</dl>
-	</section>
+    <section><h3>The Task</h3>
+        <dl class="fa">
+            <dt></dt>
+        </dl>
+    </section>
 </section>
 
 <section><h3>Submission</h3>
-	<dl class="fa">
-		<dt>PLease, prefix your filenames/archive with your name initials, before sending.</dt>
-		<dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
-		<dt>Send files to <a href="mailto:netIT.WWW.Courses@gmail.com?Subject=_ML_with_teachable_machine_">netIT.WWW.Courses@gmail.com</a></dt>
-	</dl>
+    <dl class="fa">
+        <dt>PLease, prefix your filenames/archive with your name initials, before sending.</dt>
+        <dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
+        <dt>Send files to <a href="mailto:netIT.WWW.Courses@gmail.com?Subject=_ML_with_teachable_machine_">netIT.WWW.Courses@gmail.com</a></dt>
+    </dl>
 </section> -->
 
 <section class="disclaimer end-slide"></section>
@@ -226,70 +229,70 @@
 ##################### SLIDES END   #####################
 ########################################################
 -->
-		</div>
-	</div>
-	<!-- Custom processing -->
-	<script src="/ML_SA-Slides/outfit/js/slides.js"></script>
-	<!-- external scripts -->
-	<script src="/ML_SA-Slides/lib/reveal.js/lib/js/head.min.js"></script>
-	<script src="/ML_SA-Slides/lib/reveal.js/js/reveal.js"></script>
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="/ML_SA-Slides/outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="/ML_SA-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="/ML_SA-Slides/lib/reveal.js/js/reveal.js"></script>
 
-	<!-- init reveal -->
-	<script>
-		// Full list of configuration options available at:
-		// https://github.com/hakimel/reveal.js#configuration
-		var highlightjsTabSize = '  ';
-		Reveal.initialize({
-			controls: true,
-			progress: true,
-			slideNumber: 'c/t',
-			keyboard: true,
-			history: true,
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
 
-			// display control
-			// center: true,
-			// width: '100%',
-			// height: '100%',
-			// // // Factor of the display size that should remain empty around the content
-			// margin: 0.1,
+            // display control
+            // center: true,
+            // width: '100%',
+            // height: '100%',
+            // // // Factor of the display size that should remain empty around the content
+            // margin: 0.1,
 
-			// The "normal" size of the presentation, aspect ratio will be preserved
-			// when the presentation is scaled to fit different resolutions. Can be
-			// specified using percentage units.
-			width: 1920,
-			height: 1280,
+            // The "normal" size of the presentation, aspect ratio will be preserved
+            // when the presentation is scaled to fit different resolutions. Can be
+            // specified using percentage units.
+            width: 1920,
+            height: 1280,
 
-			// Factor of the display size that should remain empty around the content
-			margin: 0.1,
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
 
-			// Bounds for smallest/largest possible scale to apply to content
-			minScale: 0,
-			maxScale: 2,
+            // Bounds for smallest/largest possible scale to apply to content
+            minScale: 0,
+            maxScale: 2,
 
-			// slide transition
-			transition: 'concave', // none/fade/slide/convex/concave/zoom
-			// shift+maous click to zoom in/out element
-			zoomKey: 'ctrl',
-			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-			// transition: Reveal.getQueryHash().transition || 'default'
-			// Optional reveal.js plugins
-			dependencies: [
-				{ src: '/ML_SA-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
-				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
-				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
-			]
-		});
-	</script>
-	<!-- linkedin badge -->
-	<!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // shift+maous click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '/ML_SA-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+            ]
+        });
+    </script>
+    <!-- linkedin badge -->
+    <!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
 
-	<!-- MathJax -->
-	<script type="text/x-mathjax-config">
-		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-	</script>
-	<script type="text/javascript" async src="/ML_SA-Slides/lib/MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript" async src="/ML_SA-Slides/lib/MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>
 </body>
 </html>
