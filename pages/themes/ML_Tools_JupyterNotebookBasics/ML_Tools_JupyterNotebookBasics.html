@@ -354,6 +354,51 @@
     </section>
 </section>
 
+<section class="main-section-title" id="GitBasics"><h1>Setting Up Git</h1></section>
+<section class="sub-sections"><h2>Setting Up Git</h2>
+    <section><h3>Installing Git</h3>
+        <dl class="fa">
+            <dt>Visit the official Git website (<a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a> ) to download the Git installer for your operating system.</dt>
+            <dt>Follow the installation wizard, which will guide you through the setup process, including selecting the right options for your environment.</dt>
+            <dt>To verify the installation, open your terminal (Command Prompt, PowerShell, or Terminal) and type:</dt>
+            <pre><code rel="Terminal" class="bash">
+                git -v
+
+                # git version 2.43.0
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Setting up user name and email</h3>
+        <dl class="fa">
+            <dt>Before your first git commit, you have to provide your user name and email.</dt>
+            <dt>This information will be stamped in each of you commits and other git activities you make.</dt>
+            <dt>You are not obliged to put your GitHub account email, but keep in mind that GitHub relies on the email address associated with commits to attribute contributions to user profiles. If the email address in your Git configuration does not match the one associated with your GitHub account, your contributions will not be reflected on your GitHub profile activity and contribution graphs.</dt>
+            <pre><code rel="Terminal" class="bash">
+                #Global:  if you wish to setup your git identity on global level, you can use the --global option:
+                git config --global user.email "your_mail@mail.com"
+                git config --global user.name "User Name"
+
+                # Local: per project - make sure you type next commands while you are in the root git folder
+                git config user.email "your_mail@mail.com"
+                git config user.name "User Name"
+            </code></pre>
+            <dt>Check your configuration by typing:</dt>
+            <pre><code rel="Terminal" class="bash">
+                git config user.name
+                git config user.email
+            </code></pre>
+
+        </dl>
+    </section>
+    <section><h3>Set VSCode as default git editor</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>If you want to configure Git to use VSCode as the default editor for commit messages and other interactive Git commands:</dt>
+            <pre><code rel="Terminal" class="bash">
+                git config --global core.editor "code --wait"
+            </code></pre>
+        </dl>
+    </section>
+</section>
 
 <section class="main-section-title"><h1>Working with Github</h1></section>
 <section class="sub-sections"><h2>Working with Github</h2>
