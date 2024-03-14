@@ -95,7 +95,7 @@
 			<dd>Myriad of ML packages and tools</dd>
 			<dt>Cons:</dt>
 			<dd>Slow speed and not memory efficient. But this problem is overcome by libraries, like numpy, pandas, etc.</dd>
-			<dd>"Dependency Conflicts" when using many libraries. This problem is overcome by dependency management tools and zero-config software like Anaconda </dd>
+			<dd>"Dependency Conflicts" when using many libraries. This problem is overcome by virtual environments and dependency management tools.</dd>
 		</dl>
 	</section>
 	<section><h3>Git and GitHub</h3>
@@ -107,7 +107,6 @@
 			<dd>Programming</dd>
 			<dd>DataScience/ML Projects and the DataSets</dd>
 			<dt><span class="note">Git and GitHub make it easy to share</span> your work with other team members and collaborate on many projects.</dt>
-			<dt>There are different types and implementations of VCS.</dt>
 		</dl>
 	</section>
 	<section id="numpy"><h3>numpy</h3>
@@ -189,7 +188,91 @@
 	</section>
 </section>
 
+<section class="main-section-title"><h1>___MainSectionTitle___</h1></section>
+<section class="sub-sections"><h2>___MainSectionTitle___</h2>
+	<section><h3>___SubSectionTitle___</h3>
 
+	</section>
+</section>
+
+<section class="main-section-title"><h1>Git and Github</h1></section>
+<section class="sub-sections">What is a VCS and how it makes life easier?</h2>
+    <section>
+        <dl class="fa">
+            <dt><abbr>VCS</abbr><dfn id="DB"><span>Version</span><span>Control</span><span>System</span></dfn></dt>
+            <dd>a system that records changes in a project (files and directories) over time so that you can recall specific versions later</dd>
+            <dt>You can version control any files, all kind of work you do: writing, programming, images. </dt>
+            <dd>But VCS are extremely helpful in software development</dd>
+        </dl>
+    </section>
+    <section><h3 id="VCSAdvantagesInSoftwareDevelopment">VCS Advantages in Software Development</h3>
+        <dl class="fa">
+            <dt><b>Track Changes Over Time:</b> VCS allows developers to keep a history of changes made to the codebase. This feature is invaluable for understanding how a project has evolved and for analyzing the impact of specific changes.</dt>
+            <dt><b>Facilitate Collaboration:</b> In modern software development, teams often work on the same projects simultaneously. VCS supports multiple developers working on the same codebase without overwriting each other's changes, merging contributions seamlessly.</dt>
+            <dt><b>Error Recovery:</b> When errors are introduced into the code, VCS makes it easy to revert to earlier, error-free versions. This capability significantly reduces the risk associated with new deployments.</dt>
+            <dt><b>Branching and Merging:</b> VCS enables developers to create branches, allowing them to work on new features or fixes independently from the main codebase. Once ready, these changes can be merged back into the main project, facilitating continuous integration and delivery.</dt>
+            <dt><b>Track Who Made Changes:</b> VCS provides transparency over who made specific changes, adding an accountability layer to the development process. This feature is crucial for coordinating team efforts and resolving issues.</dt>
+        </dl>
+    </section>
+</section>
+<section class="sub-sections">Types of VSC</h2>
+    <section><h3>Local VCS</h3>
+        <dl class="fa">
+            <dt>Local version control systems store tracking information on the local computer only.</dt>
+            <dt>While it's a simple method, it's not commonly used by companies due to the lack of collaboration features and increased risk of data loss.</dt>
+            <a href="images/local_vcs.png"><img src="images/local_vcs.png"></a>
+        </dl>
+    </section>
+    <section><h3>Centralized VCS</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Centralized version control systems, like <a href="http://subversion.tigris.org/">Subversion (SVN)</a>, use a single server repository and client workstations that check out files from that repository.</dt>
+            <dt>Centralized VCSs simplify collaboration but introduce a single point of failure that can compromise the entire project's history if not properly backed up.</dt>
+            <a href="images/centralized_vcs.png"><img src="images/centralized_vcs.png"></a>
+        </dl>
+    </section>
+    <section><h3>Decentralized (Distributed) VCS</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Distributed version control systems, like <a href="https://git-scm.com/">Git</a>, allow each user to have a full copy of the entire repository history, enhancing collaboration and security.</dt>
+            <dt>This model supports distributed development, allows for multiple backup points, and facilitates complex merging and branching strategies.</dt>
+            <a href="images/distributed_vcs.png"><img src="images/distributed_vcs.png" style="width: 30vw; height: 53vh;"></a>
+        </dl>
+    </section>
+</section>
+<section data-min="50" class="main-section-title"><h1>Distributed VCS Concepts</h1></section>
+<section class="sub-sections"><h2>Distributed VCS Concepts</h2>
+    <section><h3>Overview</h3>
+        <a href="images/distributed_concepts_overview.png"><img src="images/distributed_concepts_overview.png"></a>
+    </section>
+    <section>
+        <dl class="fa">
+            <dt><b>Working Copy (Working Directory):</b></dt>
+            <dd>The actual files a developer works on. Changes made here can be saved (committed) to their local repository.</dd>
+            <dt><b>Repository</b></dt>
+            <dd>It's a place where all the project's files live and where you can see the history of what's been done, who did it, and when. Repositories can be local or remote</dd>
+            <dt><b>Local Repository:</b></dt>
+            <dd>Local repositories reside on the computer of each developer, allowing for individual work on the project's codebase. Each contributor has their own local repository with the full history of the project.</dd>
+            <dt><b>Remote Repository:</b></dt>
+            <dd>Remote repositories are hosted on the internet or a network, enabling multiple developers to push and pull changes, thus supporting collaborative work across teams.</dd>
+            <dt><b>Commit (Local):</b></dt>
+            <dd>Saving changes to the local repository. It's a snapshot of the working copy at a given time.</dd>
+            <dd>Developers must commit their work locally before sharing it with others.</dd>
+            <dt><b>Pull:</b></dt>
+            <dd>Bringing in changes from the server repository to the local repository to keep it up-to-date.</dd>
+            <dt><b>Push:</b></dt>
+            <dd>Transferring local changes (commits_ to the server repository. This is how changes are shared with other team members.</dd>
+        </dl>
+    </section>
+</section>
+<section class="sub-sections"><h2>Github</h2>
+	<section><h3>Overview</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt>GitHub is a developer platform, that allows developers to create, store, manage and share their code.</dt>
+			<dt>It leverages Git for managing projects across multiple developers.</dt>
+			<dt>GitHub provides a repository hosting service, which means it hosts a directory where your work can be kept, tracked, and collaborated on with others.</dt>
+			<dt><a href="https://github.com/geekcourses/GitHubTutorial-Using-VSCode?tab=readme-ov-file#how-to-upload-files-on-github-using-vscode">How To upload Files on GitHub (using VSCode)</a></dt>
+		</dl>
+	</section>
+</section>
 
 <section data-min="15" class="main-sesction-title"><h1>Jupyter Notebook Overview</h1></section>
 <section class="sub-sections"><h2>Jupyter Notebook Overview</h2>
@@ -228,14 +311,6 @@
 			<dd><a href="https://research.google.com/colaboratory/unregistered.html">Google  Colaboratory</a></dd>
 			<dd><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html">Amazon  SageMaker Notebooks</a></dd>
 			<dd><a href="https://notebooks.azure.com/">Microsoft Azure Notebook</a></dd>
-		</dl>
-	</section>
-	<section><h3>Timeline</h3>
-		<dl class="fa">
-			<dt><span class="note">2011, December</span> - first release</dt>
-			<dt><span class="note">2014</span> - <a href="http://jupyter.org/">Project Jupyter</a> founded</dt>
-			<dt><span class="note">2015</span> - GitHub and the Jupyter Project announced native rendering of Jupyter notebooks (.ipynb files) on the GitHub platform.</dt>
-			<dt><span class="note">2019,February</span> - <a href="https://blog.jupyter.org/jupyterlab-is-ready-for-users-5a6f039b8906">JupyterLab is Ready for Users</a> - for daily use (installation, documentation, try it with Binder)</dt>
 		</dl>
 	</section>
 	<section><h3>JupyterLab - Overview</h3>
@@ -316,7 +391,7 @@
 
 
 <!-- <section data-min="1"><h1>References</h1></section>
-<section><h2>References</h2>
+<section class="sub-sections">References</h2>
 	<section><h3>Readings</h3>
 		<dl class="fa">
 			<dt></dt>
@@ -326,7 +401,7 @@
 
 
 <section id="hw" data-min="4"><h1>Exercises</h1></section>
-<section><h2>Task1: Task1Title</h2>
+<section class="sub-sections">Task1: Task1Title</h2>
 	<section><h3>The Task</h3>
 		<dl class="fa">
 			<dt></dt>
