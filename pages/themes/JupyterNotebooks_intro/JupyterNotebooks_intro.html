@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>JupyterNotebooks_intro</title>
+	<link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="/ML_SA-Slides/lib/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="/ML_SA-Slides/outfit/css/themes/projector.css" id="theme">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '/ML_SA-Slides/lib/reveal.js/css/print/pdf.css' : '/ML_SA-Slides/lib/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- CUSTOM -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+	<div class="top_links">
+		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#JupyterNotebooks_intro" target="_top"></a>
+		<span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
+		<div class="help_text">
+			<div class="note">Keyboard shortcuts:</div>
+			<div><span>N/Спейс</span><span>Next Slide</span></div>
+			<div><span>P</span><span>Previous Slide</span></div>
+			<div><span>O</span><span>Slides Overview</span></div>
+			<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+			<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+			Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+		</div>
+	</div>
+	<div class="footer theme_switch">
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+	</div>
+	<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section data-min-total="135" class="presentation-title">
+	<h1>Introduction to Jupyter Notebook.</h1>
+</section>
+<section data-transition="zoom">
+	<section class="copyright" data-transition="zoom">
+		<div>
+			<p style="text-align: center;">Created for</p>
+		</div>
+		<div class="company">
+			<a href="https://softwareacademy.bg/">
+			<img style="height:80vh" src="/ML_SA-Slides/outfit/images/logos/software-web@4x.png" alt="software-web@4x.png">
+			</a>
+		</div>
+		<div class="author">
+			<span class="note"><a href="https://www.linkedin.com/in/ivapopova/">Iva E. Popova</a>,  2024,</span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+			<!-- <i class="fa fa-linkedin"></i> -->
+		</div>
+	</section>
+</section>
+
+
+<section data-min="15" class="main-section-title"><h1>Jupyter Notebook Overview</h1></section>
+<section class="sub-sections"><h2>Jupyter Notebook Overview</h2>
+	<section><h3>What is Jupyter Notebook?</h3>
+		<dl class="fa">
+			<dt>A client-server application that allows editing and running notebook documents via a web browser</dt>
+			<dt>Notebook Documents are documents, which can contain both computer code (e.g. python) and rich text elements (paragraph, equations, graphics, links, etc…).</dt>
+			<dt>The code can be executed in real time</dt>
+			<dt>Jupyter Notebook example: <a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/matplotlib_pandas_seaborn/Matplotlib_with_Pandas_1.ipynb">Matplotlib_with_Pandas_1.ipynb</a></dt>
+		</dl>
+	</section>
+	<section><h3>What is Jupyter Notebook?</h3>
+		<dl class="fa">
+			<dt>The name <span class="note">Jupyter</span> is a loose acronym from:</dt>
+			<dd>Julia, Python, R</dd>
+			<dt>Jupyter Notebooks can be used with different programming languages, if you install the right kernel </dt>
+			<dd><a href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">list of available kernels</a></dd>
+			<dd class="note">For Python2/3, the iPython kernel is pre-installed!</dd>
+		</dl>
+	</section>
+	<section><h3>What is Jupyter Notebook Document?</h3>
+		<dl class="fa">
+			<dt>A Jupyter Notebook document is a <span class="note">JSON document</span>, following a versioned schema.</dt>
+			<dt>It contains an ordered list of <span class="note">input/output cells</span>.</dt>
+			<dt>Each cell can contain <span class="note">code</span>, <span class="note">text </span> (and <span class="note">Markdown</span>), <span class="note">formulae</span>, <span class="note">plots</span> and <span class="note">rich media</span> (images, audio, video...)</dt>
+		</dl>
+	</section>
+	<section><h3>Output Formats</h3>
+		<dl class="fa">
+			<dt>Jupyter notebooks document can be converted to a number of open standard output formats:</dt>
+			<dd>HTML, presentation slides, LaTeX, PDF, ReStructuredText, Markdown, Python.</dd>
+		</dl>
+	</section>
+	<section><h3>On the Cloud</h3>
+		<dl class="fa">
+			<dt>The major cloud providers have adopted the Jupyter Notebook</dt>
+			<dd><a href="https://research.google.com/colaboratory/unregistered.html">Google Colaboratory</a></dd>
+			<dd><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html">Amazon  SageMaker Notebooks</a></dd>
+			<dd><a href="https://notebooks.azure.com/">Microsoft Azure Notebook</a></dd>
+			<dt>During the course we'll use Google Colaboratory</dt>
+		</dl>
+	</section>
+	<section><h3>JupyterLab - Overview</h3>
+		<dl class="fa">
+			<dt>JupyterLab is the next-generation <span class="note">user interface</span> for Project Jupyter</dt>
+			<dt>It's a brand new implementation of the classic Jupyter Notebook, using the new Front-End technologies which allows for adding new features and extensions</dt>
+			<dt>The notebook document format used in JupyterLab is the same as in the classic Jupyter Notebook</dt>
+		</dl>
+	</section>
+	<section><h3>JupyterLab - Overview</h3>
+		<dl class="fa">
+			<dt>JupyterLab offers an IDE-like experience to users</dt>
+			<dt>It puts together most of the instruments a data scientist need: code/text editors, terminals, image viewer, python console.</dt>
+			<dd>And they work in a synchronised way.</dd>
+			<dt>JupyterLab allows third-party sides to write extensions (<span class="note">npm packages</span>) for it through the JupyterLab public APIs</dt>
+		</dl>
+	</section>
+</section>
+
+<section data-min="20" class="main-section-title"><h1>Jupyter Notebook Basics</h1></section>
+<section class="sub-sections"><h2>Jupyter Notebook Basics</h2>
+	<section>
+		<p>The demo is in next Jupyter Notebook: <a href="https://github.com/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/JupyterNotebook_basics.ipynb">JupyterNotebook_basics.ipynb</a></p>
+	</section>
+</section>
+
+<section class="main-section-title"><h1>Jupyter Notebook in VSCode</h1></section>
+<section class="sub-sections"><h2>Jupyter Notebook in VSCode</h2>
+	<section>
+		<dl class="fa" style="min-width:80vw">
+			<dt>Visual Studio Code supports working with Jupyter Notebooks natively.</dt>
+			<dt>Reference: <a href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks">Jupyter Notebooks in VS Code</a></dt>
+		</dl>
+	</section>
+</section>
+
+<section data-min="10" class="main-section-title"><h1>Share/Render your JupyterNotebooks</h1></section>
+<section class="sub-sections"><h2>Share/Render your JupyterNotebooks</h2>
+	<section><h3>GitHub Render</h3>
+		<dl class="fa">
+			<dt>You can use <a href="https://github.com">github.com</a> to host your .ipynb files for free</dt>
+			<dt>GitHub can render .ipynb files. For more details check <a href="https://help.github.com/articles/working-with-jupyter-notebook-files-on-github/">github docs</a></dt>
+			<dd>when you click on it (the <code>.ipynb</code> extension) github will try to render the notebook in your browse</dd>
+			<dd>You can copy that URL and share it with anybody</dd>
+			<dd>Like that: <a href="https://github.com/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/JupyterNotebook_basics.ipynb">JupyterNotebook_basics</a></dd>
+		</dl>
+	</section>
+	<section><h3>nbviewer</h3>
+		<p class="note">The preferred way</p>
+		<dl class="fa">
+			<dt><a href="https://nbviewer.jupyter.org/">nbviewer.jupyter.org</a> is a Web Service to render .ipynb files</dt>
+			<dt>You can render there your .ipynb files, hosted on github, or GoogleDrive, Dropbox, ...</dt>
+			<dt>Like that: <a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/JupyterNotebook_basics.ipynb">JupyterNotebook_introduction</a></dt>
+		</dl>
+	</section>
+</section>
+
+<section data-min="10" class="main-section-title"><h1>Interact and share your Notebooks through <a href="https://mybinder.org/">Binder</h1></section>
+<section class="sub-sections"><h2>Interact and share your Notebooks through <a href="https://mybinder.org/">Binder</h2>
+	<section><h3>Binder overview</h3>
+		<dl class="fa">
+			<dt><a href="https://mybinder.org/">binder</a> - Turn a GitHub repo into a collection of interactive notebooks</dt>
+			<dd>Builds a docker images from a git repository</dd>
+			<dd>Uses <a href="https://github.com/jupyterhub/jupyterhub">JupyterHub</a> - Multi-user server for Jupyter notebooks - to execute the notebook</dd>
+			<dt><a href="https://mybinder.org/v2/gh/geekcourses/JupyterNotebooksExamples/master">JupyterNotebooksExamples Repo</a> - <a href="https://mybinder.org/v2/gh/geekcourses/JupyterNotebooksExamples/master"><img src="https://mybinder.org/badge_logo.svg" style="vertical-align: middle;"></a></dt>
+			<dd class="note">You have to be patient in order binder to build the Docker image and start the server...</dd>
+		</dl>
+	</section>
+	<section><h3>Generating a shareable Binder link</h3>
+		<dl class="fa">
+			<dt>To generate a link for your github repository/file, visit <a href="https://mybinder.org/">mybinder.org</a></dt>
+			<dt>Type in the information for your repository (repo name, branch,...).</dt>
+			<dt>You will see your Binder link automatically generated as you fill in the form</dt>
+			<dt>The link structure is:</dt>
+			<dd><code>https://mybinder.org/v2/&lt;provider-name&gt;/&lt;org-name&gt;<br>
+			/&lt;repo-name&gt;/&lt;branch|commit|tag&gt;?<br>filepath=&lt;path/to/notebook.ipynb&gt;</code></dd>
+		</dl>
+	</section>
+	<section><h3>Generating a shareable Binder link to a file - screenshot</h3>
+		<dl class="fa">
+			<dt class="note">Note, that the <code>pathname</code> is relative to your github repo folder</dt>
+		</dl>
+		<a href="images/gen_mybinder_link.png"><img src="images/gen_mybinder_link.png"></a>
+	</section>
+</section>
+
+
+
+<!-- <section data-min="1"><h1>References</h1></section>
+<section class="sub-sections">References</h2>
+	<section><h3>Readings</h3>
+		<dl class="fa">
+			<dt></dt>
+		</dl>
+	</section>
+</section>
+
+
+<section id="hw" data-min="4"><h1>Exercises</h1></section>
+<section class="sub-sections">Task1: Task1Title</h2>
+	<section><h3>The Task</h3>
+		<dl class="fa">
+			<dt></dt>
+		</dl>
+	</section>
+</section>
+
+<section><h3>Submission</h3>
+	<dl class="fa">
+		<dt>PLease, prefix your filenames/archive with your name initials, before sending.</dt>
+		<dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
+		<dt>Send files to <a href="mailto:netIT.WWW.Courses@gmail.com?Subject=_JupyterNotebooks_intro_">netIT.WWW.Courses@gmail.com</a></dt>
+	</dl>
+</section> -->
+
+<section class="disclaimer end-slide"></section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="/ML_SA-Slides/outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="/ML_SA-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+	<script src="/ML_SA-Slides/lib/reveal.js/js/reveal.js"></script>
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		var highlightjsTabSize = '  ';
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+
+			// display control
+			// center: true,
+			// width: '100%',
+			// height: '100%',
+			// // // Factor of the display size that should remain empty around the content
+			// margin: 0.1,
+
+			// The "normal" size of the presentation, aspect ratio will be preserved
+			// when the presentation is scaled to fit different resolutions. Can be
+			// specified using percentage units.
+			width: 1920,
+			height: 1280,
+
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+
+			// Bounds for smallest/largest possible scale to apply to content
+			minScale: 0,
+			maxScale: 2,
+
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// shift+maous click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '/ML_SA-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+	<!-- linkedin badge -->
+	<!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+
+	<!-- MathJax -->
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript" async src="/ML_SA-Slides/lib/MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+</body>
+</html>

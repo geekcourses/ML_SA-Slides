@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Tooling_virtual_env</title>
+    <link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="/ML_SA-Slides/lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="/ML_SA-Slides/outfit/css/themes/projector.css" id="theme">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? '/ML_SA-Slides/lib/reveal.js/css/print/pdf.css' : '/ML_SA-Slides/lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- CUSTOM -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+    <div class="top_links">
+        <a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#Tooling_virtual_env" target="_top"></a>
+        <span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
+        <div class="help_text">
+            <div class="note">Keyboard shortcuts:</div>
+            <div><span>N/Спейс</span><span>Next Slide</span></div>
+            <div><span>P</span><span>Previous Slide</span></div>
+            <div><span>O</span><span>Slides Overview</span></div>
+            <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+            <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+            Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+        </div>
+    </div>
+    <div class="footer theme_switch">
+        <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+        <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+        <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+    </div>
+    <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section data-min-total="__X__" class="presentation-title">
+    <h1>Python Installation. <br> Virtual Environment. <br> Setup ML Projects Workspace.</h1>
+</section>
+<section data-transition="zoom">
+    <section class="copyright" data-transition="zoom">
+        <div>
+            <p style="text-align: center;">Created for</p>
+        </div>
+        <div class="company">
+            <a href="https://softwareacademy.bg/">
+            <img style="height:80vh" src="/ML_SA-Slides/outfit/images/logos/software-web@4x.png" alt="software-web@4x.png">
+            </a>
+        </div>
+        <div class="author">
+            <span class="note"><a href="https://www.linkedin.com/in/ivapopova/">Iva E. Popova</a>,  2024,</span>
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            <!-- <i class="fa fa-linkedin"></i> -->
+        </div>
+    </section>
+</section>
+
+
+<section class="main-section-title" is="PythonInstallation"><h1>Python Installation</h1></section>
+<section class="sub-sections"><h2>Python Installation (on Windows, Mac, Linux)</h2>
+    <section><h3>Install Python on Windows - HowTo</h3>
+        <dl class="fa">
+            <dt>Download the <span class="note">Python3</span> Installer:</dt>
+            <dd>Navigate to <a href="https://www.python.org/downloads/windows/">Python Releases for Windows</a></dd>
+            <dd>Look from "Stable Releases" the lates version (for now it is "Python 3.12.2 - Feb. 6, 2024")</dd>
+            <dd>Select "Windows installer" 32-bit or 64-bit versions - according to your system </dd>
+            <dd><a href="https://support.microsoft.com/en-us/windows/which-version-of-windows-operating-system-am-i-running-628bec99-476a-2c13-5296-9dd081cdd808">Which version of Windows operating system am I running?</a></dd>
+            <a href="./images/Pyhton_Windows_Select_Version.bmp">
+                <img src="./images/Pyhton_Windows_Select_Version.bmp" alt="Pyhton_Windows_Select_Version.bmp" style="height: 30vh;">
+            </a>
+        </dl>
+    </section>
+    <section><h3>Install Python on Windows - HowTo</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Installation Steps: <a href="https://docs.python.org/3/using/windows.html#installation-steps">Using Python on Windows - installation-steps @docs.python.org</a></dt>
+            <dd class="note">Do not forget to select "Add Python to PATH"</dd>
+            <a href="./images/Pyhton_Windows_AddToPath.png">
+                <img src="./images/Pyhton_Windows_AddToPath.png" alt="Pyhton_Windows_AddToPath.png" style="height: 60vh;">
+            </a>
+        </dl>
+    </section>
+    <section><h3>Install Python on Mac - more info</h3>
+        <dl class="fa">
+            <dt><a href="https://www.python.org/downloads/macos/">https://www.python.org/downloads/macos/</a></dt>
+            <dt><a href="https://docs.python.org/3/using/mac.html">Using Python on a Macintosh @docs.python.org</a></dt>
+        </dl>
+    </section>
+    <section><h3>Install Python on Linux</h3>
+        <dl class="fa">
+            <dt>If you use Ubuntu based distribution, you can install lates Python release by:</dt>
+            <dd>Open up your terminal (Ctrl + Alt + T) and write:
+            </dd>
+            <pre><code rel="Terminal" class="bash">
+                # Update your local system's repository
+                sudo apt update
+
+                # Install the latest version of Python
+                sudo apt install python3
+            </code></pre>
+            <dt>For other Linux distributions check: <a href="https://docs.python.org/3/using/unix.html#on-linux">Using Python on Linux @docs.python.org</a></dt>
+        </dl>
+    </section>
+    <section><h3>Verify installation:</h3>
+        <dl class="fa">
+            <dt>Open a Terminal/Command Prompt and type:
+                <pre><code rel="Terminal" class="shell">
+                    # Windows:
+                    python -V
+
+                    # Linux/MacOS:
+                    python3 -V
+                </code></pre>
+            </dt>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="PythonVirtualEnvironments"><h1>Python Virtual Environments</h1></section>
+<section class="sub-sections"><h2>Python Virtual Environments</h2>
+    <section><h3>Virtual environment - Why?</h3>
+        <dl class="fa">
+            <dt>Python apps usually depends on many modules(packages), which depends on other packages, and very often - from a specific version of a package.</dt>
+            <dt>Many system tools also depends on specific versions of installed Python packages.</dt>
+            <dt class="note">You don't want to pollute your system's Python environment or to deal with <a href="https://medium.com/knerd/the-nine-circles-of-python-dependency-hell-481d53e3e025">dependency hell</a>!</dt>
+            <a href="./images/dependancy_hell.jpeg"><img src="./images/dependancy_hell.jpeg" alt="dependancy_hell.jpeg" style="height: 50vh;"></a>
+        </dl>
+    </section>
+    <section><h3>Virtual environment - What?</h3>
+        <dl class="fa">
+            <dt>A virtual environment is an isolated Python environment that allows packages to be installed for use by a particular application, rather than being installed system wide</dt>
+            <dt>A virtual environment is a directory tree which contains Python interpreter, libraries and scripts installed into it,  and other files which indicate that it is a virtual environment.</dt>
+
+            <dt>There are many tools for working with virtual environments in Python (<a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>, <a href="https://pipenv.pypa.io/en/latest/">pipenv</a>, <a href="https://python-poetry.org/docs/master/managing-environments/">poetry</a>, <a href="https://docs.conda.io/en/latest/">conda</a>, etc.)</dt>
+            <dt>Starting with Python 3.4, <a href="https://docs.python.org/3/library/venv.html#module-venv"><code>venv</code></a> module is the preferred way to create and manage virtual environments.</dt>
+            <dt>venv module is included in the Python standard library and requires no additional installation.</dt>
+        </dl>
+    </section>
+    <section id="createVenv"><h3>Create Virtual Environment</h3>
+        <pre><code rel="Create Virtual Environment - Terminal" class="bash">
+            # navigate to your project directory:
+            cd path\to\your\project
+
+            # create virtual environment with name ".venv"
+            python -m venv .venv
+
+            # a folder '.venv' is created in the project folder
+        </code></pre>
+        <dl class="fa">
+            <dt><code>.venv</code> is a common name for a virtual environment as it keeps the directory typically hidden in your shell.</dt>
+            <dt>Note, that you need to create a virtiual environment per project only once.</dt>
+            <dd>But <span class="note">each time you work in your project you must activate it</span>.</dd>
+        </dl>
+    </section>
+    <section id="activateVenv">
+        <dl class="fa" style="font-size:.7em">
+            <dt>In order to install and use python packages in your virtiual env, you <span class="note">must activate it</span>: </dt>
+            <pre><code rel="Activate Virtual Environment - Terminal" class="bash">
+                # On Windows PowerShell run:
+                .venv\Scripts\Activate.ps1
+
+                # On Windows CommandPrompt run:
+                .venv\Scripts\activate.bat
+
+                # On Windows GitBash run:
+                source .venv\Scripts\activate
+
+                # On Linux, MacOS, run:
+                source .venv/bin/activate
+            </code></pre>
+            <dd>If on PowerShell you receive an error <span style="color:darkred">File ... cannot be loaded because running scripts is disabled on this system</span> you must first set the PowerShell execution policies (<a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.2">Set-ExecutionPolicy @microsoft.com</a>):</dd>
+            <pre><code rel="Terminal" class="bash">
+                Set-ExecutionPolicy Unrestricted -Scope Process
+                # now try again to activate:
+                .venv\Scripts\Activate.ps1
+            </code></pre>
+            <dt>You can confirm you’re in the virtual environment by checking the location of your Python interpreter:</dt>
+            <pre><code rel="Terminal" class="bash">
+                # On Windows, run:
+                where python
+
+                # On Unix or MacOS, run:
+                which python
+
+                # It should be in the .venv directory
+            </code></pre>
+            <dt>If you want to switch projects or otherwise leave your virtual environment, simply run</dt>
+            <pre><code rel="Deactivate Virtual Environment - Terminal" class="bash">
+                deactivate
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>References</h3>
+        <dl class="fa">
+            <dt><a href="https://docs.python.org/3/tutorial/venv.html">Virtual Environments and Packages</a> @python3 tutorial</dt>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="FreezingTheDependencyVersions"><h1>Freezing the dependency versions</h1></section>
+<section class="sub-sections"><h2>Freezing the dependency versions</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>"Freezing the dependency versions" in the context of Python development refers to the practice of creating a snapshot of all the packages and their exact versions that your project depends on.</dt>
+            <dt>This is crucial for ensuring consistency, reproducibility, and stability across different environments (development, testing, production) and when sharing the project with others.</dt>
+            <dt>It helps to avoid the "it works on my machine" problem by ensuring that everyone working on the project uses the same versions of dependencies.</dt>
+        </dl>
+    </section>
+    <section><h3>the <code>pip freeze</code></h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Before freezing dependencies, ensure that your virtual environment is activated. This ensures that the dependency list is specific to your project and not your global Python installation.</dt>
+            <dt>Once your virtual environment is activated, use <code>pip freeze</code> to list all installed packages and their exact versions. Then, redirect the output to a requirements.txt file:</dt>
+            <pre><code rel="Terminal" class="bash">
+                pip freeze > requirements.txt
+            </code></pre>
+            <dt>This requirements.txt file now contains a snapshot of all packages (with versions) installed in your virtual environment.</dt>
+        </dl>
+    </section>
+    <section><h3>Using the 'requirements.txt' file</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>When you or someone else needs to set up the project environment, you can use the requirements.txt file to install all the dependencies at their frozen versions. Run:</dt>
+            <pre><code rel="Terminal" class="bash">
+                pip install -r requirements.txt
+            </code></pre>
+            <dt>This command installs the exact versions of the packages listed in requirements.txt, ensuring that the environment is consistent with the original setup.</dt>
+        </dl>
+    </section>
+</section>
+
+
+<section class="main-section-title" id="PipThePythonPackageManager"><h1>PIP - the Python Package Manager</h1></section>
+<section class="sub-sections"><h2>PIP - the Python Package Manager</h2>
+    <section><h3></h3>
+        <dl class="fa">
+            <dt>Python has a strong community which releases lot's of modules(packages), which you can use for free and focus on "get job done", instead of reinventing the wheel.</dt>
+            <dt>pip is the tool for installing Python packages from <a href="https://pypi.python.org/pypi">PyPI (Python Package Index)</a></dt>
+            <dt class="note">Note, that if you do not use a Virtual Environment, a package installed by using pip will be installed in your system's python distribution.</dt>
+        </dl>
+    </section>
+    <section style="font-size: 1em"><h3>pip basic commands</h3>
+        <dl class="fa">
+            <dt>get help on pip:</dt>
+            <dd class="code">pip help</dd>
+            <dt>install a package from PyPI:</dt>
+            <dd class="code">pip install package_name</dd>
+            <dt>uninstall a package</dt>
+            <dd class="code">pip uninstall package_name</dd>
+            <dt>list installed packages:</dt>
+            <dd class="code">pip list</dd>
+            <dt>upgrade a package:</dt>
+            <dd class="code">pip install --upgrade SomePackage</dd>
+            <dt>show information about installed packages.:</dt>
+            <dd class="code">pip show package_name</dd>
+            <dt>output installed packages in requirements format</dt>
+            <dd>pip freeze</dd>
+        </dl>
+        <p>Reference: <a href="https://pip.pypa.io/en/stable/cli/">pip commands</a></p>
+    </section>
+    <section><h3>More readings</h3>
+        <dl class="fa">
+            <dt><a href="https://pip.pypa.io/en/stable/">pip - The PyPA recommended tool for installing Python packages.</a></dt>
+            <dt><a href="https://pypi.python.org/pypi">PyPI - the Python Package Index</a></dt>
+        </dl>
+    </section>
+</section>
+
+
+<section class="main-section-title" id="SetupMlProjectsEnvironment"><h1>Setup ML Projects Environment</h1></section>
+<section class="sub-sections"><h2>Setup ML Projects Environment</h2>
+    <section><h3>Dedicated Workspace Directory</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Organizing multiple machine learning projects effectively on your computer ensures that you maintain a clean working environment, which is crucial for productivity and collaboration.</dt>
+            <dt>On your computer create a dedicated workspace directory <code>ML_Projects</code> for all your machine learning projects.</dt>
+            <dt>Use a consistent naming convention for your project directories that reflects the essence of each project, like:</dt>
+            <pre><code rel="Terminal" class="bash">
+                ~/ML_Projects/
+                ├── datasets/                       # Centralized datasets folder
+                ├── PythonTraining/                 # Folder for Python code during the training
+                ├── Image_Classification_TM/        # Folder for Image_Classification with teachable machine project
+                ├── Stock_Prediction/               # Folder for Stock_Prediction
+                ├── NLP_Sentiment_Analysis/         # Folder for NLP_Sentiment_Analysis project
+                ├── ...
+
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Standard ML Project Structure</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Each project within the ML_Projects workspace should follow a consistent directory structure.</dt>
+            <dt>This structure should include directories for your datasets, source code, notebooks, documentation, and virtual environments, among others.</dt>
+            <dt>Here's an example of a well-organized project structure:</dt>
+            <pre><code rel="Terminal" class="bash" style="min-height: 60vh;">
+                ~/ML_Workspace/Project_Name/
+                ├── .git/                   # Git repository folder (will be creted by git)
+                ├── data/                   # Data directory (raw & processed)
+                ├── docs/                   # Documentation
+                ├── models/                 # Serialized models, model checkpoints
+                ├── notebooks/              # Jupyter notebooks for exploration and presentations
+                ├── src/                    # Source code (Python modules, scripts)
+                │   ├── __init__.py         # Makes src a Python package
+                │   └── ...                 # Other Python modules
+                ├── tests/                  # Test cases
+                ├── .venv/                   # Virtual environment
+                ├── .gitignore              # Specifies intentionally untracked files to ignore
+                ├── README.md               # Project overview, installation, and usage
+                └── requirements.txt        # Project dependencies (will be creted by pip freeze)
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Standard ML Project Structure - Exaplanations</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt><b>Data Directory (data/ or datasets/)</b>: Stores raw data, processed data, and potentially a separate section for data that should not be uploaded due to size or confidentiality.</dt>
+            <dt><b>Notebooks Directory (notebooks/)</b>: Jupyter notebooks or other interactive computing notebooks for exploratory data analysis, visualization, and initial model experimentation.</dt>
+            <dt><b>Source Code Directory (src/)</b>: Python scripts and modules for more structured and reusable code, including data preprocessing, model definition, training scripts, and utilities.</dt>
+            <dt><b>Models Directory (models/)</b>: For saving model checkpoints, serialized models, and configuration files.</dt>
+            <dt><b>Tests Directory (tests/)</b>: Contains tests for your code to ensure reliability and facilitate maintenance.</dt>
+            <dt><b>Virtual Environment (venv/ or .venv/)</b>: A local virtual environment where project-specific dependencies are installed to avoid conflicts between projects.</dt>
+            <dt><b>Requirements File (requirements.txt)</b>: Lists all the dependencies for your project, allowing anyone to replicate your environment.</dt>
+            <dt><b>Documentation (README.md, docs/)</b>: Overview of the project, installation instructions, usage examples, and additional documentation.</dt>
+        </dl>
+    </section>
+    <section><h3>Create Project Virtual Environment</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>For each project, create a virtual environment within the project directory. This isolates the project's dependencies, preventing conflicts between projects.</dt>
+            <pre><code rel="Terminal" class="bash" style="min-height: 50vh;">
+                # Navigate to your project directory
+                cd /path/ML_Workspace/Project_Name/
+
+                # Create a virtual environment
+                python -m venv .venv
+
+                # Activate the virtual environment
+                # On Windows (CommandPrompt)
+                venv\Scripts\activate.bat
+                # On Unix or MacOS
+                source venv/bin/activate
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Install Project Dependencies</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>To install your project dependencies you must navigate to your project directory and activate the virtual environment.</dt>
+            <pre><code rel="Terminal" class="bash">
+                # Navigate to your project directory
+                cd /path/ML_Workspace/Project_Name/
+
+                # Activate the virtual environment
+                # On Windows (CommandPrompt)
+                venv\Scripts\activate.bat
+                # On Unix or MacOS
+                source venv/bin/activate
+            </code></pre>
+            <dd>Update pip: It's a good idea to ensure you have the latest version of pip, Python's package manager.</dd>
+            <pre><code rel="Terminal" class="bash">
+                python -m pip install --upgrade pip
+            </code></pre>
+            <dt>Install Dependencies</dt>
+            <pre><code rel="Terminal" class="bash">
+                pip install jupyterlab
+                pip install pandas
+                pip install matplotlib
+                pip install scikit-learn
+            </code></pre>
+            <dt>Reference:  <a href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment">Installing packages using pip and virtual environments</a></dt>
+        </dl>
+    </section>
+    <section><h3>Create git project repository</h3>
+        <dl class="fa" style="min-width:80vw; font-size: .9em;">
+            <dt>Having a Git repository for your machine learning (ML) project offers numerous benefits, making it a best practice in both individual and collaborative development environments</dt>
+            <dd><b>Track Changes</b>: Git allows you to keep a history of changes made to your project files, enabling you to see what was modified, when, and by whom.</dd>
+            <dd><b>Revert Changes</b>: You can easily revert to previous versions of your project if something goes wrong, reducing the risk of losing important work.
+            </dd>
+            <dd><b>Branching</b>: Git allows you to create branches, enabling you to experiment with new models, data preprocessing techniques, or features without affecting the main project. Once satisfied with the results, you can merge these changes into the main branch.</dd>
+            <dd><b>Backup and Restore</b>: Hosting your Git repository on platforms like GitHub serves as an offsite backup, safeguarding against data loss. If your local files are lost or corrupted, you can restore your entire project to a specific point in time from the remote repository.</dd>
+            <dd><b>Collaboration</b>: Multiple people can work on the same project simultaneously. Git helps manage these contributions, ensuring that changes don’t conflict with each other.</dd>
+            <dd><b>Portfolio Development</b>: For individuals, public Git repositories can serve as a portfolio of projects, showcasing skills and experience to potential employers or collaborators.</dd>
+            <dt>You can easily create your project git repo with VSCode, as described in <a href="https://github.com/geekcourses/GitHubTutorial-Using-VSCode?tab=readme-ov-file#how-to-upload-files-on-github-using-vscode">How To upload Files on GitHub (using VSCode)</a></dt>
+        </dl>
+    </section>
+    <section><h3>The .gitignore file</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The .gitignore file is a text file that tells Git which files or directories to ignore in a project.</dt>
+            <dt>It's particularly important in ML projects for several reasons:</dt>
+            <dd><b>Data Privacy</b>: Sensitive or personal data should not be uploaded to public repositories.</dd>
+            <dd><b>Large Files</b>: Datasets, model files, and other large assets can exceed Git's recommended size limits. These should be managed with specialized tools or stored separately.</dd>
+            <dd><b>Virtual Environment</b>: The virtual environment directory contains a lot of files that are specific to a developer's machine and can be easily recreated with requirements.txt. Including it in version control would unnecessarily bloat the repository.</dd>
+            <dd><b>Temporary Files</b>: Files like .pyc, .log, or IDE-specific directories (__pycache__/, .idea/, .vscode/) do not need to be tracked.</dd>
+            <dd>Sample .gitignore for ML Projects</dd>
+            <pre><code rel="Terminal" class="bash">
+                # Virtual environment
+                venv/
+                .venv/
+
+                # Python bytecode
+                __pycache__/
+                *.py[cod]
+
+                # Jupyter Notebook
+                .ipynb_checkpoints
+
+                # Datasets (if they are large or sensitive)
+                /data/
+                /datasets/
+
+                # Model checkpoints
+                /models/
+
+                # Log files
+                *.log
+
+                # OS files
+                .DS_Store
+
+            </code></pre>
+            <dd>Or you can use <a href="https://github.com/github/gitignore/blob/main/Python.gitignore">Python.gitignore Template</a></dd>
+        </dl>
+    </section>
+</section>
+
+
+<!-- <section class="main-section-title"><h1>References</h1></section>
+<section class="sub-sections"><h2>References</h2>
+    <section><h3>Readings</h3>
+        <dl class="fa">
+            <dt></dt>
+        </dl>
+    </section>
+</section>
+
+
+<section id="hw" data-min="4"><h1>Exercises</h1></section>
+<section class="sub-sections"><h2>Task1: Task1Title</h2>
+    <section><h3>The Task</h3>
+        <dl class="fa">
+            <dt></dt>
+        </dl>
+    </section>
+</section>
+
+<section><h3>Submission</h3>
+    <dl class="fa">
+        <dt>PLease, prefix your filenames/archive with your name initials, before sending.</dt>
+        <dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
+        <dt>Send files to <a href="mailto:netIT.WWW.Courses@gmail.com?Subject=_Tooling_virtual_env_">netIT.WWW.Courses@gmail.com</a></dt>
+    </dl>
+</section> -->
+
+<section class="disclaimer end-slide"></section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="/ML_SA-Slides/outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="/ML_SA-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="/ML_SA-Slides/lib/reveal.js/js/reveal.js"></script>
+
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+
+            // display control
+            // center: true,
+            // width: '100%',
+            // height: '100%',
+            // // // Factor of the display size that should remain empty around the content
+            // margin: 0.1,
+
+            // The "normal" size of the presentation, aspect ratio will be preserved
+            // when the presentation is scaled to fit different resolutions. Can be
+            // specified using percentage units.
+            width: 1920,
+            height: 1280,
+
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+
+            // Bounds for smallest/largest possible scale to apply to content
+            minScale: 0,
+            maxScale: 2,
+
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // shift+maous click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '/ML_SA-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+            ]
+        });
+    </script>
+    <!-- linkedin badge -->
+    <!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript" async src="/ML_SA-Slides/lib/MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+</body>
+</html>

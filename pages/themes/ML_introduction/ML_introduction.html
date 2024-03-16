@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>introduction_to_machine_learning</title>
+	<link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="/ML_SA-Slides/lib/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="/ML_SA-Slides/outfit/css/themes/projector.css" id="theme">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '/ML_SA-Slides/lib/reveal.js/css/print/pdf.css' : '/ML_SA-Slides/lib/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- CUSTOM -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+	<div class="top_links">
+		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#introduction_to_machine_learning" target="_top"></a>
+		<span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
+		<div class="help_text">
+			<div class="note">Keyboard shortcuts:</div>
+			<div><span>N/Спейс</span><span>Next Slide</span></div>
+			<div><span>P</span><span>Previous Slide</span></div>
+			<div><span>O</span><span>Slides Overview</span></div>
+			<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+			<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+			Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+		</div>
+	</div>
+	<div class="footer theme_switch">
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+	</div>
+	<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section data-min-total="135" class="presentation-title"><h1>Introduction to Machine Learning. Applications.</h1></section>
+<section data-transition="zoom">
+	<section class="copyright">
+		<div>
+			<p style="text-align: center;">Created for</p>
+		</div>
+		<div class="company">
+			<a href="https://softwareacademy.bg/">
+			<img style="height:80vh" src="/ML_SA-Slides/outfit/images/logos/software-web@4x.png" alt="software-web@4x.png">
+			</a>
+		</div>
+		<div class="author">
+			<span><a href="https://www.linkedin.com/in/ivapopova/">Iva E. Popova</a>,  <span class="year">2022</span>,</span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+			<!-- <i class="fa fa-linkedin"></i> -->
+		</div>
+	</section>
+</section>
+
+
+<section data-min="30" class="main-section-title"><h1>Framing the concepts</h1></section>
+<section class="sub-sections"><h2>Framing the concepts</h2>
+	<section><h3>The concepts mess</h3>
+		<a href="images/concepts_circle_relations.png"><img src="images/concepts_circle_relations.png"></a>
+	</section>
+	<section><h3>Machine Learning - Overview</h3>
+		<dl class="fa">
+			<dt>Coined in 1959 by Arthur Samuel</dt>
+			<dt>Algorithms that can learn from data and predict new data states</dt>
+			<dt>Supervised and Unsupervised Learning</dt>
+			<dt>Interweaves the advantages in computational statistics, data mining, big data, neural networks, logic programming and rule-based computing, psychology</dt>
+		</dl>
+	</section>
+	<section><h3>Machine Learning - Definitions</h3>
+		<abbr>ML</abbr><dfn id="ML"><span>Machine</span><span>Learning</span></dfn>
+		<p>The original definition from the "father" of ML:</p>
+		<blockquote>Machine learning is a field of study that gives computers the ability to learn without being explicitly programmed.
+			—Arthur Samuel, 1959
+		</blockquote>
+	</section>
+	<section><h3>Machine Learning - Definition</h3>
+		<p>The same, expressed in wikipedia:</p>
+		<!-- <abbr>ML</abbr><dfn id="ML"><span>Machine</span><span>Learning</span></dfn> -->
+		<blockquote cite="https://en.wikipedia.org/wiki/Machine_learning">Machine learning is a field of computer science that uses statistical techniques to give computer systems the ability to "learn" (i.e., progressively improve performance on a specific task) from data, without being explicitly programmed</blockquote>
+		<a href="https://en.wikipedia.org/wiki/Machine_learning">https://en.wikipedia.org/wiki/Machine_learning</a>
+	</section>
+	<section><h3>Big Data - Definition</h3>
+		<dl class="fa">
+			<dt>Collection of datasets being so large, that its difficult to process with the traditional techniques, like RDBMS</dt>
+			<dt>The rule of <b>V</b>s:</dt>
+			<dd>Volume - or how much are the data?</dd>
+			<dd>Variety - how diverse are different types of data?</dd>
+			<dd>Velocity - at what speed are the new data generated?</dd>
+			<dd>(Veracity - how accurate is the data?)</dd>
+		</dl>
+	</section>
+	<section><h3>KDD- Knowledge Discovery in Databases</h3>
+		<dl class="fa">
+			<dt>KDD refers to the nontrivial extraction of implicit, previously unknown and potentially useful information from data stored in database</dt>
+			<a href="./images/KDD_process.png"><img src="./images/KDD_process.png" alt="KDD_process.png"></a>
+		</dl>
+	</section>
+	<section><h3>Natural Language Processing (NLP)</h3>
+		<dl class="fa">
+			<dt>Conceptualized in the 1950s</dt>
+			<dd>ELIZA by by Joseph Weizenbaum</dd>
+			<dd>MARGIE by Schank et all., 1975</dd>
+			<dt>Evolves rapidly with evolution of Machine Learning and Deep Learning</dt>
+			<dd>Google Translate</dd>
+			<dd>Intelligent Chat Bots (check <a href="https://www.pandorabots.com/mitsuku/">Mitsuku</a>)</dd>
+			<dd><a href="https://en.wikipedia.org/wiki/GPT-3">GPT-3</a> - an autoregressive language model that uses deep learning to produce human-like text.</dd>
+		</dl>
+	</section>
+	<section><h3>GPT-3</h3>
+		<iframe src="https://www.youtube.com/embed/8V20HkoiNtc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</section>
+</section>
+
+<section data-min="15" class="main-section-title"><h1>Machine Learning vs Traditional Programming</h1></section>
+<section class="sub-sections"><h2>Machine Learning vs Traditional Programming</h2>
+	<section><h3>The Differences:</h3>
+		<dl class="fa">
+			<dt><span class="note">Traditional Programming</span>: Data and program is run on the computer to produce the output.</dt>
+			<dt><span class="note">Machine Learning</span>: Data and output is run on the computer to create a program. This program can be used in traditional programming.</dt>
+		</dl>
+		<a href="./images/ML_vs_TraditionalProgramming.png"><img src="./images/ML_vs_TraditionalProgramming.png" alt="ML_vs_TraditionalProgramming.png" style="width: 80vw;"></a>
+	</section>
+	<section><h3>The 4 skills required for a ML Specialists </h3>
+		<dl class="fa">
+			<dt><span class="note">Coding skills:</span> - Building ML models involves much more than just knowing ML concepts—it requires coding in order to do the data management, parameter tuning, and parsing results needed to test and optimize your model</dt>
+			<dt><span class="note">Math and Statistics:</span> - ML is a math heavy discipline, so if you plan to modify ML models or build new ones from scratch, familiarity with the underlying math concepts is crucial to the process.</dt>
+			<dt><span class="note">ML Theory:</span> - Knowing the basics of ML theory will give you a foundation to build on, and help you troubleshoot when something goes wrong.</dt>
+			<dt><span class="note">Practice</span> - Getting hands on experience with ML is the best way to put your knowledge to the test, so don't be afraid to dive in early.</dt>
+			<dt>Reference: <a href="https://www.tensorflow.org/resources/learn-ml?gclid=CjwKCAjwqauVBhBGEiwAXOepkRk__Z-BHe3RArRYwYj0efOejLcLUumi7icQZl_LaTQ_27GdSKfxLBoCyE8QAvD_BwE#four-areas">Master your path @tensorflow.org</a></dt>
+		</dl>
+	</section>
+</section>
+
+<section data-min="30" class="main-section-title"><h1>Machine Learning applications</h1></section>
+<section class="sub-sections"><h2>Machine Learning applications</h2>
+	<section><h3>Search systems</h3>
+		<dl class="fa">
+			<dt>Ranking algorithms</dt>
+			<dt>Semantic search</dt>
+			<dt>Personalized search</dt>
+		</dl>
+	</section>
+	<section><h3>Business and Marketing</h3>
+		<dl class="fa">
+			<dt>Online Advertising</dt>
+			<dt>Market Prediction</dt>
+			<dt>Accounting And Fintech</dt>
+			<dt>Credit Risk Analysis</dt>
+			<dt>Recruiting Automation</dt>
+			<dt>Intelligent Conversational Interfaces (chatbots)</dt>
+			<dt>Reduced Energy Use And Costs</dt>
+			<dt>Customer-centric, personalized services</dt>
+		</dl>
+	</section>
+	<section><h3>Health care</h3>
+		<dl class="fa">
+			<dt>Diagnosis in Medical Imaging</dt>
+			<dt>Treatment Queries and Suggestions</dt>
+			<dt>Medical Data Collection</dt>
+			<dt>Drug Discovery</dt>
+			<dt>Robotic Surgery</dt>
+		</dl>
+	</section>
+	<section><h3>Cyber Security</h3>
+		<dl class="fa">
+			<dt>Automated Spam Filtering</dt>
+			<dt>Malware detection</dt>
+			<dt>Abnormal site traffic detection</dt>
+			<dt>Security and Crime Prevention</dt>
+			<dt>IoT Systems Security</dt>
+		</dl>
+	</section>
+	<section><h3>PR, Social Agencies</h3>
+		<dl class="fa">
+			<dt>Large-scale analysis of social media data</dt>
+			<dt>Sentiment Analysis of online news/posts</dt>
+			<dt>Social media impact analysis</dt>
+			<dt>Fake-news detection</dt>
+		</dl>
+	</section>
+</section>
+
+<section data-min="40" id="ML_Process" class="main-section-title"><h1>The Machine Learning process and Tools</h1></section>
+<section class="sub-sections">
+	<section><h3>The Machine Learning process</h3>
+		<p>It is an <span class="note">iterative process</span>
+		<a href="images/ML_Process_iep.png"><img src="images/ML_Process_iep.png"></a>
+	</section>
+	<section><h3>The Ml process and minimal tools which we'll use in the course:</h3>
+		<dl class="fa" style="font-size: .9em">
+			<dt class="note">Analyze the problem</dt>
+			<dd>Your brain && tools</dd>
+			<dt class="note">Prepare and get insights of the Data</dt>
+			<dd>numpy, pandas, matplotlib</dd>
+			<dt class="note">Select the features</dt>
+			<dd>Your brain && tools</dd>
+			<dt class="note">Choose the model</dt>
+			<dd>Your brain and scikit-learn</dd>
+			<dt class="note">Train</dt>
+			<dd>scikit-learn</dd>
+			<dt class="note">Evaluate</dt>
+			<dd>Your brain and scikit-learn</dd>
+			<dt class="note">Parameter Tuning</dt>
+			<dd>i.e. go back to previous steps and try again, and again and again...</dd>
+		</dl>
+	</section>
+	<section><h3>The tools on the data side</h3>
+		<dl class="fa">
+			<dt>numpy</dt>
+			<dd>Powerful array implementation and functions. Equipped with lots of linear algebra functions, as well </dd>
+			<dt>pandas</dt>
+			<dd>Easy to use, high-performance, data-wrangling package</dd>
+			<dt>matplotlib</dt>
+			<dd>2D plotting package with some 3D functionality.</dd>
+		</dl>
+	</section>
+	<section><h3>The tools on the modeling side</h3>
+		<dl class="fa">
+			<dt><a href="https://www.tensorflow.org/">TensorFlow</a></dt>
+			<dd>An end-to-end open source machine learning platform developed by <a href="https://research.google/teams/brain/">Google Brain Team</a></dd>
+			<dt><a href="https://scikit-learn.org/stable/">Scikit-learn</a></dt>
+			<dd>a full packaged library with ML algorithms</dd>
+			<dt><a href="https://www.nltk.org/">NLTK (Natural Language Toolkit)</a> (optional)</dt>
+			<dd>Python implementation of the famous nltk Java package for Natural language processing</dd>
+		</dl>
+	</section>
+	<section><h3 class="advanced">Optimizing tools</h3>
+		<p>ML is a computational heavy process. There are lots of tools to speed that process in the Python ecosystem, like:</p>
+		<dl class="fa">
+			<dt>Cython</dt>
+			<dd>Python implementation in C language</dd>
+			<dt>Numba</dt>
+			<dd>Python JIT compiler and GPU code execution</dd>
+			<dt>Py CUDA</dt>
+			<dd>GPU code execution</dd>
+			<dt>PP</dt>
+			<dd>Python code parallelizer</dd>
+			<dt>Blaze</dt>
+			<dd>allows working with data bigger than the available RAM</dd>
+			<dt>PySpark</dt>
+			<dd>use Python with Spark</dd>
+			<dt>Pydoop and Hadoopy</dt>
+		</dl>
+		<p class="note">We would not use them in this course!</p>
+	</section>
+	<section><h3>ML Hardware</h3>
+		<dl class="fa">
+			<p>Machine Learning (and especially DeepLearning) tasks requires enormous computing power.</p>
+			<dd><a href="https://en.wikipedia.org/wiki/Central_processing_unit">CPU (Central Processing Unit)</a> - <span> or just processor, is the electronic circuitry that executes instructions comprising a computer program. The CPU performs basic arithmetic, logic, controlling, and input/output (I/O) operations </span></dd>
+			<dd><a href="https://en.wikipedia.org/wiki/Graphics_processing_unit">GPU (Graphics Processing Unit)</a> - <span>it was originally created as a multi-threaded structure with many cores</span></dd>
+			<dd><a href="https://en.wikipedia.org/wiki/Tensor_Processing_Unit">TPU (Tensor Processing Unit)</a> - <span>is an AI accelerator application-specific integrated circuit (ASIC) developed by Google specifically for neural network machine learning, particularly using Google's own TensorFlow software</span></dd>
+		</dl>
+		<a href="./images/Scalar-vs-Vector-vs-Tensor.jpg"><img src="./images/Scalar-vs-Vector-vs-Tensor.jpg" alt="Scalar-vs-Vector-vs-Tensor.jpg"></a>
+	</section>
+	<section><h3><a href="https://github.com/">GitHub</a></h3>
+		<dl class="fa">
+			<dt>GitHub is a code hosting platform for version control and collaboration.</dt>
+			<dt>It lets you and others work together on projects from anywhere.</dt>
+			<dt>Reference: <a href="https://docs.github.com/en/get-started/quickstart/hello-world">get started with GitHub</a></dt>
+		</dl>
+	</section>
+	<section><h3><a href="https://jupyter.org/">Jupyter Notebooks</a></h3>
+		<img src="./images/jupyter-notebook.webp" alt="jupyter-notebook.webp" style="height:5em;">
+		<dl class="fa">
+			<dt>The Jupyter Notebook App is a server-client application that allows editing and running notebook documents via a web browser</dt>
+			<dt>Jupyter Notebooks are documents which contain both computer code (e.g. python) and rich text elements (paragraph, equations, figures, links, etc…).</dt>
+		</dl>
+
+	</section>
+	<section><h3><a href="https://colab.research.google.com/">Google Colaboratory</a></h3>
+		<dl class="fa">
+			<dt>Colab, or "Colaboratory", allows you to write and execute Python in your browser, with</dt>
+			<dd>Zero configuration required</dd>
+			<dd>Access to GPUs free of charge</dd>
+			<dd>Easy sharing</dd>
+			<dt>Reference: <a href="https://colab.research.google.com/?utm_source=scs-index#scrollTo=5fCEDCU_qrC0">Welcome To Colaboratory</a></dt>
+		</dl>
+	</section>
+</section>
+
+
+<!-- <section data-min="1"><h1>References</h1></section>
+<section><h2>References</h2>
+	<section><h3>Readings</h3>
+		<dl class="fa">
+			<dt></dt>
+		</dl>
+	</section>
+</section>
+
+
+<section id="hw" data-min="4"><h1>Exercises</h1></section>
+<section><h2>Task1: Task1Title</h2>
+	<section><h3>The Task</h3>
+		<dl class="fa">
+			<dt></dt>
+		</dl>
+	</section>
+</section>
+
+<section><h3>Submission</h3>
+	<dl class="fa">
+		<dt>PLease, prefix your filenames/archive with your name initials, before sending.</dt>
+		<dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
+		<dt>Send files to <a href="mailto:netIT.WWW.Courses@gmail.com?Subject=_introduction_to_machine_learning_">netIT.WWW.Courses@gmail.com</a></dt>
+	</dl>
+</section> -->
+
+
+<section class="disclaimer" data-background="../../../outfit/images/for_slides/end_slide_bd.png"></section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="/ML_SA-Slides/outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="/ML_SA-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+	<script src="/ML_SA-Slides/lib/reveal.js/js/reveal.js"></script>
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		var highlightjsTabSize = '  ';
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+
+			// display control
+			// center: true,
+			// width: '100%',
+			// height: '100%',
+			// // // Factor of the display size that should remain empty around the content
+			// margin: 0.1,
+
+			// The "normal" size of the presentation, aspect ratio will be preserved
+			// when the presentation is scaled to fit different resolutions. Can be
+			// specified using percentage units.
+			width: 1920,
+			height: 1280,
+
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+
+			// Bounds for smallest/largest possible scale to apply to content
+			minScale: 0,
+			maxScale: 2,
+
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// shift+maous click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '/ML_SA-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+	<!-- linkedin badge -->
+	<!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+
+	<!-- MathJax -->
+	<!-- <script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript" async src="/ML_SA-Slides/lib/MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script> -->
+</body>
+</html>
