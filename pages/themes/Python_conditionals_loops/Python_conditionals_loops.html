@@ -463,6 +463,501 @@
 	</section>
 </section>
 
+
+<section id="loops" class="main-section-title"><h1>Loops (cycles)</span></h1></section>
+<section class="sub-sections"><h2>What are <span class="note">loops (cycles)?</span></h2>
+    <section>
+        <dl class="fa">
+            <dt>Loops are control statements which allows a block of code to be executed <span class="note">multiple</span> times.</dt>
+            <dt>This repetition of a code can be fixed number of times (<span class="note">for loop</span>) or while some <span class="note">condition</span> is fulfilled (<span class="note">while loop</span>).</dt>
+            <dt>Each execution of the code, during the loop, is called an <span class="note">iteration</span>!</dt>
+        </dl>
+    </section>
+</section>
+
+<section id="whileLoop" class="main-section-title"><h1><code>while</code> loop</h1></section>
+<section class="sub-sections"><h2><code>while</code> loop</h2>
+    <section><h3>Syntax</h3>
+        <pre><code rel="Syntax" class="python" data-noescape>
+            while <i>condition</i> <b>:</b>
+                <i>block</i>
+        </code></pre>
+        <dl class="fa">
+            <dt>The block will be executed <b>while</b> the <b>condition is True</b>!</dt>
+            <dt class="note">Inside the block we have to change the variable used in condition to prevent an endless loop. Or we can use <code>break</code> statement (discussed further)</dt>
+        </dl>
+    </section>
+    <section id="whileLoopFlow"><h3>Flow</h3>
+        <a href="images/WhileFlow.png"><img src="images/WhileFlow.png"></a>
+    </section>
+    <section><h3>Simple example</h3>
+        <pre><code rel="Python" class="python">
+            i = 1
+            while i<=5 :
+                print(i)
+                i += 1
+        </code></pre>
+        <pre><code rel="Output" class="shell">
+            1
+            2
+            3
+            4
+            5
+        </code></pre>
+        <p class="note">This is just a simple example. For fixed numbers of times loops, it is better to user <code>for</code> with <code>range</code> loop, which will be discussed next</p>
+    </section>
+    <section><h3>Example: endless loop (find the problem)</h3>
+        <p class="note">If you run next code, your Python will run an endless loop. Use <kbd>CTRL+C</kbd> or <kbd>CTRL+Z</kbd> to stop it</p>
+        <pre><code rel="JS" class="js">
+            # print the numbers from 10 to 1:
+            i = 10
+            while i>=1 :
+                print(i)
+                i = 1
+        </code></pre>
+    </section>
+    <section><h3>Example: proper use case of while</h3>
+        <p class="note"><code>While</code> loop is suitable, when we do not know in advance the number of iterations needed</p>
+        <pre><code rel="Python" class="python">
+            # ask user to enter a name (string), until it contains at least 3 symbols
+            # the len function on string returns the number of symbols in a string
+            user_name = input("Enter a name, please: ")
+            user_name_length = len(user_name)
+
+            while user_name_length < 3:
+                user_name = input("Enter a name (at least 3 symbols): ")
+                user_name_length = len(user_name)
+
+            print("Thank you, {}!".format(user_name))
+        </code></pre>
+    </section>
+    <section><h3>Example: sum all numbers in [1..100]</h3>
+        <dl class="fa">
+            <dt>Note, that this is just an example to illustrate the syntax and algorithm.</dt>
+            <pre><code rel="Python" class="python">
+                i = 1
+                total_sum = 0
+                while i <= 100:
+                    total_sum += i
+                    i += 1
+                print("total_sum = ", total_sum)
+                # total_sum =  5050
+            </code></pre>
+            <dt>Same task is better to be implemented with <code>for</code> loop, or even better: with built-in function sum()</dt>
+            <pre><code rel="Python" class="python" style="min-height: 20vh;">
+                total_sum = sum(range(1,101))
+                print("total_sum = ", total_sum)
+
+                # total_sum =  5050
+            </code></pre>
+        </dl>
+    </section>
+    <!-- <section><h3>Task: sum even numbers in [1..100]</h3>
+        <dl class="fa">
+            <dt>Modify the previous example (whit <code>while</code> loop), but calculate the sum <span class="note">only of the even numbers</span> in the given interval [1..100]</dt>
+        </dl>
+        <pre><code rel="Output" class="shell">
+            sum =  2550
+        </code></pre>
+    </section> -->
+</section>
+
+<section id="forLoop" class="main-section-title"><h1><code>for</code> loop</h1></section>
+<section class="sub-sections"><h2><code>for</code> loop</h2>
+    <section><h3>Syntax</h3>
+        <pre><code rel="Syntax" class="python" data-noescape>
+            for <i>item</i> in <i>sequence</i> <b>:</b>
+                #do something with item
+        </code></pre>
+        <dl class="fa">
+            <dt>Example:</dt>
+            <pre><code rel="Python" class="python">
+                for s in "ada":
+                    print(s.capitalize())
+
+                # A
+                # D
+                # A
+            </code></pre>
+            <dt>Python <code>for</code> statement is different than the "C-based" <code>for</code> loops in other popular languages (C#, Java, PHP, JavaScript)</dt>
+            <dt class="note">In Python, <code>for</code> statement iterates over the items of any sequence.</dt>
+            <dd>This is common to <code>foreach</code> loop concept in above-mentioned languages </dd>
+        </dl>
+    </section>
+    <section><h3>Flow</h3>
+        <a href="images/ForFlow.png"><img src="images/ForFlow.png"></a>
+    </section>
+    <section><h3>Examples</h3>
+        <pre><code rel="Python" class="python" style="min-height: 50vh;">
+            ### loop on list items:
+            for item in [1,2,3]:
+                print(item, end=",")     # 1,2,3,
+
+            ### loop on tuple items:
+            for item in (10, "December", 1985):
+                print(item, end=",")     # 10,December,1985,
+
+            ### loop on string items:
+            for item in "byron":
+                print(item, end=",")     # b,y,r,o,n,
+
+            ### loop on range items:
+            for item in range(1,3):
+                print(item, end=",")     # 1,2,
+        </code></pre>
+    </section>
+    <section><h3>More Examples</h3>
+        <dl class="fa" style="min-width: 70vw;">
+            <dt>Iterate over range of numbers:</dt>
+            <pre><code rel="Python" class="python">
+                for n in range(1,6):
+                    print(n, end=",")               # 1,2,3,4,5,
+            </code></pre>
+            <dt>Sum numbers in range (1,10):</dt>
+            <pre><code rel="Python" class="python" style="min-height: 20vh;">
+                total_sum = 0
+                for n in range(1,11):
+                    total_sum+=n
+
+                print(f'total_sum={total_sum}')     # total_sum=55
+            </code></pre>
+            <dt>For Loop with Dictionary:</dt>
+            <pre><code rel="Python" class="python" style="min-height: 25vh;">
+                person = {"name": "John", "age": 30, "country": "UK"}
+                for key, value in person.items():
+                    print(f"{key}: {value}")
+
+                # name: John
+                # age: 30
+                # country: UK
+            </code></pre>
+            <dt>For Loop with Tuple Unpacking</dt>
+            <pre><code rel="Python" class="python" style="min-height: 25vh;">
+                pairs = [(1, 'one'), (2, 'two'), (3, 'three')]
+                for number, name in pairs:
+                    print(f"{number} is {name}")
+
+                # 1 is one
+                # 2 is two
+                # 3 is three
+            </code></pre>
+        </dl>
+
+    </section>
+    <section id="LoopOnIndexesOfSequenceCStyle"><h3>Loop on indexes of sequence: C-style</h3>
+        <dl class="fa">
+            <dt>As we saw, Python doesn't have C-style for loop, but we can emulate it.</dt>
+            <dd class="note">Note, that this is not the Pythonic way of looping on sequence by index.</dd>
+            <pre><code rel="Python" class="python" style="min-height: 20vh;">
+                colors = ["red", "green", "blue"]
+                for index in range(len(colors)):
+                    print(f"{index}: {colors[index]}")
+
+                # 0: red
+                # 1: green
+                # 2: blue
+            </code></pre>
+            <dt>To iterate over a sequence with index and value, we can use the built-in <a href="https://docs.python.org/3/library/functions.html#enumerate">enumerate(iterable, start=0)</a> function:</dt>
+            <dd class="note">this is the Pythonic way.</dd>
+            <pre><code rel="Python" class="python" style="min-height: 30vh;">
+                colors = ["red", "green", "blue"]
+                for index, color in enumerate(colors):
+                    print(f"{index}: {color}")
+
+                # 0: red
+                # 1: green
+                # 2: blue
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Nested for loops</h3>
+        <dl class="fa" style="min-width: 60vw;">
+            <dt>We can nest a for loop into another:</dt>
+            <pre><code rel="Python" class="python">
+                for i in [1,2,3]:
+                    for j in "abv":
+                        print(f'{i}:{j}', end=" ")
+                    print()      # prints new line
+
+                # 1:a 1:b 1:v
+                # 2:a 2:b 2:v
+                # 3:a 3:b 3:v
+            </code></pre>
+            <dt>And iterate over nested lists:</dt>
+            <pre><code rel="Python" class="python" style="min-height: 40vh;">
+                matrix = [
+                    [1, 2, 3],
+                    [4, 5, 6],
+                    [7, 8, 9]
+                ]
+
+                for row in matrix:
+                    for element in row:
+                        print(element, end=' ')
+                    print()  # new line after each row
+
+                # 1 2 3
+                # 4 5 6
+                # 7 8 9
+            </code></pre>
+        </dl>
+
+        <!-- <dl class="fa">
+            <dt class="note">More examples and real-world usage of the <code>for</code> statement will be shown in <a href="/ProgressBG-Python-Slides/pages/themes/beginners/sequenceDataTypes/sequenceDataTypes.html">Sequence data types</a> theme!</dt>
+        </dl> -->
+    </section>
+</section>
+
+<section id="breakStatement" class="main-section-title"><h1><code>break</code> statement</h1></section>
+<section class="sub-sections"><h2><code>break</code> statement</h2>
+    <section><h3>Syntax</h3>
+        <dl class="fa">
+            <dt>The break statement in Python (like in other C-based languages) breaks out of the innermost enclosing <code>for</code> or <code>while</code> loop.</dt>
+            <dt>The most common use for <code>break</code> is when some external condition is triggered to exit immediately from a loop.</dt>
+            <dt>The <code>break</code> statement can be used in both <code>while</code> and <code>for</code> loops.</dt>
+            <pre><code rel="Syntax in while loop" class="python" data-noescape>
+                while <i>condition</i><b>:</b>
+                    <i>block 1</i>
+                    if <i>break_cond</i><b>:</b>
+                        break  # loop is terminated, block 2 is skipped
+                    <i>block 2</i>
+            </code></pre>
+            <pre><code rel="Syntax in for loop" class="python" data-noescape>
+                for <i>item</i> in <i>sequence</i> <b>:</b>
+                    <i>block 1</i>
+                    if <i>break_cond</i><b>:</b>
+                        break  # loop is terminated, block 2 is skipped
+                    <i>block 2</i>
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Flow</h3>
+        <a href="images/WhileBreakFlow.png"><img src="images/WhileBreakFlow.png"></a>
+    </section>
+    <section><h3>Examples:</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Output letters in a string, until 'i' letter is reached:</dt>
+            <pre><code rel="Python" class="python">
+                str = "alibaba"
+                for s in str:
+                    if s == "i":
+                        break
+                    print(s)
+
+                # a
+                # l
+            </code></pre>
+            <dt>Using break to find an element in a list</dt>
+            <pre><code rel="Python" class="python" style="min-height: 30vh;">
+                elements = ["apple", "banana", "cherry"]
+                target = "banana"
+
+                for el in elements:
+                    if el == target:
+                        print(f"Found {target}")
+                        break
+
+                # Found banana
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Example: Using break in nested loops</h3>
+        <pre><code rel="Python" class="python" style="min-height: 70vh;">
+            matrix = [
+                [1, 2, 3],
+                [4, 5, 6],
+                [7, 8, 9]
+            ]
+
+            search_value = 4
+
+            for row in matrix:
+                print(f'Processing row: {row}')
+                for element in row:
+                    print(element, end=',')
+                    if element == search_value:
+                        break  # Breaks out of the inner loop
+                print() # print new line
+
+            # Processing row: [1, 2, 3]
+            # 1,2,3,
+            # Processing row: [4, 5, 6]
+            # 4,
+            # Processing row: [7, 8, 9]
+            # 7,8,9,
+        </code></pre>
+    </section>
+    <section><h3><code>do-while</code> emulation with <code>break</code></h3>
+        <dl class="fa">
+            <dt><span class="note">Python did not have <code>do-while</code> loop, as in other languages</span> (reason: "There should be one - and preferably only one - obvious way to do it.", <a href="https://www.python.org/dev/peps/pep-0020/">The Zen of Python</a>)</dt>
+            <dt>But <code>do-while</code> structure is useful when we need the body of the <code>while</code> loop to be executed at least ones.</dt>
+            <dd>General structure of a "do-while" loop, which did not exists in Python:</dd>
+            <pre><code rel="Python" class="python">
+                do {
+                    # will be executed at least one
+                    block
+                } while (condition);
+            </code></pre>
+            <dt>But it can be easily emulated if needed</dt>
+            <pre><code rel="Python - pseudo code" class="python">
+                while True:
+                    block
+
+                    if (condition): break
+            </code></pre>
+        </dl>
+    </section>
+    <section id="DoWhileEmulationWithBreak"><h3>Example - <code>do-while</code> emulation with <code>break</code></h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Ask user to enter a name, until it contains at least 3 symbols</dt>
+            <pre><code rel="Python" class="python">
+                while True:
+                    user_name = input("Enter a name (at least 3 symbols): ")
+                    user_name_length = len(user_name)
+
+                    if user_name_length > 3: break
+
+                print(f"Thank you, {user_name}!")
+
+                # Enter a name (at least 3 symbols): iv
+                # Enter a name (at least 3 symbols): a
+                # Enter a name (at least 3 symbols): ivan
+                # Thank you, ivan!
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3 class="advanced">"switch-case" statement emulation for Python&lt;3.10</h3>
+        <dl class="fa">
+            <dt>In oldest python versions you can emulate ""switch-case"" with multiple <code>if-elif-break</code> blocks</dt>
+            <dd>Another way is to use Python dictionaries which values are functions (will be discussed further)</dd>
+            <pre><code rel="Python" class="python" style="min-height: 99vh;">
+                # print program menu:
+                print("Select an action:")
+                print("1. Action 1")
+                print("2. Action 3")
+                print("3. Action 3")
+                print()
+
+                while True:
+                    user_choice = int(input("Enter a number [0-4]: "))
+
+                    if user_choice == 1:
+                        print("Action 1 fired!")
+                        break
+                    elif user_choice == 2:
+                        print("Action 2 fired!")
+                        break
+                    elif user_choice == 3:
+                        print("Action 3 fired!")
+                        break
+                    else:
+                        print('Wrong input!')
+
+                # Select an action:
+                # 1. Action 1
+                # 2. Action 3
+                # 3. Action 3
+
+                # Enter a number [0-4]: 7
+                # Wrong input!
+                # Enter a number [0-4]: 2
+                # Action 2 fired!
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>match statement</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Python 3.10 introduces <a href="https://docs.python.org/3/tutorial/controlflow.html#match-statements">match statement</a> which is similar to "switch-case" in other languages</dt>
+            <pre><code rel="Python" class="python" style="min-height: 90vh;">
+                # print program menu:
+                print("Select an action:")
+                print("1. Action 1")
+                print("2. Action 3")
+                print("3. Action 3")
+                print()
+
+                while True:
+                    user_choice = int(input("Enter a number [0-4]: "))
+
+                    match user_choice:
+                        case 1:
+                            print("Action 1 fired!")
+                        case 2:
+                            print("Action 2 fired!")
+                        case 3:
+                            print("Action 3 fired!")
+                        case _
+                            print('Wrong input!')
+
+                # Select an action:
+                # 1. Action 1
+                # 2. Action 3
+                # 3. Action 3
+
+                # Enter a number [0-4]: 7
+                # Wrong input!
+                # Enter a number [0-4]: 2
+                # Action 2 fired!
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+<section id="continueStatement" class="main-section-title"><h1><code>continue</code> statement</h1></section>
+<section class="sub-sections"><h2><code>continue</code> statement</h2>
+    <section>
+        <dl class="fa">
+            <dt>Returns the control to the beginning of the loop.</dt>
+            <dd>code <b>after</b> continue will be skipped.</dd>
+            <dt>Usually, continue statement is dependent on some condition.</dt>
+            <a href="images/WhileContinueFlow.png"><img src="images/WhileContinueFlow.png"></a>
+        </dl>
+    </section>
+    <section><h3>Syntax</h3>
+        <pre><code rel="Syntax in while loop" class="python" data-noescape>
+            while <i>condition</i><b>:</b>
+                <i>block 1</i>
+
+                if <i>continue_cond</i><b>:</b>
+                    continue  # go to while condition
+
+                <i>block 2</i>
+        </code></pre>
+        <pre><code rel="Syntax in for loop" class="python" data-noescape>
+            for <i>item</i> in <i>sequence</i> <b>:</b>
+                <i>block 1</i>
+
+                if <i>continue_cond</i><b>:</b>
+                    continue  # continue loop with next item
+
+                <i>block 2</i>
+        </code></pre>
+    </section>
+    <section><h3>Examples:</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>print all numbers in [1..5], but skip 3:</dt>
+            <pre><code rel="Python" class="python">
+                for i in range(1,6):
+                if i == 3:
+                    continue
+                print(i, end=',')  # 1,2,4,5,
+            </code></pre>
+            <dt>print letters in a word, excluding vowels:</dt>
+            <pre><code rel="Python" class="python" style="min-height: 30vh;">
+                word = 'abcdefghi'
+                vowels = ['a', 'e', 'i', 'o', 'u']
+
+                for l in word:
+                    if l in vowels:
+                        continue
+                    print(l, end=",")
+
+                # b,c,d,f,g,h,
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
 <section class="disclaimer end-slide"></section>
 <!--
 ########################################################
