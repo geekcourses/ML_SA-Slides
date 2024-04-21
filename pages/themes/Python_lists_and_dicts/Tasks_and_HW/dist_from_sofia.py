@@ -19,4 +19,4 @@ for t in distances_from_sofia:
 
 print("Distances bellow 1500 km from Sofia are:")
 for t in selected_distances:
-    print("{} - {}".format(t[0], t[1]))
+    print(f"{t[0]} - {t[1]}")

@@ -90,7 +90,7 @@
 		<a href="images/sequenceStructure.png"><img src="images/sequenceStructure.png"></a>
 	</section>
 	<section><h3>What is a Sequence? - examples</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			# list:
 			fruits = ["apple", "banana", "strawberry", "banana", "orange"]
 
@@ -132,7 +132,7 @@
 			<dt>A List literal is denoted by a <span class="note">square brackets</span></dt>
 			<dt>Items in the list are separated by <span class="note">comma</span></dt>
 		</dl>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			### create empty list:
 			empty_list = []
 
@@ -151,7 +151,7 @@
 		<pre><code rel="Syntax" class="shell" data-noescape>
 			item = list_name<b>[</b><i>index</i><b>]</b>
 		</code></pre>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			### create list:
 			fruits = ["apple", "banana", "strawberry", "banana", "orange"]
 
@@ -173,7 +173,7 @@
 		<pre><code rel="Syntax" class="shell" data-noescape>
 			list_name<b>[</b><i>index</i><b>] = <i>value</i></b>
 		</code></pre>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			### create list:
 			fruits = ["apple", "banana", "strawberry"]
 
@@ -206,7 +206,7 @@
 			<dt>Items in the tuple are separated by <span class="note">comma</span></dt>
 			<dt>A <span class="note">single item tuple</span> is created with trailing comma, like <code>(1,)</code></dt>
 		</dl>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			### create empty tuple:
 			empty = ()
 			print( empty )
@@ -228,7 +228,7 @@
 		<pre><code rel="Syntax" class="shell" data-noescape>
 			item = tuple_name<b>[</b><i>index</i><b>]</b>
 		</code></pre>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			# create a tuple
 			address = ('Bulgaria', 'Sofia', 'Nezabravka str', 14)
 
@@ -242,7 +242,7 @@
 		</code></pre>
 	</section>
 	<section><h3>Examples</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			### create tuple with 3 elements:
 			ada_birth_date = (10, "December", 1815)
 
@@ -259,7 +259,7 @@
 		<dl class="fa">
 			<dt class="note">Tuples are immutable and can not be changed!</dt>
 		</dl>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			### change a tuple item:
 			address[0] = "France"
 			# TypeError: 'tuple' object does not support item assignment
@@ -269,7 +269,7 @@
 		<dl class="fa">
 			<dt>Tuple is immutable, but this does not means the we can not reassign it's mutable value, like list</dt>
 		</dl>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			t = ([1,2,3],)
 
 			# change third element in the list inside a tuple:
@@ -320,7 +320,7 @@
 		</dl>
 	</section>
 	<section><h3>Examples</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			range(0,10)
 			# generates the sequence: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -343,21 +343,21 @@
 	<section><h3>Print range sequence</h3>
 		<dl class="fa">
 			<dt>Note, that when you just print a range object it will not return the sequence of numbers, but just the formula:</dt>
-			<pre><code rel="Python" class="python">
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
 				r = range(0, 10, 2)
 				prin
 
 				# range(0, 10, 2)
 			</code></pre>
 			<dt>If you want to print the generated sequence, you can use the builtin <code>list()</code> or <code>tuple()</code> function:</dt>
-			<pre><code rel="Python" class="python">
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
 				r = range(0, 10, 2)
 				print(list(r))
 
 				# [0, 2, 4, 6, 8]
 			</code></pre>
 			<dt>But the most common way to use the range items is to loop over them:</dt>
-			<pre><code rel="Python" class="python">
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
 				### iterate from 0 up to 10, step = 1 (default)
 				for i in range(10):
 					print(i, end=" ")
@@ -366,7 +366,7 @@
 		</dl>
 	</section>
 	<section><h3>Range in for: example 1</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			### iterate from 10 up to -1, step = -1
 			for i in range(10,-1, -1):
 			    print(i, end=" ")
@@ -374,7 +374,7 @@
 		</code></pre>
 	</section>
 	<section><h3>Range in for: example 2</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			### iterate from 2 up to 10, step = 2
 			for i in range(2, 10, 2):
 			    print(i, end=" ")
@@ -382,7 +382,7 @@
 		</code></pre>
 	</section>
 	<section><h3>Range in for: example 3</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			### iterate from -10 up to 0, step = 2
 			for i in range(-10, 0, 2):
 			    print(i, end=" ")
@@ -425,7 +425,7 @@
 	<section><h3>Concatenation <span class="note">+</span></h3>
 		<dl class="fa">
 			<dt>Concatenate two sequences and return the resulting sequence</dt>
-			<pre><code rel="Python" class="python">
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
 					### Let's have two lists:
 					fruits = ["apple", "banana", "strawberry"]
 					numbers = [1,2,3]
@@ -440,7 +440,7 @@
 		</dl>
 	</section>
 	<section><h3>Concatenation - lists example</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			num_list = [1,2,3]
 			alpha_list = ["a", "b", "c"]
 
@@ -451,7 +451,7 @@
 		<p>Note, that the result is a list!</p>
 	</section>
 	<section><h3>Concatenation - tuples example</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			date1 = (31, "December", 2017)
 			date2 = (10, "Mart", 1999)
 
@@ -464,7 +464,7 @@
 		<dl class="fa">
 			<dt>Repeats a sequence a given number of times and return the resulting sequence</dt>
 			<dt>The multiplier must be an integer value!</dt>
-			<pre><code rel="Python" class="python">
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
 				### Let's have a list:
 				numbers = [1, 2, 3]
 
@@ -479,7 +479,7 @@
 
 	</section>
 	<section><h3>Repetition - example</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			num_list = [1, 2, 3]
 			alpha_list = ["a", "b", "c"]
 
@@ -500,7 +500,7 @@
 		</dl>
 	</section>
 	<section><h3>Membership Testing - list example</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			### Let's have two list:
 			fruits = ["apple", "banana", "strawberry"]
 			numbers = [1, 2, 3]
@@ -521,7 +521,7 @@
 		</code></pre>
 	</section>
 	<section><h3>Membership Testing - range example</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			# Let's have a range:
 			r = range(0,10)
 			print(3 in r)
@@ -539,7 +539,7 @@
 		</dl>
 	</section>
 	<section><h3>Indexing from start to end - example</h3>
-			<pre><code rel="Python" class="python">
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
 				### create list of numbers:
 				numbers = [1,2,3,4,5]
 
@@ -556,7 +556,7 @@
 		</dl>
 	</section>
 	<section><h3>Indexing from end to start - example</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			### create list of numbers:
 			numbers = [1,2,3,4,5]
 
@@ -569,7 +569,7 @@
 		<dl class="fa">
 			<dt>The pythonic way to get the last element of a sequence is by using the <code>-1</code> index, not by <code>len()-1</code></dt>
 		</dl>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			fruits = ["apple", "banana", "strawberry"]
 
 			# the pythonic way to print last element
@@ -600,7 +600,7 @@
 		<p>Reference: <a href="https://docs.python.org/3/library/functions.html#slice">slice @python docs</a></p>
 	</section>
 	<section><h3>Examples</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			>>> str = "abcdef"
 
 			>>> str[2:3]
@@ -624,7 +624,7 @@
 		</code></pre>
 	</section>
 	<section><h3>Examples</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			>>> str = "abcdef"
 
 			>>> str[:]
@@ -652,7 +652,7 @@
 			for item in <em>sequence</em>:
 			    # do something with item
 		</code></pre>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			### loop on list items:
 			for item in [1,2,3]:
 			    print(item)
@@ -674,7 +674,7 @@
 		<dl class="fa">
 			<dt>As we saw, Python doesn't have C-style for loop, but we can emulate it with:</dt>
 		</dl>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			user_name = "ivan"
 
 			for i in range(len(user_name)):
@@ -692,7 +692,7 @@
 		<dl class="fa">
 			<dt>To get the index and the item in a <code>for</code> loop, we can also use the <a href="https://docs.python.org/3/library/functions.html#enumerate">enumerate()</a> built-in function:</dt>
 		</dl>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			for i,l in enumerate(user_name):
 			  print("{} - {}".format(i, l))
 		</code></pre>
@@ -705,13 +705,13 @@
 	</section>
 </section>
 
-<section><h1>More on lists</h1></section>
+<section id="MoreOnLists" class="main-section-title"><h1>More on lists</h1></section>
 <section class="sub-sections"><h2>More on lists</h2>
 	<section><h3>Create list from sequence: <code class="note">list()</code></h3>
 		<dl class="fa">
 			<dt>With <code>list()</code> function we can create a list from any sequence:</dt>
 		</dl>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			### list from tuple:
 			point3d = (4, 0, 3)
 			point3d_list = list(point3d)
@@ -732,7 +732,7 @@
 		</code></pre>
 	</section>
 	<section><h3>Other List Operations</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			fruits = ["apple", "orange", "strawberry"]
 			### Delete a list item by index
 			del fruits[1]
@@ -810,7 +810,7 @@
 	<section><h3 class="advanced">Slicing columns from "lists of lists" ?</h3>
 		<dl class="fa">
 			<dt>Python did not support syntax to slice columns from "multi dim" looking list</dt>
-			<pre><code rel="Python" class="python">
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
 				m = [
 					[1,2,3],
 					[4,5,6],
@@ -831,7 +831,7 @@
 			<pre><code rel="Terminal" class="bash">
 				pip install numpy
 			</code></pre>
-			<pre><code rel="Python" class="python">
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
 				import numpy
 
 				# lets create a python list
@@ -854,7 +854,7 @@
 		</dl>
 	</section>
 	<section><h3>List of tuples</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			### create list_of_tuples:
 			points = [
 			    (1,2),
@@ -881,13 +881,13 @@
 	</section>
 </section>
 
-<section><h1>More on tuples</h1></section>
+<section id="MoreOnTuples" class="main-section-title"><h1>More on tuples</h1></section>
 <section class="sub-sections"><h2>More on tuples</h2>
 	<section><h3>Create tuple from sequence: <code class="note">tuple()</code></h3>
 		<dl class="fa">
 			<dt>With <code>tuple()</code> function we can create a tuple from any sequence:</dt>
 		</dl>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			### tuple from list:
 			fruits = ["apple", "banana", "strawberry", "banana", "orange"]
 			fruits_tuple = tuple(fruits)
@@ -916,7 +916,7 @@
 		</dl>
 	</section>
 	<section><h3 class="advanced">Change mutable item inside tuple? <strong> - example</strong></h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			users = (
 			    ["Ivan", "Ivanov", 34],
 			    ["Maria", "Ivanova", 36],
@@ -965,7 +965,7 @@
 		</dl>
 	</section>
 	<section><h3>Dictionaries - examples</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			en_bg_dict = {
 			 'apple': 'ябълка',
 			 'orange':'портокал',
@@ -977,7 +977,7 @@
 		</code></pre>
 	</section>
 	<section><h3>Dictionaries - unique keys example</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			en_bg_dict = {
 			 'apple': 'ябълка',
 			 'orange':'портокал',
@@ -994,7 +994,7 @@
 		<pre><code rel="Syntax" class="shell" data-noescape>
 				item = dictionary_name[<em>key</em>]
 		</code></pre>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			prices = {
 				"apples": 2.50,
 				"oranges": 2.43,
@@ -1014,7 +1014,7 @@
 		<pre><code rel="Syntax" class="shell" data-noescape>
 				dictionary_name[<em>key</em>] = <em>new_value</em>
 		</code></pre>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			### change apples prices:
 			prices['apples'] = 2.20
 			print(prices)
@@ -1025,7 +1025,7 @@
 		<pre><code rel="Syntax" class="python" data-noescape>
 			dictionary_name[<em>new_key</em>] = <em>new_value</em>
 		</code></pre>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			prices = {
 					"apples": 2.50,
 					"oranges": 2.43,
@@ -1045,7 +1045,7 @@
 		<dl class="fa">
 			<dt>Deletes the key:value pair whit the given key</dt>
 		</dl>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			prices = {
 				"apples": 2.50,
 				"oranges": 2.43,
@@ -1066,7 +1066,7 @@
 			<dt>If <em>key</em> is in the dictionary, remove it and return its value, else return <em>default</em>.</dt>
 			<dt>If no <em>key</em> or <em>default</em> values are given a KeyError is raised.</dt>
 		</dl>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			prices = {
 				"apples": 2.50,
 				"oranges": 2.43,
@@ -1087,7 +1087,7 @@
 		<dl class="fa" style="font-size: .9em">
 			<dt>the <code>keys()</code> method of a dictionary returns a <em><a href="https://docs.python.org/3/library/stdtypes.html#dict-views">dict view object</a></em> of dictionary keys, which means that when the dictionary changes, the view reflects these changes.</dt>
 		</dl>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			prices = {
 					"apples": 2.50,
 					"oranges": 2.43,
@@ -1100,7 +1100,7 @@
 		</code></pre>
 	</section>
 	<section><h3><code class="note">keys()</code> - dynamic view example</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			prices = {
 					"apples": 2.50,
 					"oranges": 2.43,
@@ -1126,7 +1126,7 @@
 		<dl class="fa" style="font-size: .9em">
 			<dt>the <code>values()</code> method of a dictionary returns a <em><a href="https://docs.python.org/3/library/stdtypes.html#dict-views">dict view object</a></em>  dictionary values</dt>
 		</dl>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			prices = {
 					"apples": 2.50,
 					"oranges": 2.43,
@@ -1139,7 +1139,7 @@
 		</code></pre>
 	</section>
 	<section><h3><code class="note">values()</code> - dynamic view example</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			prices = {
 					"apples": 2.50,
 					"oranges": 2.43,
@@ -1165,7 +1165,7 @@
 		<dl class="fa" style="font-size: .9em">
 			<dt>the <code>items()</code> method of a dictionary returns a <em><a href="https://docs.python.org/3/library/stdtypes.html#dict-views">dict view object</a></em> of dictionary items, i.e. a view of <span class="note">key-value pairs</span></dt>
 		</dl>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			prices = {
 					"apples": 2.50,
 					"oranges": 2.43,
@@ -1180,7 +1180,7 @@
 		</code></pre>
 	</section>
 	<section><h3><code class="note">items()</code> - dynamic view example</h3>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			prices = {
 					"apples": 2.50,
 					"oranges": 2.43,
@@ -1207,7 +1207,7 @@
 			<dt>The <code>keys()</code>, <code>values()</code> and <code>items()</code> methods return dict view objects only in <span class="note">Python3</span>. In Python2 they return lists.</dt>
 			<dt>If you need to convert a dict view object to a list in Python3, you may use the <code>list()</code> method`</dt>
 		</dl>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			prices = {
 				"apples": 2.50,
 				"oranges": 2.43,
@@ -1232,7 +1232,7 @@
 			for key in dict_name.keys():
 				# do something with a key
 		</code></pre>
-		<pre style="font-size: .5em"><code rel="Python" class="python">
+		<pre style="font-size: .5em"><code rel="Python" class="python" style="min-height: 1vh;">
 			prices = {
 					"apples": 2.50,
 					"oranges": 2.43,
@@ -1253,7 +1253,7 @@
 			for value in dict_name.values():
 				# do something with a value
 		</code></pre>
-		<pre style="font-size: .5em"><code rel="Python" class="python">
+		<pre style="font-size: .5em"><code rel="Python" class="python" style="min-height: 1vh;">
 			prices = {
 					"apples": 2.50,
 					"oranges": 2.43,
@@ -1278,7 +1278,7 @@
 				# do something with a key
 				# do something with a value
 		</code></pre>
-		<pre style="font-size: .5em"><code rel="Python" class="python">
+		<pre style="font-size: .5em"><code rel="Python" class="python" style="min-height: 1vh;">
 			prices = {
 					"apples": 2.50,
 					"oranges": 2.43,
@@ -1304,8 +1304,74 @@
 
 
 <section id="hw" class="main-section-title"><h1>Exercises</h1></section>
-<section class="sub-sections"><h2>task_best_students_scores.py</h2>
-	<section id="task_best_students_scores"><h3>the task</h3>
+<section class="sub-sections"><h2>TASK: List from user input</h2>
+	<section id="task_list_from_user_input"><h3>TASK: list_from_user_input.py</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt>Write a program which will ask the user to enter a certain number of names and save them in a list. After all names have been entered, the program should display all the names.</dt>
+			<dt>Expected output</dt>
+			<pre><code class="ascii" style="min-height: 1vh;">
+				How many names are you going to enter? 2
+				Enter a name, please: Maria
+				Enter a name, please: Ivan
+				******************************
+				The names you've entered are:
+				Maria
+				Ivan
+
+			</code></pre>
+		</dl>
+	</section>
+</section>
+<section class="sub-sections"><h2>TASK: Filter city distances</h2>
+    <section id="task_filter_city_distances"><h3>TASK: filter_city_distances.py</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Write a Python program that filters and displays the names of cities along with their distances from Sofia, where the distance is less than 1500 kilometers.</dt>
+			<dt>You can use next input data: </dt>
+			<pre><code class="python" style="min-height: 1vh;">
+				"Bansko", 97
+				"Brussels", 1701
+				"Alexandria", 1403
+				"Nice", 1307
+				"Szeged", 469
+				"Dublin", 2479
+				"Palermo", 987
+				"Moscow", 1779
+				"Oslo", 2098
+				"London", 2019
+				"Madrid", 2259
+			</code></pre>
+			<dt>Expected Output</dt>
+            <pre><code class="ascii" style="min-height: 1vh;">
+                Distances below 1500 km from Sofia are:
+                Bansko - 97
+                Alexandria - 1403
+                Nice - 1307
+                Szeged - 469
+                Palermo - 987
+            </code></pre>
+        </dl>
+    </section>
+</section>
+<section class="sub-sections"><h2>TASK: Merge and capitalize names</h2>
+    <section id="task_merge_and_capitalize_names"><h3>TASK: merge_and_capitalize_names.py</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Write a Python program that combines first names and surnames into full names and capitalizes them. The program should use two predefined lists: one for first names and one for surnames. It should then create a new list to store the capitalized full names.</dt>
+			<dt>Given:</dt>
+			<pre><code class="python" style="min-height: 1vh;">
+				first_names = ["ivan", "maria", "petar"]
+				sur_names = ["ivanov", "popova", "petrov"]
+			</code></pre>
+			<dt>Expected Output</dt>
+            <pre><code class="python" style="min-height: 1vh;">
+                ['Ivan Ivanov', 'Maria Popova', 'Petar Petrov']
+            </code></pre>
+			<dt>Hint: to capitalize a string, you can use the <code>.capitalize()</code> method on a string object. This method will convert the first character of the string to uppercase and all other characters to lowercase. For example, <code>'example'.capitalize()</code> becomes <code>'Example'</code>.</dt>
+
+        </dl>
+    </section>
+</section>
+<section class="sub-sections"><h2>TASK: best_students_scores</h2>
+	<section id="task_best_students_scores"><h3>TASK: best_students_scores.py</h3>
 		<a href="./Tasks_and_HW/images/task1_student_with_high_score.png"><img src="./Tasks_and_HW/images/task1_student_with_high_score.png" alt="./Tasks_and_HW/images/task1_student_with_high_score.png" style="height: 30vh"></a><br>
 		<dl class="fa">
 			<dt>Represent the information given in student_scores table in appropriate data structure.</dt>
@@ -1318,37 +1384,25 @@
 			</code></pre>
 		</dl>
 	</section>
-	<section id="hints_best_students_scores"><h3>Hints</h3>
-		<dl class="fa">
-			<dt>In order to check if a value (i.e. "student score") is greater than 4.00 you can use next code</dt>
-			<pre><code rel="Python" class="python">
-				score = 4.55
-				if score>4.00:
-					# do something if True
-					# i.e. add student's name and score into best_students_scores
-			</code></pre>
-		</dl>
-	</section>
 </section>
-<section class="sub-sections"><h2>task_min_max_student_score.py</h2>
-	<section id="task_min_max_student_score"><h3>the task</h3>
+<section class="sub-sections"><h2>TASK: min_max_student_score</h2>
+	<section id="task_min_max_student_score"><h3>TASK: min_max_student_score.py</h3>
 		<dl class="fa">
 			<dt>Using the same information as in previous task, i.e.</dt>
 			<a href="./Tasks_and_HW/images/student_score_data.png"><img src="./Tasks_and_HW/images/student_score_data.png" style="height: 30vh"></a><br>
 			<dt>Print out <b>the name and score</b> of the student with maximum score</dt>
 			<dt>Print out <b>the name and score</b> of the student with minimum score</dt>
 		</dl>
-		<pre><code rel="Output" class="bash" data-noescape>
-			Maria - 5.5
-			Alex - 3.5
+		<pre><code rel="Expected Output" class="bash" data-noescape>
+			Student with max score: Maria (5.5)
+			Student with min score: Alex (3.5)
 		</code></pre>
 	</section>
 	<section id="hints_min_max_student_score"><h3>hints</h3>
 		<dl class="fa">
-			<dt>To find a min/max value from values, you can implement your own algorithm using only <code>if</code> statement.</dt>
-			<dt>Or to use Python's built-in functions <a href="https://docs.python.org/3/library/functions.html#min">min()</a> and <a href="https://docs.python.org/3/library/functions.html#max">max()</a></dt>
+			<dt>To find a min/max value from sequence of values you can use Python's built-in functions <a href="https://docs.python.org/3/library/functions.html#min">min()</a> and <a href="https://docs.python.org/3/library/functions.html#max">max()</a></dt>
 			<dd>You can use them on any sequence, like this:</dd>
-			<pre><code rel="Python" class="python">
+			<pre><code rel="Python" class="python" style="min-height: 50vh;">
 				numbers = [2,3,1,5]
 
 				min_number = min(numbers)
@@ -1361,22 +1415,11 @@
 				# 1
 				# 5
 			</code></pre>
-			<dt>or on separate items, like this:</dt>
-			<pre><code rel="Python" class="python">
-
-				x = 2
-				y = 5
-
-				min_number = min(x,y)
-				max_number = max(x,y)
-
-				print(min_number)
-				print(max_number)
-			</code></pre>
 		</dl>
 	</section>
 </section>
-<section class="sub-sections"><h2>task_simple_word_index.py</h2>
+
+<!-- <section class="sub-sections"><h2>task_simple_word_index.py</h2>
 	<section id="task_simple_word_index"><h3>the task</h3>
 		<dl class="fa">
 			<dt>Make a program which will counts the words frequency (the count) of a given text</dt>
@@ -1400,7 +1443,7 @@
 			<dt>For simplicity we will get the "words" as a space separated sequences in string.</dt>
 			<dt>To get that list of words we can use the <a href="https://docs.python.org/3/library/stdtypes.html#str.split"><code>str.split()</code></a> method, as shown:</dt>
 		</dl>
-		<pre><code rel="Python" class="python">
+		<pre><code rel="Python" class="python" style="min-height: 1vh;">
 			text = "some words delimited by spaces"
 			words_list = text.split()
 
@@ -1424,8 +1467,8 @@
 			|red   |  1  |
 		</code></pre>
 	</section>
-</section>
-<section class="sub-sections"><h2>task_users_bills.py</h2>
+</section> -->
+<!-- <section class="sub-sections"><h2>task_users_bills.py</h2>
 	<section id="task_users_bills"><h3>the data</h3>
 		<dl class="fa">
 			<dt>A simplified data for telecom users are stored as two relational tables:</dt>
@@ -1453,35 +1496,8 @@
 			</code></pre>
 		</dl>
 	</section>
-</section>
-<!-- <section data-min="50" class="main-section-title"><h1>HW</h1></section>
-<section class="sub-sections"><h2>HW - Body Mass Index calculator</h2>
-	<section><h3>The problem</h3>
-		<dl class="fa" style="font-size: 0.8em;">
-			<dt>Calculate your body mass index (BMI) with Python, given the formula:<br>
-			<code class="note">BMI = W / (H*H)</code><br>
-			where:
-			</dt>
-			<dd>W = weight_in_kilogram</dd>
-			<dd>H = height_in_meters</dd>
-			<dt>Your program should outputs the result rounded to 2 digits after the decimal point.</dt>
-			<dt>Try to think of a solution, which will be readable enough and easy to maintain in future (you can use comments and semantic variable names)</dt>
-			<dt>write your code in <code>HW/BMI.py</code> file</dt>
-			<hr>
-			<dt><span class="note">Tip</span>: You can use the python's build-in <a href="https://www.tutorialspoint.com/python/number_round.htm">round()</a> function, like:</dt>
-			<pre><code rel="Python" class="python3">
-				>>> round(2.1457, 2)
-				2.15
-
-				>>> round(1.4234,2)
-				1.42
-
-				>>> round(1.4284,2)
-				1.43
-			</code></pre>
-		</dl>
-	</section>
 </section> -->
+
 
 <section class="disclaimer end-slide"></section>
 <!--

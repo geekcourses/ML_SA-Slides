@@ -3,7 +3,6 @@ sur_names = ["ivanov", "popova", "petrov"]
 names = []
 
 for i in range(len(first_names)):
-    names.append(first_names[i])
-    names.append(sur_names[i])
+    names.append(f'{first_names[i].capitalize()} {sur_names[i].capitalize()}')
 
 print(names)

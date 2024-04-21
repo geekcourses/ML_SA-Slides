@@ -12,12 +12,16 @@ distances_tupples = [
     ("United Kingdom - London", 2019)
 ]
 
-dist_names = []
-distances = []
+# dist_names = []
+# distances = []
 
-for t in distances_tupples:
-    dist_names.append(t[0])
-    distances.append(t[1])
+# for t in distances_tupples:
+#     dist_names.append(t[0])
+#     distances.append(t[1])
+
+
+dist_names = [dist[0] for dist in distances_tupples]
+distances = [dist[1] for dist in distances_tupples]
 
 print(dist_names)
 print(distances)
