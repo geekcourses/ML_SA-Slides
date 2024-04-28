@@ -643,23 +643,12 @@
 
 <section id="hw" class="main-section-title"><h1>Exercises</h1></section>
 <section class="sub-sections"><h2>Task1: BMI with functions</h2>
-	<section><h3>Task</h3>
+	<section id="bmi_task_functions"><h3>Task</h3>
 		<dl class="fa">
-			<dt>Refine the BMI program from the (<a href="https://geekcourses.github.io/ML_SA-Slides/pages/themes/Python_For_ML_1_2/Python_For_ML_1_2.html#HW_BMI_Simplest">previous lab's homeworks.</a>)</dt>
-			<dt>Now, the output of your program should be the BMI category, corresponding to the BMI index:</dt>
-			<table>
-				<tr><th>BMI</th><th>Category</th></tr>
-				<tr><td>&lt;= 18.5</td><td>Underweight</td></tr>
-				<tr><td>18.5–24.9</td><td>Normal</td></tr>
-				<tr><td>25–29.9</td><td>Overweight</td></tr>
-				<tr><td>&gt;= 30</td><td>Obesity</td></tr>
-			</table>
-			<dt>Split your logic into functions, and organise your program as given in next slide</dt>
-
+			<dt>Develop a Python program that calculates and categorizes a user's Body Mass Index (BMI), but seprate the logic into functionss.</a>)</dt>
+			<dd>For BMI Catogories you can use next table: <a href="https://en.wikipedia.org/wiki/Body_mass_index#Categories">BMI, basic categories</a></dd>
+			<dt>Tip: you can use next template to organize and test your program: <a href="https://gist.githubusercontent.com/WWWCourses/79a46d55f2b0ea9625064ce730ee719d/raw/f8366949245c46432e944b796c18154401293e8c/bmi_task_functions.py">bmi_task_functions.py</a></dt>
 		</dl>
-	</section>
-	<section><h3>BMI Task Template</h3>
-		<script src="https://gist.github.com/WWWCourses/cb540097a156298ab7cd49e6ff64b34f.js"></script>
 	</section>
 </section>
 <section class="sub-sections"><h2>Task2: Check user input</h2>
@@ -669,33 +658,28 @@
 		<dd>User's height must be in the range: [50 - 250]</dd>
 		<dd>User's weight must be in the range: [5 - 300]</dd>
 		<dt>If the user enters wrong data, ask for input again.</dt>
-		<dt class="advanced">Advanced task: define a separate function for each check (<em>validate_name(), validate_height(), validate_weight()</em>) which will return True if the user input is valid, and False - otherwise.</dt>
 	</dl>
 </section>
 
 <section class="sub-sections"><h2>Task3: guess_the_number</h2>
 	<section id="hw_guess_the_number"><h3>Task: guess_the_number.py</h3>
 		<dl class="fa">
-			<dt>Write a simple Python program, implementing the "Guess the number" game, following the rules:</dt>
-			<dd>The program will "think" of a number using the <code>random module</code>, as shown in  next slide.</dd>
-			<dt>You have to implement now only the first user move:</dt>
-			<dd>Prompt the user for his/her guess</dd>
-			<dd>If the user guess is equal to the machine number => print out a congratulation message!</dd>
-			<dd>If the user guess is less than the machine number => print out "your guess is less than my number. Try again!"</dd>
-			<dd>If the user guess is greater than the machine number => print out "your guess is greater than my number. Try again!"</dd>
+			<dt>Write a simple Python program, implementing the "Guess the number" game -  a simple interactive game where a player attempts to guess a computer-generated random number within a given range.</dt>
+			<dt>Here's how it works:</dt>
+			<dd><b>Initialization</b>: The computer chooses a random number in given range, typically between 1 and 100.</dd>
+			<dd><b>Gameplay</b>: The player is prompted to make a guess about what the number might be, and the computer provides feedback if each guess is:
+				<ul style="margin:.3em 0 .3em 4em ;">
+					<li><i>Too high</i>: The guessed number is greater than the target number.</li>
+					<li><i>Too low</i>: The guessed number is less than the target number.</li>
+					<li><i>Correct</i>: The guessed number matches the target number precisely.</li>
+				</ul>
+			</dd>
+			<dd><b>End Game</b>: The game continues until the player guesses the number correctly.  At this point, the game provides a congratulatory message and reveals the total number of attempts the player made to guess the number correctly.</dd>
+
+			<dt>Tip: you can use next template to organize and test your program: <a href="https://gist.githubusercontent.com/WWWCourses/983a5e3ff355a0215afe2ddc9492d6cc/raw/042947f013b609c60d8dff7095ce5a7cf472dd9e/guess_the_number_template.py">guess_the_number_template.py</a></dt>
 		</dl>
 	</section>
-	<section style="font-size: 1.2em"><h3>How to generate "machine_number"</h3>
-		<pre><code rel="Python" class="python">
-			from random import randint
-			machine_number = randint(1,10)
 
-			print("machine_number={}".format(machine_number))
-
-			### your code goes bellow:
-
-		</code></pre>
-	</section>
 </section>
 
 
