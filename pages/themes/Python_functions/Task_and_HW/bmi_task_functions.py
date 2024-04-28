@@ -35,11 +35,13 @@ def calc_BMI_category(bmi):
 	"""
 	# YOUR CODE HERE
 
-def print_results(bmi_category):
+def print_results(name, bmi, bmi_category):
 	"""Prints the BMI category
 
 		Arguments:
-			bmi_category [string]: bmi category
+			name [string]			: user name
+			bmi [float]				: bmi value
+			bmi_category [string]   : bmi category
 	"""
 	# YOUR CODE HERE
 
