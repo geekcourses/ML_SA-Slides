@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Python_working_with_files</title>
+	<link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="/ML_SA-Slides/lib/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="/ML_SA-Slides/outfit/css/themes/projector.css" id="theme">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '/ML_SA-Slides/lib/reveal.js/css/print/pdf.css' : '/ML_SA-Slides/lib/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- CUSTOM -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+	<div class="top_links">
+		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#Python_working_with_files" target="_top"></a>
+		<span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
+		<div class="help_text">
+			<div class="note">Keyboard shortcuts:</div>
+			<div><span>N/Спейс</span><span>Next Slide</span></div>
+			<div><span>P</span><span>Previous Slide</span></div>
+			<div><span>O</span><span>Slides Overview</span></div>
+			<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+			<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+			Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+		</div>
+	</div>
+	<div class="footer theme_switch">
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+	</div>
+	<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section data-min-total="__X__" class="presentation-title"><h1>Python: working with files</h1></section>
+<section data-transition="zoom">
+	<section class="copyright" data-transition="zoom">
+		<div>
+			<p style="text-align: center;">Created for</p>
+		</div>
+		<div class="company">
+			<a href="https://softwareacademy.bg/">
+			<img style="height:80vh" src="/ML_SA-Slides/outfit/images/logos/software-web@4x.png" alt="software-web@4x.png">
+			</a>
+		</div>
+		<div class="author">
+			<span class="note"><a href="https://www.linkedin.com/in/ivapopova/">Iva E. Popova</a>,  2024,</span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+			<!-- <i class="fa fa-linkedin"></i> -->
+		</div>
+	</section>
+</section>
+
+
+<section class="main-sesction-title" id="PrerequisitesPathsAndCurrentWorkingDirectory"><h1>Prerequisites: Paths and Current Working Directory</h1></section>
+<section class="sub-sections"><h2>Prerequisites: Paths and Current Working Directory</h2>
+    <section id="CurrentWorkingDirectory"><h3>Current Working Directory</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>What is the Current Working Directory (CWD)?</dt>
+            <dd>The current working directory (CWD) is the directory from which the Python interpreter is running the script.</dd>
+            <dt>Getting the Current Working Directory</dt>
+            <dd>You can retrieve the current working directory using the `os` module's <a href="https://docs.python.org/3/library/os.html#os.getcwd">getcwd()</a> function.</dd>
+            <!-- Optional code block for programming code -->
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                import os
+                cwd = os.getcwd()
+                print("Current Working Directory:", cwd)
+            </code></pre>
+
+            <dt>Changing the Current Working Directory</dt>
+            <dd>To change the current working directory, you can use the `os` module's <a href="https://docs.python.org/3/library/os.html#os.chdir">chdir()</a> function.</dd>
+            <!-- Optional code block for programming code -->
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                import os
+                os.chdir("new_directory")
+                print("New Current Working Directory:", os.getcwd())
+            </code></pre>
+        </dl>
+    </section>
+    <section id="AbsoluteRelativePaths"><h3>Absolute and Relative Paths</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>What are Paths?</dt>
+            <dd>In computing, a path is the route through which a file or directory is accessed.</dd>
+            <dd>On Windows, it uses backslashes (\) to separate directory levels in the path.</dd>
+            <dd>On Linux and macOS, it uses forward slashes (/) to separate directory levels in the path.</dd>
+
+            <dt><b>Absolute Path</b>: specifies the complete path starting from the root directory.</dt>
+            <dd>On Windows, it typically starts with a drive letter followed by a colon.</dd>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                absolute_path = r"C:\Users\Username\Documents\example.txt"
+            </code></pre>
+            <dd>On Linux and macOS, it typically starts with a forward slash (/) representing the root directory.</dd>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                absolute_path = "/home/username/Documents/example.txt"
+            </code></pre>
+            <dt><b>Relative Path</b>: specifies the path relative to the current working directory</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                relative_path = "folder\example.txt"
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+
+<section id="filesManipulations"><h1>Files Manipulations</h1></section>
+<section><h2>Files Manipulations</h2>
+    <section><h3><code>open()</code> function</h3>
+        <dl class="fa">
+            <dt>For basic files operations, like reading, writing and appending to files we can use the built-in <code>file</code> object and its methods.</dt>
+            <dt>To get a corresponding file object we must use the <a href="https://docs.python.org/3/library/functions.html#open">open()</a> built-in function.</dt>
+            <dt>Syntax:</dt>
+            <pre><code rel="Python" class="python" style="min-height: 10vh;" data-noescape>
+                fh = open(<em>file_path</em>, mode="<em>mode</em>", encoding="<em>encoding</em>")
+            </code></pre>
+            <dt>Open file by the given <em>file_path</em> and return a corresponding file object</dt>
+            <dt><em>mode</em>: </dt>
+            <dd>'r' - open for reading (default)</dd>
+            <dd>'w' - open for writing, truncating the file first</dd>
+            <dd>'a' - open for writing, appending to the end of the file if it exists</dd>
+            <dd>'b' - open in binary mode.</dd>
+            <dd>'+' - open for updating (reading and writing).</dd>
+            <dt><em>encoding</em>: specifies the encoding of the file. It's optional and defaults to the system's default encoding if not provided.</dt>
+            <dt class="note">After the work with the file is done, you have to call fh.close() in order to release the fh</dt>
+        </dl>
+    </section>
+    <section><h3>open file - workflow</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt><i>Variant 1</i>: manually open and close the file</dt>
+            <pre><code rel="Python" class="python" style="min-height: 10vh;">
+                fh = open(file_path, mode="mode", encoding=encoding)
+                try:
+                    # Code to read from or write to the file
+                finally:
+                    fh.close()
+            </code></pre>
+            <dd>try-except is used to ensure that even if an exception occurs during the file operations, the file will still be closed properly.</dd>
+            <dt><i>Variant 2 <b>(prefered)</b></i>: by <code>with</code> statement, which creates context manager: </dt>
+            <pre><code rel="Python" class="python" style="min-height: 10vh;">
+                with open(file_path, mode="r", encoding=encoding) as fh:
+                    # Code to read from the file
+                    pass
+            </code></pre>
+            <dd>after the code block within the <code>with</code> statement is executed, Python automatically calls the close() method on the file handle, ensuring that the file is properly closed regardless of whether an exception occurred or not. This automatic cleanup is one of the key benefits of using with.</dd>
+        </dl>
+    </section>
+    <section><h3>Read from file</h3>
+        <dl class="fa">
+            <dt><code>fh.read(<i>size</i>)</code></dt>
+            <dd>Reads file content and stores it in variable </dd>
+            <dd>When size is omitted or negative, <span class="note">the entire contents of the file will be read and returned</span> (python will not take care if the file is twice as large as your machine’s memory)</dd>
+            <dd>If <i>size</i> is given at most <i>size</i> characters (in text mode) or size bytes (in binary mode) are read and returned.</dd>
+            <pre><code rel="Python" class="python">
+                with open('test_file.txt','r') as fh:
+                    # read whole file content:
+                    contents =fh.read()
+
+                print(contents)
+            </code></pre>
+            <dt><code>fh.readline()</code></dt>
+            <dd>Reads and returns a single line from the file (including the ending new line character)</dd>
+            <dd>fh.readline() returns an empty string, when the end of the file has been reached</dd>
+            <dt><code>fh.readlines()</code></dt>
+            <dd>Reads all the lines of a file in a list. You can do the same with <code>list(fh)</code></dd>
+            <pre><code rel="python" class="python">
+                with open('test_file.txt', 'r') as fh:
+                    # Read one line at a time using readline():
+                    line = fh.readline()
+                    while line:
+                        print(line.strip())  # Strip to remove newline character
+                        line = fh.readline()
+
+                # Alternatively, read all lines into a list using readlines():
+                with open('test_file.txt', 'r') as fh:
+                    lines = fh.readlines()
+                    for line in lines:
+                        print(line.strip())  # Strip to remove newline character
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>memory-efficient read</h3>
+        <dl class="fa">
+            <dt>To read large files safely line by line without consuming excessive memory, you can iterate over the file object itself. This approach ensures that only one line is loaded into memory at a time, which is memory-efficient:</dt>
+            <pre><code rel="Python" class="python">
+                with open('large_file.txt', 'r') as file:
+                for line in file:
+                    # Process each line here
+                    print(line.strip())  # Example: Print the line (stripped of newline characters)
+
+            </code></pre>
+        </dl>
+    </section>
+    <section id="writing-to-files"><h3>Writing to Files</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>There are different modes for opening files for writing:</dt>
+            <dd>'w': Write mode. Opens the file for writing. If the file exists, it truncates it (<span class="note">removes its contents</span>) before writing. If the file does not exist, it creates a new file.</dd>
+            <dd>'a': Append mode. Opens the file for writing, but appends new data to the end of the existing file. If the file does not exist, it creates a new file.</dd>
+            <dt><b>Writing Data</b>: Once the file is opened, you can use methods like write() or writelines() to write data to the file.</dt>
+            <dd><code>write()</code>: Writes a string to the file.</dd>
+            <pre><code rel="Python" class="python" style="min-height: 10vh;">
+                with open("test_file.txt", mode="w", encoding="utf-8") as fh:
+                    fh.write("Hello, world!\n")
+                    fh.write("This is a new line.")
+
+                #output:
+                #Hello, world!
+                #This is a new line.
+            </code></pre>
+            <dd><code>writelines()</code>: Writes a list of strings to the file, without adding any line separators.</dd>
+            <pre><code rel="Python" class="python" style="min-height: 10vh;">
+                data = ['Hello, world!', 'This is a new line.']
+                lines = [f"{line}\n" for line in data]
+
+                with open("test_file.txt", mode="w", encoding="utf-8") as fh:
+                    fh.writelines(lines)
+            </code></pre>
+            <dt>Note that, you must provide new line separator.</dt>
+        </dl>
+    </section>
+    <section><h3>Error Handling</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>When writing to files, it's crucial to handle exceptions that may occur, such as PermissionError or FileNotFoundError.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 10vh;">
+                try:
+                    with open("test_file.txt", mode="w", encoding="utf-8") as fh:
+                        fh.write("Hello, world!")
+                except FileNotFoundError:
+                    print("File not found.")
+                except PermissionError:
+                    print("Permission denied.")
+            </code></pre>
+        </dl>
+    </section>
+
+    <section><h3>Remove a file </h3>
+      <dl class="fa">
+        <dt><code>os.remove(file_path)</code></dt>
+        <dd>Removes a file with the given file_path. Throws error if file did not exists </dd>
+        <pre><code rel="Python" class="python">
+            import os
+
+            # Specify the file path
+            file_path = "test_file.txt"
+
+            # Check if the file exists before attempting to remove it
+            if os.path.exists(file_path):
+                # Remove the file
+                os.remove(file_path)
+                print(f"{file_path} has been successfully removed.")
+            else:
+                print(f"{file_path} does not exist.")
+        </code></pre>
+      </dl>
+    </section>
+    <section><h3>Resources</h3>
+        <dl class="fa">
+            <dt><a href="https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files">Reading and Writing Files</a></dt>
+        </dl>
+    </section>
+</section>
+
+
+<!-- <section data-min="1"><h1>References</h1></section>
+<section><h2>References</h2>
+	<section><h3>Readings</h3>
+		<dl class="fa">
+			<dt></dt>
+		</dl>
+	</section>
+</section>
+
+
+<section id="hw" data-min="4"><h1>Exercises</h1></section>
+<section><h2>Task1: Task1Title</h2>
+	<section><h3>The Task</h3>
+		<dl class="fa">
+			<dt></dt>
+		</dl>
+	</section>
+</section>
+
+<section><h3>Submission</h3>
+	<dl class="fa">
+		<dt>PLease, prefix your filenames/archive with your name initials, before sending.</dt>
+		<dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
+		<dt>Send files to <a href="mailto:netIT.WWW.Courses@gmail.com?Subject=_Python_working_with_files_">netIT.WWW.Courses@gmail.com</a></dt>
+	</dl>
+</section> -->
+
+<section class="disclaimer end-slide"></section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="/ML_SA-Slides/outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="/ML_SA-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+	<script src="/ML_SA-Slides/lib/reveal.js/js/reveal.js"></script>
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		var highlightjsTabSize = '  ';
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+
+			// display control
+			// center: true,
+			// width: '100%',
+			// height: '100%',
+			// // // Factor of the display size that should remain empty around the content
+			// margin: 0.1,
+
+			// The "normal" size of the presentation, aspect ratio will be preserved
+			// when the presentation is scaled to fit different resolutions. Can be
+			// specified using percentage units.
+			width: 1920,
+			height: 1280,
+
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+
+			// Bounds for smallest/largest possible scale to apply to content
+			minScale: 0,
+			maxScale: 2,
+
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// shift+maous click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '/ML_SA-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+	<!-- linkedin badge -->
+	<!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+
+	<!-- MathJax -->
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript" async src="/ML_SA-Slides/lib/MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+</body>
+</html>
