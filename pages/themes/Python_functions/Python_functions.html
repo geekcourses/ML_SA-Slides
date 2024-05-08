@@ -681,6 +681,44 @@
 		</dl>
 	</section>
 </section>
+<section class="sub-sections"><h2>Task4: Guess the number</h2>
+	<section id="hw_simple_library_system"><h3>Task4: Simple Library System</h3>
+		<dl class="fa">
+			<dt>Write a Python program that will manage a small library system which keeps track of books and their borrowers. Your program must implements next functionality:</dt>
+			<ol>
+				<li><strong>Add New Book</strong>
+					<ul>
+						<li><strong>Inputs</strong>: ISBN, Title, author, status (default to 'available'), optional borrower (default to None).</li>
+						<li><strong>Constraints</strong>: A book can only be added if it doesn't already exist in the library (by title).</li>
+						<li><strong>Outputs</strong>: Confirmation of addition or warning that book already exists.</li>
+					</ul>
+				</li>
+				<li><strong>Borrow a Book</strong>
+					<ul>
+						<li><strong>Inputs</strong>: ISBN and the name of the borrower.</li>
+						<li><strong>Constraints</strong>: A book can be borrowed if it exists in the library and if it's not borrowed.</li>
+						<li><strong>Outputs</strong>:Confirmation of borrowing or warning that the book is not available</li>
+					</ul>
+				</li>
+				<li><strong>Return a Book</strong>
+					<ul>
+						<li><strong>Inputs</strong>: ISBN of the book</li>
+						<li><strong>Constraints</strong>: A book can be returned only if it exists in the library and it's borrowed.</li>
+
+						<li><strong>Outputs</strong>:Confirmation of returning or warning that the book did not exists or it was not borrowed</li>
+					</ul>
+				</li>
+				<li><strong>List Books</strong>
+					<ul>
+						<li><strong>Outputs</strong>: Display a list of all books in the library, showing isbn, title, author, status, and borrower (if the book is borrowed).</li>
+					</ul>
+				</li>
+			</ol>
+
+			<dt>Tip: you can use next template to organize and test your program: <a href="https://gist.githubusercontent.com/WWWCourses/8920a4d72ac150c388578e93be47a1aa/raw/a7d08043cf7ffe82d0aada8df1d86729bf7d439e/simple_library_procedural_template.py">simple_library_procedural_template.py</a></dt>
+		</dl>
+	</section>
+</section>
 
 
 <section class="disclaimer end-slide"></section>
