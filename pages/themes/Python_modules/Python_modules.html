@@ -71,8 +71,8 @@
 </section>
 
 
-<section><h1>Modules in Python</h1></section>
-<section><h2>Modules in Python</h2>
+<section class="main-section-title"><h1>Modules in Python</h1></section>
+<section class="sub-sections"><h2>Modules in Python</h2>
     <section><h3>Overview</h3>
         <dl class="fa">
             <dt>Modules allows to split a long program into several files</dt>
@@ -86,6 +86,13 @@
                 │   ├── app.py           # the main file
                 │   ├── helper_module.py # a module file
             </code></pre>
+        </dl>
+    </section>
+    <section><h3>Module Execution</h3>
+        <dl class="fa">
+            <dt>A module can contain executable statements as well as names definitions (function, classes). Usually the statements are intended to initialize the module.</dt>
+            <dt>Statements in a module are executed only the first time the module name is encountered in an import statement.</dt>
+            <dt>But as a module is just a Python file, we can execute it as a standalone program.</dt>
         </dl>
     </section>
     <section><h3>Import module: <code class="note">import <em>X</em></code></h3>
@@ -107,13 +114,6 @@
                 user_name = helper_module.get_user_name()
                 helper_module.greet(user_name)
             </code></pre>
-        </dl>
-    </section>
-    <section><h3>Module Execution</h3>
-        <dl class="fa">
-            <dt>A module can contain executable statements as well as names definitions (funciton, classes). Usually the statements are intended to initialize the module.</dt>
-            <dt>Statements in a module are executed only the first time the module name is encountered in an import statement.</dt>
-            <dt>But as a module is just a Python file, we can execute it as a standalone program.</dt>
         </dl>
     </section>
     <section><h3>Module alias: <code class="note">import X as Y</code></h3>
@@ -195,14 +195,16 @@
     </section>
 </section>
 
-<section><h1>Import-related module attributes</h1></section>
-<section><h2>Import-related module attributes/global variables</h2>
+<section class="main-section-title"><h1>Import-related module attributes</h1></section>
+<section class="sub-sections"><h2>Import-related module attributes/global variables</h2>
     <section><h3>The <code>__file__</code> and <code>__name__</code> variables</h3>
         <dl class="fa">
             <dt>Within a python file we can use the global <code>__file__</code> and <code>__name__</code> variables.</dt>
-            <dt><code>__file__</code> variable contains the pathname of the file from which the module was loaded</dt>
-            <dt>When a Python module is imported, <code>__name__</code> is set to the module’s name, without the .py extension</dt>
-            <dt>When a Python module is executed as a standalone script, the <code>__name__</code> variable is set to '__main__' value</dt>
+            <dt><code>__file__</code> variable contains the full filename (including path) of the file/module being executed</dt>
+            <dd>will have same value, no matter if the file is executed as a stand-alone or as a module.</dd>
+            <dt class="note"><code>__name__</code> variable will defer if the file is executed as a stand-alone or as a module</dt>
+            <dd>When a Python module is imported, <code>__name__</code> is set to the module’s name, without the .py extension</dd>
+            <dd>When a Python module is executed as a standalone script, the <code>__name__</code> variable is set to '__main__' value</dd>
         </dl>
         <pre><code rel="helper_module.py" class="python">
             print( "__file__:", __file__)
@@ -252,7 +254,6 @@
         <dl class="fa">
             <dt>Stores the full filename (including path) of the file/module being executed</dt>
             <dt>Will be same, no matter if the file is executed as a stand-alone or as a module.</dt>
-            <dt>If we need to strip the path, and get just the filename, </dt>
         </dl>
     </section>
     <section><h3><code>__file__ - examples</code></h3>
@@ -270,8 +271,8 @@
     </section>
 </section>
 
-<section><h1>Packages in Python</h1></section>
-<section><h2>Packages in Python</h2>
+<section class="main-section-title"><h1>Packages in Python</h1></section>
+<section class="sub-sections"><h2>Packages in Python</h2>
     <section><h3>Overview</h3>
         <dl class="fa">
             <dt>A Python package is simply a group of Python module(s), usually stored in one directory</dt>
@@ -332,7 +333,7 @@
 
 
 <!-- <section data-min="1"><h1>References</h1></section>
-<section><h2>References</h2>
+<section class="sub-sections"><h2>References</h2>
 	<section><h3>Readings</h3>
 		<dl class="fa">
 			<dt></dt>
@@ -342,7 +343,7 @@
 
 
 <section id="hw" data-min="4"><h1>Exercises</h1></section>
-<section><h2>Task1: Task1Title</h2>
+<section class="sub-sections"><h2>Task1: Task1Title</h2>
 	<section><h3>The Task</h3>
 		<dl class="fa">
 			<dt></dt>
