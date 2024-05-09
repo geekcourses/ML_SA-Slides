@@ -71,8 +71,8 @@
 </section>
 
 
-<section class="main-section-title"><h1>NumPy Arrays - Overview</h1></section>
-<section class="sub-sections"><h2>NumPy Arrays - Overview</h2>
+<section class="main-section-title"><h1>NumPy Intro</h1></section>
+<section class="sub-sections"><h2>NumPy Intro</h2>
 	<section><h3>NumPy overview</h3>
 		<dl class="fa">
 			<dt><a href="https://pypi.org/project/numpy/">numpy</a> is a python package that adds support for:</dt>
@@ -91,95 +91,100 @@
 	</section>
 	<section><h3>N-Dimensional Arrays</h3>
 		<dl class="fa">
-			<dt>The main object in numpy is the <span class="note">homogeneous</span> multidimensional array (<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html">ndarray Object</a>)</dt>
-			<dt>It is a table of elements (usually numbers), <span class="note">all of the same type</span>, indexed by a tuple of positive integers for each dimension.</dt>
+			<dt>The main object in numpy is the <span class="note">homogeneous</span> N-Dimensional Array, called <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html">ndarray Object</a>.</dt>
+			<dt>It is a sequence of elements (usually numbers), <span class="note">all of the same type</span>, indexed by a tuple of positive integers for each dimension.</dt>
 			<dd>In numpy, dimensions are called <span class="note">axes</span></dd>
 			<dd>Number of axes defines the <span class="note">rank</span> of the array</dd>
 		</dl>
 	</section>
-	<section><h3 class="advanced">NumPy arrays implementation (vs Python's lists)</h3>
-		<dl class="fa">
-			<dt>Implementation</dt>
-			<a href="images/array_vs_list_implementation.png"><img src="images/array_vs_list_implementation.png"></a>
-			<dt>Results in less memory consumption and speed of operations</dt>
-			<!-- <dt>Much faster (magnitudes)</dt>
-			<dd><a href="https://docs.python.org/3/faq/design.html#how-are-lists-implemented-in-cpython">How are lists implemented in CPython?</a></dd> -->
-		</dl>
-	</section>
-	<section><h3>Speed Test (Arrays vs Lists)</h3>
-		<pre><code rel="array_vs_list.ipy" class="python" style="min-height: 38vh;">
+	<section><h3>Example</h3>
+		<pre><code rel="demo.py" class="python" style="min-height: 50vh;">
 			import numpy as np
 
-			SIZE = 2_000_000
+			# create one-dimensional array
+			arr1d = np.array([1, 2, 3])
+			# create two-dimensional array
+			arr2d = np.array([[1, 2, 3], [4, 5, 6]])
 
-			# The point to point sum on both data structures
-			def python_lists():
-				# Create Python's lists
-				l1 = list(range(SIZE))
-				l2 = list(range(SIZE))
+			print(f'arr1d: \n{arr1d}\n')
+			print(f'arr2d: \n{arr2d}\n')
 
-				result = [(x+y) for x,y in zip(l1,l2)]
-
-			def numpy_arrays():
-				# Create Numpy Arrays
-				a1=np.arange(SIZE)
-				a2=np.arange(SIZE)
-
-				result = a1 + a2
-
-			# Time test:
-			print('Timing Lists Sum:')
-			%time python_lists()
-			print('-'*50)
-			print('Timing Arrays Sum:')
-			%time numpy_arrays()
+			print(f'arr1d.shape: {arr1d.shape}') # (rank 1, axes 0)
+			print(f'arr2d.shape: {arr2d.shape}') # (rank 2, axes 0 and 1)
 		</code></pre>
-		<pre><code rel="Terminal" class="bash">
-			$> ipython array_vs_list.ipy
+		<pre><code rel="Output" class="bash">
+			arr1d:
+			[1 2 3]
 
-			Timing Lists Sum
-			CPU times: user 191 ms, sys: 108 ms, total: 299 ms
-			Wall time: 299 ms
-			--------------------------------------------------
-			Timing Arrays Sum
-			CPU times: user 1.87 ms, sys: 11.2 ms, total: 13.1 ms
-			Wall time: 14.4 ms
+			arr2d:
+			[[1 2 3]
+			[4 5 6]]
+
+			arr1d.shape: (3,)
+			arr2d.shape: (2, 3)
 		</code></pre>
 	</section>
-</section>
-
-<section data-min="50"><h1>Numpy ndarray Attributes</h1></section>
-<section><h2>Numpy ndarray Attributes</h2>
-	<section>
+	<section><h3 class="advanced">NumPy arrays vs Python's lists</h3>
 		<dl class="fa">
-			<dt>ndarray objects support several attributes.</dt>
-			<dt>Check next Jupyter Notebook:</dt>
-			<dd><a href="https://nbviewer.org/github/geekcourses/ML_SA-Slides/blob/main/pages/themes/Numpy_intro/examples/ndarray_attributes.ipynb">Numpy ndarray Attributes @nbviewer</a></dd>
-			<dd>Or download it: <a href="./examples/ndarray_attributes.ipynb">Numpy ndarray Attributes</a></dd>
+			<dt>Implementation - numpy arrays are homogeneous. This allows NumPy to optimize operations and memory usage effectively.</dt>
+			<a href="images/array_vs_list_implementation.png"><img src="images/array_vs_list_implementation.png"></a>
+			<dt>Next Jupyter Notebook demonstarte the speed of NumPy arrays vs. Python's lists: <a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/numpy_and_pandas/numpy/speed_test_array_vs_list.ipynb">speed_test_array_vs_list.ipynb</a></dt>
 		</dl>
 	</section>
+	<section><h3>Array with Mixed Data Types?</h3>
+		<dl class="fa" style="min-width:80vw">
+			<dt>If you try to create a NumPy array with elements of different types, NumPy will upcast elements to a common data type that can accommodate all the values, usually converting everything to a type that can hold all the given data.</dt>
+			<pre><code rel="Python" class="python" style="min-height: 1vh;">
+				import numpy as np
+
+				mixed_array = np.array([1, 2.5, &#39;3&#39;])
+				print(mixed_array.dtype)  # Output: &lt;U32 (Unicode string)
+			</code></pre>
+		</dl>
+	</section>
+
 </section>
 
 <section class="main-section-title"><h1>NumPy Data Types</h1></section>
 <section class="sub-sections"><h2>NumPy Data Types</h2>
 	<section>
 			<dl class="fa">
-				<dt>NumPy supports a much greater variety of numerical types than Python does.</dt>
-				<dd><a href="https://numpy.org/doc/stable/user/basics.types.html">Data types @numpy.org</a></dd>
+				<dt>NumPy provides a variety of data types, referred to as <code>dtypes</code>, which are more efficient than Python’s native data types.</dt>
+				<dt>These dtypes are crucial for memory efficiency and speed in numerical computations.</dt>
+				<dt>There are 5 basic numerical types representing booleans (bool), integers (int), unsigned integers (uint) floating point (float) and complex.</dt>
+				<dt>Those with numbers in their name indicate the bitsize of the type (i.e. how many bits are needed to represent a single value in memory)</dt>
 				<dt><span class="note">Do not forget, that Numpy Arrays are homogeneous</span>! I.e. can not store data from different data types.</dt>
+				<dt>Reference: <a href="https://numpy.org/doc/stable/user/basics.types.html">Data types @numpy.org</a></dt>
 			</dl>
 	</section>
-	<section>
+	<section><h3>Examples</h3>
 		<dl class="fa">
-			<dt>There are 5 basic numerical types representing booleans (bool), integers (int), unsigned integers (uint) floating point (float) and complex.</dt>
-			<dt>Those with numbers in their name indicate the bitsize of the type (i.e. how many bits are needed to represent a single value in memory)</dt>
+			<dt>Examples are given in next Jupyter Notebook:</dt>
+			<dd><a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/numpy_and_pandas/numpy/numpy_datatypes.ipynb">numpy_datatypes.ipynb</a></dd>
 		</dl>
 	</section>
-	<section><h3></h3>
+</section>
+
+
+<section class="main-section-title"><h1>Numpy ndarray attributes</h1></section>
+<section class="sub-sections"><h2>Numpy ndarray attributes</h2>
+	<section>
 		<dl class="fa">
-			<dt>Check next Jupyter Notebook:</dt>
-			<dd><a href="https://nbviewer.org/github/geekcourses/ML_SA-Slides/blob/main/pages/themes/Numpy_intro/examples/numpy_datatypes.ipynb">Data Types @nbviewer</a></dd>
-			<dd>Or download it: <a href="./examples/numpy_datatypes.ipynb">Data Types</a></dd>
+			<dt>NumPy ndarrays objects come with several attributes that provide valuable information about the array.</dt>
+			<dt>Reference: <a href="Reference: https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html">ndarray object</a></dt>
+			<dt>Examples: <a href="https://nbviewer.org/github/geekcourses/ML_SA-Slides/blob/main/pages/themes/Numpy_intro/examples/ndarray_attributes.ipynb">Numpy ndarray attributes</a></dt>
+		</dl>
+	</section>
+</section>
+
+
+<section class="main-section-title"><h1>Numpy Array Creation</h1></section>
+<section class="sub-sections"><h2>Numpy Array Creation</h2>
+	<section>
+		<dl class="fa" style="min-width:80vw">
+			<dt>Numpy provides various mechanisms for creating arrays.</dt>
+			<dt>Reference: <a href="https://numpy.org/doc/stable/user/basics.creation.html#array-creation">Array creation</a></dt>
+			<dt>Examples: <a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/numpy_and_pandas/numpy/numpy_create_array.ipynb">Numpy Array Creation</a></dt>
 		</dl>
 	</section>
 </section>
