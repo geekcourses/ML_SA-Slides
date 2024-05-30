@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Pandas_2</title>
+	<title>Pandas_IO</title>
 	<link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -28,7 +28,7 @@
 <body>
 	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
 	<div class="top_links">
-		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#Pandas_2" target="_top"></a>
+		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#Pandas_IO" target="_top"></a>
 		<span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
 		<div class="help_text">
 			<div class="note">Keyboard shortcuts:</div>
@@ -51,8 +51,7 @@
 ##################### SLIDES START #####################
 ########################################################
 -->
-<section class="presentation-title"><h1>Data analysis with Pandas (2)</h1>
-	<h2>More on Series. DataFrame Basics.</h2></section>
+<section class="presentation-title"><h1>Pandas I/O</h1><h2>Convert DataFrame from/to CSV, Excel, JSON, SQL</h2></section>
 <section data-transition="zoom">
 	<section class="copyright" data-transition="zoom">
 		<div>
@@ -71,116 +70,15 @@
 	</section>
 </section>
 
-<section class="main-section-title"><h1>pandas - Series Object</h1></section>
-<section class="sub-sections"><h2>pandas - Series Object</h2>
 
-	<section><h3>Series Indexing</h3>
-		<dl class="fa">
-			<dt>You can use a single index value, or a list of indexes, or slicing</dt>
-			<dt>Note that, operations such as slicing will also slice the index.</dt>
-			<pre><code rel="Python" class="python">
-				##get index object:
-				print(ds.index)
-				#Index(['apples', 'bananas', 'oranges'], dtype='object')
-
-				## numerical or keyword indexes
-				print(ds["a"])
-				print(ds[0])
-
-				## indexes as list:
-				print(ds[['a', 'c', 'e']])
-				#a    1
-				#c    3
-				#e    5
-				#dtype: int6
-			</code></pre>
-		</dl>
-	</section>
-	<section><h3>Series slicing</h3>
-		<dl class="fa">
-			<dt>the Series also supports array-style operations such as slicing</dt>
-		</dl>
-		<pre><code rel="Python" class="python">
-			## slicing
-			print(ds["a":"d"])
-			#a    1
-			#b    2
-			#c    3
-			#d    4
-			#dtype: int64
-		</code></pre>
-	</section>
-	<section><h3>Altering index in place</h3>
-		<dl class="fa">
-			<dt>A Series’s index can be altered in place by assignment</dt>
-		</dl>
-		<pre><code rel="Python" class="python">
-			ds = pd.Series([1,2,3,4,5],index=["a","b","c","d","e"])
-
-			ds.index = ["A","B","C","D","E"]
-			print(ds)
-			#A    1
-			#B    2
-			#C    3
-			#D    4
-			#E    5
-			#dtype: int64
-		</code></pre>
-	</section>
-	<section><h3>NumPy operations on Series</h3>
-		<pre><code rel="Python" class="python">
-			ds = pd.Series([1,2,3,4,5],index=["a","b","c","d","e"])
-
-			## filtering by value
-			ds[ds>2]
-			#c    3
-			#d    4
-			#e    5
-			#dtype: int64
-
-			## multiplication
-			ds*2
-			#a     2
-			#b     4
-			#c     6
-			#d     8
-			#e    10
-			#dtype: int64
-		</code></pre>
-	</section>
-	<section><h3>Dictionary like operation on Series</h3>
-		<pre><code rel="Python" class="python">
-			ds = pd.Series([1,2,3,4,5],index=["a","b","c","d","e"])
-
-			"a" in ds
-			#True
-
-			"f" in ds
-			#False
-		</code></pre>
-	</section>
-	<section><h3>Missing Data</h3>
-		<dl class="fa">
-			<dt>Missing data can present in dataset, but they can appear when we transform or make some operations on Series object. These missing values are marked as NaN (Not A Number) values</dt>
-		</dl>
-		<pre><code rel="Python" class="python">
-			ds1 = pd.Series([1,3], index=["a","c"])
-			ds2 = pd.Series([2,3], index=["b","c"])
-
-			print(ds1+ds2)
-			#a    NaN
-			#b    NaN
-			#c    6.0
-			#dtype: float64
-		</code></pre>
-	</section>
-	<section><h3>All Examples in JupyterNotebook</h3>
-		<dl class="fa">
-			<dt><a href="https://nbviewer.org/github/geekcourses/ML_SA-Slides/blob/main/pages/themes/Pandas_2/examples/SeriesObject.ipynb">SeriesObject.ipynb @nbviewer</a></dt>
-		</dl>
-	</section>
+<section class="main-section-title"><h1>Convert DataFrame from/to CSV, Excel, JSON, SQL</h1></section>
+<section class="sub-sections"><h2>Convert DataFrame from/to CSV, Excel, JSON, SQL</h2>
+    <section><h3>Convert DataFrame from/to CSV, Excel, JSON, SQL</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The presentation is given here: <a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/numpy_and_pandas/pandas/DataFrame_InputOutput.ipynb">DataFrame_InputOutput.ipynb</a></dt>
+        </dl>
+    </section>
 </section>
-
 
 <section class="disclaimer end-slide"></section>
 <!--
