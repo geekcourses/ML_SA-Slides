@@ -71,31 +71,75 @@
 </section>
 
 
+<section class="main-section-title"><h1>Supervised Learning Overview</h1></section>
+<section class="sub-sections"><h2>Supervised Learning Overview</h2>
+    <section>
+        <dl class="fa"><h3>Introduction</h3>
+            <dt>Supervised learning is a type of machine learning where the model is trained on <span class="note">labeled data</span>.</dt>
+            <dt>Each <span class="note">instance</span> in the dataset is represented by a set of <span class="note">features</span> and a specific <span class="note">target</span> attribute.</dt>
+            <dd>For example, in a dataset predicting house prices, an instance might be a specific house with its associated features (e.g., number of bedrooms, square footage) and the target price.</dd>
+            <dd>The <span class="note">features</span>, also known as <b>predictors</b> or <b>independent variables</b> (X), are the input variables used to make predictions.</dd>
+            <dd>The <span class="note">target</span>, also called the <b>dependent variable</b> or <b>outcome</b> (Y), is the output variable that the model aims to predict.</dd>
+            <a href="images/features_target_ml_process.png">
+                <img src="images/features_target_ml_process.png" style="display: block; margin:1em 0 0 2em; width:40vw;">
+            </a>
+            <dt>In summary, we have historical data with input-output pairs, where each input is mapped to a corresponding output.</dt>
+        </dl>
+    </section>
+    <section><h3>The Goal</h3>
+        <dl class="fa">
+            <dt>The goal of supervised learning is to approximate a mapping function (g) that accurately maps input variables (<span class="note">X</span>) to output (target) variables (<span class="note">Y</span>).</dt>
+            <dt>This can be represented mathematically as:</dt>
+            <p>$$ {g: X \to Y} $$</p>
+            <dt>The task of the modeling algorithm is to find the best possible mapping function, g, that minimizes the difference (error) between the predicted values and the actual values.</dt>
+            <dd>This involves training the model on the labeled data, where the input features (X) are associated with known outputs (Y), and adjusting the model parameters to achieve the lowest prediction error.</dd>
+            <dt>Example:</dt>
+            <dd>Consider a dataset where we want to predict house prices. Each instance (data point) in the dataset includes features such as the number of bedrooms, square footage, and location (X) and the corresponding house price (y). The goal of the supervised learning algorithm is to find a function g that can predict the house price based on these features with minimal error.</dd>
+        </dl>
+    </section>
+    <section><h3>Problems that solves</h3>
+        <dl class="fa">
+            <dt>Two main problems categories:</dt>
+            <dt class="note">classification</dt>
+            <dd>Predicting a <span class="note">discrete</span> label for an input.</dd>
+            <dd>Example: determining if an email is spam or not</dd>
+            <dt class="note">Regression</dt>
+            <dd>Predicting a <span class="note">continuous</span> value for an input.</dd>
+            <dd>Example: predict the price of a house</dd>
+        </dl>
+    </section>
+</section>
 
-<section class="main-section-title" id="SupervisedLearningBasicConcepts"><h1>Supervised Learning - Basic Concepts</h1></section>
-<section class="sub-sections"><h2>Supervised Learning - Basic Concepts</h2>
-
-    <section id="TypesOfSupervisedLearning"><h3>Types of Supervised Learning</h3>
-        <dl class="fa" style="min-width:80vw">
-            <dt>1. Classification</dt>
-            <dd>Predicting a discrete label for an input.</dd>
-
-            <dt>2. Regression</dt>
-            <dd>Predicting a continuous value for an input.</dd>
-            <!-- --------------------- Optional code block for CLI --------------------- -->
-            <pre><code rel="Terminal" class="bash" data-noescape>
-                # Example CLI command
-                python train_regressor.py --data dataset.csv
-            </code></pre>
-            <!-- -------------- Optional code block for programming code --------------- -->
-            <pre><code rel="JS" class="js" style="min-height: 1vh;">
-                # Example Python code for regression
-                from sklearn.linear_model import LinearRegression
-
-                model = LinearRegression()
-                model.fit(X_train, y_train)
-                predictions = model.predict(X_test)
-            </code></pre>
+<section class="main-section-title"><h1>Supervised Learning Process</h1></section>
+<section class="sub-sections"><h2>Supervised Learning Process</h2>
+    <section><h3>Supervised Learning Process - diagram</h3>
+        <dl class="fa">
+            <dt>The supervised learning process can be summarized in the following steps:</dt>
+            <img src="./images/SubpervisedLearningProcess.png" style="display: block; margin:1em 0 0 2em; width:60vw;">
+        </dl>
+    </section>
+    <section><h3>Supervised Learning Process - the steps</h3>
+        <dl class="fa" style="min-width:80vw;">
+            <dt>Data Preparation</dt>
+            <dd>
+                Before training the model, the data must be prepared. This includes cleaning the data, handling missing values, encoding categorical variables, normalizing or standardizing features, and splitting the data into training and test sets.
+            </dd>
+            <dt>Model Training</dt>
+            <dd>
+                The training data and training labels are fed into a machine learning algorithm to train a model. The model learns to map the input variables (X) to the output variables (y).
+            </dd>
+            <dt>Testing</dt>
+            <dd>
+                After the model is trained, it is tested on new, unseen data called test data. This data is used to make predictions and is not part of the training set.
+            </dd>
+            <dd>
+                The trained model makes predictions on the test data, providing output values based on the input features.
+            </dd>
+            <dt>Evaluation</dt>
+            <dd>
+                The predictions made by the model are compared to the test labels to evaluate the model's accuracy and performance. This evaluation helps to determine how well the model generalizes to new data.
+            </dd>
+            <dt>You can use this <a href="https://github.com/ProgressBG-Python-Course/JupyterNotebooksExamples/blob/master/Notebooks/Appendix/ML_Process_Template.ipynb">ML_Process_Template.ipynb</a>  for a starting point.</dt>
         </dl>
     </section>
     <section id="KeyConcepts"><h3>Key Concepts</h3>
@@ -146,78 +190,6 @@
     </section>
 </section>
 
-
-
-
-<section class="main-section-title"><h1>Supervised Learning Overview</h1></section>
-<section class="sub-sections"><h2>Supervised Learning Overview</h2>
-    <section>
-        <dl class="fa"><h3>Introduction</h3>
-            <dt>Supervised learning is a type of machine learning where the model is trained on <span class="note">labeled data</span>.</dt>
-            <dt>Each <span class="note">instance</span> in the dataset is represented by a set of <span class="note">features</span> and a specific <span class="note">target</span> attribute.</dt>
-            <dd>For example, in a dataset predicting house prices, an instance might be a specific house with its associated features (e.g., number of bedrooms, square footage) and the target price.</dd>
-            <dd>The <span class="note">features</span>, also known as <b>predictors</b> or <b>independent variables</b> (X), are the input variables used to make predictions.</dd>
-            <dd>The <span class="note">target</span>, also called the <b>dependent variable</b> or <b>outcome</b> (Y), is the output variable that the model aims to predict.</dd>
-            <a href="images/features_target_ml_process.png">
-                <img src="images/features_target_ml_process.png" style="display: block; margin:1em 0 0 2em; width:40vw;">
-            </a>
-            <dt>In summary, we have historical data with input-output pairs, where each input is mapped to a corresponding output.</dt>
-        </dl>
-    </section>
-    <section><h3>The Goal</h3>
-        <dl class="fa">
-            <dt>The goal of supervised learning is to approximate a mapping function (g) that accurately maps input variables (<span class="note">X</span>) to output (target) variables (<span class="note">Y</span>).</dt>
-            <dt>This can be represented mathematically as:</dt>
-            <p>$$ {g: X \to Y} $$</p>
-            <dt>The task of the modeling algorithm is to find the best possible mapping function, g, that minimizes the difference (error) between the predicted values and the actual values.</dt>
-            <dd>This involves training the model on the labeled data, where the input features (X) are associated with known outputs (Y), and adjusting the model parameters to achieve the lowest prediction error.</dd>
-            <dt>Example:</dt>
-            <dd>Consider a dataset where we want to predict house prices. Each instance (data point) in the dataset includes features such as the number of bedrooms, square footage, and location (X) and the corresponding house price (y). The goal of the supervised learning algorithm is to find a function g that can predict the house price based on these features with minimal error.</dd>
-        </dl>
-    </section>
-    <section><h3>Problems that solves</h3>
-        <dl class="fa">
-            <dt>Two main problems categories:</dt>
-            <dt class="note">classification</dt>
-            <dd>Predicting a <span class="note">discrete</span> label for an input.</dd>
-            <dd>Example: determining if an email is spam or not</dd>
-            <dt class="note">Regression</dt>
-            <dd>Predicting a <span class="note">continuous</span> value for an input.</dd>
-            <dd>Example: predict the price of a house</dd>
-        </dl>
-    </section>
-    <section><h3>Supervised Learning Process</h3>
-        <dl class="fa">
-            <dt>The supervised learning process can be summarized in the following steps:</dt>
-            <img src="./images/SubpervisedLearningProcess.png" style="display: block; margin:1em 0 0 2em; width:60vw;">
-        </dl>
-    </section>
-    <section><h3></h3>
-        <dl class="fa" style="min-width:80vw;">
-            <dt>Data Preparation</dt>
-            <dd>
-                Before training the model, the data must be prepared. This includes cleaning the data, handling missing values, encoding categorical variables, normalizing or standardizing features, and splitting the data into training and test sets.
-            </dd>
-            <dt>Model Training</dt>
-            <dd>
-                The training data and training labels are fed into a machine learning algorithm to train a model. The model learns to map the input variables (X) to the output variables (y).
-            </dd>
-            <dt>Testing</dt>
-            <dd>
-                After the model is trained, it is tested on new, unseen data called test data. This data is used to make predictions and is not part of the training set.
-            </dd>
-            <dd>
-                The trained model makes predictions on the test data, providing output values based on the input features.
-            </dd>
-            <dt>Evaluation</dt>
-            <dd>
-                The predictions made by the model are compared to the test labels to evaluate the model's accuracy and performance. This evaluation helps to determine how well the model generalizes to new data.
-            </dd>
-            <dt>You can use this <a href="https://github.com/ProgressBG-Python-Course/JupyterNotebooksExamples/blob/master/Notebooks/Appendix/ML_Process_Template.ipynb">ML_Process_Template.ipynb</a>  for a starting point.</dt>
-        </dl>
-    </section>
-</section>
-
 <section class="main-section-title"><h1>The Math behind</h1></section>
 <section class="sub-sections"><h2>The Math behind</h2>
     <section>
@@ -233,18 +205,18 @@
             <dd>${X}$ is the input (feature) space</dd>
             <dd>${Y}$ is the output (target) space</dd>
             <dd>${g} \in {G}$, ${G}$ represents the <span class="note">hypothesis space</span> (see <a href="https://stats.stackexchange.com/questions/183989/what-exactly-is-a-hypothesis-space-in-the-context-of-machine-learning">What exactly is a hypothesis space in the context of Machine Learning?</a>)</dd>
+            <dt>Example:</dt>
+            <dd>
+                For a house price prediction model:
+                <ul>
+                    <li>${X}$ could be features like size, location, and number of bedrooms.</li>
+                    <li>${Y}$ would be the house price.</li>
+                    <li>${g}$ would be the function that maps the features to the predicted price.</li>
+                </ul>
+            </dd>
         </dl>
-</section>
-<section><h3>Scoring function</h3>
-    <dl class="fa">
-        <dt>In ML, ${g}$ is represented using a scoring function
-            <p>${f:X\times Y\to {\mathbb {R} }}$</p>
-        </dt>
-        <dt>such that  ${g}$ is defined as returning the ${y}$ value that gives the highest score
-            <p>$${\displaystyle g(x)={\underset {y}{\arg \max }}\;f(x,y)}$$</p>
-        </dt>
-    </dl>
-</section>
+    </section>
+
 <section><h3>Loss function</h3>
     <dl class="fa">
         <dt> In order to measure how well a function fits the training data, the <span class="note">loss</span> function is defined:
@@ -255,27 +227,6 @@
     </dl>
 </section>
 </section>
-
-<!--
-<section class="main-section-title"><h1>Classification models.</h1></section>
-<section class="sub-sections"><h2>Classification models.</h2>
-    <section><h3>Algorithms</h3>
-        <dl class="fa">
-            <dt>Nearest Neighbor</dt>
-            <dt>Logistic Regression</dt>
-            <dt>Naive Bayes Classifier</dt>
-            <dt>Decision Trees</dt>
-            <dt>Random Forest</dt>
-            <dt>Neural Networks</dt>
-        </dl>
-    </section>
-</section>
-
-<section class="main-section-title"><h1>Predictions with Regression models.</h1></section>
-<section class="sub-sections"><h2>Predictions with Regression models.</h2>
-
-</section> -->
-
 
 <section class="main-section-title"><h1>Important Concepts</h1></section>
 <section class="sub-sections"><h2>Important Concepts</h2>
@@ -306,7 +257,7 @@
     <section><h3>Overfitting vs Underfitting</h3>
         <a href="images/overfitting_vs_underfitting.png"><img src="images/overfitting_vs_underfitting.png"></a>
     </section>
-    <section><h3>Bias and Variance</h3>
+    <!-- <section><h3>Bias and Variance</h3>
         <dl class="fa">
             <dt><span class="note">Bias</span> is the difference between the estimator's expected value and the true value of the parameter being estimated. In ML, biased results are usually due to faulty assumptions</dt>
             <dd>In ML, bias is inevitable - remember the 'No Free Lunch theorem'.</dd>
@@ -316,18 +267,9 @@
     <section><h3>The Bias–Variance tradeoff</h3>
             <a href="images/bias-and-variance.jpg"><img src="images/bias-and-variance.jpg"></a><br>
             <p><a href="https://towardsdatascience.com/the-bias-variance-tradeoff-8818f41e39e9">The Bias-Variance Tradeoff</a> by Giorgos Papachristoudis</p>
-            <!-- <a href="https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff">Bias–Variance tradeoff</a> -->
-    </section>
-    <section><h3>Cross-validation</h3>
-        <dl class="fa">
-            <dt>Cross validation is a technique for testing the effectiveness of a machine learning models.</dt>
-            <dt>Cross validation can give an insight on how the model will generalize to an independent dataset</dt>
-            <dt>The goal of cross-validation is to test the model's ability to predict new data, that was not used in estimating it, in order to flag problems like overfitting</dt>
-        </dl>
-    </section>
+            <a href="https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff">Bias–Variance tradeoff</a>
+    </section> -->
 </section>
-
-
 
 
 <section class="disclaimer end-slide"></section>
