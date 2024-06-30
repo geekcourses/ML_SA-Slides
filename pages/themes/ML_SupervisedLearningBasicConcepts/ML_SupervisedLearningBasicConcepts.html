@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ML_SupervisedLearningBasicConcepts</title>
+    <link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="/ML_SA-Slides/lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="/ML_SA-Slides/outfit/css/themes/projector.css" id="theme">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? '/ML_SA-Slides/lib/reveal.js/css/print/pdf.css' : '/ML_SA-Slides/lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- CUSTOM -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+    <div class="top_links">
+        <a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#ML_SupervisedLearningBasicConcepts" target="_top"></a>
+        <span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
+        <div class="help_text">
+            <div class="note">Keyboard shortcuts:</div>
+            <div><span>N/Спейс</span><span>Next Slide</span></div>
+            <div><span>P</span><span>Previous Slide</span></div>
+            <div><span>O</span><span>Slides Overview</span></div>
+            <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+            <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+            Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+        </div>
+    </div>
+    <div class="footer theme_switch">
+        <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+        <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+        <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+    </div>
+    <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section class="presentation-title"><h1>Supervised Learning: Basic Concepts</h1></section>
+<section data-transition="zoom">
+    <section class="copyright" data-transition="zoom">
+        <div>
+            <p style="text-align: center;">Created for</p>
+        </div>
+        <div class="company">
+            <a href="https://softwareacademy.bg/">
+            <img style="height:80vh" src="/ML_SA-Slides/outfit/images/logos/software-web@4x.png" alt="software-web@4x.png">
+            </a>
+        </div>
+        <div class="author">
+            <span class="note"><a href="https://www.linkedin.com/in/ivapopova/">Iva E. Popova</a>,  2024,</span>
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            <!-- <i class="fa fa-linkedin"></i> -->
+        </div>
+    </section>
+</section>
+
+
+
+<section class="main-section-title" id="SupervisedLearningBasicConcepts"><h1>Supervised Learning - Basic Concepts</h1></section>
+<section class="sub-sections"><h2>Supervised Learning - Basic Concepts</h2>
+
+    <section id="TypesOfSupervisedLearning"><h3>Types of Supervised Learning</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>1. Classification</dt>
+            <dd>Predicting a discrete label for an input.</dd>
+
+            <dt>2. Regression</dt>
+            <dd>Predicting a continuous value for an input.</dd>
+            <!-- --------------------- Optional code block for CLI --------------------- -->
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                # Example CLI command
+                python train_regressor.py --data dataset.csv
+            </code></pre>
+            <!-- -------------- Optional code block for programming code --------------- -->
+            <pre><code rel="JS" class="js" style="min-height: 1vh;">
+                # Example Python code for regression
+                from sklearn.linear_model import LinearRegression
+
+                model = LinearRegression()
+                model.fit(X_train, y_train)
+                predictions = model.predict(X_test)
+            </code></pre>
+        </dl>
+    </section>
+    <section id="KeyConcepts"><h3>Key Concepts</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>1. Training Data</dt>
+            <dd>The labeled data used to train the model.</dd>
+            <dt>2. Test Data</dt>
+            <dd>The labeled data used to evaluate the model.</dd>
+            <dt>3. Features</dt>
+            <dd>The input variables used to make predictions.</dd>
+            <dt>4. Labels</dt>
+            <dd>The output variable the model is trying to predict.</dd>
+            <dt>5. Overfitting</dt>
+            <dd>When a model performs well on training data but poorly on test data.</dd>
+            <dt>6. Underfitting</dt>
+            <dd>When a model performs poorly on both training and test data.</dd>
+        </dl>
+    </section>
+    <section id="Algorithms"><h3>Common Algorithms</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>1. Linear Regression</dt>
+            <dd>Used for regression tasks.</dd>
+            <dt>2. Logistic Regression</dt>
+            <dd>Used for binary classification tasks.</dd>
+            <dt>3. Decision Trees</dt>
+            <dd>Used for both classification and regression tasks.</dd>
+            <dt>4. Support Vector Machines</dt>
+            <dd>Used for classification tasks.</dd>
+            <dt>5. Neural Networks</dt>
+            <dd>Used for both classification and regression tasks.</dd>
+        </dl>
+    </section>
+    <section id="EvaluationMetrics"><h3>Evaluation Metrics</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>1. Accuracy</dt>
+            <dd>Proportion of correct predictions in classification.</dd>
+            <dt>2. Precision</dt>
+            <dd>Proportion of true positive predictions in classification.</dd>
+            <dt>3. Recall</dt>
+            <dd>Proportion of actual positives correctly identified in classification.</dd>
+            <dt>4. F1 Score</dt>
+            <dd>Harmonic mean of precision and recall in classification.</dd>
+            <dt>5. Mean Squared Error</dt>
+            <dd>Average squared difference between actual and predicted values in regression.</dd>
+            <dt>6. R-squared</dt>
+            <dd>Proportion of variance explained by the model in regression.</dd>
+        </dl>
+    </section>
+</section>
+
+
+
+
+<section class="main-section-title"><h1>Supervised Learning Overview</h1></section>
+<section class="sub-sections"><h2>Supervised Learning Overview</h2>
+    <section>
+        <dl class="fa"><h3>Introduction</h3>
+            <dt>Supervised learning is a type of machine learning where the model is trained on <span class="note">labeled data</span>.</dt>
+            <dt>Each <span class="note">instance</span> in the dataset is represented by a set of <span class="note">features</span> and a specific <span class="note">target</span> attribute.</dt>
+            <dd>For example, in a dataset predicting house prices, an instance might be a specific house with its associated features (e.g., number of bedrooms, square footage) and the target price.</dd>
+            <dd>The <span class="note">features</span>, also known as <b>predictors</b> or <b>independent variables</b> (X), are the input variables used to make predictions.</dd>
+            <dd>The <span class="note">target</span>, also called the <b>dependent variable</b> or <b>outcome</b> (Y), is the output variable that the model aims to predict.</dd>
+            <a href="images/features_target_ml_process.png">
+                <img src="images/features_target_ml_process.png" style="display: block; margin:1em 0 0 2em; width:40vw;">
+            </a>
+            <dt>In summary, we have historical data with input-output pairs, where each input is mapped to a corresponding output.</dt>
+        </dl>
+    </section>
+    <section><h3>The Goal</h3>
+        <dl class="fa">
+            <dt>The goal of supervised learning is to approximate a mapping function (g) that accurately maps input variables (<span class="note">X</span>) to output (target) variables (<span class="note">Y</span>).</dt>
+            <dt>This can be represented mathematically as:</dt>
+            <p>$$ {g: X \to Y} $$</p>
+            <dt>The task of the modeling algorithm is to find the best possible mapping function, g, that minimizes the difference (error) between the predicted values and the actual values.</dt>
+            <dd>This involves training the model on the labeled data, where the input features (X) are associated with known outputs (Y), and adjusting the model parameters to achieve the lowest prediction error.</dd>
+            <dt>Example:</dt>
+            <dd>Consider a dataset where we want to predict house prices. Each instance (data point) in the dataset includes features such as the number of bedrooms, square footage, and location (X) and the corresponding house price (y). The goal of the supervised learning algorithm is to find a function g that can predict the house price based on these features with minimal error.</dd>
+        </dl>
+    </section>
+    <section><h3>Problems that solves</h3>
+        <dl class="fa">
+            <dt>Two main problems categories:</dt>
+            <dt class="note">classification</dt>
+            <dd>Predicting a <span class="note">discrete</span> label for an input.</dd>
+            <dd>Example: determining if an email is spam or not</dd>
+            <dt class="note">Regression</dt>
+            <dd>Predicting a <span class="note">continuous</span> value for an input.</dd>
+            <dd>Example: predict the price of a house</dd>
+        </dl>
+    </section>
+    <section><h3>Supervised Learning Process</h3>
+        <dl class="fa">
+            <dt>The supervised learning process can be summarized in the following steps:</dt>
+            <img src="./images/SubpervisedLearningProcess.png" style="display: block; margin:1em 0 0 2em; width:60vw;">
+        </dl>
+    </section>
+    <section><h3></h3>
+        <dl class="fa" style="min-width:80vw;">
+            <dt>Data Preparation</dt>
+            <dd>
+                Before training the model, the data must be prepared. This includes cleaning the data, handling missing values, encoding categorical variables, normalizing or standardizing features, and splitting the data into training and test sets.
+            </dd>
+            <dt>Model Training</dt>
+            <dd>
+                The training data and training labels are fed into a machine learning algorithm to train a model. The model learns to map the input variables (X) to the output variables (y).
+            </dd>
+            <dt>Testing</dt>
+            <dd>
+                After the model is trained, it is tested on new, unseen data called test data. This data is used to make predictions and is not part of the training set.
+            </dd>
+            <dd>
+                The trained model makes predictions on the test data, providing output values based on the input features.
+            </dd>
+            <dt>Evaluation</dt>
+            <dd>
+                The predictions made by the model are compared to the test labels to evaluate the model's accuracy and performance. This evaluation helps to determine how well the model generalizes to new data.
+            </dd>
+            <dt>You can use this <a href="https://github.com/ProgressBG-Python-Course/JupyterNotebooksExamples/blob/master/Notebooks/Appendix/ML_Process_Template.ipynb">ML_Process_Template.ipynb</a>  for a starting point.</dt>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title"><h1>The Math behind</h1></section>
+<section class="sub-sections"><h2>The Math behind</h2>
+    <section>
+        <dl class="fa">
+            <dt>Given is a set of ${N}$ training data of the form:
+                <p>$$ {(x_{1},y_{1}),...,(x_{N},\;y_{N})} $$</p>
+            </dt>
+            <dd>Where ${x_{i}}$ is the <span class="note">input (feature) vector</span></dd>
+            <dt>All Supervised Learning algorithms seeks a function:
+                <p>$$ {g:X\to Y} $$</p>
+            </dt>
+            <dt>Where</dt>
+            <dd>${X}$ is the input (feature) space</dd>
+            <dd>${Y}$ is the output (target) space</dd>
+            <dd>${g} \in {G}$, ${G}$ represents the <span class="note">hypothesis space</span> (see <a href="https://stats.stackexchange.com/questions/183989/what-exactly-is-a-hypothesis-space-in-the-context-of-machine-learning">What exactly is a hypothesis space in the context of Machine Learning?</a>)</dd>
+        </dl>
+</section>
+<section><h3>Scoring function</h3>
+    <dl class="fa">
+        <dt>In ML, ${g}$ is represented using a scoring function
+            <p>${f:X\times Y\to {\mathbb {R} }}$</p>
+        </dt>
+        <dt>such that  ${g}$ is defined as returning the ${y}$ value that gives the highest score
+            <p>$${\displaystyle g(x)={\underset {y}{\arg \max }}\;f(x,y)}$$</p>
+        </dt>
+    </dl>
+</section>
+<section><h3>Loss function</h3>
+    <dl class="fa">
+        <dt> In order to measure how well a function fits the training data, the <span class="note">loss</span> function is defined:
+            <p>$$L: Y \times Y \to \Bbb{R} ^{\ge 0}$$</p>
+        </dt>
+        <dt>I.e. if we have the training samples ${(x_{i},\;y_{i})}$, then the the loss of predicting the value ${{\hat {y}}}$ is ${L(y_i,\hat{y})}$.</dt>
+        <dt>Usually, in the same context, is used the term <span class="note">cost</span>  function, which can be regarded as a generalization of the lost function </dt>
+    </dl>
+</section>
+</section>
+
+<!--
+<section class="main-section-title"><h1>Classification models.</h1></section>
+<section class="sub-sections"><h2>Classification models.</h2>
+    <section><h3>Algorithms</h3>
+        <dl class="fa">
+            <dt>Nearest Neighbor</dt>
+            <dt>Logistic Regression</dt>
+            <dt>Naive Bayes Classifier</dt>
+            <dt>Decision Trees</dt>
+            <dt>Random Forest</dt>
+            <dt>Neural Networks</dt>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title"><h1>Predictions with Regression models.</h1></section>
+<section class="sub-sections"><h2>Predictions with Regression models.</h2>
+
+</section> -->
+
+
+<section class="main-section-title"><h1>Important Concepts</h1></section>
+<section class="sub-sections"><h2>Important Concepts</h2>
+    <section><h3>Feature Selection</h3>
+        <dl class="fa">
+            <dt>Features are chosen with a <span class="note">specific task</span> in mind</dt>
+            <dt><span class="note">Curse of Dimensionality</span>: The more features you include, the more data you need (exponentially) to produce an equally accurate model</dt>
+        </dl>
+    </section>
+    <section><h3>No Free Lunch' theorem</h3>
+        <dl class="fa">
+            <dt><span class="note"><a href="https://en.wikipedia.org/wiki/No_free_lunch_theorem">'No Free Lunch' theorem</a></span>: "If an algorithm performs better than random search on some class of problems then it must perform worse than random search on the remaining problems".</dt>
+        </dl>
+        <img src="images/NoFreeLunchTheorem.png">
+    </section>
+    <section><h3>Generalization</h3>
+        <dl class="fa">
+            <dt>The ability of algorithm to perform well on new (not-seeing before) data</dt>
+        </dl>
+    </section>
+    <section><h3>Overfitting and Underfitting</h3>
+        <dl class="fa">
+            <dt><span class="note">Overfitting</span> happens when a model learns all the detail (and noise) in the training data to the extent that it negatively impacts the performance of the model on new data.</dt>
+            <dt><span class="note">Underfitting</span> is the case where the model has "not learned enough", resulting in low generalization and unreliable predictions.</dt>
+            <dt>Overfitting and underfitting are the two biggest causes for poor performance of machine learning algorithms</dt>
+        </dl>
+    </section>
+    <section><h3>Overfitting vs Underfitting</h3>
+        <a href="images/overfitting_vs_underfitting.png"><img src="images/overfitting_vs_underfitting.png"></a>
+    </section>
+    <section><h3>Bias and Variance</h3>
+        <dl class="fa">
+            <dt><span class="note">Bias</span> is the difference between the estimator's expected value and the true value of the parameter being estimated. In ML, biased results are usually due to faulty assumptions</dt>
+            <dd>In ML, bias is inevitable - remember the 'No Free Lunch theorem'.</dd>
+            <dt><span class="note">Variance is the expectation of the squared deviation of a random variable from its mean.</span></dt>
+        </dl>
+    </section>
+    <section><h3>The Bias–Variance tradeoff</h3>
+            <a href="images/bias-and-variance.jpg"><img src="images/bias-and-variance.jpg"></a><br>
+            <p><a href="https://towardsdatascience.com/the-bias-variance-tradeoff-8818f41e39e9">The Bias-Variance Tradeoff</a> by Giorgos Papachristoudis</p>
+            <!-- <a href="https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff">Bias–Variance tradeoff</a> -->
+    </section>
+    <section><h3>Cross-validation</h3>
+        <dl class="fa">
+            <dt>Cross validation is a technique for testing the effectiveness of a machine learning models.</dt>
+            <dt>Cross validation can give an insight on how the model will generalize to an independent dataset</dt>
+            <dt>The goal of cross-validation is to test the model's ability to predict new data, that was not used in estimating it, in order to flag problems like overfitting</dt>
+        </dl>
+    </section>
+</section>
+
+
+
+
+<section class="disclaimer end-slide"></section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="/ML_SA-Slides/outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="/ML_SA-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="/ML_SA-Slides/lib/reveal.js/js/reveal.js"></script>
+
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+
+            // display control
+            // center: true,
+            // width: '100%',
+            // height: '100%',
+            // // // Factor of the display size that should remain empty around the content
+            // margin: 0.1,
+
+            // The "normal" size of the presentation, aspect ratio will be preserved
+            // when the presentation is scaled to fit different resolutions. Can be
+            // specified using percentage units.
+            width: 1920,
+            height: 1280,
+
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+
+            // Bounds for smallest/largest possible scale to apply to content
+            minScale: 0,
+            maxScale: 2,
+
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // shift+maous click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '/ML_SA-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+            ]
+        });
+    </script>
+    <!-- linkedin badge -->
+    <!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript" async src="/ML_SA-Slides/lib/MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+</body>
+</html>
