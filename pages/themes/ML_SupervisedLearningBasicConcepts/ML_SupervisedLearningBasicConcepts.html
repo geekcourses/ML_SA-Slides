@@ -91,10 +91,19 @@
             <dt>The goal of supervised learning is to approximate a mapping function (g) that accurately maps input variables (<span class="note">X</span>) to output (target) variables (<span class="note">Y</span>).</dt>
             <dt>This can be represented mathematically as:</dt>
             <p>$$ {g: X \to Y} $$</p>
-            <dt>The task of the modeling algorithm is to find the best possible mapping function, g, that minimizes the difference (error) between the predicted values and the actual values.</dt>
+            <dt class="note">The task of the modeling algorithm is to find the best possible mapping function - $g$, that minimizes the difference (error) between the predicted values and the actual values.</dt>
             <dd>This involves training the model on the labeled data, where the input features (X) are associated with known outputs (Y), and adjusting the model parameters to achieve the lowest prediction error.</dd>
             <dt>Example:</dt>
-            <dd>Consider a dataset where we want to predict house prices. Each instance (data point) in the dataset includes features such as the number of bedrooms, square footage, and location (X) and the corresponding house price (y). The goal of the supervised learning algorithm is to find a function g that can predict the house price based on these features with minimal error.</dd>
+            <dd style="display: flex;">
+                <div style="flex: 1; padding: 10px;">
+                    Consider a dataset where we want to predict house prices. Each instance (data point) in the dataset includes features such as the number of bedrooms, square footage, and location (X) and the corresponding house price (y). The goal of the supervised learning algorithm is to find a function g that can predict the house price based on these features with minimal error.
+                </div>
+                <div style="flex: 1; padding: 10px;">
+                    <a href="./images/linear_regression_gradient_descend.gif">
+                        <img src="./images/linear_regression_gradient_descend.gif" alt="linear_regression_gradient_descend.gif" style="height: 70%; margin-top: -0em;">
+                    </a>
+                </div>
+            </dd>
         </dl>
     </section>
     <section><h3>Problems that solves</h3>
@@ -217,15 +226,48 @@
         </dl>
     </section>
 
-<section><h3>Loss function</h3>
-    <dl class="fa">
-        <dt> In order to measure how well a function fits the training data, the <span class="note">loss</span> function is defined:
-            <p>$$L: Y \times Y \to \Bbb{R} ^{\ge 0}$$</p>
-        </dt>
-        <dt>I.e. if we have the training samples ${(x_{i},\;y_{i})}$, then the the loss of predicting the value ${{\hat {y}}}$ is ${L(y_i,\hat{y})}$.</dt>
-        <dt>Usually, in the same context, is used the term <span class="note">cost</span>  function, which can be regarded as a generalization of the lost function </dt>
-    </dl>
-</section>
+    <section><h3>In simple words</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Imagine you have a smart robot, and you want to teach it to do something, like recognizing pictures of cats and dogs.</dt>
+            <dt>Function $ {g:X\to Y} $</dt>
+            <dd>X (Input Space): This is like the robot's eyes. It's all the pictures (features) you show to the robot. Each picture is an input.</dd>
+            <dd>Y (Output Space): This is like the robot's brain. It's where the robot decides whether a picture is of a cat or a dog (target).</dd>
+            <dd>So, the robot learns a rule (function) that takes a picture (from X) and tells you if it's a cat or a dog (in Y).</dd>
+            <dt>Hypothesis Space: $G$, $g∈G$</dt>
+            <dd>Think of G as a big box of different rules (hypotheses) the robot can learn. Each rule (g) is a way to decide if a picture is of a cat or a dog.</dd>
+            <dd>The goal is to find the best rule (g) from this big box (G) that helps the robot make the right decisions most of the time.</dd>
+        </dl>
+    </section>
+    <section><h3>Loss function</h3>
+        <dl class="fa">
+            <dt> In order to measure how well a function fits the training data, the <span class="note">loss</span> function is defined:
+                <p>$$L: Y \times Y \to \Bbb{R} ^{\ge 0}$$</p>
+            </dt>
+            <dt>I.e. if we have the training samples ${(x_{i},\;y_{i})}$, then the the loss of predicting the value ${{\hat {y}}}$ is ${L(y_i,\hat{y})}$.</dt>
+            <dt>Usually, in the same context, is used the term <span class="note">cost</span>  function, which can be regarded as a generalization of the lost function </dt>
+        </dl>
+    </section>
+    <section><h3>In simple terms</h3>
+        <dt>Loss Function</dt>
+        <dd>When we're teaching our robot to recognize cats and dogs, we need a way to measure how good or bad it is at making predictions. This is where the loss function comes in.</dd>
+        <dt>What is a Loss Function?</dt>
+        <dd><b>Loss Function (L)</b>: Think of this as a report card for the robot. It tells us how far off the robot's guesses are from the actual answers.</dd>
+        <dd><b>Formula</b>: $L:Y×Y→R≥0$. This means the loss function takes two things (the actual answer and the robot's guess) and gives us a number (the loss). This number is always zero or positive.</dd>
+
+        <dt>How Does it Work?</dt>
+        <dd><b></b>Training Samples**: We have pairs of inputs and correct answers, like (xi, yi). For example, xi is a picture, and yi is the correct answer (cat or dog).</dd>
+        <dd><b></b>Prediction**: The robot makes a guess, y^, based on the picture.</dd>
+        <dd><b></b>Calculating Loss**: The loss function compares the robot's guess (y^) with the actual answer (yi) and gives us a loss value, L(yi, y^). If the guess is very close to the actual answer, the loss is small. If the guess is far off, the loss is large.</dd>
+
+        <dt>Cost Function</dt>
+        <dd>**Cost Function**: This is like an overall score for the robot, considering all the training samples. It can be thought of as a summary of how well the robot is doing overall.</dd>
+        <dd>**Generalization**: The cost function often averages or sums up the loss over all training samples to give a big picture view of performance.</dd>
+
+        <dt>In Simple Terms</dt>
+        <dd>**Loss Function**: Measures how wrong each guess is. Lower numbers are better.</dd>
+        <dd>**Cost Function**: Summarizes the robot's performance across all guesses. Lower overall cost means the robot is doing well.</dd>
+        <dd>So, the loss function helps us understand and improve how well our robot is learning to recognize cats and dogs by giving feedback on each guess and overall performance.</dd>
+    </section>
 </section>
 
 <section class="main-section-title"><h1>Important Concepts</h1></section>
