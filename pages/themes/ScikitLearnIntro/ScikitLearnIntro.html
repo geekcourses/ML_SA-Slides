@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Scikit-learnIntro</title>
+    <link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="/ML_SA-Slides/lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="/ML_SA-Slides/outfit/css/themes/projector.css" id="theme">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? '/ML_SA-Slides/lib/reveal.js/css/print/pdf.css' : '/ML_SA-Slides/lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- CUSTOM -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+    <div class="top_links">
+        <a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#Scikit-learnIntro" target="_top"></a>
+        <span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
+        <div class="help_text">
+            <div class="note">Keyboard shortcuts:</div>
+            <div><span>N/Спейс</span><span>Next Slide</span></div>
+            <div><span>P</span><span>Previous Slide</span></div>
+            <div><span>O</span><span>Slides Overview</span></div>
+            <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+            <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+            Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+        </div>
+    </div>
+    <div class="footer theme_switch">
+        <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+        <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+        <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+    </div>
+    <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section data-min-total="__X__" class="presentation-title"><h1>Scikit-Learn Intro</h1></section>
+<section data-transition="zoom">
+    <section class="copyright" data-transition="zoom">
+        <div>
+            <p style="text-align: center;">Created for</p>
+        </div>
+        <div class="company">
+            <a href="https://softwareacademy.bg/">
+            <img style="height:80vh" src="/ML_SA-Slides/outfit/images/logos/software-web@4x.png" alt="software-web@4x.png">
+            </a>
+        </div>
+        <div class="author">
+            <span class="note"><a href="https://www.linkedin.com/in/ivapopova/">Iva E. Popova</a>,  2024,</span>
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            <!-- <i class="fa fa-linkedin"></i> -->
+        </div>
+    </section>
+</section>
+
+
+<section class="main-section-title" id="GetFamiliarWithScikit-learn"><h1>Get Familiar with Scikit-learn</h1></section>
+<section class="sub-sections"><h2>Get Familiar with Scikit-learn</h2>
+    <section id="IntroductionToScikit-learn"><h3>Introduction to Scikit-learn</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Scikit-learn is a Python library for machine learning built on NumPy, SciPy, and Matplotlib.</dt>
+            <dd>It leverages the power of these foundational libraries to deliver a comprehensive suite of tools for machine learning and statistical modeling.</dd>
+
+            <dt>Wide range of algorithms supported.</dt>
+            <dd>Scikit-learn supports a vast array of algorithms, including linear and logistic regression, decision trees, support vector machines, naive Bayes, k-means, and more.</dd>
+
+            <dt>Scikit-learn emphasizes ease of use and productivity.</dt>
+            <dd>Its clean API and well-documented functionality make it accessible for both beginners and experienced practitioners. The library includes a variety of efficient algorithms that can handle large-scale data.</dd>
+
+            <dt>Integration with other libraries.</dt>
+            <dd>Scikit-learn seamlessly integrates with other Python libraries such as pandas for data manipulation, matplotlib for plotting, and seaborn for statistical visualization.</dd>
+
+            <dt>Community and documentation.</dt>
+            <dd>Scikit-learn has a large and active community, contributing to its continuous improvement and expansion. Comprehensive documentation, user guides, and tutorials are readily available, making it easier to learn and apply machine learning techniques.</dd>
+
+            <dt>Open source and widely adopted.</dt>
+            <dd>As an open-source project, Scikit-learn is free to use and distribute. It is widely adopted in both academic research and industry applications, demonstrating its reliability and effectiveness in various domains.</dd>
+        </dl>
+    </section>
+
+    <section id="InstallationAndSetup"><h3>Installation and Setup</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Install Scikit-learn using pip:</dt>
+            <dd>Ensure you have Python and pip installed on your system.</dd>
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                pip install scikit-learn
+            </code></pre>
+        </dl>
+    </section>
+    <section id="BasicUsage"><h3>Basic Usage</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Importing Scikit-learn and loading a dataset:</dt>
+            <dd>In next example we will use the built-in Iris dataset.</dd>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                from sklearn import datasets
+
+                iris = datasets.load_iris()
+                print(iris.data)
+            </code></pre>
+        <dt>Training a simple model:</dt>
+        <dd>Train a k-nearest neighbors classifier using the iris dataset.</dd>
+        <pre><code rel="Python" class="python" style="min-height: 45vh;">
+            from sklearn.model_selection import train_test_split
+            from sklearn.neighbors import KNeighborsClassifier
+
+            X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target, test_size=0.2, random_state=42)
+
+            knn = KNeighborsClassifier(n_neighbors=3)
+            knn.fit(X_train, y_train)
+
+            print(knn.score(X_test, y_test))
+        </code></pre>
+        </dl>
+    </section>
+</section>
+
+
+
+<section class="main-section-title" id="KeyFeatures"><h1>Key Features</h1></section>
+<section class="sub-sections"><h2>Built-in Datasets</h2>
+    <section id="BuiltInDatasets">
+        <dl class="fa" style="min-width:80vw">
+            <dt>Scikit-learn comes with several built-in datasets for practicing machine learning techniques. These datasets are small and are used primarily for educational purposes and quick testing.</dt>
+
+            <dt>Popular Built-in Datasets:</dt>
+            <dd>Some of the popular built-in datasets include:
+                <ul>
+                    <li><strong>Iris:</strong> A classic dataset for classification tasks, containing measurements of iris flowers from three different species.</li>
+                    <li><strong>Digits:</strong> A dataset for classification tasks, containing images of handwritten digits.</li>
+                    <li><strong>Boston Housing:</strong> A dataset used for regression tasks, containing information about housing prices in Boston suburbs.</li>
+                    <li><strong>Wine:</strong> A dataset for classification tasks, containing chemical analysis of wines grown in the same region in Italy.</li>
+                    <li><strong>Breast Cancer:</strong> A dataset for classification tasks, containing data on breast cancer tumor features.</li>
+                </ul>
+            </dd>
+
+            <dt>Loading Built-in Datasets:</dt>
+            <dd>These datasets can be easily loaded using the `datasets` module in Scikit-learn.</dd>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                from sklearn import datasets
+
+                # Load Iris dataset
+                iris = datasets.load_iris()
+                print(iris.data)
+                # Load Digits dataset
+                digits = datasets.load_digits()
+                print(digits.data)
+            </code></pre>
+        </dl>
+    </section>
+</section>
+<section class="sub-sections"><h2>Data Preprocessing</h2>
+    <section id="DataPreprocessing"><h3>Overview</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Data preprocessing is a crucial step in the machine learning pipeline. It involves transforming raw data into a format suitable for modeling, which can improve the performance and accuracy of machine learning algorithms.</dt>
+            <dt>Some of the common preprocessing techniques include:
+                <ul>
+                    <li><strong>Scaling:</strong> Adjusting the range of features to ensure they contribute equally to the model.</li>
+                    <li><strong>Normalization:</strong> Transforming features to have a mean of 0 and a standard deviation of 1.</li>
+                    <li><strong>Encoding:</strong> Converting categorical variables into numerical format.</li>
+                    <li><strong>Imputation:</strong> Filling in missing values with appropriate substitutes.</li>
+                </ul>
+            </dt>
+        </dl>
+    </section>
+    <section><h3>Scaling and Normalization with Scikit-learn</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Scikit-learn provides utilities for scaling and normalization through the `preprocessing` module.</dt>
+            <pre><code rel="JS" class="js" style="min-height: 1vh;">
+                from sklearn.preprocessing import StandardScaler
+
+                # Example of scaling features
+                scaler = StandardScaler()
+
+                X_train_scaled = scaler.fit_transform(X_train)
+                X_test_scaled = scaler.transform(X_test)
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Encoding Categorical Variables with Scikit-learn</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Use the `OneHotEncoder` or `LabelEncoder` from Scikit-learn to convert categorical variables into numerical format.</dt>
+            <pre><code rel="JS" class="js" style="min-height: 1vh;">
+                from sklearn.preprocessing import OneHotEncoder
+
+                # Example of one-hot encoding
+                encoder = OneHotEncoder()
+                X_encoded = encoder.fit_transform(X)
+            </code></pre>
+        </dl>
+    </section>
+    <section><h3>Handling Missing Values</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Scikit-learn offers the `SimpleImputer` class to handle missing values.</dt>
+            <pre><code rel="JS" class="js" style="min-height: 1vh;">
+                from sklearn.impute import SimpleImputer
+
+                # Example of imputing missing values
+                imputer = SimpleImputer(strategy='mean')
+                X_imputed = imputer.fit_transform(X)
+            </code></pre>
+        </dl>
+    </section>
+</section>
+<section class="sub-sections"><h2>Model Selection</h2>
+    <section id="OverviewOfModelSelection"><h3>Overview of Model Selection</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Model selection is the process of choosing the most appropriate machine learning model and its hyperparameters for a given task.</dt>
+            <dd>This step is critical for ensuring the best performance and generalization of the model.</dd>
+        </dl>
+    </section>
+    <section id="TrainTestSplit"><h3>Train/Test Split</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>One of the basic methods for evaluating the performance of a model is to split the data into training and testing sets.</dt>
+            <dd>Using a train/test split helps to simulate how the model will perform on unseen data.</dd>
+            <pre><code rel="JS" class="js" style="min-height: 1vh;">
+                from sklearn.model_selection import train_test_split
+                X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+            </code></pre>
+        </dl>
+    </section>
+    <section id="CrossValidation"><h3>Cross-Validation</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Cross-validation is a robust method for model evaluation and selection.</dt>
+            <dd>It involves splitting the data into multiple folds and training the model on each fold while evaluating on the remaining data.</dd>
+            <pre><code rel="JS" class="js" style="min-height: 1vh;">
+                from sklearn.model_selection import cross_val_score
+                scores = cross_val_score(model, X, y, cv=5)
+                print(scores)
+            </code></pre>
+        </dl>
+    </section>
+    <section id="GridSearch"><h3>Grid Search</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Grid Search is a technique for hyperparameter tuning that performs an exhaustive search over a specified parameter grid.</dt>
+            <dd>It helps in finding the optimal hyperparameters for a given model.</dd>
+            <pre><code rel="JS" class="js" style="min-height: 1vh;">
+                from sklearn.model_selection import GridSearchCV
+                param_grid = {'n_neighbors': [1, 3, 5, 7]}
+                grid_search = GridSearchCV(KNeighborsClassifier(), param_grid, cv=5)
+                grid_search.fit(X_train, y_train)
+                print(grid_search.best_params_)
+            </code></pre>
+        </dl>
+    </section>
+    <section id="RandomSearch"><h3>Random Search</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Random Search is an alternative to Grid Search for hyperparameter tuning.</dt>
+            <dd>Instead of searching all possible combinations, it samples a fixed number of parameter settings from a specified distribution.</dd>
+            <pre><code rel="JS" class="js" style="min-height: 1vh;">
+                from sklearn.model_selection import RandomizedSearchCV
+                param_dist = {'n_neighbors': [1, 3, 5, 7]}
+                random_search = RandomizedSearchCV(KNeighborsClassifier(), param_dist, n_iter=10, cv=5)
+                random_search.fit(X_train, y_train)
+                print(random_search.best_params_)
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+
+
+<section><h3>Key Features</h3>
+    <dl class="fa" style="min-width:80vw">
+        <dt>Data Preprocessing:</dt>
+        <dd>Scikit-learn provides various utilities for data preprocessing, such as scaling and normalization.</dd>
+        <pre><code rel="Python" class="python" style="min-height: 1vh;">
+            from sklearn.preprocessing import StandardScaler
+            scaler = StandardScaler()
+            X_train_scaled = scaler.fit_transform(X_train)
+            X_test_scaled = scaler.transform(X_test)
+        </code></pre>
+    </dl>
+    <dl class="fa" style="min-width:80vw">
+        <dt>Model Selection:</dt>
+        <dd>Scikit-learn offers tools for model selection, such as cross-validation and hyperparameter tuning.</dd>
+        <pre><code rel="Python" class="python" style="min-height: 1vh;">
+            from sklearn.model_selection import GridSearchCV
+            param_grid = {'n_neighbors': [1, 3, 5, 7]}
+            grid_search = GridSearchCV(KNeighborsClassifier(), param_grid, cv=5)
+            grid_search.fit(X_train, y_train)
+            print(grid_search.best_params_)
+        </code></pre>
+    </dl>
+    <dl class="fa" style="min-width:80vw">
+        <dt>Model Evaluation:</dt>
+        <dd>Evaluate the performance of your models using metrics provided by Scikit-learn.</dd>
+        <pre><code rel="Python" class="python" style="min-height: 1vh;">
+            from sklearn.metrics import classification_report
+            y_pred = knn.predict(X_test)
+            print(classification_report(y_test, y_pred))
+        </code></pre>
+    </dl>
+</section>
+
+<!-- <section data-min="1"><h1>References</h1></section>
+<section><h2>References</h2>
+    <section><h3>Readings</h3>
+        <dl class="fa">
+            <dt></dt>
+        </dl>
+    </section>
+</section>
+
+
+<section id="hw" data-min="4"><h1>Exercises</h1></section>
+<section><h2>Task1: Task1Title</h2>
+    <section><h3>The Task</h3>
+        <dl class="fa">
+            <dt></dt>
+        </dl>
+    </section>
+</section>
+
+<section><h3>Submission</h3>
+    <dl class="fa">
+        <dt>PLease, prefix your filenames/archive with your name initials, before sending.</dt>
+        <dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
+        <dt>Send files to <a href="mailto:netIT.WWW.Courses@gmail.com?Subject=_Scikit-learnIntro_">netIT.WWW.Courses@gmail.com</a></dt>
+    </dl>
+</section> -->
+
+<section class="disclaimer end-slide"></section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="/ML_SA-Slides/outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="/ML_SA-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="/ML_SA-Slides/lib/reveal.js/js/reveal.js"></script>
+
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+
+            // display control
+            // center: true,
+            // width: '100%',
+            // height: '100%',
+            // // // Factor of the display size that should remain empty around the content
+            // margin: 0.1,
+
+            // The "normal" size of the presentation, aspect ratio will be preserved
+            // when the presentation is scaled to fit different resolutions. Can be
+            // specified using percentage units.
+            width: 1920,
+            height: 1280,
+
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+
+            // Bounds for smallest/largest possible scale to apply to content
+            minScale: 0,
+            maxScale: 2,
+
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // shift+maous click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '/ML_SA-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+            ]
+        });
+    </script>
+    <!-- linkedin badge -->
+    <!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript" async src="/ML_SA-Slides/lib/MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+</body>
+</html>
