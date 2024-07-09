@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Linear_models_for_regression</title>
+    <link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="/ML_SA-Slides/lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="/ML_SA-Slides/outfit/css/themes/projector.css" id="theme">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? '/ML_SA-Slides/lib/reveal.js/css/print/pdf.css' : '/ML_SA-Slides/lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- CUSTOM -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+    <div class="top_links">
+        <a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#Linear_models_for_regression" target="_top"></a>
+        <span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
+        <div class="help_text">
+            <div class="note">Keyboard shortcuts:</div>
+            <div><span>N/Спейс</span><span>Next Slide</span></div>
+            <div><span>P</span><span>Previous Slide</span></div>
+            <div><span>O</span><span>Slides Overview</span></div>
+            <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+            <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+            Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+        </div>
+    </div>
+    <div class="footer theme_switch">
+        <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+        <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+        <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+    </div>
+    <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section data-min-total="__X__" class="presentation-title"><h1>Linear models for regression</h1></section>
+<section data-transition="zoom">
+    <section class="copyright" data-transition="zoom">
+        <div>
+            <p style="text-align: center;">Created for</p>
+        </div>
+        <div class="company">
+            <a href="https://softwareacademy.bg/">
+            <img style="height:80vh" src="/ML_SA-Slides/outfit/images/logos/software-web@4x.png" alt="software-web@4x.png">
+            </a>
+        </div>
+        <div class="author">
+            <span class="note"><a href="https://www.linkedin.com/in/ivapopova/">Iva E. Popova</a>,  2024,</span>
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            <!-- <i class="fa fa-linkedin"></i> -->
+        </div>
+    </section>
+</section>
+
+
+<section data-min="5" class="main-section-title"><h1>Regression Models in Machine Learning.</h1></section>
+<section class="sub-sections"><h2>Regression Models in Machine Learning.</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>Regression analysis is a form of <span class="note">predictive</span> modeling technique which investigates <span class="note">the relationship between a dependent (target) $y$ and independent (predictor) variables $X$</span>.</dt>
+            <p>$$ {g:X\to y} $$</p>
+            <dt>I.e. it fits a line (or curve) to the data points, such that the differences between the distances of data points from the line/curve is minimized.</dt>
+        </dl>
+    </section>
+    <section><h3>Types of regression techniques</h3>
+        <p>We classify them by</p>
+        <dl class="fa">
+            <dt class="note">Number of independent variables</dt>
+            <dd>Simple Regression</dd>
+            <dd>Multiple Regression</dd>
+            <dt class="note">Shape of the regression line</dt>
+            <dd>Linear Regression</dd>
+            <dd>Non-linear regression (like Polynomial regression)</dd>
+            <dt class="note">The type of the dependent variable (continuous or binary(categorical))</dt>
+            <dd>Linear regression</dd>
+            <dd>Logistic regression</dd>
+        </dl>
+    </section>
+    <section id="WhyTheTermRegression"><h3>Why the Term "Regression"</h3>
+        <dl class="fa" style="min-width:100vw">
+            <dt>According to Conspiracy Theories:</dt>
+            <dd>Blame ICSSNN (The International Committee for Sadistic Statistical Nomenclature and Numerophobia) 😉</dd>
+            <dd>Reference: <a href="http://blog.minitab.com/blog/statistics-and-quality-data-analysis/so-why-is-it-called-regression-anyway">So Why Is It Called "Regression," Anyway?</a></dd>
+            <dt>The Reality:</dt>
+            <dd>The term "regression" was first used by Francis Galton in 1886. He used this concept to explain how children of exceptionally tall or short parents tended <span class="note">to be closer to the average height of the population rather than extreme, thus "regressing" towards the mean</span>.</dd>
+            <dd><a href="http://galton.org/essays/1880-1889/galton-1886-jaigi-regression-stature.pdf">Galton, F. "Regression towards Mediocrity in Hereditary Stature.", 1886</a></dd>
+        </dl>
+    </section>
+
+</section>
+
+
+<section data-min="5" class="main-section-title"><h1>Linear Regression</h1></section>
+<section class="sub-sections"><h2>Linear Regression</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>Linear regression is used to model and predict <span class="note">continuous</span> outcomes.</dt>
+            <dt>It's a <b>predictive model</b> to predict future values $Y$ of $X_i$, using a <span class="note">linear</span> equation</dt>
+            <dt>It is based on the idea of finding a line that best fits the data, so that we can make predictions for new data points.</dt>
+             <a href="images/linear_regression_wikipedia.png"><img src="images/linear_regression_wikipedia.png" style="width: 50%;"></a>
+            <dt>Do not confuse it with <b>logistic regression</b>, which is used to model binary outcomes (i.e. it concerns classification tasks)</dt>
+        </dl>
+    </section>
+    <section><h3>Formal definition</h3>
+        <dl class="fa">
+            <dt><a href="http://en.wikipedia.org/wiki/Linear_regression">Linear Regression</a> is a method to model the relationship between a set of <span class="note">independent variables $X$</span> (also known as <span class="note">features</span>) and a <span class="note">dependent variable $y$</span>.</dt>
+            <dt>This method assumes the relationship between each feature $X$ is <span class="note">linearly related</span> to the dependent variable $y$.
+            <p>$$ y = \beta_0 + \beta_1 X + \epsilon$$</p>
+            </dt>
+            <dd>where $\epsilon$ is considered as an unobservable random variable that adds <span class="note">noise</span> to the linear relationship.</dd>
+            <dd>$\beta_0$ is the <span class="note">intercept</span> of the linear model</dd>
+            <dd>$\beta 1$ is the <span class="note">co-efficient</span> of the model (the <span class="note">slope</span> of the line)</dd>
+            <dt>This is the simplest form of linear regression (i.e. with one variable).</dt>
+        </dl>
+    </section>
+    <section><h3>Slope-intercept form</h3>
+        <dl class="fa">
+            <dt>Slope-intercept form is a way to write the equation of a line, following this structure: <br>
+                <span class="note" style="font-size: 1.5em;margin:2em">${y=mx+b}$</span>
+            </dt>
+            <dd>In this equation, slope=$m$,  intercept=$b$</dd>
+            <dd>Note that in statistics, the notation is: slope=$\beta_1$, intercept=$\beta_0$, or <span class="note">$y={\beta_1}x+\beta_0$</span></dd>
+
+            <dt>The slope indicates the steepness of the line and is calculated as the change in y
+                divided by the change in x (rise over run)</dt>
+            <dt>The y-intercept is the point where the line crosses the y-axis. It is the ordered pair (x=0,y=b).</dt>
+            <dt>For example, the line ${y=3/2x+1}$ has a slope of ${3/2}$ and a y-intercept of 1. That line is graphed below.</dt>
+            <a href="./images/slope-intercept-plot-method.png"><img src="./images/slope-intercept-plot-method.png" alt="slope-intercept-plot-method.png"></a>
+        </dl>
+    </section>
+
+    <section id="SlopeInterceptForm"><h3>PLot Slope-Intercept Form of a Line</h3>
+        <dl class="fa" style="min-width:80vw">
+            <pre><code rel="Python" class="python" style="min-height: 90vh;">
+                import numpy as np
+                import matplotlib.pyplot as plt
+
+                # Define the slope (m) and intercept (b)
+                m = 3/2
+                b = 1
+
+                # Generate x values
+                X = np.linspace(-10, 10, 100)
+                # Calculate y values based on the slope-intercept form
+                Y = m * X + b
+
+                # Plot the line
+                plt.plot(X, Y, label=f'y = {m}x + {b}')
+
+                # Plot auxiliary lines
+                plt.axhline(0, color='black',linewidth=0.5)
+                plt.axvline(0, color='black',linewidth=0.5)
+
+                plt.axhline(b, color='red', linestyle='--', linewidth=1)
+                plt.axvline(m, color='green', linestyle='--',linewidth=1)
+
+                plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+                plt.title('Slope-Intercept Form of a Line')
+                plt.xlabel('x')
+                plt.ylabel('y')
+                plt.legend()
+
+                # normalize ticks
+                plt.xticks(np.arange(-5, 6, 1))
+                plt.yticks(np.arange(-10, 15, 1))
+                plt.xlim(-5,5)
+                plt.ylim(-10,10)
+
+
+                plt.show()
+            </code></pre>
+        </dl>
+    </section>
+
+
+    <section><h3>The general prediction formula for a linear model</h3>
+        <dl class="fa">
+            <p>From: $ y = \beta_0 + \beta_1 X_1 + \ldots + \beta_p X_p + \epsilon $</p>
+            <p>Find: $ \hat{y} = \hat{\beta}_0 + \hat{\beta}_1 X_1 + \ldots + \hat{\beta}_p X_p $</p>
+            <dt>$ X_1 ... X_p$ are the $p$ features used in the model</dt>
+            <dt>The <span class="note">estimated</span> values are represented with a "hat" on top of the letter</dt>
+            <dt>$\hat{\beta}_0 ... \hat{\beta}_p$ are the model <span class="note">parameters</span> that are learned.</dt>
+            <dd>$\hat{\beta_0}$ is the <span class="note">intercept</span> of the linear model</dd>
+            <dd>$\hat{\beta_1} ... \hat{\beta_p}$ are the <span class="note">co-efficients</span> of the model</dd>
+            <dt>$\hat{y}$ is the <span class="note">prediction</span> that model makes</dt>
+            <dt>Once you estimate the parameters $\hat{\beta}_0$ ... $\hat{\beta}_p$, you can use these to predict new values of $Y$</dt>
+        </dl>
+    </section>
+    <section><h3>Simple vs Multiple Linear Regression</h3>
+        <dl class="fa">
+            <p>$ \hat{y} = \hat{\beta}_0 + \hat{\beta}_1 X_1 + \ldots + \hat{\beta}_p X_p $</p>
+            <dt>When $p$ = 1, we have the equation for a line.</dt>
+            <dd>Simple Linear Regression</dd>
+            <dt>When $p$ >= 2, we have the equation for plane/hyperplane </dt>
+            <dd>Multiple linear regression</dd>
+        </dl>
+    </section>
+    <section><h3>Estimate the coefficients (fit the model)</h3>
+        <dl class="fa">
+            <dt>Find the best fitting straight line through a set of points</dt>
+            <dt>How do we calculate the error (also known as the <span class="note">residual</span>) for each point?</dt>
+            <dt>Two main ways: Standard Least Squares (discussed next) or Orthogonal Distance (presented in the picture)</dt>
+            <a href="images/least_squares_vs_orthogonal_distance.png"><img src="images/least_squares_vs_orthogonal_distance.png" alt="least_squares_vs_orthogonal_distance" style="height: 15em;"></a>
+        </dl>
+    </section>
+</section>
+
+
+<section data-min="5" class="main-section-title"><h1>Least Squares Regression Method</h1></section>
+<section class="sub-sections"><h2>Least Squares Regression Method</h2>
+    <section><h3>Overview</h3>
+        <dl class="fa">
+            <dt>Least Squares regression is a method to find the least-squares regression line (i.e. the  line of best fit) for a set of data. That line should minimizes the sum of the residuals, or errors, squared.</dt>
+            <dt> Finding the best estimates of the coefficients is often called “fitting” the model to the data, or sometimes “learning” or “training” the model.</dt>
+            <dt>The Least Squares Method estimates $\beta_0$ and $\beta_1$, that <span class="note">minimize the sum of the squared residuals</span> $r_i = y_i - (\beta_0 + \beta_1 x_i)$ in the model. I.e. it makes the difference between the observed $y_i$ and linear model $\beta_0 + \beta_1 x_i$ as small as possible. </dt>
+            <!-- <dt>The equation of the line is: ${y=\beta_0 + \beta_1x}$</dt> -->
+            <div style="display: flex;align-items: center;justify-content: center; gap:3em ">
+                <a href="images/linear_regression_distances.jpeg"><img src="images/linear_regression_distances.jpeg" alt="linear_regression_distances" style="height: 8em;"></a>
+                <p>$$ S = \sum_{i=1}^N r_i^2 = \sum_{i=1}^N (y_i - (\beta_0 + \beta_1 x_i))^2 $$</p>
+            </div>
+            <dt>where $N$ is the number of observations.</dt>
+            <dt>The above given formula is for simple regression. For multiple regression the formula is:</dt>
+            <p>$$\sum_{i=1}^N r_i^2 = \sum_{i=1}^N (y_i -
+                (\beta_{0} + \beta_{1} x_{1,i} + \beta_{2} x_{2,i} + \cdots + \beta_{k} x_{k,i}))^2.$$</p>
+        </dl>
+    </section>
+    <section><h3>Calculus</h3>
+        <dl class="fa">
+            <dt>To calculate the line coefficients for regression line ($\hat{y}=mx+b$) we make the assumption that the line will pass through the point ($\bar{x},\bar{y}$), and we can use: <br><br>
+                1. $m=r.\frac{S_y}{S_x}$, <br>
+                2. $b=\bar{y}-\bar{x}m$, <br><br>
+
+                where $r$ is the correlation coefficient of the dataset, and $S_x$, $S_y$ is the sample standard deviation of x and y</dt>
+            <dt>Explanation:</dt>
+            <a href="./images/Calculating_the_equation_of_a_regression_line.png"><img src="./images/Calculating_the_equation_of_a_regression_line.png" alt=""></a>
+        </dl>
+    </section>
+    <section><h3>LSRM Calculation - Hands on </h3>
+        <dl class="fa">
+            <dt>The steps and explanations are given in next Jupyter Notebook: <a href="https://github.com/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/supervised_learning_algorihtms/linear_models_for_classification_and_regression/LSRM_DeepExplanations.ipynb">LSRM_DeepExplanations.ipynb</a></dt>
+        </dl>
+    </section>
+</section>
+
+
+<section data-min="5" class="main-section-title"><h1>Calculate the error</h1></section>
+<section class="sub-sections"><h2>Least Squares Method</h2>
+    <section><h3>Mean Absolute Error</h3>
+        <dl class="fa">
+            <dt>Mean Absolute Error (MAE) is is the mean of the absolute value of the errors</dt>
+            <p>$$\frac 1n\sum_{i=1}^n|y_i-\hat{y}_i|$$</p>
+            <dt>Mean Absolute Error (MAE) is the average vertical/horizontal distance between each point and the identity line.</dt>
+            <img src="./images/MAE.png" style="height:18em">
+        </dl>
+    </section>
+    <section><h3>Mean Squared Error</h3>
+     <dl class="fa">
+         <dt>Mean Squared Error (MSE) is the mean of the squared errors:</dt>
+         <p>${MSE} ={\frac {1}{n}}\sum _{i=1}^{n}(Y_{i}-{\hat {Y_{i}}})^{2} $</p>
+         <dt>MSE "punishes" larger errors, which is quite useful in the real world</dt>
+         <img src="./images/RMSE.png" style="height:18em">-
+     </dl>
+    </section>
+    <section><h3>Root Mean Squared Error</h3>
+        <dl class="fa">
+            <dt>Root Mean Squared Error (RMSE) is the square root of the mean of the squared errors:</dt>
+            <p>$$\sqrt{\frac 1n\sum_{i=1}^n(y_i-\hat{y}_i)^2}$$</p>
+            <dt>RMSE is interpretable in the "y" units.</dt>
+
+        </dl>
+    </section>
+</section>
+
+<section data-min="20" class="main-section-title"><h1>Scikit-learn Demo</h1></section>
+<section class="sub-sections"><h2>Scikit-learn Demo</h2>
+    <section>
+        <dl class="fa">
+            <dt>Simple Linear Regression</dt>
+            <dd><a href="https://github.com/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/supervised_learning_algorihtms/linear_models_for_classification_and_regression/SimpleLinearRegression/simple_linear_regression.ipynb">simple_linear_regression.ipynb</a></dd>
+            <dt>Advertising && Sales Prediction</dt>
+            <dd><a href="https://github.com/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/supervised_learning_algorihtms/linear_models_for_classification_and_regression/linear_models_for_classification_and_regression%20(Advertising%20Demo).ipynb">Advertising_Demo.ipynb</a></dd>
+        </dl>
+    </section>
+</section>
+
+
+
+<section class="disclaimer end-slide"></section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="/ML_SA-Slides/outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="/ML_SA-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="/ML_SA-Slides/lib/reveal.js/js/reveal.js"></script>
+
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+
+            // display control
+            // center: true,
+            // width: '100%',
+            // height: '100%',
+            // // // Factor of the display size that should remain empty around the content
+            // margin: 0.1,
+
+            // The "normal" size of the presentation, aspect ratio will be preserved
+            // when the presentation is scaled to fit different resolutions. Can be
+            // specified using percentage units.
+            width: 1920,
+            height: 1280,
+
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+
+            // Bounds for smallest/largest possible scale to apply to content
+            minScale: 0,
+            maxScale: 2,
+
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // shift+maous click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '/ML_SA-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+            ]
+        });
+    </script>
+    <!-- linkedin badge -->
+    <!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript" async src="/ML_SA-Slides/lib/MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+</body>
+</html>

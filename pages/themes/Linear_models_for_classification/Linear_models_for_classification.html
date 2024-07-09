@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Linear_models_for_classification</title>
+	<link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<!-- css & themes include -->
+	<link rel="stylesheet" href="/ML_SA-Slides/lib/reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="/ML_SA-Slides/outfit/css/themes/projector.css" id="theme">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? '/ML_SA-Slides/lib/reveal.js/css/print/pdf.css' : '/ML_SA-Slides/lib/reveal.js/css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- CUSTOM -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<base target="_blank">
+</head>
+<body>
+	<div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+	<div class="top_links">
+		<a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#Linear_models_for_classification" target="_top"></a>
+		<span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
+		<div class="help_text">
+			<div class="note">Keyboard shortcuts:</div>
+			<div><span>N/Спейс</span><span>Next Slide</span></div>
+			<div><span>P</span><span>Previous Slide</span></div>
+			<div><span>O</span><span>Slides Overview</span></div>
+			<div><span>ctrl+left click</span><span>Zoom Element</span></div>
+			<div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+			Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+		</div>
+	</div>
+	<div class="footer theme_switch">
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+		<a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+	</div>
+	<div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section data-min-total="__X__" class="presentation-title"><h1>Linear models for classification</h1></section>
+<section data-transition="zoom">
+	<section class="copyright" data-transition="zoom">
+		<div>
+			<p style="text-align: center;">Created for</p>
+		</div>
+		<div class="company">
+			<a href="https://softwareacademy.bg/">
+			<img style="height:80vh" src="/ML_SA-Slides/outfit/images/logos/software-web@4x.png" alt="software-web@4x.png">
+			</a>
+		</div>
+		<div class="author">
+			<span class="note"><a href="https://www.linkedin.com/in/ivapopova/">Iva E. Popova</a>,  2024,</span>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+			<!-- <i class="fa fa-linkedin"></i> -->
+		</div>
+	</section>
+</section>
+
+
+
+<section class="main-section-title" id="LinearModelsForClassification"><h1>Linear Models for Classification</h1></section>
+<section class="sub-sections"><h2>Linear Models for Classification</h2>
+    <section id="Introduction"><h3>Introduction</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Linear models are a class of models that make predictions using a linear combination of input features.</dt>
+            <dd>These models are simple yet powerful tools for classification tasks.</dd>
+        </dl>
+    </section>
+    <section id="LogisticRegression"><h3>Logistic Regression</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Logistic regression is a linear model for binary classification that estimates probabilities using the logistic function.</dt>
+            <dd>It is widely used for its simplicity and interpretability.</dd>
+            <!-- --------------------- Optional code block for CLI --------------------- -->
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                # Install scikit-learn if you haven't already
+                pip install scikit-learn
+            </code></pre>
+            <!-- -------------- Optional code block for programming code --------------- -->
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                from sklearn.linear_model import LogisticRegression
+                from sklearn.datasets import load_iris
+                from sklearn.model_selection import train_test_split
+                from sklearn.metrics import classification_report
+
+                # Load dataset
+                data = load_iris()
+                X = data.data
+                y = data.target
+
+                # Binary classification for simplicity
+                X = X[y != 2]
+                y = y[y != 2]
+
+                # Split data
+                X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+                # Train model
+                model = LogisticRegression()
+                model.fit(X_train, y_train)
+
+                # Predictions
+                y_pred = model.predict(X_test)
+
+                # Evaluation
+                print(classification_report(y_test, y_pred))
+            </code></pre>
+        </dl>
+    </section>
+    <section id="SupportVectorMachines"><h3>Support Vector Machines</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Support Vector Machines (SVM) are powerful linear classifiers that find the hyperplane maximizing the margin between classes.</dt>
+            <dd>SVMs can be used for both linear and non-linear classification through the kernel trick.</dd>
+            <!-- --------------------- Optional code block for CLI --------------------- -->
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                # Install scikit-learn if you haven't already
+                pip install scikit-learn
+            </code></pre>
+            <!-- -------------- Optional code block for programming code --------------- -->
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                from sklearn.svm import SVC
+                from sklearn.metrics import classification_report
+
+                # Train model
+                model = SVC(kernel='linear')
+                model.fit(X_train, y_train)
+
+                # Predictions
+                y_pred = model.predict(X_test)
+
+                # Evaluation
+                print(classification_report(y_test, y_pred))
+            </code></pre>
+        </dl>
+    </section>
+    <section id="Perceptron"><h3>Perceptron</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The perceptron is one of the simplest linear classifiers, based on a single-layer neural network.</dt>
+            <dd>It updates its weights iteratively to minimize classification error.</dd>
+            <!-- --------------------- Optional code block for CLI --------------------- -->
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                # Install scikit-learn if you haven't already
+                pip install scikit-learn
+            </code></pre>
+            <!-- -------------- Optional code block for programming code --------------- -->
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                from sklearn.linear_model import Perceptron
+
+                # Train model
+                model = Perceptron()
+                model.fit(X_train, y_train)
+
+                # Predictions
+                y_pred = model.predict(X_test)
+
+                # Evaluation
+                print(classification_report(y_test, y_pred))
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+
+
+<section class="disclaimer end-slide"></section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+		</div>
+	</div>
+	<!-- Custom processing -->
+	<script src="/ML_SA-Slides/outfit/js/slides.js"></script>
+	<!-- external scripts -->
+	<script src="/ML_SA-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+	<script src="/ML_SA-Slides/lib/reveal.js/js/reveal.js"></script>
+
+	<!-- init reveal -->
+	<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		var highlightjsTabSize = '  ';
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			slideNumber: 'c/t',
+			keyboard: true,
+			history: true,
+
+			// display control
+			// center: true,
+			// width: '100%',
+			// height: '100%',
+			// // // Factor of the display size that should remain empty around the content
+			// margin: 0.1,
+
+			// The "normal" size of the presentation, aspect ratio will be preserved
+			// when the presentation is scaled to fit different resolutions. Can be
+			// specified using percentage units.
+			width: 1920,
+			height: 1280,
+
+			// Factor of the display size that should remain empty around the content
+			margin: 0.1,
+
+			// Bounds for smallest/largest possible scale to apply to content
+			minScale: 0,
+			maxScale: 2,
+
+			// slide transition
+			transition: 'concave', // none/fade/slide/convex/concave/zoom
+			// shift+maous click to zoom in/out element
+			zoomKey: 'ctrl',
+			// theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			// transition: Reveal.getQueryHash().transition || 'default'
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '/ML_SA-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: '/ML_SA-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+	<!-- linkedin badge -->
+	<!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+
+	<!-- MathJax -->
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript" async src="/ML_SA-Slides/lib/MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+</body>
+</html>

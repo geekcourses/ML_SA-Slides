@@ -1,0 +1,137 @@
+<section class="main-section-title" id="LinearModelsForRegression"><h1>Linear Models for Regression</h1></section>
+<section class="sub-sections"><h2>Linear Models for Regression</h2>
+    <section id="Introduction"><h3>Introduction</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Linear regression is a fundamental technique in machine learning used for predicting a continuous output variable based on one or more input features.</dt>
+            <dd>It forms the basis for many more complex models and is essential for understanding more advanced concepts in regression analysis.</dd>
+        </dl>
+    </section>
+    <section id="SimpleLinearRegression"><h3>Simple Linear Regression</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Simple linear regression models the relationship between two variables by fitting a linear equation to observed data.</dt>
+            <dd>The equation of the line is given by: \( y = \beta_0 + \beta_1 x \)</dd>
+            <!-- --------------------- Optional code block for CLI --------------------- -->
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                # Install scikit-learn if you haven't already
+                pip install scikit-learn
+            </code></pre>
+            <!-- -------------- Optional code block for programming code --------------- -->
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                import numpy as np
+                import matplotlib.pyplot as plt
+                from sklearn.linear_model import LinearRegression
+
+                # Sample data
+                X = np.array([1, 2, 3, 4, 5]).reshape(-1, 1)
+                y = np.array([1, 3, 2, 5, 4])
+
+                # Create and fit the model
+                model = LinearRegression()
+                model.fit(X, y)
+
+                # Predictions
+                y_pred = model.predict(X)
+
+                # Plotting the results
+                plt.scatter(X, y, color='blue')
+                plt.plot(X, y_pred, color='red')
+                plt.title('Simple Linear Regression')
+                plt.xlabel('X')
+                plt.ylabel('y')
+                plt.show()
+            </code></pre>
+        </dl>
+    </section>
+    <section id="MultipleLinearRegression"><h3>Multiple Linear Regression</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Multiple linear regression models the relationship between two or more input features and a continuous output variable.</dt>
+            <dd>The equation is extended to: \( y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \ldots + \beta_n x_n \)</dd>
+            <!-- --------------------- Optional code block for CLI --------------------- -->
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                # Install scikit-learn if you haven't already
+                pip install scikit-learn
+            </code></pre>
+            <!-- -------------- Optional code block for programming code --------------- -->
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                # Sample data
+                X = np.array([[1, 1], [2, 1], [3, 2], [4, 2], [5, 3]])
+                y = np.array([1, 2, 3, 4, 5])
+
+                # Create and fit the model
+                model = LinearRegression()
+                model.fit(X, y)
+
+                # Predictions
+                y_pred = model.predict(X)
+
+                # Plotting the results (only if there are two features)
+                plt.scatter(X[:, 0], y, color='blue')
+                plt.plot(X[:, 0], y_pred, color='red')
+                plt.title('Multiple Linear Regression')
+                plt.xlabel('X1')
+                plt.ylabel('y')
+                plt.show()
+            </code></pre>
+        </dl>
+    </section>
+    <section id="RidgeRegression"><h3>Ridge Regression</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Ridge regression adds a regularization term to the linear regression cost function to prevent overfitting.</dt>
+            <dd>The equation includes a penalty term: \( \text{Cost} = \sum (y_i - \hat{y_i})^2 + \lambda \sum \beta_j^2 \)</dd>
+            <!-- --------------------- Optional code block for CLI --------------------- -->
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                # Install scikit-learn if you haven't already
+                pip install scikit-learn
+            </code></pre>
+            <!-- -------------- Optional code block for programming code --------------- -->
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                from sklearn.linear_model import Ridge
+
+                # Create and fit the model
+                model = Ridge(alpha=1.0)
+                model.fit(X, y)
+
+                # Predictions
+                y_pred = model.predict(X)
+
+                # Plotting the results
+                plt.scatter(X[:, 0], y, color='blue')
+                plt.plot(X[:, 0], y_pred, color='red')
+                plt.title('Ridge Regression')
+                plt.xlabel('X1')
+                plt.ylabel('y')
+                plt.show()
+            </code></pre>
+        </dl>
+    </section>
+    <section id="LassoRegression"><h3>Lasso Regression</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Lasso regression adds a different type of regularization term to the cost function, encouraging sparsity in the model coefficients.</dt>
+            <dd>The equation includes an L1 penalty term: \( \text{Cost} = \sum (y_i - \hat{y_i})^2 + \lambda \sum |\beta_j| \)</dd>
+            <!-- --------------------- Optional code block for CLI --------------------- -->
+            <pre><code rel="Terminal" class="bash" data-noescape>
+                # Install scikit-learn if you haven't already
+                pip install scikit-learn
+            </code></pre>
+            <!-- -------------- Optional code block for programming code --------------- -->
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                from sklearn.linear_model import Lasso
+
+                # Create and fit the model
+                model = Lasso(alpha=0.1)
+                model.fit(X, y)
+
+                # Predictions
+                y_pred = model.predict(X)
+
+                # Plotting the results
+                plt.scatter(X[:, 0], y, color='blue')
+                plt.plot(X[:, 0], y_pred, color='red')
+                plt.title('Lasso Regression')
+                plt.xlabel('X1')
+                plt.ylabel('y')
+                plt.show()
+            </code></pre>
+        </dl>
+    </section>
+</section>
