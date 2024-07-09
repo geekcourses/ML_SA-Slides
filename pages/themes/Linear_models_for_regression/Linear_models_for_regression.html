@@ -104,7 +104,6 @@
             <dd><a href="http://galton.org/essays/1880-1889/galton-1886-jaigi-regression-stature.pdf">Galton, F. "Regression towards Mediocrity in Hereditary Stature.", 1886</a></dd>
         </dl>
     </section>
-
 </section>
 
 
@@ -146,7 +145,6 @@
             <a href="./images/slope-intercept-plot-method.png"><img src="./images/slope-intercept-plot-method.png" alt="slope-intercept-plot-method.png"></a>
         </dl>
     </section>
-
     <section id="SlopeInterceptForm"><h3>PLot Slope-Intercept Form of a Line</h3>
         <dl class="fa" style="min-width:80vw">
             <pre><code rel="Python" class="python" style="min-height: 90vh;">
@@ -189,8 +187,6 @@
             </code></pre>
         </dl>
     </section>
-
-
     <section><h3>The general prediction formula for a linear model</h3>
         <dl class="fa">
             <p>From: $ y = \beta_0 + \beta_1 X_1 + \ldots + \beta_p X_p + \epsilon $</p>
@@ -216,7 +212,7 @@
     <section><h3>Estimate the coefficients (fit the model)</h3>
         <dl class="fa">
             <dt>Find the best fitting straight line through a set of points</dt>
-            <dt>How do we calculate the error (also known as the <span class="note">residual</span>) for each point?</dt>
+            <dt>How do we calculate the error (also known as the <span class="note">residual</span>) - the difference between the observed value and the predicted value?</dt>
             <dt>Two main ways: Standard Least Squares (discussed next) or Orthogonal Distance (presented in the picture)</dt>
             <a href="images/least_squares_vs_orthogonal_distance.png"><img src="images/least_squares_vs_orthogonal_distance.png" alt="least_squares_vs_orthogonal_distance" style="height: 15em;"></a>
         </dl>
@@ -275,16 +271,29 @@
      <dl class="fa">
          <dt>Mean Squared Error (MSE) is the mean of the squared errors:</dt>
          <p>${MSE} ={\frac {1}{n}}\sum _{i=1}^{n}(Y_{i}-{\hat {Y_{i}}})^{2} $</p>
-         <dt>MSE "punishes" larger errors, which is quite useful in the real world</dt>
+         <dt>Because of this squaring, MSE is particularly sensitive to outliers (i.e. it "punishes" larger errors).</dt>
          <img src="./images/RMSE.png" style="height:18em">-
      </dl>
     </section>
+    <section><h3>When to Use MSE</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>During Model Training: MSE is commonly used as a loss function for training models. Its mathematical properties make it well-suited for optimization algorithms like gradient descent.</dt>
+            <dt>Theoretical Analysis: When performing theoretical analysis or deriving properties of estimators, MSE is often preferred because it simplifies the mathematics.</dt>
+            <dt>Comparing Model Variance: When you are more concerned about the variance of the errors and want to give more weight to larger errors.</dt>
+        </dl>
+    </section>
     <section><h3>Root Mean Squared Error</h3>
         <dl class="fa">
-            <dt>Root Mean Squared Error (RMSE) is the square root of the mean of the squared errors:</dt>
+            <dt>Root Mean Squared Error (RMSE) is the square root of the mean of the squared errors ($RMSE=\sqrt{MSE}$):</dt>
             <p>$$\sqrt{\frac 1n\sum_{i=1}^n(y_i-\hat{y}_i)^2}$$</p>
             <dt>RMSE is interpretable in the "y" units.</dt>
-
+        </dl>
+    </section>
+    <section><h3>When to Use RMSE</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Interpretability: When the interpretability of the error metric is important, RMSE is preferred because it is in the same units as the target variable. This makes it easier to understand and communicate the magnitude of the errors.</dt>
+            <dt>Practical Applications: In practical applications where stakeholders need to understand the model's performance in real-world terms (e.g., dollars, meters, degrees), RMSE is more intuitive.</dt>
+            <dt>Model Comparison: When comparing different models, RMSE can provide a clearer picture of which model performs better in terms of the actual scale of the errors</dt>
         </dl>
     </section>
 </section>
