@@ -1,36 +1,56 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Define the slope (m) and intercept (b)
-m = 3/2
-b = 1
+# Function to compute the cost (Mean Squared Error)
+def compute_cost(X, y, beta):
+    m = len(y)
+    predictions = X.dot(beta)
+    cost = (1/(2*m)) * np.sum(np.square(predictions - y))
+    return cost
 
-# Generate x values
-X = np.linspace(-10, 10, 100)
-# Calculate y values based on the slope-intercept form
-Y = m * X + b
+# Function to perform gradient descent
+def gradient_descent(X, y, beta, learning_rate, iterations):
+    m = len(y)  # Number of training examples
+    cost_history = np.zeros(iterations)  # To store cost at each iteration
 
-# Plot the line
-plt.plot(X, Y, label=f'y = {m}x + {b}')
+    for i in range(iterations):
+        predictions = X.dot(beta)  # Compute predictions
+        errors = predictions - y  # Compute error
+        gradients = X.T.dot(errors)  # Compute gradients
+        beta = beta - (learning_rate / m) * gradients  # Update parameters
+        cost_history[i] = compute_cost(X, y, beta)  # Store cost for plotting
 
-# Plot auxiliary lines
-plt.axhline(0, color='black',linewidth=0.5)
-plt.axvline(0, color='black',linewidth=0.5)
+    return beta, cost_history
 
-plt.axhline(b, color='red', linestyle='--', linewidth=1)
-plt.axvline(m, color='green', linestyle='--',linewidth=1)
+# Generate some data
+np.random.seed(0)
+X = 2 * np.random.rand(100, 1)
+y = 4 + 3 * X + np.random.randn(100, 1)
 
-plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
-plt.title('Slope-Intercept Form of a Line')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.legend()
+# Add x0 = 1 to each instance (bias/intercept term). The optimal value will be learned.
+X_b = np.c_[np.ones((100, 1)), X]
 
-# normalize ticks
-plt.xticks(np.arange(-5, 6, 1))
-plt.yticks(np.arange(-10, 15, 1))
-plt.xlim(-5,5)
-plt.ylim(-10,10)
+# Initialize beta
+beta_initial = np.random.randn(2, 1)
+
+# Set hyperparameters
+learning_rate = 0.1
+iterations = 50
+
+# Perform gradient descent
+beta, cost_history = gradient_descent(X_b, y, beta_initial, learning_rate, iterations)
+
+# Extract the bias (intercept) and coefficient(s)
+bias = beta[0, 0]
+coefficients = beta[1:, 0]
+
+print(f"Optimized parameters: bias={bias}, coefficients={coefficients}")
 
 
+# Plot cost history
+plt.plot(range(iterations), cost_history)
+plt.xlabel('Iterations')
+plt.ylabel('Cost')
+plt.title('Cost Function')
 plt.show()
+
