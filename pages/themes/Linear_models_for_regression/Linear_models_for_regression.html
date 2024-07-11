@@ -257,8 +257,126 @@
 </section>
 
 
-<section data-min="5" class="main-section-title"><h1>Calculate the error</h1></section>
-<section class="sub-sections"><h2>Least Squares Method</h2>
+<section class="main-section-title" id="LinearRegressionWithGradientDescent"><h1>Linear Regression with Gradient Descent</h1></section>
+<section class="sub-sections"><h2>Linear Regression with Gradient Descent</h2>
+    <section id="GradientDescent"><h3>Gradient Descent - Overview</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Gradient Descent is an optimization algorithm used to minimize the cost function in linear regression.</dt>
+            <dt>It iteratively adjusts the parameters to find the minimum cost.</dt>
+            <dt>Self-learning: <a href="https://towardsdatascience.com/gradient-descent-algorithm-a-deep-dive-cf04e8115f21">Gradient Descent Algorithm — a deep dive</a></dt>
+            <div style="display: flex; gap:0em; align-items: center;">
+                <!-- <div><a href="./images/gradient_descend.gif">
+                    <img src="./images/gradient_descend.gif" alt="" style="height: 16em;"></a>
+                </div> -->
+                <div><a href="./images/gradient_descend_3D.gif">
+                    <img src="./images/gradient_descend_3D.gif" alt="" style="height: 16em;"></a>
+                </div>
+            </div>
+
+        </dl>
+    </section>
+    <section id="GradientDescent"><h3>Algorithm</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Algorithm</dt>
+            <ol>
+                <li>Initialize the parameters (β0, β1, ... , βn) with random values.</li>
+                <li>Compute the cost function.</li>
+                <li>Compute the gradient of the cost function with respect to each parameter.</li>
+                <li>Update the parameters using the gradient.</li>
+                <li>Repeat steps 2-4 until convergence or for a fixed number of iterations.</li>
+            </ol>
+        </dl>
+    </section>
+    <section id="ImplementationInPython"><h3>Implementation in Python</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Here is a simple implementation of linear regression using gradient descent in Python.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                import numpy as np
+                import matplotlib.pyplot as plt
+
+                # Generate some data
+                np.random.seed(0)
+                X = 2 * np.random.rand(100, 1)
+                y = 4 + 3 * X + np.random.randn(100, 1)
+
+                # Add x0 = 1 to each instance
+                X_b = np.c_[np.ones((100, 1)), X]
+
+                # Initialize beta
+                beta_initial = np.random.randn(2,1)
+
+                # Set hyperparameters
+                learning_rate = 0.1
+                iterations = 1000
+
+                # Perform gradient descent
+                beta, cost_history = gradient_descent(X_b, y, beta_initial, learning_rate, iterations)
+
+                # Plot cost history
+                plt.plot(range(iterations), cost_history)
+                plt.xlabel('Iterations')
+                plt.ylabel('Cost')
+                plt.title('Cost Function')
+                plt.show()
+
+                print(f"Optimized parameters: {beta}")
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+
+<section class="main-section-title" id="GdVsLsrm"><h1>Gradient Descent vs. Least Squares Regression Method</h1></section>
+<section class="sub-sections"><h2>Gradient Descent vs. Least Squares Regression Method</h2>
+    <section id="Differences"><h3>Differences</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Gradient Descent</dt>
+            <dd>
+                <ul>
+                    <li>Iterative optimization algorithm.</li>
+                    <li>Can handle large datasets and high-dimensional data.</li>
+                    <li>Requires tuning of hyperparameters (learning rate, number of iterations).</li>
+                    <li>Can be computationally expensive for very large datasets.</li>
+                </ul>
+            </dd>
+            <dt>Least Squares Regression Method (LSRM)</dt>
+            <dd>
+                <ul>
+                    <li>Analytical solution to linear regression.</li>
+                    <li>Computes parameters in a single step using matrix operations.</li>
+                    <li>More efficient for smaller datasets.</li>
+                    <li>Can be impractical for very large datasets due to matrix inversion.</li>
+                </ul>
+            </dd>
+        </dl>
+    </section>
+    <section id="UseCases"><h3>Use Cases</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Gradient Descent</dt>
+            <dd>
+                <ul>
+                    <li>When dealing with very large datasets where matrix operations are computationally expensive.</li>
+                    <li>When working with streaming data or online learning scenarios.</li>
+                    <li>When the data is sparse or has many features.</li>
+                </ul>
+            </dd>
+            <dt>Least Squares Regression Method (LSRM)</dt>
+            <dd>
+                <ul>
+                    <li>When the dataset is relatively small and can fit into memory.</li>
+                    <li>When a quick and exact solution is needed without iterative optimization.</li>
+                    <li>For educational purposes to understand the basic principles of linear regression.</li>
+                </ul>
+            </dd>
+        </dl>
+    </section>
+</section>
+
+
+
+
+<section data-min="5" class="main-section-title"><h1>Regression Metrics</h1></section>
+<section class="sub-sections"><h2>Regression Metrics</h2>
     <section><h3>Mean Absolute Error</h3>
         <dl class="fa">
             <dt>Mean Absolute Error (MAE) is is the mean of the absolute value of the errors</dt>
@@ -294,6 +412,32 @@
             <dt>Interpretability: When the interpretability of the error metric is important, RMSE is preferred because it is in the same units as the target variable. This makes it easier to understand and communicate the magnitude of the errors.</dt>
             <dt>Practical Applications: In practical applications where stakeholders need to understand the model's performance in real-world terms (e.g., dollars, meters, degrees), RMSE is more intuitive.</dt>
             <dt>Model Comparison: When comparing different models, RMSE can provide a clearer picture of which model performs better in terms of the actual scale of the errors</dt>
+        </dl>
+    </section>
+    <section><h3>R-squared (Coefficient of Determination)</h3>
+        <dl class="fa">
+            <dt>R-squared, also known as the coefficient of determination, is a statistical measure that represents the proportion of the variance in the dependent variable that is predictable from the independent variables.</dt>
+            <p>$$R^2 = 1 - \frac{\sum_{i=1}^n (y_i - \hat{y}_i)^2}{\sum_{i=1}^n (y_i - \bar{y})^2}$$</p>
+            <dt>R-squared values range from 0 to 1.</dt>
+            <dt>An R-squared of 1 indicates that the regression predictions perfectly fit the data.</dt>
+            <dt>An R-squared of 0 indicates that the model does not explain any of the variability in the response data around its mean.</dt>
+            <dt>For example, if an R-squared value of 0.85 is obtained, it means that 85% of the variability in the dependent variable can be explained by the model. The remaining 15% of the variability is due to other factors not included in the model.</dt>
+        </dl>
+    </section>
+    <section><h3>Use Case</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>R-squared is useful for understanding the explanatory power of the regression model.</dt>
+            <dt>It tells you how much of the variance in the dependent variable can be explained by the independent variables.</dt>
+            <dt>However, R-squared alone does not indicate whether the model predictions are biased or not. It is often used in conjunction with other metrics such as MAE or RMSE.</dt>
+            <dt>A high R-squared value does not necessarily mean a better model. It does not account for overfitting.</dt>
+            <dt>By examining the R-squared value, you can gain insight into how well your independent variables explain the variability of the dependent variable in your regression model.</dt>
+        </dl>
+    </section>
+    <section><h3>Examples</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Check:
+                <a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/supervised_learning_algorihtms/linear_models_for_classification_and_regression/RegressionMetricsExampleWithIceCreamSales.ipynb">RegressionMetricsExampleWithIceCreamSales.ipynb</a>
+            </dt>
         </dl>
     </section>
 </section>
