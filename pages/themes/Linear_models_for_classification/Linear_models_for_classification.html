@@ -190,8 +190,35 @@
 
 <section data-min="5" class="main-section-title"><h1>Multi-class classification with Linear models.</h1></section>
 <section class="sub-sections"><h2>Multi-class classification with Linear models.</h2>
-    <section><h3>Overview</h3>
+    <section><h3>ne-vs-All (OvA) for Multiclass Classification</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>One-vs-All (OvA), also known as One-vs-Rest (OvR), is a strategy to extend binary classifiers to handle multiclass classification problems</dt>
+        </dl>
         <a href="images/multiclass_classification2.png"><img src="images/multiclass_classification2.png"></a>
+    </section>
+    <section>
+        <dl class="fa" style="min-width:80vw">
+            <dt><b>Objective</b>: OvA aims to classify instances into one of \( K \) classes using binary classifiers.</dt>
+            <dt><b>Approach</b>:</dt>
+            <dd>For each class \( k \) (where \( k = 1, 2, \ldots, K \)), create a binary classifier that distinguishes between class \( k \) and all other classes.</dd>
+            <dd>Train \( K \) binary classifiers. Each classifier \( C_k \) is trained to predict whether an instance belongs to class \( k \) (positive class) or not (negative class).</dd>
+            <dt><b>Training</b>:</dt>
+            <dd>For each classifier \( C_k \), label instances of class \( k \) as positive (\( +1 \)) and all other instances as negative (\( -1 \)).</dd>
+            <dd>Train the binary classifier \( C_k \) using these labeled instances.</dd>
+            <dt>Prediction</dt>
+            <dd>To predict the class of a new instance, run all \( K \) binary classifiers.</dd>
+            <dd>The final predicted class is the one with the highest confidence score (e.g., highest probability or margin) from its respective classifier.</dd>
+        </dl>
+    </section>
+    <section>
+        <dl class="fa" style="min-width:80vw">
+            <dt><b>Advantages</b></dt>
+            <dd>Simple to implement.</dd>
+            <dd>Leverages existing binary classification algorithms.</dd>
+            <dt><b>Disadvantages</b></dt>
+            <dd>May lead to imbalanced classification problems, as each binary classifier deals with one class versus all others.</dd>
+            <dd>Classifiers may be biased towards the majority class in their binary setting.</dd>
+        </dl>
     </section>
 </section>
 
