@@ -169,7 +169,18 @@
     <section id="Perceptron"><h3>Overview</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>The perceptron is one of the simplest linear classifiers, based on a single-layer neural network.</dt>
-            <dt>It updates its weights iteratively to minimize classification error.</dt>
+            <dt>The Perceptron aims to find a linear decision boundary that separates two classes by updating its weights iteratively to minimize classification error.</dt>
+            <dt>The Perceptron makes predictions based on a weighted sum of the input features:
+
+                $$
+                y = \begin{cases}
+                1 & \text{if } \mathbf{w} \cdot \mathbf{x} + b > 0 \\
+                0 & \text{otherwise}
+                \end{cases}
+                $$
+
+                where \( \mathbf{w} \) is the weight vector, \( \mathbf{x} \) is the input vector, and \( b \) is the bias term.
+             </dt>
             <dt>Scikit: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html">Perceptron</a></dt>
             <a href="./images/Perceptron_Classifier.png"><img src="./images/Perceptron_Classifier.png" alt="./images/Perceptron_Classifier.png"></a>
         </dl>
