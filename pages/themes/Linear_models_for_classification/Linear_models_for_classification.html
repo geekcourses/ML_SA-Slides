@@ -80,29 +80,39 @@
             <dt>Logistic regression uses the same equation as linear regression, but the sigmoid function is applied to the output of the linear equation.</dt>
             <dt>It is widely used for its simplicity and interpretability.</dt>
             <dt>Scikit: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">LogisticRegression</a></dt>
+
             <a href="./images/logistic_regression_example.jpeg"><img src="./images/logistic_regression_example.jpeg" alt="./images/logistic_regression_example.jpeg" style="height: 60vh;"></a>
         </dl>
     </section>
-    <section><h3>The sigmoid Function</h3>
+    <section><h3>The Logistic Function</h3>
         <dl class="fa" style="min-width:80vw">
-            <dt>The sigmoid function is defined as:</dt>
-            <pre><code rel="Math" class="math">
-            σ(z) = 1 / (1 + e^(-z))
-            </code></pre>
-            <dt>where $z$ is the output of the linear equation. By passing $z$  through the sigmoid function, we obtain a value between 0 and 1, which can be interpreted as the probability of the target variable being in a certain class.</dt>
+            <dt>The <a href="https://en.wikipedia.org/wiki/Logistic_function">Logistic Function</a> is a sigmoid curve that transforms any real-valued input $x$ into a value between 0 and 1. It is defined as:</dt>
+            $$
+            σ(x) = \frac{1}{1 + e^{-x}}
+
+            $$
+            <dt>In logistic regression, we pass to the Logistic Function the linear combination of input features and their respective coefficients (\( \theta \)):
+
+                \[ z = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \dots + \theta_n x_n \]
+
+                Here, \( \theta_0, \theta_1, \dots, \theta_n \) are the model parameters (coefficients), and \( x_1, x_2, \dots, x_n \) are the input features.
+                </dt>
+            <dt>By passing $z$  through the sigmoid function, we obtain a value between 0 and 1, which can be interpreted as the probability of the target variable being in a certain class.</dt>
             <a href="images/sigmuid_function.png"><img src="images/sigmuid_function.png"></a>
         </dl>
     </section>
-    <section><h3>How it works</h3>
+    <section>
+        <h3>How it works</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>The model estimates the probability \( P(Y=1|X) \) using the logistic function applied to a linear combination of input features \( X \):
 
                 $$
-                P(Y=1|X) = \sigma(w_0 + w_1X_1 + w_2X_2 + \ldots + w_nX_n)
+                P(Y=1|X) = \sigma(\theta_0 + \theta_1 X_1 + \theta_2 X_2 + \ldots + \theta_n X_n)
                 $$
              </dt>
-             <dd>$P(Y=1|X)$ is the probability that Y is equal to 1 given the input features 𝑋.</dd>
-             <dd>\( w_0, w_1, \ldots, w_n \) are the model coefficients (weights)</dd>
+             <dd>\( P(Y=1|X) \) is the probability that Y is equal to 1 given the input features \( X \).</dd>
+             <dd>\( \theta_0, \theta_1, \ldots, \theta_n \) are the model coefficients (also called weights and often denoted by $w$).</dd>
+
              <dt>Logistic regression uses the log-loss (cross-entropy) cost function to measure the difference between the predicted probabilities and the actual class labels:
 
                 $$
@@ -111,15 +121,16 @@
 
                 where \( h_\theta(x_i) \) is the predicted probability, \( y_i \) is the actual label, and \( m \) is the number of training examples.
              </dt>
-             <dt>The goal is to find the weights \( w \) that minimize the cost function. This is typically done using optimization algorithms like gradient descent.
+             <dt>The goal is to find the weights \( \theta \) that minimize the cost function ($J(\theta)$). This is typically done using optimization algorithms like gradient descent.
             </dt>
             <dt>The model defines a decision boundary at \( P(Y=1|X) = 0.5 \). If the predicted probability is greater than 0.5, the instance is classified as class 1; otherwise, it is classified as class 0.
             </dt>
         </dl>
     </section>
-    <section><h3>Examples</h3>
+
+    <section><h3>Example</h3>
         <dl class="fa">
-            <dt>View as html: <a href="examples/LogisticRegression - TitanicDemo.html">LogisticRegression - TitanicDemo.html</a></dt>
+            <dt>View as html: <a href="https://nbviewer.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/supervised_learning_algorihtms/linear_models_for_classification_and_regression/LogisticRegression%20-%20TitanicDemo.ipynb">LogisticRegression - TitanicDemo.html</a></dt>
         </dl>
     </section>
 </section>
