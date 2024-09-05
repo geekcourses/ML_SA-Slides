@@ -78,15 +78,8 @@
 </section>
 
 
-<section class="main-section-title" id="NaiveBayesClassifiers"><h1>Introduction</h1></section>
-<section class="sub-sections"><h2>Introduction</h2>
-    <section id="Introduction"><h3>Overview</h3>
-        <dl class="fa" style="min-width:80vw">
-            <dt>Naive Bayes classifiers are a family of simple probabilistic classifiers based on applying Bayes' theorem.</dt>
-            <dt>They assume independence between the features of a dataset (to simplifies the computation significantly), hence the term 'naive'.</dt>
-            <dt>Naive Bayes classifiers work by calculating the probability of each class given a set of features and then selecting the class with the highest probability.</dt>
-        </dl>
-    </section>
+<section data-min="__Y__" class="main-section-title"><h1>Naive Bayes Classifier</h1></section>
+<section class="sub-sections"><h2>Naive Bayes Classifier</h2>
     <section><h3>Bayes Theorem for Classification</h3>
         <dl class="fa">
             <dt>For each class $y_j$, calculate the probability of that class, given a feature vector $ {{x_1},...,{x_n}}$. I.e ${\rm{P}}\left( {y_j|{x_1},...,{x_n}} \right) = ?$</dt>
@@ -111,9 +104,20 @@
                 $$ \hat y = \arg \mathop {\max }\limits_y \prod\nolimits_{i = 1}^n {{\rm{P}}\left( {{x_i}|y} \right) {\rm{P}}\left( y \right)} $$</dt>
         </dl>
     </section>
+    <!-- <section><h3>Reference</h3>
+        <dl class="fa">
+            <dt><a href="https://betterexplained.com/articles/an-intuitive-and-short-explanation-of-bayes-theorem/">An Intuitive (and Short) Explanation of Bayes’ Theorem</a></dt>
+        </dl>
+    </section> -->
+
+    <section><h3>Reference</h3>
+        <iframe width="535" src="https://www.youtube.com/embed/-RiNctT0lS8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+    <section><h3></h3>
+        <p><a href="https://www.youtube.com/watch?v=r1in0YNetG8">Naive Bayes 3: Gaussian example</a by Victor Lavrenko></p>
+        <iframe width="806" height="504" src="https://www.youtube.com/embed/r1in0YNetG8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
 </section>
-
-
 
 <section data-min="__Y__" class="main-section-title"><h1>Types of Naive Bayes Classifiers</h1></section>
 <section class="sub-sections"><h2>Overview</h2>
@@ -129,6 +133,8 @@
         </dl>
     </section>
 </section>
+
+<section data-min="__Y__" class="main-section-title"><h1>Bernoulli naive Bayes.</h1></section>
 <section class="sub-sections"><h2>Bernoulli naive Bayes.</h2>
     <section><h3>Overview</h3>
         <dl class="fa">
@@ -138,6 +144,8 @@
         </dl>
     </section>
 </section>
+
+<section data-min="__Y__" class="main-section-title"><h1>Gaussian Naive Bayes.</h1></section>
 <section class="sub-sections"><h2>Gaussian Naive Bayes.</h2>
     <section>
         <dl class="fa">
@@ -145,6 +153,8 @@
         </dl>
     </section>
 </section>
+
+<section data-min="__Y__" class="main-section-title"><h1>Multinomial naive Bayes.</h1></section>
 <section class="sub-sections"><h2>Multinomial naive Bayes.</h2>
     <section>
         <dl class="fa">
@@ -153,32 +163,14 @@
     </section>
 </section>
 
-<section class="main-section-title"><h1>Applications</h1></section>
-<section class="sub-sections"><h2>Applications</h2>
-    <section id="Applications"><h3>Applications</h3>
-        <dl class="fa" style="min-width:80vw">
-            <dt>Naive Bayes classifiers are commonly used in spam filtering, text classification, and sentiment analysis.</dt>
-            <dd>Their simplicity makes them easy to implement and useful for large datasets.</dd>
-        </dl>
-    </section>
-</section>
-
-
 <section data-min="__Y__" class="main-section-title"><h1>Pros and cons of Naive Bayes classifiers.</h1></section>
 <section class="sub-sections"><h2>Pros and cons of Naive Bayes classifiers.</h2>
-    <section>
+    <section><h3>Pros</h3>
         <dl class="fa">
-            <dt>Pros:</dt>
-            <dd>Simple and fast to implement.</dd>
-            <dd>Performs well with large datasets.</dd>
-            <dd>Effective for text classification problems like spam detection and sentiment analysis.</dd>
-            <dd>Works well even with a small amount of training data.</dd>
-            <dd>Requires less computational power compared to other algorithms.</dd>
-
-            <dt>Cons:</dt>
-            <dd>Assumes independence between features, which is often unrealistic in real-world data.</dd>
-            <dd>Can perform poorly with highly correlated features.</dd>
-            <dd>Limited in complex applications where relationships between features are important.</dd>
+            <dt>Extremely fast for both training and prediction</dt>
+            <dt>Provide straightforward probabilistic prediction</dt>
+            <dt>Easily interpretable</dt>
+            <dt>Have very few (if any) tunable parameters</dt>
         </dl>
     </section>
     <section><h3>When to use?</h3>
@@ -190,7 +182,6 @@
         </dl>
     </section>
 </section>
-
 
 
 <section id="hw" data-min="4"><h1>Exercises</h1></section>
