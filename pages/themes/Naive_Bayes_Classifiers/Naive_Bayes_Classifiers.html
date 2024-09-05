@@ -83,7 +83,7 @@
     <section id="Introduction"><h3>Overview</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>Naive Bayes classifiers are a family of simple probabilistic classifiers based on applying Bayes' theorem.</dt>
-            <dt>They assume independence between the features of a dataset (to simplifies the computation significantly), hence the term 'naive'.</dt>
+            <dt>They <span class="note">assume independence between the features</span> of a dataset (to simplifies the computation significantly), hence the term 'naive'.</dt>
             <dt>Naive Bayes classifiers work by calculating the probability of each class given a set of features and then selecting the class with the highest probability.</dt>
         </dl>
     </section>
@@ -97,22 +97,137 @@
     </section>
     <section><h3>Why <span class="note">Naive</span>?</h3>
         <dl class="fa">
-            <dt>It use the <i>naive independence assumption</i> - the probability of each feature belonging to a given class is independent of all other features.</dt>
+            <dt>It uses the <i>naive independence assumption</i> - the probability of each feature belonging to a given class is independent of all other features.</dt>
             <!-- <dd>$P(xi|y,x1,...,xi−1,xi+1,...xn)=P(xi|y)$</dd> -->
-            <dt>Using this naive independence assumption we re-express the Bayes' theorem to consider the probability of features independently: <br>
+            <dt>Using this naive independence assumption, we re-express Bayes' theorem to consider the probability of features independently: <br>
                 $$ {\rm{P}}\left( {y|{x_1},...,{x_n}} \right) = \frac{{\prod\nolimits_{i = 1}^n {{\rm{P}}\left( {{x_i}|y} \right) {\rm{P}}\left( y \right)} }} {{{\rm{P}}\left( {{x_1},...,{x_n}} \right)}} $$
             </dt>
+            <dt>The denominator ${{\rm{P}}\left( {{x_1},...,{x_n}} \right)}$ is constant for all classes, so we can ignore it in the calculations.</dt>
+            <dt>Finally, the predicted class is evaluated as: <br>
+                $$ \hat y = \arg \mathop {\max }\limits_y \prod\nolimits_{i = 1}^n {{\rm{P}}\left( {{x_i}|y} \right) {\rm{P}}\left( y \right)} $$</dt>
         </dl>
     </section>
-    <section>
+    <section><h3>Why <span class="note">Naive</span>?</h3>
         <dl class="fa">
-            <dt>The denominator ${{\rm{P}}\left( {{x_1},...,{x_n}} \right)}$ will be constant for all the classes, so we can ignore it in the calculations.</dt>
-            <dt>Finally, the prediction output will be evaluated as: <br>
+            <dt>It uses the <i>naive independence assumption</i> - the probability of each feature belonging to a given class is independent of all other features.</dt>
+            <!-- <dd>$P(xi|y,x1,...,xi−1,xi+1,...xn)=P(xi|y)$</dd> -->
+            <dt>Using this naive independence assumption, we re-express Bayes' theorem to consider the probability of features independently: <br>
+                $$ {\rm{P}}\left( {y|{x_1},...,{x_n}} \right) = \frac{{\prod\nolimits_{i = 1}^n {{\rm{P}}\left( {{x_i}|y} \right) {\rm{P}}\left( y \right)} }} {{{\rm{P}}\left( {{x_1},...,{x_n}} \right)}} $$</dt>
+            <dd>where:</dd>
+            <dd>${\rm{P}}\left( {y|{x_1},...,{x_n}} \right)$ is the posterior probability of class $y$ given the features $x_1,...,x_n$</dd>
+            <dd>${\rm{P}}\left( {x_i}|y \right)$ is the likelihood of feature $x_i$ given class $y$</dd>
+            <dd>${\rm{P}}\left( y \right)$ is the prior probability of class $y$</dd>
+            <dd>${\rm{P}}\left( {x_1},...,{x_n} \right)$ is the total probability of the features, which is constant across classes and can be ignored during classification.</dd>
+            <dt>Finally, the predicted class is evaluated as: <br>
                 $$ \hat y = \arg \mathop {\max }\limits_y \prod\nolimits_{i = 1}^n {{\rm{P}}\left( {{x_i}|y} \right) {\rm{P}}\left( y \right)} $$</dt>
+            <dd>This equation finds the class $y$ that maximizes the product of the likelihood of the features and the prior probability of the class.</dd>
         </dl>
     </section>
 </section>
 
+<section class="sub-sections"><h2>Example: Spam Mail Classification</h2>
+    <section id="DatasetForSpamClassification"><h3>Dataset</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Imagine we want to classify an email as "spam" or "not spam" based on certain words it contains.</dt>
+            <dd>Let's say we have two features: whether the email contains the word "free" and whether it contains the word "win".</dd>
+            <dt>We assume the probabilities of these words appearing in spam and non-spam emails are independent.</dt>
+            <dt>Here is a simple dataset for classifying emails as "spam" or "not spam" based on key words.</dt>
+            <dd>
+                <table style="width:100%; border: 1px solid black;">
+                    <tr>
+                        <th>Email</th>
+                        <th>Contains "free"</th>
+                        <th>Contains "offer"</th>
+                        <th>Contains "meeting"</th>
+                        <th>Class (Spam/Not Spam)</th>
+                    </tr>
+                    <tr>
+                        <td>Email 1</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>Spam</td>
+                    </tr>
+                    <tr>
+                        <td>Email 2</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                        <td>Not Spam</td>
+                    </tr>
+                    <tr>
+                        <td>Email 3</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>Spam</td>
+                    </tr>
+                    <tr>
+                        <td>Email 4</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                        <td>Not Spam</td>
+                    </tr>
+                    <tr>
+                        <td>Email 5</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>Spam</td>
+                    </tr>
+                </table>
+            </dd>
+        </dl>
+    </section>
+
+    <section id="FeatureProbabilitiesSpamClassification"><h3>Feature Probabilities</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>From the dataset, we calculate the following probabilities:</dt>
+            <dd>
+                <ul>
+                    <li>${\rm{P}}(spam) = \frac{3}{5}$, ${\rm{P}}(not\ spam) = \frac{2}{5}$</li>
+                    <li>${\rm{P}}(free|spam) = \frac{3}{3}$, ${\rm{P}}(free|not\ spam) = \frac{0}{2}$</li>
+                    <li>${\rm{P}}(offer|spam) = \frac{2}{3}$, ${\rm{P}}(offer|not\ spam) = \frac{0}{2}$</li>
+                    <li>${\rm{P}}(meeting|spam) = \frac{0}{3}$, ${\rm{P}}(meeting|not\ spam) = \frac{2}{2}$</li>
+                </ul>
+            </dd>
+        </dl>
+    </section>
+
+    <section id="BayesTheoremApplied"><h3>Applying Bayes' Theorem</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Now, consider a new email that contains the words "free" and "offer" but not "meeting".</dt>
+            <dd>We calculate the probabilities for both classes:</dd>
+            <dd>
+                <ul>
+                    <li>${\rm{P}}(spam|free, offer, not\ meeting) \propto {\rm{P}}(free|spam) \cdot {\rm{P}}(offer|spam) \cdot {\rm{P}}(not\ meeting|spam) \cdot {\rm{P}}(spam)$</li>
+                    <li>${\rm{P}}(not\ spam|free, offer, not\ meeting) \propto {\rm{P}}(free|not\ spam) \cdot {\rm{P}}(offer|not\ spam) \cdot {\rm{P}}(not\ meeting|not\ spam) \cdot {\rm{P}}(not\ spam)$</li>
+                </ul>
+            </dd>
+        </dl>
+    </section>
+
+    <section id="CalculationOfProbabilities"><h3>Calculating the Probabilities</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>For "spam":</dt>
+            <dd>
+                ${\rm{P}}(spam|free, offer, not\ meeting) \propto \frac{3}{3} \cdot \frac{2}{3} \cdot \frac{3}{5} = 0.4$
+            </dd>
+
+            <dt>For "not spam":</dt>
+            <dd>
+                ${\rm{P}}(not\ spam|free, offer, not\ meeting) \propto \frac{0}{2} \cdot \frac{0}{2} \cdot \frac{2}{2} = 0$
+            </dd>
+        </dl>
+    </section>
+
+    <section id="FinalDecisionSpamClassification"><h3>Final Decision</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Since ${\rm{P}}(spam|free, offer, not\ meeting)$ is much higher than ${\rm{P}}(not\ spam|free, offer, not\ meeting)$, the email is classified as "spam".</dt>
+        </dl>
+    </section>
+</section>
 
 
 <section data-min="__Y__" class="main-section-title"><h1>Types of Naive Bayes Classifiers</h1></section>
