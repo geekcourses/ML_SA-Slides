@@ -71,32 +71,16 @@
 </section>
 
 
-<section data-min="__Y__" class="main-section-title"><h1>Model Evaluation and Optimization</h1></section>
-<section class="sub-sections"><h2>Model Evaluation and Optimization</h2>
-	<section><h3>Model evaluation procedures</h3>
-		<dl class="fa">
-			<dt>Training and testing on the same data</dt>
-				<dd>the worst case! If you have enough data - never train and test on same data.</dd>
-			<dt>Train/test split</dt>
-				<dd>Split the dataset into two pieces, so that the model can be trained and tested on different data</dd>
-				<dd>Useful due to its speed, simplicity, and flexibility</dd>
-			<dt>K-fold cross-validation</dt>
-				<dd>Systematically create "K" train/test splits and average the results together</dd>
-				<dd>Runs "K" times slower than train/test split, but more accurate.</dd>
-				<dd><a href="https://nbviewer.jupyter.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/model_evaluation_and_optimization/cross_validation_full.ipynb">Cross-validation Notebook</a></dd>
-		</dl>
-	</section>
-</section>
-<section data-min="50" class="main-section-title"><h1>Model evaluation metric (Loss Function)</h1></section>
-<section class="sub-sections"><h2>Model evaluation metric (Loss Function)</h2>
+<section data-min="50" class="main-section-title"><h1>Model evaluation metrics</h1></section>
+<section class="sub-sections"><h2>Model evaluation metrics</h2>
 	<section><h3>Overview</h3>
-		<p>A metric to evaluate how well specific algorithm models the given data ( how well the algorithm fits the data ).</p>
 		<dl class="fa">
-			<dt>Regression problems:** Mean Absolute Error, Mean Squared Error, Root Mean Squared Error</dt>
-			<dt>Classification problems:** Classification accuracy</dt>
+			<dt>Model evaluation metrics are used to assess how well a specific algorithm models the given data (i.e., how well the algorithm fits the data). </dt>
+			<dd>Metrics for Regression problems: Mean Absolute Error, Mean Squared Error, Root Mean Squared Error</dd>
+			<dd>Metrics for Classification problems: Classification accuracy, Confusion Matrix</dd>
 		</dl>
 	</section>
-	<section><h3>Loss function</h3>
+	<!-- <section><h3>Loss function</h3>
 		<dl class="fa">
 			<dt>In order to evaluate how well a function fits the training data (i.e. how well specific algorithm models the given data), the *loss* function is defined as:
 
@@ -117,11 +101,30 @@
 			<dt class="note">There’s no one-size-fits-all loss function to all algorithms in machine learning.</dt>
 			<dt>Generally, loss functions can be classified into two major categories depending upon the type of learning task we are dealing with: Regression losses and Classification losses.</dt>
 		</dl>
+	</section> -->
+</section>
+
+
+
+<section data-min="__Y__" class="main-section-title"><h1>Model Evaluation and Optimization</h1></section>
+<section class="sub-sections"><h2>Model Evaluation and Optimization</h2>
+	<section><h3>Model evaluation procedures</h3>
+		<dl class="fa">
+			<dt>Training and testing on the same data</dt>
+				<dd>the worst case! If you have enough data - never train and test on same data.</dd>
+			<dt>Train/test split</dt>
+				<dd>Split the dataset into two pieces, so that the model can be trained and tested on different data</dd>
+				<dd>Useful due to its speed, simplicity, and flexibility</dd>
+			<dt>K-fold cross-validation</dt>
+				<dd>Systematically create "K" train/test splits and average the results together</dd>
+				<dd>Runs "K" times slower than train/test split, but more accurate.</dd>
+		</dl>
 	</section>
 </section>
 
-<section data-min="50" class="main-section-title"><h1>Model evaluation metrics</h1></section>
-<section class="sub-sections"><h2>Model evaluation metrics - Jupyter Notebooks</h2>
+
+<section data-min="50" class="main-section-title"><h1>Examples</h1></section>
+<section class="sub-sections"><h2>Examples - Jupyter Notebooks</h2>
 	<section>
 		<dl class="fa">
 			<dt><a href="https://nbviewer.jupyter.org/github/geekcourses/JupyterNotebooksExamples/blob/master/Notebooks/model_evaluation_and_optimization/classification_metrics_full.ipynb">Classification Metrics Notebook</a></dt>
