@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>SVM</title>
+    <link rel="shortcut icon" href="/ML_SA-Slides/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- css & themes include -->
+    <link rel="stylesheet" href="/ML_SA-Slides/lib/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="/ML_SA-Slides/outfit/css/themes/projector.css" id="theme">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? '/ML_SA-Slides/lib/reveal.js/css/print/pdf.css' : '/ML_SA-Slides/lib/reveal.js/css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- CUSTOM -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <base target="_blank">
+</head>
+<body>
+    <div class="reveal default center" data-transition-speed="default" data-background-transition="default">
+    <div class="top_links">
+        <a class="home_link" href="/ML_SA-Slides/pages/agenda/agenda.html#SVM" target="_top"></a>
+        <span class="help_link"><i class="fa-solid fa-circle-question"></i></span>
+        <div class="help_text">
+            <div class="note">Keyboard shortcuts:</div>
+            <div><span>N/Спейс</span><span>Next Slide</span></div>
+            <div><span>P</span><span>Previous Slide</span></div>
+            <div><span>O</span><span>Slides Overview</span></div>
+            <div><span>ctrl+left click</span><span>Zoom Element</span></div>
+            <div class="print-howto"><br>If you want print version => add '<code>?print-pdf</code>' <br> at the end of slides URL (remove '#' fragment) and then print. <br>
+            Like: https://wwwcourses.github.io/...CourseIntro.html?print-pdf </div>
+        </div>
+    </div>
+    <div class="footer theme_switch">
+        <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/dark.css'); return false;">Dark</a>
+        <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/light.css'); return false;">Light</a>
+        <a href="#" onclick="document.getElementById('theme').setAttribute('href','/ML_SA-Slides/outfit/css/themes/projector.css'); return false;">Projector</a>
+    </div>
+    <div class="slides">
+<!--
+########################################################
+##################### SLIDES START #####################
+########################################################
+-->
+<section data-min-total="__X__" class="presentation-title"><h1>Support Vector Machines (SVM)</h1></section>
+<section data-transition="zoom">
+    <section class="copyright" data-transition="zoom">
+        <div>
+            <p style="text-align: center;">Created for</p>
+        </div>
+        <div class="company">
+            <a href="https://softwareacademy.bg/">
+            <img style="height:80vh" src="/ML_SA-Slides/outfit/images/logos/software-web@4x.png" alt="software-web@4x.png">
+            </a>
+        </div>
+        <div class="author">
+            <span class="note"><a href="https://www.linkedin.com/in/ivapopova/">Iva E. Popova</a>,  2024,</span>
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>
+            <!-- <i class="fa fa-linkedin"></i> -->
+        </div>
+    </section>
+</section>
+
+
+
+
+<section class="main-section-title" id="IntroductionToSVM"><h1>Introduction to SVM</h1></section>
+<section><h2>Introduction to SVM</h2>
+    <section id="WhatIsSVM"><h3>What is SVM?</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Support Vector Machines (SVM) is a supervised learning algorithm used for classification and regression tasks.</dt>
+            <dd>SVM is highly effective for high-dimensional datasets and is particularly useful for binary classification problems.</dd>
+        </dl>
+    </section>
+    <section id="HistoryOfSVM"><h3>History of SVM</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>SVM was first introduced by Vladimir Vapnik and his colleagues in the 1990s.</dt>
+            <dd>The original motivation behind SVM was to solve classification problems with linear separation but has since been extended to handle non-linear cases using kernel functions.</dd>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="MathematicalFoundation"><h1>Mathematical Foundation of SVM</h1></section>
+<section><h2>Mathematical Foundation of SVM</h2>
+    <section id="Hyperplane"><h3>Hyperplane and Decision Boundary</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>SVM aims to find the optimal hyperplane that separates data points of different classes.</dt>
+            <dd>In 2D, the hyperplane is a line. In 3D, it’s a plane.</dd>
+            <dt>For example, given points from two classes, SVM will try to draw the line or plane that best separates these classes.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 94vh;">
+                import numpy as np
+                import matplotlib.pyplot as plt
+                from sklearn import svm
+
+                # Create dataset
+                X = np.array([[1, 2], [2, 3], [3, 3], [5, 6], [6, 7], [7, 8]])
+                y = [0, 0, 0, 1, 1, 1]
+
+                # Fit the SVM model
+                model = svm.SVC(kernel='linear')
+                model.fit(X, y)
+
+                # Plot data points
+                plt.scatter(X[:, 0], X[:, 1], c=y)
+
+                # Extract model parameters
+                w = model.coef_[0]
+                b = model.intercept_[0]
+
+                # Compute the decision boundary
+                x_min, x_max = X[:, 0].min(), X[:, 0].max()  # Use min and max of X values
+                x_plot = np.array([x_min, x_max])
+                y_plot = -(w[0] * x_plot + b) / w[1]
+
+                # Plot decision boundary
+                plt.plot(x_plot, y_plot, '-r')
+                plt.show()
+            </code></pre>
+        </dl>
+    </section>
+    <section id="MarginAndSupportVectors"><h3>Margin and Support Vectors</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Margin is the distance between the hyperplane and the closest data points from either class.</dt>
+            <dt>Support vectors are the data points closest to the hyperplane and are critical for defining the position of the hyperplane.</dt>
+            <a href="./images/margin_and_SV.jpg"><img src="./images/margin_and_SV.jpg" alt="margin_and_SV.jpg"></a>
+        </dl>
+    </section>
+    <section id="ObjectiveFunction"><h3>Objective Function</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The objective of SVM is to maximize the margin between the two classes, which can be formulated as a constrained optimization problem:
+            $$ \min \frac{1}{2} ||w||^2 \quad \text{subject to} \quad y_i(w \cdot x_i + b) \geq 1 $$
+            </dt>
+            <dt>Where:</dt>
+            <dd>$ \min \frac{1}{2} ||w||^2 $ is Minimization term. It minimizes the norm (or length) of the weight vector $w$. Minimizing $||w||^2$ corresponds to maximizing the margin between the two classes, as the margin is inversely proportional to $||w||$.</dd>
+            <dd>$ y_i(w \cdot x_i + b) \geq 1 $ is the constraint which ensures that all points $x_i$ are correctly classified:</dd>
+            <ul>
+                <li>If $y_i = 1$ (for one class), the condition ensures that the point lies on or beyond the margin on the correct side of the hyperplane.</li>
+                <li>If $y_i = -1$ (for the other class), the condition ensures that the point is correctly classified on the opposite side of the hyperplane.</li>
+            </ul>
+
+
+            <dt>Example:</dt>
+            <dd>
+                In a binary classification problem, the goal is to find the values of the weight vector $w$ and the intercept $b$ such that:
+                <ul>
+                    <li>The margin between the two classes is maximized (i.e., the hyperplane is as far as possible from the closest data points of either class).</li>
+                    <li>All data points are correctly classified, meaning they are either on or outside the margin boundaries.</li>
+                </ul>
+            </dd>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="KernelTrick"><h1>Kernel Trick</h1></section>
+<section><h2>Kernel Trick</h2>
+    <section id="LinearVsNonLinearData"><h3>Linear vs Non-Linear Data</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>SVM works well for linear separable data, but most real-world data is non-linear.</dt>
+            <dt>To handle non-linear data, SVM employs the kernel trick to map data into higher-dimensional spaces where a linear hyperplane can separate the classes.</dt>
+            <a href="./images/kernel_trick.png"><img src="./images/kernel_trick.png" alt="kernel_trick.png"></a>
+        </dl>
+    </section>
+    <section id="CommonKernels"><h3>Common Kernels Used in SVM</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>There are several common kernels used in SVM:</dt>
+            <dd>Linear Kernel: Suitable for linearly separable data.</dd>
+            <dd>Polynomial Kernel: Used when the data is not linearly separable in the original space.</dd>
+            <dd>RBF (Radial Basis Function) Kernel: The most popular kernel for non-linear problems, as it maps data to an infinite-dimensional space.</dd>
+        </dl>
+    </section>
+    <section><h3>Example</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>If the data points form concentric circles, the data is non-linearly separable in 2D. However, SVM with a kernel can map these points to a higher-dimensional space, where they become linearly separable.</dt>
+            <pre><code rel="Python" class="python" style="min-height: 70vh;">
+                from sklearn.datasets import make_circles
+                from sklearn.svm import SVC
+                import matplotlib.pyplot as plt
+
+                # Create circular data
+                X, y = make_circles(n_samples=100, factor=.3, noise=.05)
+
+                # Fit SVM with RBF kernel
+                clf = SVC(kernel='rbf')
+                clf.fit(X, y)
+
+                # Plot data and decision boundary
+                plt.scatter(X[:, 0], X[:, 1], c=y)
+                plt.show()
+            </code></pre>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="SoftMarginAndHardMargin"><h1>Soft Margin and Hard Margin</h1></section>
+<section><h2>Soft Margin and Hard Margin</h2>
+    <section id="HardMarginSVM"><h3>Hard Margin SVM</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Hard Margin SVM requires that the data is perfectly linearly separable with no errors.</dt>
+            <dd>This type of SVM does not allow for any misclassification.</dd>
+            <dt>Example:</dt>
+            <dd>If the dataset is perfectly separable, such as two sets of points with no overlap, hard margin SVM can find a perfect hyperplane separating the two classes.</dd>
+        </dl>
+    </section>
+    <section id="SoftMarginSVM"><h3>Soft Margin SVM</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Soft Margin SVM introduces a tolerance for misclassification, allowing some points to be on the wrong side of the margin or hyperplane.</dt>
+            <dd>The trade-off between margin size and classification error is controlled by the regularization parameter $C$.</dd>
+            <dt>Example:</dt>
+            <dd>In cases where the data is noisy or not perfectly separable, such as with overlapping classes, soft margin SVM provides a balance between maximizing the margin and allowing some misclassification.</dd>
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                model = svm.SVC(C=1.0, kernel='linear')
+                model.fit(X, y)
+            </code></pre>
+        </dl>
+    </section>
+    <section id="OptimizationAndRegularization"><h3>Optimization and Regularization</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>The objective function for soft-margin SVM becomes:
+                $$ \min \frac{1}{2} ||w||^2 + C \sum \xi_i \quad \text{subject to} \quad y_i(w \cdot x_i + b) \geq 1 - \xi_i $$
+            </dt>
+            <dd>Where $C$ is the regularization parameter and $\xi_i$ are slack variables that measure the degree of misclassification.</dd>
+            <a href="./images/Soft_margin_and_slack_variable.png"><img src="./images/Soft_margin_and_slack_variable.png" alt="Soft_margin_and_slack_variable.png"></a>
+            <dt>Slack variables relax the hard margin constraints, allowing some points to be misclassified or fall within the margin, thus providing more flexibility for noisy or overlapping datasets.</dt>
+            <dt>The $C$ parameter can be adjusted to control how tolerant the model is to misclassification.</dt>
+            <dd>Large C: Focuses on minimizing errors (rigid boundary).</dd>
+            <dd>Small C: Focuses on maximizing the margin (more tolerance for misclassification).</dd>
+        </dl>
+    </section>
+</section>
+
+<section class="main-section-title" id="SVMApplications"><h1>Applications of SVM</h1></section>
+<section><h2>Applications of SVM</h2>
+    <section id="TextClassification"><h3>Text Classification</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>SVM is widely used for text classification tasks such as spam detection, sentiment analysis, etc.</dt>
+            <dd>Its ability to handle high-dimensional data makes it highly suitable for processing text data represented as feature vectors.</dd>
+            <dt>Example:</dt>
+            <dd>SVM can classify emails as spam or not spam by analyzing word frequencies in the text and transforming these frequencies into feature vectors.</dd>
+            <pre><code rel="Python" class="python" style="min-height: 70vh;">
+                from sklearn.feature_extraction.text import TfidfVectorizer
+                from sklearn.svm import SVC
+
+                # Example data
+                texts = ["Free money", "Work from home", "Meet singles", "Earn $5000 now", "This is not spam"]
+                labels = [1, 1, 1, 1, 0]  # 1: spam, 0: not spam
+
+                # Transform texts to feature vectors
+                vectorizer = TfidfVectorizer()
+                X = vectorizer.fit_transform(texts)
+
+                # Train SVM classifier
+                clf = SVC(kernel='linear')
+                clf.fit(X, labels)
+            </code></pre>
+        </dl>
+    </section>
+    <section id="ImageRecognition"><h3>Image Recognition</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>SVM is effective in image classification tasks such as facial recognition, object detection, and handwriting recognition.</dt>
+            <dd>By using different kernels, SVM can capture complex patterns in image data.</dd>
+            <dt>Example:</dt>
+            <dd>SVM can classify images of handwritten digits by transforming pixel intensities into feature vectors and applying a suitable kernel to find the decision boundary.</dd>
+        </dl>
+    </section>
+    <section id="Bioinformatics"><h3>Bioinformatics</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>SVM has been successfully used in gene classification and protein structure prediction in bioinformatics.</dt>
+            <dd>The high dimensionality of biological data makes SVM a suitable choice for these applications.</dd>
+        </dl>
+    </section>
+</section>
+
+
+
+
+
+
+
+<!-- <section data-min="1"><h1>References</h1></section>
+<section><h2>References</h2>
+    <section><h3>Readings</h3>
+        <dl class="fa">
+            <dt></dt>
+        </dl>
+    </section>
+</section>
+
+
+<section id="hw" data-min="4"><h1>Exercises</h1></section>
+<section><h2>Task1: Task1Title</h2>
+    <section><h3>The Task</h3>
+        <dl class="fa">
+            <dt></dt>
+        </dl>
+    </section>
+</section>
+
+<section><h3>Submission</h3>
+    <dl class="fa">
+        <dt>PLease, prefix your filenames/archive with your name initials, before sending.</dt>
+        <dd>For instance: <b>iep_task1.py</b> or <b>iep_tasks.rar</b></dd>
+        <dt>Send files to <a href="mailto:netIT.WWW.Courses@gmail.com?Subject=_SVM_">netIT.WWW.Courses@gmail.com</a></dt>
+    </dl>
+</section> -->
+
+<section class="disclaimer end-slide"></section>
+<!--
+########################################################
+##################### SLIDES END   #####################
+########################################################
+-->
+        </div>
+    </div>
+    <!-- Custom processing -->
+    <script src="/ML_SA-Slides/outfit/js/slides.js"></script>
+    <!-- external scripts -->
+    <script src="/ML_SA-Slides/lib/reveal.js/lib/js/head.min.js"></script>
+    <script src="/ML_SA-Slides/lib/reveal.js/js/reveal.js"></script>
+
+    <!-- init reveal -->
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        var highlightjsTabSize = '  ';
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            history: true,
+
+            // display control
+            // center: true,
+            // width: '100%',
+            // height: '100%',
+            // // // Factor of the display size that should remain empty around the content
+            // margin: 0.1,
+
+            // The "normal" size of the presentation, aspect ratio will be preserved
+            // when the presentation is scaled to fit different resolutions. Can be
+            // specified using percentage units.
+            width: 1920,
+            height: 1280,
+
+            // Factor of the display size that should remain empty around the content
+            margin: 0.1,
+
+            // Bounds for smallest/largest possible scale to apply to content
+            minScale: 0,
+            maxScale: 2,
+
+            // slide transition
+            transition: 'concave', // none/fade/slide/convex/concave/zoom
+            // shift+maous click to zoom in/out element
+            zoomKey: 'ctrl',
+            // theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            // transition: Reveal.getQueryHash().transition || 'default'
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '/ML_SA-Slides/lib/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.configure({tabReplace: highlightjsTabSize}); hljs.initHighlightingOnLoad(); } },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/zoom-js/zoom.js', async: true },
+                { src: '/ML_SA-Slides/lib/reveal.js/plugin/notes/notes.js', async: true }
+            ]
+        });
+    </script>
+    <!-- linkedin badge -->
+    <!--<script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>-->
+
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript" async src="/ML_SA-Slides/lib/MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+</body>
+</html>
