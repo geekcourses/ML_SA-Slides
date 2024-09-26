@@ -152,6 +152,56 @@
             <dd>For example, in a binary classification problem, the output layer will have two neurons corresponding to the two possible classes.</dd>
         </dl>
     </section>
+    <section id="DenseLayer"><h3>Dense Layer</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>A Dense layer, also known as a fully connected layer, is a fundamental building block in neural networks.</dt>
+            <dt>In a Dense layer, each neuron is connected to every neuron in the previous layer. This means that every input to the Dense layer contributes to the output of each neuron in the layer.</dt>
+            <dt>The output of a Dense layer is computed using the following formula:</dt>
+            <dd style="margin-left: 20px;">
+                <em>output = activation(input ⋅ weights + bias)</em>
+            </dd>
+            <dd style="margin-left: 20px;">
+                Where:
+                <ul>
+                    <li><strong>input</strong>: The data from the previous layer.</li>
+                    <li><strong>weights</strong>: The trainable parameters that define the importance of each input for each neuron.</li>
+                    <li><strong>bias</strong>: A trainable offset value added to the weighted sum.</li>
+                    <li><strong>activation</strong>: A function (e.g., ReLU, Sigmoid) that introduces non-linearity to the output.</li>
+                </ul>
+            </dd>
+        </dl>
+    </section>
+    <section><h3>Example of a Dense Layer in Keras</h3>
+        <dl class="fa" style="min-width:80vw">
+
+            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+                from keras.models import Sequential
+                from keras.layers import Dense
+
+                # Create a simple model with a Dense layer
+                model = Sequential()
+                # Add a Dense layer with 32 neurons and ReLU activation
+                model.add(Dense(32, input_dim=8, activation='relu'))
+            </code></pre>
+
+            <dt>1. <strong>32 Neurons:</strong></dt>
+            <dd>The layer contains 32 neurons. Each neuron receives input from every neuron in the previous layer (or the input data).</dd>
+
+            <dt>2. <strong>input_dim=8:</strong></dt>
+            <dd>The layer expects an input of 8 features. This means the input to the network has 8 dimensions or attributes, which are passed to each of the 32 neurons.</dd>
+
+            <dt>3. <strong>Weights and Bias:</strong></dt>
+            <dd>
+                - Each of the 32 neurons has 8 corresponding weights (one for each input feature) and a bias term.
+                - The total number of trainable parameters for this layer is \( (8 \times 32) + 32 = 288 \) (weights + biases).
+            </dd>
+
+            <dt>4. <strong>Activation Function ('relu'):</strong></dt>
+            <dd>The ReLU (Rectified Linear Unit) activation function is applied to the output of each neuron. This introduces non-linearity, making the network capable of learning complex patterns.</dd>
+        </dl>
+    </section>
+</section>
+
 </section>
 
 <section data-min="50" class="main-section-title"><h1>Activation Function</h1></section>
@@ -401,21 +451,18 @@
 
 <section class="main-section-title" id="UsingPythonLibrariesForANN"><h1>Using Python Libraries for Artificial Neural Networks</h1></section>
 <section class="sub-sections"><h2>Using Python Libraries for Artificial Neural Networks</h2>
-
     <section id="TensorFlow"><h3>TensorFlow</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>TensorFlow is an open-source library developed by Google, widely used for building and training machine learning models, especially deep learning models.</dt>
             <dd>TensorFlow is highly scalable and can be deployed in both research and production environments. It supports both low-level operations and high-level APIs for neural networks.</dd>
         </dl>
     </section>
-
     <section id="Keras"><h3>Keras</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>Keras is a high-level API built on top of TensorFlow that simplifies the process of creating and training deep learning models.</dt>
             <dd>Keras is known for its user-friendliness, ease of prototyping, and flexibility in building both simple and complex models.</dd>
         </dl>
     </section>
-
     <section id="PyTorch"><h3>PyTorch</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>PyTorch is an open-source machine learning library developed by Facebook, widely used for research and prototyping.</dt>
