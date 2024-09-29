@@ -465,19 +465,40 @@
     <section id="TensorFlow"><h3>TensorFlow</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>TensorFlow is an open-source library developed by Google, widely used for building and training machine learning models, especially deep learning models.</dt>
-            <dd>TensorFlow is highly scalable and can be deployed in both research and production environments. It supports both low-level operations and high-level APIs for neural networks.</dd>
+            <dt>TensorFlow is highly scalable and can be deployed in both research and production environments. It supports both low-level operations and high-level APIs for neural networks.</dt>
         </dl>
     </section>
     <section id="Keras"><h3>Keras</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>Keras is a high-level API built on top of TensorFlow that simplifies the process of creating and training deep learning models.</dt>
-            <dd>Keras is known for its user-friendliness, ease of prototyping, and flexibility in building both simple and complex models.</dd>
+            <dt>Keras is known for its user-friendliness, ease of prototyping, and flexibility in building both simple and complex models.</dt>
         </dl>
     </section>
+    <section id="KerasVsTensorFlow"><h3>Keras vs TensorFlow</h3>
+        <dl class="fa" style="min-width:80vw">
+            <dt>Purpose</dt>
+            <dd>Keras: Simplifies model building with a high-level API.</dd>
+            <dd>TensorFlow: Offers both high-level APIs and low-level control for custom models.</dd>
+
+            <dt>Use Case</dt>
+            <dd>Keras: Ideal for beginners and rapid prototyping.</dd>
+            <dd>TensorFlow: Suitable for research, production, and complex projects.</dd>
+
+            <dt>Flexibility</dt>
+            <dd>Keras: Limited to predefined layers and operations.</dd>
+            <dd>TensorFlow: Supports custom layers, operations, and optimizations.</dd>
+
+            <dt>Deployment</dt>
+            <dd>Keras: Easier to use in small-scale environments.</dd>
+            <dd>TensorFlow: Supports large-scale deployments and integrations.</dd>
+        </dl>
+    </section>
+
     <section id="PyTorch"><h3>PyTorch</h3>
         <dl class="fa" style="min-width:80vw">
             <dt>PyTorch is an open-source machine learning library developed by Facebook, widely used for research and prototyping.</dt>
-            <dd>PyTorch provides dynamic computational graphs, which allow for easier debugging and experimentation. It is also known for its flexibility and ease of use in creating complex neural network architectures.</dd>
+            <dt>PyTorch provides dynamic computational graphs, allowing for easier debugging and experimentation by enabling code execution in smaller portions without needing to run the entire code.</dt>
+            <dt>It is also known for its flexibility and ease of use in creating complex neural network architectures.</dt>
         </dl>
     </section>
 
@@ -487,28 +508,39 @@
 <section class="sub-sections"><h2>Example: Creating an ANN with Keras</h2>
     <section id="KerasExample"><h3>Keras Example</h3>
         <dl class="fa" style="min-width:80vw">
-            <dt>The network consists of two layers:</dt>
-            <dd></dd>
-                1. <strong>Input Layer and Hidden Layer:</strong> The first layer is a Dense (fully connected) layer with 32 neurons and the ReLU activation function. It accepts an input of 8 dimensions (features).
-            </dd>
-            <dd>
-                2. <strong>Output Layer:</strong> The second layer is the output layer with 1 neuron, using the sigmoid activation function. This is ideal for binary classification tasks, as it produces an output between 0 and 1.
-            </dd>
-            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+            <dt>The network consists of three layers:</dt>
+            <dd>1. <strong>Input Layer:</strong> An input layer that defines the shape of the incoming data with 8 dimensions (features).</dd>
+            <dd>2. <strong>Hidden Layer:</strong> A Dense (fully connected) hidden layer with 32 neurons and ReLU activation function, which processes the input data.</dd>
+            <dd>3. <strong>Output Layer:</strong> A Dense output layer with 1 neuron and a sigmoid activation function, producing a value between 0 and 1, suitable for binary classification tasks.</dd>
+
+            <pre><code rel="Python" class="python" style="min-height: 70vh;">
                 # Import necessary libraries
                 from keras.models import Sequential
-                from keras.layers import Dense
+                from keras.layers import Input, Dense
 
-                # Create a simple ANN
+                from sklearn.model_selection import train_test_split
+                from sklearn.datasets import make_classification
+
+                # Example dataset creation
+                X, y = make_classification(n_samples=1000, n_features=8, n_classes=2, random_state=42)
+                X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+                # Initialize a Sequential model
                 model = Sequential()
-                model.add(Dense(32, input_dim=8, activation='relu'))  # Input layer and first hidden layer
-                model.add(Dense(1, activation='sigmoid'))  # Output layer
+
+                # Add an Input layer with 8 features (input shape)
+                model.add(Input(shape=(8,)))
+                # Add a Dense hidden layer with 32 neurons and ReLU activation
+                model.add(Dense(32, activation='relu'))
+                # Add the output layer with 1 neuron and sigmoid activation for binary classification
+                model.add(Dense(1, activation='sigmoid'))
 
                 # Compile the model
                 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
                 # Train the model on the training data (X_train, y_train)
                 model.fit(X_train, y_train, epochs=10, batch_size=32)
+
             </code></pre>
         </dl>
     </section>
@@ -518,45 +550,59 @@
 <section class="sub-sections"><h2>Example: Creating an ANN with PyTorch</h2>
     <section id="PyTorchExample"><h3>PyTorch Example</h3>
         <dl class="fa" style="min-width:80vw">
-            <dt>The network consists of two layers:</dt>
-            <dd>
-                1. <strong>Input Layer and Hidden Layer:</strong> The first layer is a fully connected layer with 32 neurons. It uses the ReLU activation function and takes 8 input features.
-            </dd>
-            <dd>
-                2. <strong>Output Layer:</strong> The second layer is the output layer with 1 neuron, using the sigmoid activation function. This is designed for binary classification tasks.
-            </dd>
-            <pre><code rel="Python" class="python" style="min-height: 1vh;">
+            <dt>The network consists of three layers:</dt>
+            <dd>1. <strong>Input Layer:</strong> An input layer with 8 features, passed directly into the first hidden layer.</dd>
+            <dd>2. <strong>Hidden Layer:</strong> A fully connected (Dense) hidden layer with 32 neurons and ReLU activation, which processes the input data.</dd>
+            <dd>3. <strong>Output Layer:</strong> A fully connected output layer with 1 neuron and a sigmoid activation function, producing a value between 0 and 1, suitable for binary classification tasks.</dd>
+
+            <pre><code rel="Python" class="python" style="min-height: 70vh;">
+                # Import necessary libraries
                 import torch
                 import torch.nn as nn
                 import torch.optim as optim
+                from sklearn.model_selection import train_test_split
+                from sklearn.datasets import make_classification
 
-                # Define a simple ANN
+                # Example dataset creation
+                X, y = make_classification(n_samples=1000, n_features=8, n_classes=2, random_state=42)
+                X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+                # Convert data to PyTorch tensors
+                X_train = torch.tensor(X_train, dtype=torch.float32)
+                y_train = torch.tensor(y_train, dtype=torch.float32).view(-1, 1)
+                X_test = torch.tensor(X_test, dtype=torch.float32)
+                y_test = torch.tensor(y_test, dtype=torch.float32).view(-1, 1)
+
+                # Define the model
                 class SimpleANN(nn.Module):
                     def __init__(self):
                         super(SimpleANN, self).__init__()
-                        self.fc1 = nn.Linear(8, 32)
-                        self.fc2 = nn.Linear(32, 1)
+                        self.hidden = nn.Linear(8, 32)  # Hidden layer with 32 neurons
+                        self.output = nn.Linear(32, 1)  # Output layer with 1 neuron
 
                     def forward(self, x):
-                        x = torch.relu(self.fc1(x))
-                        x = torch.sigmoid(self.fc2(x))
+                        x = torch.relu(self.hidden(x))  # ReLU activation for hidden layer
+                        x = torch.sigmoid(self.output(x))  # Sigmoid activation for output layer
                         return x
 
                 # Initialize the model, loss function, and optimizer
                 model = SimpleANN()
-                criterion = nn.BCELoss()  # Binary cross-entropy loss
-                optimizer = optim.Adam(model.parameters())
+                criterion = nn.BCELoss()  # Binary Cross-Entropy loss
+                optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-                # Training loop (assuming X_train and y_train are available)
+                # Train the model
                 for epoch in range(10):
+                    model.train()
                     optimizer.zero_grad()
                     outputs = model(X_train)
                     loss = criterion(outputs, y_train)
                     loss.backward()
                     optimizer.step()
+                    print(f'Epoch {epoch+1}/10, Loss: {loss.item():.4f}')
             </code></pre>
         </dl>
     </section>
+
 </section>
 
 
