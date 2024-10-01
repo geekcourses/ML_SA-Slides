@@ -31,7 +31,7 @@ Provide insights into the factors that influence the stock prices and their pred
 
 ## Deliverables:
 
-A Jupyter Notebook or Python script containing your code and analysis.
+A Jupyter Notebook containing your code and analysis.
 A report summarizing your project, including your data preparation steps, feature engineering, model selection and optimization, and results.
 A demo of your model in action, showing how users can input new data (e.g., news sentiment, market trends) and see the predicted stock prices.
 

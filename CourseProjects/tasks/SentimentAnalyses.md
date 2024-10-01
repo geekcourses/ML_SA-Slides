@@ -26,7 +26,7 @@ Interpret the results and provide insights into the sentiment of the customer re
 
 ## Deliverables:
 
-A Jupyter Notebook or Python script containing your code and analysis.
+A Jupyter Notebook containing your code and analysis.
 A report summarizing your project, including your data preparation steps, model selection and optimization, and results.
 A demo of your model in action, showing how users can input new customer reviews and see their sentiment labels.
 
