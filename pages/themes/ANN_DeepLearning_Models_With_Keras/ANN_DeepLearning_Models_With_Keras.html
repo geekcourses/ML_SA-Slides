@@ -70,96 +70,15 @@
     </section>
 </section>
 
-
-<section class="main-section-title" id="TypesOfLayersInDeepLearning"><h1>Overview of Layer Types used in Deep Learning Modeling</h1></section>
-<section class="sub-sections"><h2>Overview of Layer Types used in Deep Learning Modeling</h2>
-    <section id="DenseLayer"><h3>Dense (Fully Connected) Layer</h3>
+<section class="main-section-title"><h1>Създаване на Deep Learning модели с TensorFlow и Keras</h1></section>
+<section class="sub-sections"><h2>Създаване на Deep Learning модели с TensorFlow и Keras</h2>
+    <section>
         <dl class="fa" style="min-width:80vw">
-            <dt>A Dense layer is a fully connected neural network layer where each neuron receives input from all neurons in the previous layer.</dt>
-            <dd>Used for most standard feed-forward networks. Ideal for feature extraction and classification tasks.</dd>
-            <pre><code rel="Python" class="python" style="min-height: 1vh;">
-                from tensorflow.keras.layers import Dense
-
-                # Adding a Dense layer
-                dense_layer = Dense(64, activation='relu')
-            </code></pre>
-        </dl>
-    </section>
-    <section id="ConvolutionalLayer"><h3>Convolutional Layer</h3>
-        <dl class="fa" style="min-width:80vw">
-            <dt>Performs a convolution operation that captures spatial features from the input image or data.</dt>
-            <dd>Commonly used in image recognition tasks. Helps to reduce the number of parameters and computations.</dd>
-            <pre><code rel="Python" class="python" style="min-height: 1vh;">
-                from tensorflow.keras.layers import Conv2D
-
-                # Adding a Convolutional layer
-                conv_layer = Conv2D(32, kernel_size=(3, 3), activation='relu')
-            </code></pre>
-        </dl>
-    </section>
-    <section id="PoolingLayer"><h3>Pooling Layer</h3>
-        <dl class="fa" style="min-width:80vw">
-            <dt>Reduces the spatial dimensions (width and height) of the input, helping to reduce overfitting and improve efficiency.</dt>
-            <dd>Max pooling and Average pooling are the two common types of pooling layers.</dd>
-            <pre><code rel="Python" class="python" style="min-height: 1vh;">
-                from tensorflow.keras.layers import MaxPooling2D
-
-                # Adding a MaxPooling layer
-                max_pooling_layer = MaxPooling2D(pool_size=(2, 2))
-            </code></pre>
-        </dl>
-    </section>
-    <section id="DropoutLayer"><h3>Dropout Layer</h3>
-        <dl class="fa" style="min-width:80vw">
-            <dt>Randomly sets a fraction of the input units to 0 at each update during training time, which helps prevent overfitting.</dt>
-            <dd>Improves generalization by forcing the network to learn redundant representations.</dd>
-            <pre><code rel="Python" class="python" style="min-height: 1vh;">
-                from tensorflow.keras.layers import Dropout
-
-                # Adding a Dropout layer
-                dropout_layer = Dropout(0.5)
-            </code></pre>
-        </dl>
-    </section>
-    <section id="FlattenLayer"><h3>Flatten Layer</h3>
-        <dl class="fa" style="min-width:80vw">
-            <dt>Converts multi-dimensional input into a 1D vector.</dt>
-            <dd>Commonly used in transition from convolutional layers to dense layers.</dd>
-            <pre><code rel="Python" class="python" style="min-height: 1vh;">
-                from tensorflow.keras.layers import Flatten
-
-                # Adding a Flatten layer
-                flatten_layer = Flatten()
-            </code></pre>
-        </dl>
-    </section>
-    <section id="BatchNormalizationLayer"><h3>Batch Normalization Layer</h3>
-        <dl class="fa" style="min-width:80vw">
-            <dt>Normalizes the input of a layer by scaling and centering. Helps stabilize and speed up training.</dt>
-            <dd>Used between layers to maintain mean and variance of inputs.</dd>
-            <pre><code rel="Python" class="python" style="min-height: 1vh;">
-                from tensorflow.keras.layers import BatchNormalization
-
-                # Adding a Batch Normalization layer
-                batch_norm_layer = BatchNormalization()
-            </code></pre>
-        </dl>
-    </section>
-    <section id="ActivationLayer"><h3>Activation Layer</h3>
-        <dl class="fa" style="min-width:80vw">
-            <dt>Applies a non-linear function to the input. Popular activations include ReLU, Sigmoid, and Softmax.</dt>
-            <dd>Used to introduce non-linearity into the model, which helps in learning complex patterns.</dd>
-            <pre><code rel="Python" class="python" style="min-height: 1vh;">
-                from tensorflow.keras.layers import Activation
-
-                # Adding an Activation layer
-                activation_layer = Activation('relu')
-            </code></pre>
+            <dt>The presentation is in: <a href="https://nbviewer.org/github/geekcourses/ML_SA-Slides/blob/main/pages/themes/ANN_DeepLearning_Models_With_Keras/ANN_DeepLearning_Models_With_Keras.ipynb">ANN_DeepLearning_Models_With_Keras.ipynb</a></dt>
+            <dt></dt>
         </dl>
     </section>
 </section>
-
-
 
 <!-- <section data-min="1"><h1>References</h1></section>
 <section><h2>References</h2>
